@@ -1,0 +1,461 @@
+<html><head><title>linux-fsdevel.vger.kernel.org archive mirror</title><link
+rel=alternate
+title="Atom feed"
+href="new.atom"
+type="application/atom+xml"/><meta name=viewport content=width=device-width, initial-scale=1><style>*{overflow-wrap:anywhere;font-size:100%;font-family:monospace}</style><link
+type=text/css
+rel=stylesheet
+media=screen,print
+href=216light.css?69f2051c /><link
+type=text/css
+rel=stylesheet
+media="screen and (prefers-color-scheme:dark)"
+href=216dark.css?69f2051c /></head><body><form
+action="./"><pre><b>linux-fsdevel.vger.kernel.org archive mirror</b>
+<input
+name=q
+type=text /><input
+type=submit
+value=search /> <a
+href="_/text/help/">help</a> / <a
+href="_/text/color/">color</a> / <a
+id=mirror
+href="_/text/mirror/">mirror</a> / <a
+href="new.atom">Atom feed</a></pre></form><pre><a
+href="20260711071137.4130824-1-gscrivan@redhat.com/T/#u">[PATCH v2] erofs: accept source file descriptor via fsconfig</a>
+ 2026-07-11  7:10 UTC 
+
+<a
+href="alHiUW6p5dpyoU-L@lucifer/T/#t">[PATCH v2 00/33] mm: make VMA page offset handling more consistent</a>
+ 2026-07-11  6:29 UTC  (44+ messages)
+` <a
+href="20260710-b4-pre-scalable-cow-v2-1-2a5aa403d977@kernel.org/T/#u">[PATCH v2 01/33] mm: move vma_start_pgoff() into mm.h and clean up</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-2-2a5aa403d977@kernel.org/T/#u">[PATCH v2 02/33] mm: add kdoc comments for vma_start/last_pgoff()</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-3-2a5aa403d977@kernel.org/T/#u">[PATCH v2 03/33] tools/testing/vma: use vma_start_pgoff() in merge tests</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-4-2a5aa403d977@kernel.org/T/#u">[PATCH v2 04/33] mm: introduce and use vma_end_pgoff()</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-5-2a5aa403d977@kernel.org/T/#u">[PATCH v2 05/33] mm/rmap: update mm/interval_tree.c comments</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-6-2a5aa403d977@kernel.org/T/#u">[PATCH v2 06/33] mm/rmap: parameterise vma_interval_tree_*() by address_space</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-7-2a5aa403d977@kernel.org/T/#u">[PATCH v2 07/33] mm/rmap: elide unnecessary static inline&#39;s in interval_tree.c</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-8-2a5aa403d977@kernel.org/T/#u">[PATCH v2 08/33] mm/rmap: rename vma_interval_tree_*() to mapping_rmap_tree_*()</a>
+` <a
+href="alFgFakGEcg6hO6E@gourry-fedora-PF4VCD3F/T/#u">[PATCH v2 09/33] mm/rmap: parameterise anon_vma_interval_tree_*() by anon_vma</a>
+` <a
+href="alFgm58E4G7hWIm_@gourry-fedora-PF4VCD3F/T/#u">[PATCH v2 10/33] mm/rmap: rename anon_vma_interval_tree_*() params and use pgoff_t</a>
+` <a
+href="alFhQ71-WGGHo1sJ@gourry-fedora-PF4VCD3F/T/#u">[PATCH v2 11/33] mm/rmap: rename anon_vma_interval_tree_*() to anon_rmap_tree_*()</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-12-2a5aa403d977@kernel.org/T/#u">[PATCH v2 12/33] MAINTAINERS: Move mm/interval_tree.c to rmap section</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-13-2a5aa403d977@kernel.org/T/#u">[PATCH v2 13/33] mm/vma: introduce and use vmg_pages(), vmg_[start, end]_pgoff()</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-14-2a5aa403d977@kernel.org/T/#u">[PATCH v2 14/33] mm/vma: clean up anon_vma_compatible()</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-15-2a5aa403d977@kernel.org/T/#u">[PATCH v2 15/33] mm/vma: refactor vmg_adjust_set_range() for clarity</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-16-2a5aa403d977@kernel.org/T/#u">[PATCH v2 16/33] mm/vma: minor cleanup of expand_[upwards, downwards]()</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-17-2a5aa403d977@kernel.org/T/#u">[PATCH v2 17/33] mm: introduce and use linear_page_delta()</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-18-2a5aa403d977@kernel.org/T/#u">[PATCH v2 18/33] mm/vma: use vma_start_pgoff(), linear_page_index() in mm code</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-19-2a5aa403d977@kernel.org/T/#u">[PATCH v2 19/33] mm: prefer vma_[start,end]_pgoff() to vma-&gt;vm_pgoff in kernel/</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-20-2a5aa403d977@kernel.org/T/#u">[PATCH v2 20/33] mm/vma: remove duplicative vma_pgoff_offset() helper</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-21-2a5aa403d977@kernel.org/T/#u">[PATCH v2 21/33] mm: use linear_page_[index, delta]() consistently</a>
+` <a
+href="alFi5J3-UQtvTzxV@gourry-fedora-PF4VCD3F/T/#u">[PATCH v2 22/33] mm/vma: introduce vma_assert_can_modify()</a>
+` <a
+href="alFheaAGWCIAjom-@gourry-fedora-PF4VCD3F/T/#u">[PATCH v2 23/33] mm/vma: add and use vma_[add/sub]_pgoff()</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-24-2a5aa403d977@kernel.org/T/#u">[PATCH v2 24/33] mm/vma: move __install_special_mapping() to vma.c</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-25-2a5aa403d977@kernel.org/T/#u">[PATCH v2 25/33] mm/vma: make vma_set_range() static, drop insert_vm_struct() decl</a>
+` <a
+href="alFiODVaGwd_wYl4@gourry-fedora-PF4VCD3F/T/#u">[PATCH v2 26/33] mm/vma: update vma_shrink() to not pass start, pgoff parameters</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-27-2a5aa403d977@kernel.org/T/#u">[PATCH v2 27/33] mm/vma: update vmg_adjust_set_range() to offset pgoff instead</a>
+` <a
+href="alFmh0sm1are2VIq@gourry-fedora-PF4VCD3F/T/#u">[PATCH v2 28/33] mm/vma: slightly rework the anonymous check in __mmap_new_vma()</a>
+` <a
+href="alFjoytGnkjJs7zR@gourry-fedora-PF4VCD3F/T/#u">[PATCH v2 29/33] mm/vma: introduce and use vma_set_pgoff()</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-30-2a5aa403d977@kernel.org/T/#u">[PATCH v2 30/33] mm/vma: correct incorrect vma.h inclusion</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-31-2a5aa403d977@kernel.org/T/#u">[PATCH v2 31/33] mm/vma: use guard clauses in can_vma_merge_[before, after]()</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-32-2a5aa403d977@kernel.org/T/#u">[PATCH v2 32/33] tools/testing/vma: default VMA, mm flag bits to 64-bit</a>
+` <a
+href="20260710-b4-pre-scalable-cow-v2-33-2a5aa403d977@kernel.org/T/#u">[PATCH v2 33/33] tools/testing/vma: output compared expression on ASSERT_[EQ, NE]()</a>
+
+<a
+href="cover.1782735110.git.ljs@kernel.org/T/#t">[PATCH 00/30] mm: make VMA page offset handling more consistent</a>
+ 2026-07-11  6:26 UTC  (52+ messages)
+` <a
+href="alD1h7kHZdX_0I-0@lucifer/T/#u">[PATCH 02/30] mm: add kdoc comments for vma_start/last_pgoff()</a>
+` <a
+href="alFAMZNiJvxNpzGF@gourry-fedora-PF4VCD3F/T/#u">[PATCH 06/30] mm/rmap: parameterise vma_interval_tree_*() by address_space</a>
+` <a
+href="alEGqHY5GPhT30Ty@lucifer/T/#u">[PATCH 13/30] mm/vma: refactor vmg_adjust_set_range() for clarity</a>
+` <a
+href="alEHAF8gEh_sFU_r@lucifer/T/#u">[PATCH 16/30] mm/vma: use vma_start_pgoff(), linear_page_index() in mm code</a>
+` <a
+href="alEMciQmyQA7wdua@lucifer/T/#u">[PATCH 17/30] mm: prefer vma_[start,end]_pgoff() to vma-&gt;vm_pgoff in kernel/</a>
+` <a
+href="alEJP-qEgSIUOp38@lucifer/T/#u">[PATCH 19/30] mm: use linear_page_[index, delta]() consistently</a>
+` <a
+href="alFCd1RtttwxKBLc@gourry-fedora-PF4VCD3F/T/#u">[PATCH 20/30] mm/vma: introduce vma_assert_can_modify()</a>
+` <a
+href="alFBnZ8RcRN1hlk5@gourry-fedora-PF4VCD3F/T/#u">[PATCH 21/30] mm/vma: add and use vma_[add/sub]_pgoff()</a>
+` <a
+href="alFDLz9_oSSvHTuJ@gourry-fedora-PF4VCD3F/T/#u">[PATCH 22/30] mm/vma: move __install_special_mapping() to vma.c</a>
+` <a
+href="alFAkWCnkYv--Us0@gourry-fedora-PF4VCD3F/T/#u">[PATCH 23/30] mm/vma: make vma_set_range() static, drop insert_vm_struct() decl</a>
+` <a
+href="alFBBGN6a30A3bQ9@gourry-fedora-PF4VCD3F/T/#u">[PATCH 24/30] mm/vma: update vma_shrink() to not pass unnecessary pgoff parameter</a>
+` <a
+href="alFEOTiJw2g--9F1@gourry-fedora-PF4VCD3F/T/#u">[PATCH 25/30] mm/vma: update vmg_adjust_set_range() to offset pgoff instead</a>
+` <a
+href="alFGC3Vq-sbf56lV@gourry-fedora-PF4VCD3F/T/#u">[PATCH 26/30] mm/vma: introduce and use vma_set_pgoff()</a>
+` <a
+href="alHgvYH3F9FkObri@lucifer/T/#u">[PATCH 27/30] mm/vma: correct incorrect vma.h inclusion</a>
+` <a
+href="alFKQOJrgiJl0p_t@gourry-fedora-PF4VCD3F/T/#u">[PATCH 28/30] mm/vma: use guard clauses in can_vma_merge_[before, after]()</a>
+` <a
+href="alFUVjk7yP8VoBGp@lucifer/T/#u">[PATCH 29/30] tools/testing/vma: default VMA flag bits to 64-bit</a>
+` <a
+href="alHh1cPs9tNLMLJf@lucifer/T/#u">[PATCH 30/30] tools/testing/vma: output compared expression on ASSERT_[EQ, NE]()</a>
+
+<a
+href="alF5BHEZ5czyJWaY@kbusch-mbp/T/#t">[f2fs-dev] [PATCHv2 0/5] direct-io file extended attributes</a>
+ 2026-07-11  1:06 UTC  (4+ messages)
+    ` <a
+href="alGXAan8P6mnbvvz@kbusch-mbp/T/#u"></a> &#34;
+
+<a
+href="20260707-upgrade-poll-v6-0-4b8fae7bf1d9@google.com/T/#t">[PATCH v6 0/2] Avoid synchronize_rcu() for every thread drop in Rust Binder</a>
+ 2026-07-11  0:30 UTC  (5+ messages)
+` <a
+href="alEASpx0UvbYnxqy@tardis.local/T/#u">[PATCH v6 1/2] rust: poll: use kfree_rcu() for PollCondVar</a>
+` <a
+href="alGOptAAFXuHscmG@tardis.local/T/#u">[PATCH v6 2/2] rust_binder: move (e)poll wait queue to Process</a>
+
+<a
+href="20260711001138.30784-1-sj@kernel.org/T/#t">[PATCH] mm: remove wb_writeout_inc</a>
+ 2026-07-11  0:11 UTC  (5+ messages)
+
+<a
+href="alDJjTPiKRQ0d8bi@aalbersh-thinkpadx1carbongen13.rmtcz.csb/T/#t">[PATCH v11 00/20] fs-verity support for XFS with post EOF merkle tree</a>
+ 2026-07-10 23:46 UTC  (23+ messages)
+` <a
+href="20260710085256.3464201-2-aalbersh@kernel.org/T/#u">[PATCH v11 01/20] fsverity: report validation errors through fserror to fsnotify</a>
+` <a
+href="20260710085256.3464201-3-aalbersh@kernel.org/T/#u">[PATCH v11 02/20] fsverity: expose ensure_fsverity_info()</a>
+` <a
+href="20260710085256.3464201-4-aalbersh@kernel.org/T/#u">[PATCH v11 03/20] fsverity: pass digest size and hash of the all-zeroes block to -&gt;write</a>
+` <a
+href="20260710085256.3464201-5-aalbersh@kernel.org/T/#u">[PATCH v11 04/20] fsverity: hoist pagecache_read from f2fs/ext4 to fsverity</a>
+` <a
+href="20260710085256.3464201-6-aalbersh@kernel.org/T/#u">[PATCH v11 05/20] fsverity: improve flushing performance of fsverity_fill_zerohash</a>
+` <a
+href="20260710234643.GF1911@quark/T/#u">[PATCH v11 06/20] fsverity: don&#39;t allow setting DAX file attribute on fsverity files</a>
+` <a
+href="20260710085256.3464201-8-aalbersh@kernel.org/T/#u">[PATCH v11 07/20] xfs: introduce fsverity on-disk changes</a>
+` <a
+href="20260710085256.3464201-9-aalbersh@kernel.org/T/#u">[PATCH v11 08/20] xfs: initialize fs-verity on file open</a>
+` <a
+href="20260710085256.3464201-10-aalbersh@kernel.org/T/#u">[PATCH v11 09/20] xfs: don&#39;t allow to enable DAX on fs-verity sealed inode</a>
+` <a
+href="20260710085256.3464201-11-aalbersh@kernel.org/T/#u">[PATCH v11 10/20] xfs: don&#39;t report dio_mem_align and dio_offset_align for fsverity files</a>
+` <a
+href="20260710085256.3464201-12-aalbersh@kernel.org/T/#u">[PATCH v11 11/20] xfs: disable direct read path for fs-verity files</a>
+` <a
+href="20260710085256.3464201-13-aalbersh@kernel.org/T/#u">[PATCH v11 12/20] xfs: handle fsverity I/O in write/read path</a>
+` <a
+href="20260710085256.3464201-14-aalbersh@kernel.org/T/#u">[PATCH v11 13/20] xfs: use read ioend for fsverity data verification</a>
+` <a
+href="20260710085256.3464201-15-aalbersh@kernel.org/T/#u">[PATCH v11 14/20] xfs: add fs-verity support</a>
+` <a
+href="20260710085256.3464201-16-aalbersh@kernel.org/T/#u">[PATCH v11 15/20] xfs: remove unwritten extents after preallocations in fsverity metadata</a>
+` <a
+href="20260710085256.3464201-17-aalbersh@kernel.org/T/#u">[PATCH v11 16/20] xfs: add fs-verity ioctls</a>
+` <a
+href="20260710085256.3464201-18-aalbersh@kernel.org/T/#u">[PATCH v11 17/20] xfs: advertise fs-verity being available on filesystem</a>
+` <a
+href="20260710085256.3464201-19-aalbersh@kernel.org/T/#u">[PATCH v11 18/20] xfs: check and repair the verity inode flag state</a>
+` <a
+href="20260710085256.3464201-20-aalbersh@kernel.org/T/#u">[PATCH v11 19/20] xfs: introduce health state for corrupted fsverity metadata</a>
+` <a
+href="20260710085256.3464201-21-aalbersh@kernel.org/T/#u">[PATCH v11 20/20] xfs: enable ro-compat fs-verity flag</a>
+
+<a
+href="20260710234305.99362-1-yahia.a.abdrabou@gmail.com/T/#t">[PATCH] mm: truncate: exit on empty batches in truncate_folio_batch_exceptionals()</a>
+ 2026-07-10 23:43 UTC  (2+ messages)
+
+<a
+href="alEON9EQ3BAX_D35@kbusch-mbp/T/#t">[PATCH] fs: report direct io constraints through file_getattr</a>
+ 2026-07-10 23:11 UTC  (10+ messages)
+    ` <a
+href="20260710212527.GB1911@quark/T/#u">[f2fs-dev]</a> &#34;
+
+<a
+href="20260710142517.1022940-1-usama.arif@linux.dev/T/#t">[PATCH v2 00/10] Use generic_file_read_iter() in hugetlbfs</a>
+ 2026-07-10 23:04 UTC  (3+ messages)
+` <a
+href="6a517a73.278cdcd2.e885.0009.GAE@google.com/T/#u">[syzbot ci]</a> &#34;
+
+<a
+href="87cxwu4ksq.fsf@jogness.linutronix.de/T/#t">[PATCH printk 0/3] Introduce sync mode</a>
+ 2026-07-10 21:05 UTC  (3+ messages)
+` <a
+href="20260710144609.194487-3-john.ogness@linutronix.de/T/#u">[PATCH printk 2/3] proc: Add console sync support for /proc/consoles</a>
+
+<a
+href="CAHC9VhSrYUWkt0_kbOdEuoeKdj+oSaFcY0Fg8t2SuUwH-=MJXA@mail.gmail.com/T/#t">[PATCH v2 1/9] security: add LSM blob and hooks for namespaces</a>
+ 2026-07-10 20:42 UTC  (6+ messages)
+
+<a
+href="6a5156e4.278cdcd2.e885.0007.GAE@google.com/T/#u">[syzbot] Monthly fs report (Jul 2026)</a>
+ 2026-07-10 20:32 UTC 
+
+<a
+href="ff1c0710cbb31f8ebf51457c0629a496ea6f658e.camel@ibm.com/T/#u">Should we consider disable generic/563 for file systems that do not support cgroup2?</a>
+ 2026-07-10 19:10 UTC 
+
+<a
+href="20260704164149.3480051-1-jkoolstra@xs4all.nl/T/#t">[PATCH v3 00/14] vfs: add O_CREAT|O_DIRECTORY to open*(2)</a>
+ 2026-07-10 18:55 UTC  (4+ messages)
+` <a
+href="1944666535.644663.1783709759572@kpc.webmail.kpnmail.nl/T/#u">[PATCH v3 09/14]</a> &#34;
+
+<a
+href="CAJfpegvGnr2a3u9qTEVgZyUpeYF0FoRg8xzyGg1wfw88Os5rMw@mail.gmail.com/T/#t">[PATCH] ovl: add ioctls to retrieve layer file descriptors</a>
+ 2026-07-10 18:23 UTC  (10+ messages)
+
+<a
+href="alEz4Chf7Ibyg-ZG@casper.infradead.org/T/#t">[PATCH v3] mm/page_alloc: avoid direct compaction for costly __GFP_NORETRY allocations</a>
+ 2026-07-10 18:03 UTC  (3+ messages)
+
+<a
+href="20260511072344.191271-1-yi.zhang@huaweicloud.com/T/#t">[PATCH v4 00/23] ext4: use iomap for regular file&#39;s buffered I/O path</a>
+ 2026-07-10 17:29 UTC  (11+ messages)
+` <a
+href="j4yjsyrbksbrrvi4x4xybzm6x6lxahtyvxkgh55shhbp45mhwz@4zo6wlnf3uar/T/#u">[PATCH v4 18/23] ext4: wait for ordered I/O in the iomap</a> &#34;
+
+<a
+href="alEpBqExnyvBnnxi@casper.infradead.org/T/#t">[PATCH v2 06/10] memory-failure: Prevent UAF in raw_hwp_page list</a>
+ 2026-07-10 17:16 UTC  (3+ messages)
+
+<a
+href="fea4c4f25afb7711d1e8fbe6ca5ab654ec522186.camel@dubeyko.com/T/#t">removing the remaining blockdev_direct_IO users</a>
+ 2026-07-10 16:51 UTC  (2+ messages)
+
+<a
+href="20260710164233.827744-1-jkoolstra@xs4all.nl/T/#t">[PATCH 0/3] vfs: call audit_inode_child() in lookup_open() on failure</a>
+ 2026-07-10 16:42 UTC  (4+ messages)
+` <a
+href="20260710164233.827744-2-jkoolstra@xs4all.nl/T/#u">[PATCH 1/3] vfs: move create error &#38;&#38; negative dentry case in lookup_open() up</a>
+` <a
+href="20260710164233.827744-3-jkoolstra@xs4all.nl/T/#u">[PATCH 2/3] vfs: call audit_inode_child() in lookup_open() on failure</a>
+` <a
+href="20260710164233.827744-4-jkoolstra@xs4all.nl/T/#u">[PATCH 3/3] fs/namei.c: update kerneldoc of atomic_open()</a>
+
+<a
+href="20260710145522.1718437-1-usama.arif@linux.dev/T/#t">[PATCH v2 05/10] memory-failure: Remove raw_hwp_list_head()</a>
+ 2026-07-10 14:55 UTC  (2+ messages)
+
+<a
+href="20260710144932.1582955-1-usama.arif@linux.dev/T/#t">[PATCH v2 04/10] hugetlb: Set mapping folio order</a>
+ 2026-07-10 14:49 UTC  (2+ messages)
+
+<a
+href="20260710144248.1432278-1-usama.arif@linux.dev/T/#t">[PATCH v2 03/10] filemap: Remove checks in mapping_set_folio_order_range()</a>
+ 2026-07-10 14:42 UTC  (2+ messages)
+
+<a
+href="20260710142835.1099904-1-usama.arif@linux.dev/T/#t">[PATCH v2 02/10] hugetlb: Mark some function arguments as const</a>
+ 2026-07-10 14:28 UTC  (2+ messages)
+
+<a
+href="20260710142710.1067864-1-usama.arif@linux.dev/T/#t">[PATCH v2 01/10] mm: Rename folio_contain_hwpoison_page() to folio_has_hwpoison_page()</a>
+ 2026-07-10 14:27 UTC  (2+ messages)
+
+<a
+href="alD7q_AUlNaUwAup@mit.edu/T/#t">[PATCH] ext4: fix use-after-free in ext4 delayed I/O completion</a>
+ 2026-07-10 14:06 UTC  (4+ messages)
+` <a
+href="6a50a3c0.c76b52dc.2a15e.000b.GAE@google.com/T/#u">[syzbot ci]</a> &#34;
+
+<a
+href="yeigo3ck7x6zzwwcm6msvenmy3clsodejvmv2g45oy7bixyybz@ji66r6db2ou3/T/#t">[PATCH] fs: stat: Mark accesses in generic_fillattr</a>
+ 2026-07-10 14:05 UTC  (2+ messages)
+
+<a
+href="20260708154510.6794-1-petr.pavlu@suse.com/T/#t">[PATCH 0/2] Bring includes in linux/kmod.h up to date</a>
+ 2026-07-10 13:57 UTC  (3+ messages)
+` <a
+href="xihlbspozbgwhez2byjatscslutapi3j4rjhpzxebtn2wjmk5a@qf62xs6lyd6q/T/#u">[PATCH 2/2] module:</a> &#34;
+
+<a
+href="01421d53-c379-4044-9da3-5990186303ef@iogearbox.net/T/#t">[PATCH vfs/vfs-7.2.xattr v3] bpf: Add simple xattr support to bpffs</a>
+ 2026-07-10 12:17 UTC  (4+ messages)
+
+<a
+href="b077f226-8bff-489c-a260-32cbba9ae7c8@gmail.com/T/#t">[PATCH] fs/ntfs3: reject an oversized resident attribute on the inline iomap path</a>
+ 2026-07-10 11:40 UTC  (2+ messages)
+
+<a
+href="20260702110614.2176986-1-tujinjiang@huawei.com/T/#t">[PATCH 0/2] fs: stable_page_flags(): use folio_test_*() helpers</a>
+ 2026-07-10 11:29 UTC  (4+ messages)
+` <a
+href="905c7dc9-a0d5-4b28-a899-53798fc4628e@kernel.org/T/#u">[PATCH 2/2]</a> &#34;
+
+<a
+href="20260710-holzweg-berechenbar-unbeirrbar-83c525ecee0a@brauner/T/#t">[PATCH v2 00/23] binfmt_misc: write access fixes, RCU handler lookup and cleanups</a>
+ 2026-07-10 10:53 UTC  (7+ messages)
+` <a
+href="alDC4p6zRKkE-e4L@lt-jori.localdomain/T/#u">[PATCH v2 04/23] binfmt_misc: use RCU for the handler lookup</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v2-21-2a1c3d4126a7@kernel.org/T/#u">[PATCH v2 21/23] binfmt_misc: assorted small cleanups</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v2-22-2a1c3d4126a7@kernel.org/T/#u">[PATCH v2 22/23] binfmt_misc: include what is used</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v2-23-2a1c3d4126a7@kernel.org/T/#u">[PATCH v2 23/23] binfmt_misc: allow removing entries via unlink(2)</a>
+
+<a
+href="20260710-b4-pipe-unification-v4-1-ff31c39f1c16@debian.org/T/#u">[PATCH v4] fs/pipe: unify the page pools into a single per-pipe pool</a>
+ 2026-07-10 10:31 UTC 
+
+<a
+href="20260710-work-binfmt_misc-locking-v3-0-a162f7cb58d6@kernel.org/T/#t">[PATCH v3 00/24] binfmt_misc: write access fixes, RCU handler lookup and cleanups</a>
+ 2026-07-10  9:33 UTC  (25+ messages)
+` <a
+href="20260710-work-binfmt_misc-locking-v3-1-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 01/24] binfmt_misc: restore write access when removing an entry</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-2-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 02/24] binfmt_misc: use exe_file_deny_write_access() for the interpreter clone</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-3-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 03/24] binfmt_misc: reject a flag character as the field delimiter</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-4-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 04/24] binfmt_misc: convert entry list to an hlist</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-5-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 05/24] binfmt_misc: use RCU for the handler lookup</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-6-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 06/24] binfmt_misc: annotate racy accesses to -&gt;enabled</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-7-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 07/24] binfmt_misc: turn the entry bit numbers into a proper enum</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-8-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 08/24] binfmt_misc: turn the entry behavior flags into an enum</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-9-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 09/24] binfmt_misc: rename Node to struct binfmt_misc_entry</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-10-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 10/24] binfmt_misc: remove the VERBOSE_STATUS toggle</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-11-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 11/24] binfmt_misc: use print_hex_dump_debug() for the register debug output</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-12-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 12/24] binfmt_misc: convert the entry file to seq_file</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-13-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 13/24] binfmt_misc: factor out the entry matching</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-14-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 14/24] binfmt_misc: rename load_binfmt_misc() to current_binfmt_misc()</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-15-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 15/24] binfmt_misc: return errors directly in load_misc_binary()</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-16-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 16/24] binfmt_misc: give the parse_command() results names</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-17-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 17/24] binfmt_misc: factor out the entry removal</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-18-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 18/24] binfmt_misc: simplify check_special_flags()</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-19-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 19/24] binfmt_misc: use a flexible array member for the register string</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-20-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 20/24] binfmt_misc: split the field parsing out of create_entry()</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-21-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 21/24] binfmt_misc: use __free(kfree) in bm_register_write()</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-22-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 22/24] binfmt_misc: assorted small cleanups</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-23-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 23/24] binfmt_misc: include what is used</a>
+` <a
+href="20260710-work-binfmt_misc-locking-v3-24-a162f7cb58d6@kernel.org/T/#u">[PATCH v3 24/24] binfmt_misc: allow removing entries via unlink(2)</a>
+
+<a
+href="alCvQuSpsRHV6JQc@gmail.com/T/#t">[PATCH v3] fs/pipe: unify the page pools into a single per-pipe pool</a>
+ 2026-07-10  8:37 UTC  (3+ messages)
+
+<a
+href="202607101054.8da4ec23-lkp@intel.com/T/#u">[linus:master] [exfat] 82a81a7352: invoked_oom-killer:gfp_mask=0x</a>
+ 2026-07-10  8:27 UTC 
+
+<a
+href="20260710-zubrot-oblag-gerahmt-01a68a57ae61@brauner/T/#t">[PATCH v2] audit: add FSOPEN record to log filesystem name</a>
+ 2026-07-10  8:05 UTC  (4+ messages)
+
+<a
+href="222b41c0-24e2-4ddf-b323-3c81403e3603@web.de/T/#t">[PATCH] exportfs: fix error handling in expfs.c</a>
+ 2026-07-10  7:51 UTC  (2+ messages)
+
+<a
+href="20260706061928.66713-1-byungchul@sk.com/T/#t">[PATCH v19 00/40] DEPT(DEPendency Tracker)</a>
+ 2026-07-10  5:53 UTC  (4+ messages)
+` <a
+href="20260710055354.GA37630@system.software.com/T/#u">[PATCH v19 31/40] dept: assign unique dept_key to each distinct wait_for_completion() caller</a>
+
+<a
+href="20260608210618.3437216-1-willy@infradead.org/T/#t">[PATCH v2 0/6] Remove __folio_index again</a>
+ 2026-07-10  5:43 UTC  (6+ messages)
+` <a
+href="CANFS6bZZjBx5GQxu+ZYVYAL5T5mG1ZRtMo9TEqEYC2FfNbdCpA@mail.gmail.com/T/#u">[PATCH v2 2/6] ntfs: Remove use of __folio_index in handle_bounds_compressed_page()</a>
+
+<a
+href="alCEOvHNDOfRHySm@infradead.org/T/#t">[PATCH 0/2] Support overlayfs in the idmapped mount tests</a>
+ 2026-07-10  5:34 UTC  (7+ messages)
+` <a
+href="alCEVz1XxROe-5qc@infradead.org/T/#u">[PATCH 1/2] src/vfs: probe O_TMPFILE support on the base mount in the idmapped tests</a>
+` <a
+href="alCEcbQfLY4f6Fo3@infradead.org/T/#u">[PATCH 2/2] src/vfs: skip whiteout-device fixtures on overlayfs</a>
+
+<a
+href="20260615-work-idmapped-tmpfile-v1-0-754a94d81f83@kernel.org/T/#t">[PATCH 0/2] fs: refuse O_TMPFILE creation with an unmapped fsuid or fsgid</a>
+ 2026-07-10  5:31 UTC  (7+ messages)
+` <a
+href="alCDvIW_8L6J99__@infradead.org/T/#u">[PATCH 1/2]</a> &#34;
+
+<a
+href="c820fc9c-8e5a-4708-a773-3b005bcdb541@linux.alibaba.com/T/#t">[PATCH stable v2] mm/khugepaged: write all dirty file folios when collapsing</a>
+ 2026-07-10  3:48 UTC  (2+ messages)
+
+<a
+href="20260710030851.2791589-1-yun.zhou@windriver.com/T/#t">[PATCH v14 0/4] ext4: deferred iput framework for EA inodes</a>
+ 2026-07-10  3:08 UTC  (5+ messages)
+` <a
+href="20260710030851.2791589-2-yun.zhou@windriver.com/T/#u">[PATCH v14 1/4] fs: add iput_if_not_last() helper</a>
+` <a
+href="20260710030851.2791589-3-yun.zhou@windriver.com/T/#u">[PATCH v14 2/4] ext4: introduce ext4_put_ea_inode() for safe deferred iput</a>
+` <a
+href="20260710030851.2791589-4-yun.zhou@windriver.com/T/#u">[PATCH v14 3/4] ext4: convert all EA inode iput() calls to ext4_put_ea_inode()</a>
+` <a
+href="20260710030851.2791589-5-yun.zhou@windriver.com/T/#u">[PATCH v14 4/4] ext4: remove ea_inode_array mechanism in favor of ext4_put_ea_inode()</a>
+
+<a
+href="20260710023156.3749541-1-michael.bommarito@gmail.com/T/#u">[PATCH] vboxsf: validate directory entry name length</a>
+ 2026-07-10  2:31 UTC 
+
+<a
+href="20260709225001.473320-2-slava@dubeyko.com/T/#u">[PATCH] hfs: don&#39;t re-dirty MDB buffers after a write failure</a>
+ 2026-07-09 22:50 UTC 
+</pre><hr><pre id=nav>page: <a
+href="?t=20260709223057"
+rel=next>next (older)</a>
+- recent:[<b>subjects (threaded)</b>|<a
+href="./topics_new.html">topics (new)</a>|<a
+href="./topics_active.html">topics (active)</a>]</pre><hr><pre>This is a public inbox, see <a
+href="_/text/mirror/">mirroring instructions</a>
+for how to clone and mirror all data and code used for this inbox;
+as well as URLs for NNTP newsgroup(s).</pre></body></html>

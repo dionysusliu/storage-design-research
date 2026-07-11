@@ -1,0 +1,24 @@
+HTTP/2 200 
+cache-control: public, max-age=60, s-maxage=43200, stale-while-revalidate=86400, stale-if-error=604800
+content-type: text/html; charset=UTF-8
+link: <https://www.dpdk.org/wp-json/>; rel="https://api.w.org/"
+link: <https://www.dpdk.org/wp-json/wp/v2/pages/5>; rel="alternate"; title="JSON"; type="application/json"
+link: <https://www.dpdk.org/>; rel=shortlink
+server: nginx
+x-pantheon-styx-hostname: styx-us-a-7ffbcf568d-nkbwp
+x-styx-req-id: 15cc6e83-7cb2-11f1-bde3-ce2be12a93bd
+x-tec-api-origin: https://www.dpdk.org
+x-tec-api-root: https://www.dpdk.org/wp-json/tribe/events/v1/
+x-tec-api-version: v1
+age: 32870
+accept-ranges: bytes
+via: 1.1 varnish, 1.1 varnish, 1.1 varnish, 1.1 varnish
+strict-transport-security: max-age=300; includeSubDomains;
+date: Sat, 11 Jul 2026 08:00:44 GMT
+x-served-by: cache-chi-kmdw8640055-CHI, cache-itm1220071-ITM, cache-itm1220033-ITM, cache-itm1220033-ITM
+x-cache: HIT, MISS, MISS, MISS
+x-cache-hits: 14, 0, 0, 0
+x-timer: S1783756845.559366,VS0,VE203
+vary: Accept-Encoding, Cookie, Cookie
+content-length: 132394
+

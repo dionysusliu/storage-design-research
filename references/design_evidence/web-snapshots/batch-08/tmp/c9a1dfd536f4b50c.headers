@@ -1,0 +1,22 @@
+HTTP/2 200 
+content-type: text/html; charset=UTF-8
+content-length: 2079
+content-security-policy: script-src 'self' 'unsafe-eval' *.nutanix.com www.google-analytics.com *.googletagmanager.com *.adroll.com *.facebook.net *.bizographics.com *.linkedin.com *.amazonaws.com ingress.coralogix.us 'sha256-+gsx5iDDqa/Yz+1hGc9fVSygC7wHPaKHxv83bMECyB0=' 'sha256-50k3/wdVTW+zTpeJiH5rnVZAAdRhKsPjgL2bKR/jbPE='; style-src 'self' 'unsafe-inline' *.nutanix.com; font-src 'self' data: *.nutanix.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'
+x-content-security-policy: script-src 'self' 'unsafe-eval' *.nutanix.com www.google-analytics.com *.googletagmanager.com *.adroll.com *.facebook.net *.bizographics.com *.linkedin.com *.amazonaws.com ingress.coralogix.us 'sha256-+gsx5iDDqa/Yz+1hGc9fVSygC7wHPaKHxv83bMECyB0=' 'sha256-50k3/wdVTW+zTpeJiH5rnVZAAdRhKsPjgL2bKR/jbPE='; style-src 'self' 'unsafe-inline' *.nutanix.com; font-src 'self' data: *.nutanix.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'
+x-webkit-csp: script-src 'self' 'unsafe-eval' *.nutanix.com www.google-analytics.com *.googletagmanager.com *.adroll.com *.facebook.net *.bizographics.com *.linkedin.com *.amazonaws.com ingress.coralogix.us 'sha256-+gsx5iDDqa/Yz+1hGc9fVSygC7wHPaKHxv83bMECyB0=' 'sha256-50k3/wdVTW+zTpeJiH5rnVZAAdRhKsPjgL2bKR/jbPE='; style-src 'self' 'unsafe-inline' *.nutanix.com; font-src 'self' data: *.nutanix.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'
+x-frame-options: SAMEORIGIN
+referrer-policy: strict-origin
+x-request-id: Root=1-6a51f797-342c38575c2a97212f301fed
+x-content-type-options: nosniff
+x-download-options: noopen
+x-xss-protection: 1; mode=block
+cache-control: no-cache, no-store, must-revalidate, proxy-revalidate
+expires: 0
+pragma: no-cache
+accept-ranges: bytes
+last-modified: Thu, 09 Jul 2026 15:18:26 GMT
+etag: W/"81f-19f47756dd0"
+date: Sat, 11 Jul 2026 07:58:15 GMT
+set-cookie: sails.sid=s%3AeJ_BnxgtIdYRsBx39-F829VwRZNm9KOJ.0ELmSYMCG0%2BQtb8K3h%2BYsT%2FVIs7Dfh2OhWw3giQvxGo; Path=/; Expires=Sat, 11 Jul 2026 11:58:15 GMT; HttpOnly; Secure
+strict-transport-security: max-age=31536000 ; includeSubDomains
+

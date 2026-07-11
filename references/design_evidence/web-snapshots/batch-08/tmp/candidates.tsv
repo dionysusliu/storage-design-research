@@ -1,0 +1,45 @@
+7	01-linux-kernel-storage-ecosystem	LWN 社区门户	社区新闻/博客	https://lwn.net/
+17	01-linux-kernel-storage-ecosystem	NUMA docs	官方文档	https://docs.kernel.org/admin-guide/mm/numaperf.html
+27	01-linux-kernel-storage-ecosystem	block/ docs	官方文档+源码	https://docs.kernel.org/block/
+37	01-linux-kernel-storage-ecosystem	fscrypt docs	官方文档	https://docs.kernel.org/filesystems/fscrypt.html
+47	01-linux-kernel-storage-ecosystem	linux-nvme 邮件列表	子系统列表	https://lore.kernel.org/linux-nvme/
+57	02-intel-hardware-storage-ecosystem	Advisor	设计与分析工具	https://www.intel.com/content/www/us/en/developer/tools/oneapi/advisor.html
+67	02-intel-hardware-storage-ecosystem	Marvell home	公司官网	https://www.marvell.com/
+77	02-intel-hardware-storage-ecosystem	Tech Blog/Newsroom	技术博客与新闻	http://news.samsungsemiconductor.com/global/
+87	03-enterprise-storage-vendors	Cloudian HyperStore	产品+文档	https://cloudian.com/
+97	03-enterprise-storage-vendors	DDN入口	产品+文档	https://docs.ddn.com/
+107	03-enterprise-storage-vendors	Hitachi社区博客	社区+博客	https://community.hitachivantara.com/
+117	03-enterprise-storage-vendors	MinIO	文档+开源仓库	https://min.io/
+127	03-enterprise-storage-vendors	Nutanix 产品	产品入口+开发者门户	https://portal.nutanix.com/
+137	03-enterprise-storage-vendors	Pure Storage	产品+支持入口	https://www.purestorage.com/
+147	03-enterprise-storage-vendors	Red Hat 技术入口	官方文档+上游项目	https://docs.redhat.com/en/documentation/red_hat_openshift_data_foundation
+157	03-enterprise-storage-vendors	Scality blog	技术博客+资源	https://www.scality.com/resources/
+167	03-enterprise-storage-vendors	Veeam 社区	社区+博客	https://community.veeam.com/
+177	03-enterprise-storage-vendors	Weka Blog	技术博客/资源	https://www.weka.io/blog/
+187	04-hyperscaler-infrastructure	Cache docs	官方产品文档	https://developers.cloudflare.com/cache/
+197	04-hyperscaler-infrastructure	Dropbox.Tech	官方技术博客首页	https://dropbox.tech/
+207	04-hyperscaler-infrastructure	Meta engineering portal	官方工程博客首页	https://engineering.fb.com/
+217	04-hyperscaler-infrastructure	Workers KV 文档	官方产品文档	https://developers.cloudflare.com/kv/
+227	11-linux-maintainer-deep-dive.md	Linux block merge history	主线提交入口	https://github.com/torvalds/linux/commits
+237	12-hardware-standards-deep-dive.md	Intel high-performance SDS implementation guide	Intel 参考指南	https://www.intel.com/content/dam/www/public/us/en/documents/guides/implementing-high-performance-sds-guide.pdf
+247	13-enterprise-product-lines-deep-dive.md	HPE Nimble/Alletra architecture	架构 PDF	https://www.hpe.com/psnow/doc/a50002410enw
+257	14-hyperscaler-storage-deep-dive.md	ByteDance ABase paper	公开论文	https://arxiv.org/abs/2505.07692
+267	14-hyperscaler-storage-deep-dive.md	Huawei: distributed file systems	官方工程博客	https://blog.huawei.com/
+277	代表开发者 / 维护者 / 研究者（组织员工/PC/博客作者关系分离）	个人主页（研究者）	个人主页	https://www.cs.cmu.edu/~garth
+287	会议 / 社区与媒体（按同页群组）	LSF/MM 日历页	Linux 内核工作会议	https://lwn.net/Calendar/LSFMM/
+297	会议 / 社区与媒体（按同页群组）	USENIX OSDI 站点与 PC 入口	研究会议	https://www.usenix.org/conference/osdi25
+307	开源生态项目 / 组织 / 仓库 / 标准入口（来源首页+深链+事件）	Alluxio 主页	数据编排与缓存层	https://www.alluxio.io/ (社区/事件页)
+317	开源生态项目 / 组织 / 仓库 / 标准入口（来源首页+深链+事件）	Ceph 官网/文档/社区	开源存储项目	https://ceph.io/en/news/blog/
+327	开源生态项目 / 组织 / 仓库 / 标准入口（来源首页+深链+事件）	DPDK 官网	数据平面开发套件	https://www.dpdk.org/
+337	开源生态项目 / 组织 / 仓库 / 标准入口（来源首页+深链+事件）	Gluster 站点	分布式网络文件系统	https://planet.gluster.org/
+347	开源生态项目 / 组织 / 仓库 / 标准入口（来源首页+深链+事件）	Kafka 官网	事件流平台	https://kafka.apache.org/
+357	开源生态项目 / 组织 / 仓库 / 标准入口（来源首页+深链+事件）	Longhorn 生态页	K8s 分布式块存储	https://longhorn.io/docs/
+367	开源生态项目 / 组织 / 仓库 / 标准入口（来源首页+深链+事件）	OpenEBS 官网	K8s 存储项目	https://github.com/openebs/openebs/issues
+377	开源生态项目 / 组织 / 仓库 / 标准入口（来源首页+深链+事件）	Redpanda 官网	Kafka 兼容流平台	https://docs.redpanda.com/
+387	开源生态项目 / 组织 / 仓库 / 标准入口（来源首页+深链+事件）	Rook 官网/文档/源码	Kubernetes Operator 项目	https://github.com/rook/rook/issues
+397	开源生态项目 / 组织 / 仓库 / 标准入口（来源首页+深链+事件）	ScyllaDB 官网	分布式 NoSQL	https://www.scylladb.com/
+407	开源生态项目 / 组织 / 仓库 / 标准入口（来源首页+深链+事件）	TiKV 官网/仓库	分布式事务 KV	https://slack.tidb.io/
+417	开源生态项目 / 组织 / 仓库 / 标准入口（来源首页+深链+事件）	Yugabyte 官网	分布式 PostgreSQL 兼容数据库	https://github.com/yugabyte/yugabyte-db
+427	开源生态项目 / 组织 / 仓库 / 标准入口（来源首页+深链+事件）	etcd 入口	分布式协调KV	https://play.etcd.io/
+437	组三：底层协议、内核与社区入口（10）	Kernel Internals I/O	学习资源站	https://kernel-internals.org/io/
+447	组二：会议、论文与会议产出（12）	OSDI '26 presenter instructions	论文交付指南	https://www.usenix.org/conference/osdi26/instructions-presenters

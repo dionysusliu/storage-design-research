@@ -1,0 +1,829 @@
+<!doctype html>
+
+
+    
+    
+    
+
+    
+
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    <html lang="en" xml:lang="en" data-cms-lang="en-us">
+    <head>
+        
+<meta charset="utf-8"/>
+
+<title>Improving storage efficiency in Magic Pocket, our immutable blob store - Dropbox</title>
+
+
+
+
+<meta name="description" content="By turning compaction into a layered, adaptive pipeline and strengthening our monitoring and controls, we made Magic Pocket more resilient to workload changes."/>
+<meta name="data-tags" content="storage,Magic Pocket,Infrastructure"/>
+<meta name="data-tagTaxonomy" content="Infrastructure; Magic Pocket; storage;"/>
+<meta name="page-id" content="infrastructure-improving-storage-efficiency-in-magic-pocket-our-immutable-blob-store"/>
+<meta name="topic" content="Infrastructure"/>
+
+<meta name="publishDate" content="2026-04-02 10:00:00.000-0700"/>
+
+<meta name="author" content="Facundo Agriel"/>
+
+<link rel="canonical" href="https://dropbox.tech/infrastructure/improving-storage-efficiency-in-magic-pocket-our-immutable-blob-store"/>
+
+
+
+
+<link rel="icon" href="/cms/content/dam/dropbox/aem/favicon32.ico" type="image/x-icon"/>
+
+
+
+
+
+<meta property="og:url" content="https://dropbox.tech/infrastructure/improving-storage-efficiency-in-magic-pocket-our-immutable-blob-store"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Improving storage efficiency in Magic Pocket, our immutable blob store"/>
+<meta property="og:description" content="By turning compaction into a layered, adaptive pipeline and strengthening our monitoring and controls, we made Magic Pocket more resilient to workload changes."/>
+<meta property="og:image" content="https://aem.dropbox.com/cms/content/dam/dropbox/tech-blog/en-us/2026/march/magic-pocket-compaction/social/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-1200x628.png/_jcr_content/renditions/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-1200x628.og.png"/>
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+
+
+
+<meta content="width=device-width,initial-scale=1.0,user-scalable=no" name="viewport"/>
+
+
+
+
+  <link rel="alternate" hreflang="en-us" href="https://dropbox.tech/infrastructure/improving-storage-efficiency-in-magic-pocket-our-immutable-blob-store"/>
+
+
+
+
+  <!-- Adobe Launch Tag
+  <sly data-sly-test.launchScriptUrl="https://assets.adobedtm.com/7c31e7b46b8e/d19004ab8783/launch-9d6b92cf511d.min.js">
+      <script src="" async></script>
+  </sly>-->
+  <input type="hidden" id="launchurl" name="launchurl" value="https://assets.adobedtm.com/7c31e7b46b8e/d19004ab8783/launch-9d6b92cf511d.min.js"/>
+  
+    
+<script type="text/javascript" src="/cms/etc.clientlibs/settings/wcm/designs/adobe-launch.69d49deacff84e18078620ea5d69520e.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--/* Calling the tealium utag sync to avoid adobe target flickering */ -->
+
+
+
+
+    
+         
+          <!-- CMS-5456 : Optimizing target calls -->
+                
+         
+    
+
+<!-- /* Calling the tealium utag sync to avoid adobe target flickering */  -->
+
+    
+
+
+
+
+
+        
+
+        
+
+
+
+
+
+
+
+
+
+<!-- /* Enable rebrand styles  */
+<sly data-sly-use.inheritUtil="com.dropbox.aem.common.models.utils.InheritanceUtilUse"
+     data-sly-test.pageStyle="" /> -->
+
+     
+    
+<link rel="stylesheet" href="/cms/etc.clientlibs/settings/wcm/designs/dropbox-common/clientlib-cms-common.fe1280fde62f39dc26aa28abd1e11743.css" type="text/css">
+<link rel="stylesheet" href="/cms/etc.clientlibs/settings/wcm/designs/dropbox-tech-blog/clientlib-all.706c697ebfafea32e18a38f788e663e8.css" type="text/css">
+
+
+
+
+    
+<link rel="stylesheet" href="/cms/etc.clientlibs/settings/wcm/designs/dropbox-tech-blog/clientlib-article-content.853221554a5d292bfd31a6140d9662f9.css" type="text/css">
+
+
+
+    </head>
+    <body class="tech-blog-article-page__page    stormcrow-animate   " data-article-uuid="3607d2f5-fb79-46b1-b2d5-6fede0d35058">
+
+        
+
+        
+        <input type="hidden" id="wcmRunmode" name="wcmRunmode" value="publish,prod"/>
+        
+
+        
+        
+
+<header class="dr-header">
+
+
+
+
+<div class="dr-header__sticky-container">
+  <section class="dr-header__section dr-flex dr-flex--align-center dr-padding-right-40 dr-padding-left-40 dr-header__sticky-content-container dr-header__sticky-content-container--opened dr-container--surface">
+    <div class="dr-flex-1">
+      <a class="dr-link dr-link--no-underline dr-link--no-underline-hover dr-typography-t1" href="https://dropbox.tech/">Dropbox.Tech</a>
+    </div>
+    
+
+<button class="dr-header__item dr-nav__menu-toggle-button dr-button dr-hide-from-md dr-flex dr-flex-align-center dr-flex-justify-center" data-dr-tooltip="Menu" data-dr-tooltip-theme="white">
+  <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" class="dr-width-100 dr-height-100">
+    <rect x="0.501831" y="8" width="28" height="2" fill="white"></rect>
+    <rect x="0.500977" y="18" width="28" height="2" fill="white"></rect>
+  </svg>
+</button>
+<nav class="dr-show-block-from-md dr-nav__nav">
+  <button class="dr-button dr-nav__menu-close-button">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M19.2875 2.15983L17.6683 0.566406L9.82597 8.28403L2.33211 0.909344L0.71294 2.50277L8.2068 9.87746L0.666992 17.2974L2.28617 18.8908L9.82597 11.4709L17.7143 19.2337L19.3334 17.6403L11.4451 9.87746L19.2875 2.15983Z" fill="white"/>
+    </svg>
+  </button>
+  <ul class="dr-unstyled-list dr-typography-t2 dr-flex dr-nav__nav-list">
+    <li class="dr-header__item dr-position-relative dr-header__item--with-subnav dr-header__list-item">
+      <button class="dr-button dr-button--link dr-header__link--with-subnav">Topics</button>
+      <ul class="dr-unstyled-list dr-display-none dr-header__subnav dr-position-absolute dr-container--surface dr-padding-top-30 dr-padding-left-40 dr-padding-bottom-20 dr-padding-right-40 dr-font-weight-500">
+        <li class="dr-header__list-item dr-header__list-item--subnav"><a href="https://dropbox.tech/application" class="dr-display-block dr-link dr-link--no-underline dr-container--application dr-link--primary">Application</a></li>
+      
+        <li class="dr-header__list-item dr-header__list-item--subnav"><a href="https://dropbox.tech/frontend" class="dr-display-block dr-link dr-link--no-underline dr-container--frontend dr-link--primary">Front End</a></li>
+      
+        <li class="dr-header__list-item dr-header__list-item--subnav"><a href="https://dropbox.tech/infrastructure" class="dr-display-block dr-link dr-link--no-underline dr-container--infrastructure dr-link--primary">Infrastructure</a></li>
+      
+        <li class="dr-header__list-item dr-header__list-item--subnav"><a href="https://dropbox.tech/machine-learning" class="dr-display-block dr-link dr-link--no-underline dr-container--machine-learning dr-link--primary">Machine Learning</a></li>
+      
+        <li class="dr-header__list-item dr-header__list-item--subnav"><a href="https://dropbox.tech/mobile" class="dr-display-block dr-link dr-link--no-underline dr-container--mobile dr-link--primary">Mobile</a></li>
+      
+        <li class="dr-header__list-item dr-header__list-item--subnav"><a href="https://dropbox.tech/security" class="dr-display-block dr-link dr-link--no-underline dr-container--security dr-link--primary">Security</a></li>
+      
+        <li class="dr-header__list-item dr-header__list-item--subnav"><a href="https://dropbox.tech/culture" class="dr-display-block dr-link dr-link--no-underline dr-container--culture dr-link--primary">Culture</a></li>
+      </ul>
+    </li>
+    <li class="dr-header__item dr-header__list-item">
+      <a href="https://dropbox.tech/developers" class="dr-link dr-link--no-underline dr-nav__main-category">Developers</a>
+    </li>
+    <li class="dr-header__item dr-header__list-item">
+      <a class="dr-link dr-link--no-underline dr-header__link" href="http://dropbox.com/jobs" target="_blank">Jobs</a>
+    </li>
+<li class="dr-header__item dr-header__list-item">
+      <a class="dr-link dr-link--no-underline dr-header__link" href="https://dash.dropbox.com/?utm=blogs" target="_self">Dash</a>
+    </li>
+
+  </ul>
+</nav>
+
+    <button data-dark-mode-switcher class="dr-header__item dr-header__dark-mode-switcher dr-button dr-button--link dr-cursor-pointer" data-dr-tooltip="Dark Mode" data-dr-tooltip-theme="white" type="button">
+      <img alt="" height="30" src="/cms/etc.clientlibs/settings/wcm/designs/dropbox-tech-blog/clientlib-all/resources/button_dark-mode-new.svg" width="30" class="dr-header__mode-image"/>
+    </button>
+    <button class="dr-header__item dr-header__search-button dr-button dr-button--link dr-cursor-pointer" data-dr-tooltip="Search" data-dr-tooltip-theme="white" type="button">
+      <img alt="" height="20" src="/cms/etc.clientlibs/settings/wcm/designs/dropbox-tech-blog/clientlib-all/resources/button_search-new.svg" width="20"/>
+    </button>
+    <!--search-result-page-only-->
+    
+    <!--search-result-page-only-->
+    <div class="dr-header__search dr-display-none">
+      <button class="dr-header__search-close-button dr-header__item dr-button dr-button--link dr-cursor-pointer" type="button">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M19.2875 2.15983L17.6683 0.566406L9.82597 8.28403L2.33211 0.909344L0.71294 2.50277L8.2068 9.87746L0.666992 17.2974L2.28617 18.8908L9.82597 11.4709L17.7143 19.2337L19.3334 17.6403L11.4451 9.87746L19.2875 2.15983Z" fill="white"/>
+        </svg>
+      </button>
+      <div class="dr-header__search-form-container">
+        <form class="dr-header__search-form dr-container__content dr-width-100" method="get" action="https://dropbox.tech/search-results">
+            <div class="coveo-search-section dr-header__search-input dr-header-search-input-white dr-typography-t3" data-coveo-api-url="https://dropboxproductionpmlw0l3v.org.coveo.com/rest/search" data-coveo-org-id="dropboxproductionpmlw0l3v" data-coveo-api-key="xx54717485-2fdc-4d24-afa3-0d3c9f69e01b" data-searchPage="https://dropbox.tech/search-results.html">
+               <div class="CoveoSearchbox" data-enable-omnibox="true" data-enable-query-suggest-addon="true" data-placeholder="Search" data-number-of-suggestions="5"></div>
+                <div class="CoveoStyleReplacer"></div>
+            </div>
+            <p class="dr-header__search-hint dr-margin-top-30 dr-margin-bottom-0 dr-typography-t5 dr-display-none">
+                // Press enter to search
+            </p>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+</header>
+
+        
+
+        
+
+
+<!-- CMS-5220 : Fixing utag.js loading twice in our website
+<sly data-sly-include="/apps/dropbox-common/components/templates/base-page/partials/Analytics.html"/>
+-->
+        <div class="dr-article-hero">
+<div class="dr-article-hero__background-container dr-container--infrastructure">
+	<picture class="dr-article-hero__background dr-article-hero__background--regular">
+		<source media="( max-width: 375px )" srcset="/cms/content/dam/dropbox/tech-blog/en-us/2026/march/magic-pocket-compaction/headers/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-375x150-light.png/_jcr_content/renditions/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-375x150-light.webp"/>
+		<source media="( min-width: 376px ) and ( max-width: 1199px )" srcset="/cms/content/dam/dropbox/tech-blog/en-us/2026/march/magic-pocket-compaction/headers/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-1024x250-light.png/_jcr_content/renditions/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-1024x250-light.webp"/>
+		<img class="dr-article-hero__background-image" src="/cms/content/dam/dropbox/tech-blog/en-us/2026/march/magic-pocket-compaction/headers/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-1440x305-light.png/_jcr_content/renditions/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-1440x305-light.webp" alt=""/>
+	</picture>
+
+	<picture class="dr-article-hero__background dr-article-hero__background--dark">
+		<source media="( max-width: 375px )" srcset="/cms/content/dam/dropbox/tech-blog/en-us/2026/march/magic-pocket-compaction/headers/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-375x150-light.png/_jcr_content/renditions/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-375x150-light.webp"/>
+		<source media="( min-width: 376px ) and ( max-width: 1199px )" srcset="/cms/content/dam/dropbox/tech-blog/en-us/2026/march/magic-pocket-compaction/headers/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-1024x250-light.png/_jcr_content/renditions/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-1024x250-light.webp"/>
+		<img class="dr-article-hero__background-image" src="/cms/content/dam/dropbox/tech-blog/en-us/2026/march/magic-pocket-compaction/headers/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-1440x305-light.png/_jcr_content/renditions/Infrastructure-Optimizing%20compaction%20in%20Magic%20Pocket-1440x305-light.webp" alt=""/>
+	</picture>
+</div>
+<section class="dr-container__content">
+	<span class="dr-article-hero__title-container dr-container--infrastructure">
+		<h1 class="dr-display-inline dr-typography-t15 dr-container--surface dr-article-hero__title">Improving storage efficiency in Magic Pocket, our immutable blob store</h1>
+	</span>
+	<div class="dr-typography-no-space dr-margin-top-10 dr-margin-md-top-20">
+        <span class="dr-typography-t5">// By Facundo Agriel &bull; Apr 02, 2026</span>
+    </div>
+</section></div>
+<div class="dr-article-content">
+
+
+
+
+
+
+
+
+
+<div class="dr-article-content__scroll-tracker-container dr-container--infrastructure">
+    <div class="dr-article-content__scroll-tracker"></div>
+</div>
+<div class="dr-container__content">
+    <div class="dr-article-content__content-container dr-padding-md-left-80 dr-padding-md-right-80 dr-typography-t12">
+        <nav class="dr-article-content__side-nav dr-article-content__side-nav--initial dr-typography-t5">
+            <ol class="dr-article-content__side-nav-list dr-margin-0">
+                <li class="dr-article-content__side-nav-list-item dr-margin-bottom-5">
+                    <a href="#the-cost-of-immutability" class="dr-link dr-link--no-underline dr-article-content__side-nav-link">The cost of immutability</a>
+                </li>
+            
+                <li class="dr-article-content__side-nav-list-item dr-margin-bottom-5">
+                    <a href="#the-incident-that-forced-a-rethink" class="dr-link dr-link--no-underline dr-article-content__side-nav-link">The incident that forced a rethink</a>
+                </li>
+            
+                <li class="dr-article-content__side-nav-list-item dr-margin-bottom-5">
+                    <a href="#what-steady-state-compaction-looks-like" class="dr-link dr-link--no-underline dr-article-content__side-nav-link">What steady-state compaction looks like</a>
+                </li>
+            
+                <li class="dr-article-content__side-nav-list-item dr-margin-bottom-5">
+                    <a href="#a-better-way-to-reclaim-space" class="dr-link dr-link--no-underline dr-article-content__side-nav-link">A better way to reclaim space</a>
+                </li>
+            
+                <li class="dr-article-content__side-nav-list-item dr-margin-bottom-5">
+                    <a href="#cleaning-up-the-sparsest-volumes" class="dr-link dr-link--no-underline dr-article-content__side-nav-link">Cleaning up the sparsest volumes</a>
+                </li>
+            
+                <li class="dr-article-content__side-nav-list-item dr-margin-bottom-5">
+                    <a href="#operational-tuning-and-safeguards" class="dr-link dr-link--no-underline dr-article-content__side-nav-link">Operational tuning and safeguards</a>
+                </li>
+            
+                <li class="dr-article-content__side-nav-list-item dr-margin-bottom-5">
+                    <a href="#what-we-learned" class="dr-link dr-link--no-underline dr-article-content__side-nav-link">What we learned</a>
+                </li>
+            </ol>
+        </nav>
+        <div class="dr-article-content__content">
+            
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="text parbase aem-GridColumn aem-GridColumn--default--12">
+<p><a href="https://dropbox.tech/infrastructure/how-we-optimized-magic-pocket-for-cold-storage" target="_blank"><b>Magic Pocket</b></a> is the core Dropbox storage system—a custom-built, exabyte-scale blob storage system designed for durability, availability, scale, and efficiency. It holds user content, which means it must be safe, fast, and cost-effective to scale with the company. For Dropbox, storage efficiency really matters. We measure it by looking at how much total disk space we use compared to how much user data we’re actually storing.</p>
+<p>Last year, we rolled out a new service that changed how <a href="https://dropbox.tech/infrastructure/increasing-magic-pocket-write-throughput-by-removing-our-ssd-cache-disks" target="_blank">data is placed across Magic Pocket</a>. The change reduced write amplification for background writes, so each write triggered fewer backend storage operations. But it also had an unintended side effect: fragmentation increased, pushing storage overhead higher. Most of that growth came from a small number of severely under-filled volumes that consumed a disproportionate share of raw capacity, and our existing compaction strategy couldn’t reclaim the space quickly enough. At exabyte scale, even modest increases in overhead translate into meaningful infrastructure and capacity costs, so bringing that number back down quickly became a priority.</p>
+<p>In this post, we’ll walk through why overhead is particularly hard to control in an immutable blob store, how compaction works in Magic Pocket, and the multi-strategy approach we rolled out to drive overhead back down, even below our previous baseline.</p>
+
+</div>
+<div class="experiencefragment aem-GridColumn aem-GridColumn--default--12">
+<div id="experiencefragment-05f831a228" class="cmp-experiencefragment cmp-experiencefragment--dash-cta-for-tech-blog">
+
+    
+
+
+
+<div class="xf-content-height">
+    
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="responsivegrid aem-GridColumn aem-GridColumn--default--12">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="a08-html-embed c17-plain-html aem-GridColumn aem-GridColumn--default--12">
+
+<style type="text/css"> 
+
+@font-face {
+font-family: 'AtlasGrotesk';
+src: url('https://cdn.prod.website-files.com/65dcd70b48edc3a7b446950e/65dce019c63112e617513c94_AtlasGrotesk-Medium-Web-vfl38XiTL.woff2') format('woff2');
+font-weight: 500;
+font-style: normal;
+font-display: swap;
+}
+
+@font-face {
+font-family: 'AtlasGrotesk';
+src: url('https://cdn.prod.website-files.com/65dcd70b48edc3a7b446950e/65dce019711b648fd1ccd24a_AtlasGrotesk-Regular-Web-vflk7bxjs.woff2') format('woff2');
+font-weight: 400;
+font-style: normal;
+font-display: swap;
+}
+.xf-content-height {margin: 0;}
+#cta { font-family: AtlasGrotesk,sans-serif; font-size: .900rem; text-decoration: none; background: #f7f5f2; line-height: 1.69; box-sizing: border-box;}
+#cta-box { padding: 15px 20px 15px 20px; }
+#cta-hed {font-weight: 500;}
+#cta-indent {border-left: 5px solid #1e1919; padding-left:20px;}
+#cta a:link, #cta a:visited  {text-decoration: none;}
+#cta p { margin: 5px 0px 0px 0px; }
+
+.dr-theme-dark #cta {background: #000;}
+.dr-theme-dark #cta-box {border: 1px solid; border-bottom: 0;}
+.dr-theme-dark #cta-indent {border-left: 5px solid #f7f5f2;}
+.dr-theme-dark .button {background: #000;}
+
+.button {
+    background-color: #1e1919;
+    color:  #f7f5f2;
+    height: 2.5rem;
+    padding: 10px 5px 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    transition: all .3s;
+}
+
+.button:hover { background-color: #0061ff; }
+
+img {vertical-align: middle; padding: 0px 1px 2px 0px;}
+
+.c17-plain-html {margin-bottom: 50px}
+
+</style>
+
+<div id="cta">
+<div id="cta-box">
+<div id="cta-indent">
+
+<p id="cta-hed"><img src="https://cdn.prod.website-files.com/65dcd70b48edc3a7b446950e/670692ee7692f74d4834e4f4_Frame%201400006055.svg" loading="lazy"> Dropbox Dash: AI that understands your work
+</p>
+
+<p>Dash knows your context, your team, and your work, so your team can stay organized, easily find and share knowledge, and keep projects secure, all from one place. And soon, Dash is coming to Dropbox.</p>
+
+</div>
+</div>
+
+<a href="https://dash.dropbox.com/?utm=blogs" target="_blank"><div class="button">Learn more &#x2192;</div></a>
+
+</div>
+</div>
+
+    
+</div>
+</div>
+
+    
+</div>
+
+</div></div>
+
+    
+</div>
+<div class="section aem-GridColumn aem-GridColumn--default--12">
+<div class="dr-article-content__section" id="the-cost-of-immutability">
+    <h2 class="dr-article-content__section-title">The cost of immutability</h2>
+</div>
+</div>
+<div class="text parbase aem-GridColumn aem-GridColumn--default--12">
+<p>When users upload files to Dropbox, Magic Pocket breaks those files into smaller pieces called blobs and stores them across its storage fleet. A <b>blob</b> is simply a chunk of binary data—part or all of a user file—written to disk. Magic Pocket is an <a href="https://dropbox.tech/infrastructure/inside-the-magic-pocket" target="_blank">immutable blob store</a>, which means that once a blob is written, it is never modified in place. If a file is updated or deleted, new data is written and the old data remains until it is reclaimed by a compaction process.</p>
+<p>At Dropbox scale, Magic Pocket stores trillions of blobs and processes millions of deletes each day. (A <b>delete</b> is a request to remove a blob when a file is deleted or updated.) Because data is immutable, deletes do not immediately free up disk space. Old data stays on-disk inside storage volumes. Once a volume is closed, it is never reopened. The tradeoff is that deletes leave unused space behind, and that waste grows over time unless we actively reclaim it.</p>
+<p>Without reclamation, volumes gradually become partially filled, spreading live data across more disks than necessary. Fragmentation from lack of reclamation can have a big impact on storage overhead.</p>
+<p>We address this in two steps. <b>Garbage collection</b> identifies blobs that are no longer referenced and marks them as safe to remove, but it does not free space on its own. <b>Compaction</b> performs the physical reclamation. Because volumes cannot be modified once closed, we gather the live blobs from volumes, write them into new volumes, and retire the old ones. This is how deletes eventually translate into reusable space.</p>
+
+</div>
+<div class="image c04-image aem-GridColumn aem-GridColumn--default--12">
+<div class="dr-image image cq-dd-image  ">
+    <figure class="dr-margin-0 dr-display-inline-block">
+        
+            
+    
+
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <!--optimized image webp-->
+        
+
+        
+        <!-- <img data-sly-test.highRes="false"
+             srcset="/cms/content/dam/dropbox/tech-blog/en-us/2026/march/magic-pocket-compaction/diagram/Diagram%201.png 2x,  1x"
+             src="/cms/content/dam/dropbox/tech-blog/en-us/2026/march/magic-pocket-compaction/diagram/Diagram%201.png"
+             aria-hidden=""
+             alt=""
+             class=""
+             data-sly-attribute.width="2880"
+             data-sly-attribute.height="2080"
+             data-aem-asset-id="138034ce-a84d-4a6c-9dd5-946f734dd0df:Diagram 1.png"
+             data-trackable="true" />
+        <img data-sly-test.highRes="false"
+             srcset="/cms/content/dam/dropbox/tech-blog/en-us/2026/march/magic-pocket-compaction/diagram/Diagram%201.png 2x,  1x"
+             src="/cms/content/dam/dropbox/tech-blog/en-us/2026/march/magic-pocket-compaction/diagram/Diagram%201.png"
+             aria-hidden=""
+             alt=""
+             class=""
+             data-sly-attribute.width="2880"
+             data-sly-attribute.height="2080"
+             data-aem-asset-id="138034ce-a84d-4a6c-9dd5-946f734dd0df:Diagram 1.png"
+             data-trackable="true" /> -->
+
+        
+         
+        <img src="/cms/content/dam/dropbox/tech-blog/en-us/2026/march/magic-pocket-compaction/diagram/Diagram%201.png/_jcr_content/renditions/Diagram%201.webp" fallbackimage="/cms/content/dam/dropbox/tech-blog/en-us/2026/march/magic-pocket-compaction/diagram/Diagram%201.png" onerror="window.failedAttempts=0;this.setAttribute('src',this.getAttribute('fallbackimage'));window.failedAttempts++;if(window.failedAttempts == 1)this.onerror=null" aria-hidden="false" alt="" data-aem-asset-id="138034ce-a84d-4a6c-9dd5-946f734dd0df:Diagram 1.png" data-trackable="true" height="2080" width="2880"/>
+    
+
+            <figcaption class="dr-typography-t5 dr-color-ink-60 dr-image-rte"><p style="text-align: center;">Compaction lifecycle of volume 1 getting compacted along with a donor volume (2). Volume 1 is then eligible to be reused.</p>
+</figcaption>
+        
+    </figure>
+</div></div>
+<div class="text parbase aem-GridColumn aem-GridColumn--default--12">
+<p>Compaction controls the waste created by deletes. But fragmentation isn’t the only factor that affects storage overhead—durability does too. To protect against hardware failures, we store data redundantly either as full copies or as encoded fragments distributed across different machines, so data can be recovered after disk or server failures. One approach is replication, which keeps multiple full copies of each blob and increases storage use proportionally. In Magic Pocket, we use <b>erasure coding</b> for nearly all data. Erasure coding splits data into fragments and adds a small number of parity fragments (extra pieces that let us reconstruct the original data if part of it is lost). It provides the same level of fault tolerance as replication, but with significantly less additional storage.</p>
+<p>Redundancy affects overhead, but fragmentation determines how efficiently that space is used. A useful way to think about this is what percentage of a volume that contains active data. If a volume is half full of live data, we are effectively using twice the storage needed for that data. If only ten percent is live, we are using about ten times the space required. Without continuous compaction, disk capacity would eventually be exhausted even if the data redundancy scheme—how we store extra copies or fragments to protect against failures—never changed. Keeping storage overhead low in an immutable system therefore requires both efficient redundancy and constant consolidation of fragmented space.</p>
+
+</div>
+<div class="section aem-GridColumn aem-GridColumn--default--12">
+<div class="dr-article-content__section" id="the-incident-that-forced-a-rethink">
+    <h2 class="dr-article-content__section-title">The incident that forced a rethink</h2>
+</div>
+</div>
+<div class="text parbase aem-GridColumn aem-GridColumn--default--12">
+<p>Earlier this year, we uncovered an issue with a new service that performs on-the-fly erasure coding, which we’ll refer to as the Live Coder service. It rolled out gradually over several months to new regions. The problem, which went unnoticed for weeks, was that volumes created through this path were severely under-filled. In the worst cases, less than five percent of their allocated capacity contained live data.</p>
+<p>In practical terms, that meant live data was spread across far more volumes than intended. Instead of densely packing blobs together, we were creating many mostly empty volumes. Because volumes are fixed in size, each under-filled volume consumed the same disk allocation as a full one. The result was a sharp increase in fragmentation and a corresponding rise in storage overhead.</p>
+<p>We saw early signs that this was impacting our effective replication factor, a signal that more raw storage was being consumed per live byte than expected. But identifying the root cause required significant investigation. Once we understood what was happening, we also needed to design recovery mechanisms capable of bringing overhead back down efficiently. The existing compaction strategy continued to make progress, but it was not designed to handle a long tail of severely under-filled volumes at this scale.</p>
+<p>This incident exposed a limitation in our steady-state approach. It forced us to rethink how compaction should work when the distribution of live data shifts, and to develop new strategies capable of reclaiming space faster and more effectively.</p>
+
+</div>
+<div class="section aem-GridColumn aem-GridColumn--default--12">
+<div class="dr-article-content__section" id="what-steady-state-compaction-looks-like">
+    <h2 class="dr-article-content__section-title">What steady-state compaction looks like</h2>
+</div>
+</div>
+<div class="text parbase aem-GridColumn aem-GridColumn--default--12">
+<p>In normal operation, before the incident, the distribution of data across volumes was relatively stable. Most volumes were already highly filled, and deletes accumulated gradually. In that steady state, compaction’s job was to continuously consolidate small amounts of fragmentation and keep storage overhead bounded.</p>
+<p>For years, our baseline compaction strategy, which we call L1, worked well in this environment. It treats compaction as a packing problem: move live data from one or more partially filled donor volumes into a host volume that has enough free space. Over time, as donor volumes are drained of their live data, they become empty and can be removed.</p>
+<p>L1 selects a host volume that is already highly filled, then chooses donor volumes whose live bytes fit into the host’s available space, and finally, writes them into a new volume. The selection logic is simple and fast, and it keeps placement risk and metadata updates bounded. However, each compaction run is relatively expensive. It may read tens of GiB across the host and donors but typically produces only a single new densely packed volume. On average, fewer than one full volume is reclaimed per run, since only donors are fully drained.</p>
+<p>This approach works well when most volumes are close to full. But the incident changed that distribution. We saw overhead concentrated in a long tail of severely under-filled volumes. L1 continued to make progress, but it could not compact those volumes quickly enough. Its core assumption, that most volumes are highly filled, no longer held. To address this, we introduced two new compaction strategies, L2 and L3, each designed to handle different parts of the volume fill distribution.</p>
+
+</div>
+<div class="section aem-GridColumn aem-GridColumn--default--12">
+<div class="dr-article-content__section" id="a-better-way-to-reclaim-space">
+    <h2 class="dr-article-content__section-title">A better way to reclaim space</h2>
+</div>
+</div>
+<div class="text parbase aem-GridColumn aem-GridColumn--default--12">
+<p>When the distribution shifted, the limitations of L1 became clear. It was designed to top off already dense volumes, not to quickly reclaim a large population of severely under-filled ones. We needed a strategy that could reclaim space faster by combining multiple sparse volumes into a single near-full destination. </p>
+<p>When we examined the distribution of live data across volumes, most of the wasted space was concentrated in a distinct subset that was less than half full. L1 wasn’t designed for this pattern; it topped off already dense volumes rather than aggressively consolidating sparse ones. Instead of incrementally packing donors into a host, L2 groups under-filled volumes together and selects combinations whose live data can nearly fill a new destination volume. Reclaiming several sparse volumes at once allows the system to recover space far more quickly.</p>
+
+</div>
+<div class="dr-code-container aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+<div class="dr-code-container--title"></div>
+<div class="dr-code-container-inner">
+
+    <button class="dr-code-container__copy-button dr-button dr-typography-t17">
+        Copy
+    </button>
+    <pre class="dr-code-container__pre"><code class="dr-code-container__code dr-typography-t5 ">Inputs:
+volumes[] with LiveBytes
+  maxVolBytes (destination volume capacity)
+  maxVolumesToUse (count cap)
+  granularity (scaling factor)
+1) Scale live bytes and capacity by granularity to shrink the DP table.
+2) DP over (i = volume index, k = count, c = capacity), keeping max packed bytes.
+3) Track choices in a parallel “choice” table for reconstruction.
+4) Backtrack from the best (k, capacity) to recover the selected volumes.</code></pre>
+
+
+</div>
+<div class="dr-code-container-rte"></div>
+</div>
+<div class="text parbase aem-GridColumn aem-GridColumn--default--12">
+<p>Under the hood, L2 is a bounded packing problem solved with dynamic programming. For each run, we choose a limited set of volumes whose combined live bytes come as close as possible to the destination capacity without exceeding it. To keep this practical at production scale, we cap how many source volumes can be used in one run and coarsen byte counts to reduce the search space. This keeps compute and memory bounded while still producing tight packings. </p>
+<p>In practice, we tuned granularity, batch size, and planner concurrency to balance packing quality against compute and memory cost. Those settings allowed L2 to run efficiently in production while still producing tight packings.</p>
+<p>In testing, the results were strong. With data shaped to resemble production distributions, L2 consistently produced near-full volumes. In production, it reduced compaction overhead two to three times faster than L1. In cells where L2 was enabled, overhead returned to sustainable levels within days, and over the course of a week, compaction overhead was thirty to fifty percent lower compared to cells running L1 alone. (Cells, in this instance, refer to independent units of the storage system that manage their own data.)</p>
+
+</div>
+<div class="section aem-GridColumn aem-GridColumn--default--12">
+<div class="dr-article-content__section" id="cleaning-up-the-sparsest-volumes">
+    <h2 class="dr-article-content__section-title">Cleaning up the sparsest volumes</h2>
+</div>
+</div>
+<div class="text parbase aem-GridColumn aem-GridColumn--default--12">
+<p>L2 was effective at targeting the middle of the distribution, where volumes were under-filled but still dense enough to combine efficiently. But it was less effective at quickly reclaiming the sparsest volumes, or those with only a small fraction of live data remaining. These volumes formed the extreme tail of the distribution and required a different approach.</p>
+<p>While iterating on compaction strategies, we returned to the Live Coder service. Its original purpose was to write data directly into erasure-coded volumes, bypassing the initial replicated write path. Although it isn’t ideal for latency-sensitive traffic, it’s well suited for background workflows where throughput matters more than immediacy.</p>
+<p>Compaction is, in effect, a constrained form of re-encoding: take live data from one set of volumes and produce a new, durable volume. L3 builds on that idea by using Live Coder as a streaming pipeline. Instead of packing volumes together in a bounded batch, L3 continuously feeds the remaining live blobs from severely under-filled volumes into Live Coder and allows it to accumulate and encode them into new volumes over time. Once a source volume’s live data has been drained, it can be reclaimed immediately.</p>
+<p>This strategy focuses on volumes that aren’t good candidates for L1 or L2. Under-filled volumes occur naturally as donors are partially drained, and they can accumulate quickly during failure modes like the incident described earlier. By prioritizing the sparsest volumes first, L3 minimizes the amount of data that needs to be rewritten per reclaimed volume and accelerates recovery of fragmented space.</p>
+<p>L3 does introduce tradeoffs. Because it writes live data into entirely new volumes, every blob it moves has to be rewritten, which means new identifiers and additional metadata updates. That extra bookkeeping creates load on storage and <a href="https://dropbox.tech/infrastructure/panda-metadata-stack-petabyte-scale-transactional-key-value-store" target="_blank">metadata systems</a>. With the amount of under-filled volumes observed in steady state, that additional load is tolerable and limits are in place to prevent overwhelming those systems.</p>
+
+</div>
+<div class="section aem-GridColumn aem-GridColumn--default--12">
+<div class="dr-article-content__section" id="operational-tuning-and-safeguards">
+    <h2 class="dr-article-content__section-title">Operational tuning and safeguards</h2>
+</div>
+</div>
+<div class="text parbase aem-GridColumn aem-GridColumn--default--12">
+<p>To prevent compaction from competing with user traffic, we rate-limit the pipeline and keep traffic local to each cell rather than sending it across data centers. Together, L1, L2, and L3 form a layered strategy: L1 maintains steady state, L2 consolidates moderately under-filled volumes, and L3 drains the sparsest tail, thereby reclaiming space quickly without destabilizing the fleet.</p>
+<p>Rolling out L2 and L3 wasn’t just about improving packing efficiency. We also had to ensure the system could absorb the additional work without creating new bottlenecks. Compaction touches storage, compute, metadata systems, and network bandwidth, so increasing its aggressiveness requires careful controls.</p>
+<p>One of the most sensitive levers is the host eligibility threshold, which determines when a volume qualifies for compaction. If the threshold is too high, too few volumes are eligible and overhead rises. If it’s too low, we spend compute and I/O reclaiming very little space. We replaced static tuning with a dynamic control loop that adjusts the threshold based on fleet signals. When overhead rises, the system raises the threshold to prioritize higher-yield compactions. When overhead stabilizes, it lowers the threshold to stay responsive to deletes without over-compacting.</p>
+<p>Candidate ordering is another important tuning lever. Choosing which volumes to compact first can speed up space reclamation, but it can also increase metadata work because more blobs may need to be rewritten. We tailor the ordering to each strategy. L1 stays conservative and limits how many donor volumes it touches to keep placement risk and metadata load low. L2 benefits from more aggressive grouping because denser packings reclaim more space per compaction run. L3 focuses on the sparsest volumes first, since draining them typically requires rewriting relatively little data per volume.</p>
+<p>The final step was enabling L1, L2, and L3 to run concurrently without interfering with one another. Each strategy targets a different part of the volume distribution: L1 maintains steady state among highly filled volumes, L2 targets moderately under-filled volumes into dense destinations, and L3 drains the sparsest volumes. We enforce clear eligibility boundaries between strategies and rate-limit each path to protect downstream services. We also constrain traffic locality so compaction remains within a cell and avoids stressing cross-cluster bandwidth.</p>
+<p>Together, these safeguards allow the system to adapt to workload shifts while keeping metadata pressure, network traffic, and compute utilization within safe limits.</p>
+
+</div>
+<div class="section aem-GridColumn aem-GridColumn--default--12">
+<div class="dr-article-content__section" id="what-we-learned">
+    <h2 class="dr-article-content__section-title">What we learned</h2>
+</div>
+</div>
+<div class="text parbase aem-GridColumn aem-GridColumn--default--12">
+<p>This project reinforced that compaction can’t rely on a single heuristic. L1 worked well in steady state because most volumes were already close to full, and only a small number were partially filled at any given time. When that distribution shifted and a large group of very sparsely filled volumes accumulated, L1 couldn’t recover overhead quickly enough. Splitting the problem across multiple strategies gave us coverage across the full range of volume fill levels: L1 maintains steady state for mostly full volumes, L2 consolidates moderately under-filled volumes, and L3 focuses on the sparsest volumes.</p>
+<p>We also learned that manual tuning doesn’t scale. The host eligibility threshold is too sensitive to manage by hand, especially at exabyte scale. Moving to a dynamic control loop tied to fleet signals made overhead more stable and reduced the need for constant intervention. Candidate ordering and rate limits must also be tuned with awareness of downstream systems, particularly metadata services.</p>
+<p>Operationally, metadata capacity turned out to be one of our biggest constraints. Not every compaction move has the same metadata cost. In L1 and L2, many blobs can stay under the same volume identity, so only donor blobs need location rewrites. In L3, blobs are written into brand-new volumes, so most blobs need new location entries. So it wasn’t enough to pack volumes efficiently; we also had to control how much rewriting we triggered. By limiting how much work L2 does in a single run, routing the sparsest volumes through L3, and keeping traffic local to each cell, we were able to reclaim space without overwhelming our metadata, storage, or network systems.</p>
+<p>Finally, this work showed us that we needed better visibility into how compaction was performing. We added metrics to track how much data Live Coder is producing, how full volumes are across the fleet, and how storage overhead changes week over week. We also put monitoring in place to warn us early if compaction starts to fall behind. The goal is to catch shifts in how data is distributed before overhead rises too far so that we can respond proactively instead of scrambling to recover later.</p>
+<p>Storage overhead directly determines how much raw capacity we need in order to store the same amount of live user data. Even small changes in overhead materially affect hardware purchases and fleet growth. By turning compaction into a layered, adaptive pipeline and strengthening our monitoring and controls, we made Magic Pocket more resilient to workload changes and better positioned to keep storage growth predictable over time.</p>
+<p><i>Acknowledgments: Tommy Dean (contributions to L2 strategy) and Lisa Kosiachenko (contributions on automation)</i></p>
+<p style="text-align: center;">~ ~ ~</p>
+<p><i>If building innovative products, experiences, and infrastructure excites you, come build the future with us! Visit </i><a href="https://jobs.dropbox.com/" target="_blank"><i>jobs.dropbox.com</i></a><i> to see our open roles.</i></p>
+
+</div>
+
+    
+</div>
+
+        </div>
+        <hr class="dr-typography-t5 dr-margin-top-50 dr-article-content__divider"/>
+        <div class="dr-typography-t5">
+          
+        </div>
+        
+        <div class="dr-typography-t5 dr-margin-top-20">
+            // Tags <br/>
+            <ul class="dr-unstyled-list dr-margin-top-10 dr-typography-t4">
+                <li class="dr-container--infrastructure dr-display-inline-block dr-margin-right-10  dr-margin-bottom-10">
+                    <a class="dr-link dr-pill dr-pill--primary dr-link--no-underline" href="https://dropbox.tech/infrastructure">
+                        Infrastructure
+                    </a>
+                </li>
+                
+                    <li class="dr-display-inline-block dr-margin-right-10"><a class="dr-link dr-pill dr-link--no-underline" href="https://dropbox.tech/tag-results.magic-pocket">Magic Pocket</a></li>
+                
+                    <li class="dr-display-inline-block dr-margin-right-10"><a class="dr-link dr-pill dr-link--no-underline" href="https://dropbox.tech/tag-results.storage">storage</a></li>
+                
+                    
+                
+            </ul>
+        </div>
+        
+        <div class="dr-article-content__knotch">
+            <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+                <div class="plain-html c17-plain-html aem-GridColumn aem-GridColumn--default--12">
+                  <div class="knotch_placeholder"></div>
+                </div>
+            </div>
+        </div>
+        <div class="dr-typography-t5 dr-margin-top-20 dr-hide-from-md">
+            // Copy link <br/>
+            <div class="dr-article-content__social-links-tooltip dr-display-none">Link copied</div>
+            <button class="dr-button dr-button--link dr-link dr-link--no-underline dr-article-content__copy-link" data-dr-tooltip="Copy link">
+                <img alt="Copy link" class="dr-display-block dr-invert-on-theme-dark" src="/cms/etc.clientlibs/settings/wcm/designs/dropbox-tech-blog/clientlib-article-content/resources/copy.svg"/>
+            </button>
+        </div>
+        <div class="dr-article-content__social-links">
+            <ul class="dr-article-content__social-links-list dr-unstyled-list">
+                <li class="dr-margin-bottom-20">
+                    <div class="dr-article-content__social-links-tooltip dr-typography-t5 dr-display-none">Link copied</div>
+                    <button class="dr-button dr-display-block dr-link dr-link--no-underline dr-article-content__copy-link dr-button--link" data-dr-tooltip="Copy link" data-dr-tooltip-position="cl" data-dr-tooltip-theme="bw">
+                        <img alt="Copy link" class="dr-display-block dr-invert-on-theme-dark" src="/cms/etc.clientlibs/settings/wcm/designs/dropbox-tech-blog/clientlib-article-content/resources/copy.svg"/>
+                    </button>
+                </li>
+                <li class="dr-margin-bottom-20">
+                    <a class="dr-link dr-display-block dr-link--no-underline dr-article-content__share-link dr-article-content__twitter-link" data-dr-tooltip="Share on Twitter" data-dr-tooltip-position="cl" data-dr-tooltip-theme="bw" href="https://twitter.com/intent/tweet/?text=Improving%20storage%20efficiency%20in%20Magic%20Pocket%2C%20our%20immutable%20blob%20store&amp;url=https://dropbox.tech/infrastructure/improving-storage-efficiency-in-magic-pocket-our-immutable-blob-store" target="_blank">
+                        <img alt="Share on Twitter" class="dr-display-block dr-invert-on-theme-dark" src="/cms/etc.clientlibs/settings/wcm/designs/dropbox-tech-blog/clientlib-article-content/resources/twitter.svg"/>
+                    </a>
+                </li>
+                <li class="dr-margin-bottom-20">
+                    <a class="dr-link dr-display-block dr-link--no-underline dr-article-content__share-link dr-article-content__facebook-link" data-dr-tooltip="Share on Facebook" data-dr-tooltip-position="cl" data-dr-tooltip-theme="bw" href="https://facebook.com/sharer/sharer.php?u=https://dropbox.tech/infrastructure/improving-storage-efficiency-in-magic-pocket-our-immutable-blob-store" target="_blank">
+                        <img alt="Share on Facebook" class="dr-display-block dr-invert-on-theme-dark" src="/cms/etc.clientlibs/settings/wcm/designs/dropbox-tech-blog/clientlib-article-content/resources/facebook.svg"/>
+                    </a>
+                </li>
+                <li>
+                    <a class="dr-link dr-display-block dr-link--no-underline dr-article-content__share-link dr-article-content__linkedin-link" data-dr-tooltip="Share on Linkedin" data-dr-tooltip-position="cl" data-dr-tooltip-theme="bw" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://dropbox.tech/infrastructure/improving-storage-efficiency-in-magic-pocket-our-immutable-blob-store&amp;title=Improving%20storage%20efficiency%20in%20Magic%20Pocket%2C%20our%20immutable%20blob%20store&amp;source=https://dropbox.tech/infrastructure/improving-storage-efficiency-in-magic-pocket-our-immutable-blob-store" target="_blank">
+                        <img alt="Share on Linkedin" class="dr-display-block dr-invert-on-theme-dark" src="/cms/etc.clientlibs/settings/wcm/designs/dropbox-tech-blog/clientlib-article-content/resources/linkedin.svg"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+
+
+        <footer class="dr-footer">
+<div class="dr-container--surface">
+  <section class="dr-container__content dr-footer__container">
+   <!--CMS-9789 Remove Mailchimp email signup from dropbox.tech (commenting out for now)
+     <sly data-sly-resource="newsletterSubscribe" /> 
+     -->
+    <div class="dr-grid dr-grid--md-2">
+      <div>
+        <a href="https://dropbox.com" target="_blank" class="dr-margin-bottom-20 dr-display-block">
+          <img alt="Dropbox" height="40" src="/cms/etc.clientlibs/settings/wcm/designs/dropbox-tech-blog/clientlib-all/resources/logo_dropbox.svg" width="164"/>
+        </a>
+      </div>
+      
+      <ul class="dr-footer-links dr-unstyled-list dr-typography-t10 dr-grid dr-grid--2 dr-grid--column-gap-15">
+        <li>
+          <a class="dr-link dr-link--no-underline " href="https://www.dropbox.com/about" target="_self">
+            About us
+          </a>
+        </li>
+      
+        <li>
+          <a class="dr-link dr-link--no-underline " href="https://twitter.com/Dropbox" target="_blank">
+            X
+          </a>
+        </li>
+      
+        <li>
+          <a class="dr-link dr-link--no-underline " href="https://dash.dropbox.com/" target="_self">
+            Dropbox Dash
+          </a>
+        </li>
+      
+        <li>
+          <a class="dr-link dr-link--no-underline " href="https://www.linkedin.com/company/dropbox" target="_blank">
+            LinkedIn
+          </a>
+        </li>
+      
+        <li>
+          <a class="dr-link dr-link--no-underline " href="https://www.dropbox.com/jobs" target="_blank">
+            Jobs
+          </a>
+        </li>
+      
+        <li>
+          <a class="dr-link dr-link--no-underline " href="https://www.instagram.com/dropbox" target="_blank">
+            Instagram
+          </a>
+        </li>
+      
+        <li>
+          <a class="dr-link dr-link--no-underline " href="https://www.dropbox.com/terms" target="_blank">
+            Privacy and terms
+          </a>
+        </li>
+      
+        <li>
+          <a class="dr-link dr-link--no-underline " href="https://dropbox.tech/feed" target="_blank">
+            RSS feed
+          </a>
+        </li>
+      
+        <li>
+          <a class="dr-link dr-link--no-underline " href="https://www.dropbox.com/ai-principles" target="_self">
+            AI principles
+          </a>
+        </li>
+      
+        <li>
+          <a class="dr-link dr-link--no-underline " href="https://dropbox.tech/culture/our-updated-engineering-career-framework" target="_blank">
+            Engineering Career Framework
+          </a>
+        </li>
+      
+        <li>
+          <a class="dr-link dr-link--no-underline evidon-notice-link" href="https://dropbox.tech/#manage-cookies" target="_self">
+            Cookies and CCPA preferences
+          </a>
+        </li>
+      
+        <li>
+          <a class="dr-link dr-link--no-underline " href="https://blog.dropbox.com/" target="_blank">
+            Blog
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
+</footer>
+        
+
+        
+
+
+
+<!-- /*CMS-2358, include Coveo scripts*/ -->
+<script class="coveo-script" src="https://static.cloud.coveo.com/searchui/v2.10124/2/js/CoveoJsSearch.Lazy.min.js" integrity="sha512-TZ/h9PEDIZgO9TOpoJHlGGlz52ZqBl/B3wLmbpJ+q8Z6fIAUAkAOGPfx6Oy2camtVy6zLdVBA6H/2c8aUT40Qg==" crossorigin="anonymous"></script>
+<script src="https://static.cloud.coveo.com/searchui/v2.10124/2/js/templates/templates.js" integrity="sha512-CR0Yk/LIwgh1MsKqjecDp/r6F9ipKc6gA+4+E1pplT3N3r1pk+la/HaqyDiKtjOFwrwIIbIYBFrUJgPql93QHw==" crossorigin="anonymous"></script>
+
+    <script src="https://static.cloud.coveo.com/searchui/v2.10124/2/js/cultures/en.js" integrity="sha512-WwPseicWtWAxrdno8NVAcKvVezXUCAxIklKyGEptRepHDvt+hZ3UzJeUiUN0C1hc49SiHFoGj18pdyy4pR9NNA==" crossorigin="anonymous"></script>
+
+
+
+    
+<script src="/cms/etc.clientlibs/settings/wcm/designs/dropbox-common/clientlib-jquery.618538b4ab9639d444e962729a927f15.js"></script>
+<script src="/cms/etc.clientlibs/settings/wcm/designs/dropbox-common/clientlib-cms-common.68a837164e0eb431209ced45efb1615e.js"></script>
+<script src="/cms/etc.clientlibs/settings/wcm/designs/dropbox-tech-blog/clientlib-all.8227f364d7c883652f21f593dbc437a3.js"></script>
+
+
+
+
+
+    
+<script src="/cms/etc.clientlibs/settings/wcm/designs/dropbox-tech-blog/clientlib-article-content.698e752d4084220b3a6facc1645490f8.js"></script>
+
+
+
+
+
+ 
+<script>
+    window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
+    window.utag_cfg_ovrd.noview = true;
+    window.utag_data = window.utag_data || {};
+    window.utag_data.evidon_enabled = true;
+    if(window.utag_data.consent_categories == undefined){
+        window.utag_data.consent_categories = "";
+    }
+</script>
+<script src="https://www.dropbox.com/pithos/privacy_consent,top_frame_marketing_tracker,ux_analytics" async="true"></script>
+<script src="https://www.dropbox.com/pithos/zoom_chat_client" async=""></script>
+
+
+
+        
+        <script type="application/javascript">document.body.classList.remove('stormcrow-animate');</script>
+        <noscript><style>body.stormcrow-animate{opacity:1;}</style></noscript>
+
+          <!--/* CMS-3302 Automated Schema Markup for Components, Structure data changes-->
+       
+
+                 
+       
+    </body>
+    </html>

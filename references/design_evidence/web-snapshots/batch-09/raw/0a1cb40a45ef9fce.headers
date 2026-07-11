@@ -1,0 +1,16 @@
+HTTP/2 200 
+server: nginx
+date: Sat, 11 Jul 2026 07:57:28 GMT
+content-type: text/html; charset=UTF-8
+vary: Accept-Encoding
+accept-ranges: bytes
+age: 0
+vary: Accept-Encoding
+via: 1.1 ovh-waw-korg-lore-alma10-1 (Varnish/7.6)
+x-varnish: 9610257
+x-frame-options: DENY
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+strict-transport-security: max-age=15768001
+content-security-policy: default-src 'self'; font-src 'self' data:; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src https:
+

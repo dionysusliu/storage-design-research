@@ -1,0 +1,25 @@
+HTTP/2 200 
+date: Sat, 11 Jul 2026 07:57:24 GMT
+content-type: text/html; charset=UTF-8
+cache-control: public, max-age=60, s-maxage=43200, stale-while-revalidate=86400, stale-if-error=604800
+set-cookie: __cf_bm=15uICmo8ipzVA4Qd7RumILzHfoeyj9iNZootk4ID.xI-1783756644.0501368-1.0.1.1-QkP6k6UvlRdDb4gruJvOgwoVITfW.HTHkMFJbAAW2wm9bNaZU3cQLhYaui8fR6C7CvBrL4PItWCZpbTYTMBAfXSiBcogSFRtiGhAKpYqgKfTLSLV62pOUEsoaBZxVySm; HttpOnly; SameSite=None; Secure; Path=/; Domain=events.linuxfoundation.org; Expires=Sat, 11 Jul 2026 08:27:24 GMT
+content-security-policy: frame-ancestors 'self';
+server: cloudflare
+strict-transport-security: max-age=31622400; includeSubDomains; preload
+x-frame-options: SAMEORIGIN
+x-pantheon-styx-hostname: styx-us-a-7ffbcf568d-tm9fw
+x-styx-req-id: 0598ed06-7cc3-11f1-9b45-2a3872049f87
+age: 25395
+via: 1.1 varnish, 1.1 varnish, 1.1 varnish, 1.1 varnish
+x-served-by: cache-chi-kmdw8640091-CHI, cache-lax-kwhp1940121-LAX, cache-lax-kwhp1940136-LAX, cache-lax-kwhp1940136-LAX
+x-cache: HIT, HIT, MISS, MISS
+x-cache-hits: 1, 0, 0, 0
+x-timer: S1783756644.064392,VS0,VE10
+vary: Accept-Encoding, Cookie, Cookie
+cf-cache-status: DYNAMIC
+link: <https://events.linuxfoundation.org/wp-json/>; rel="https://api.w.org/"
+link: <https://events.linuxfoundation.org/wp-json/wp/v2/pages/275551>; rel="alternate"; title="JSON"; type="application/json"
+link: <https://events.linuxfoundation.org/?p=275551>; rel=shortlink
+cf-ray: a19641d14ed83105-LAX
+alt-svc: h3=":443"; ma=86400
+

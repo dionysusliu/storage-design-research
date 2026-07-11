@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9"  lang="en" dir="ltr" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"  lang="en" dir="ltr" prefix="og: http://ogp.me/ns#"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+<link rel="shortcut icon" href="https://www.usenix.org/themes/motherboard/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="SREcon is a gathering of engineers who care deeply about site reliability, systems engineering, and working with complex distributed systems at scale. SREcon strives to challenge both those new to the profession as well as those who have been involved in it for decades. The conference has a culture of critical thought, deep technical insights, continuous improvement, and innovation." name="description" />
+<meta content="general" name="rating" />
+<meta content="Drupal 7 (http://drupal.org)" name="generator" />
+<link rel="canonical" href="https://www.usenix.org/conference/srecon26emea" />
+<link rel="shortlink" href="https://www.usenix.org/node/295899" />
+<meta content="USENIX" property="og:site_name" />
+<meta content="website" property="og:type" />
+<meta content="SREcon26 Europe/Middle East/Africa" property="og:title" />
+<meta content="https://www.usenix.org/conference/srecon26emea" property="og:url" />
+<meta content="SREcon is a gathering of engineers who care deeply about site reliability, systems engineering, and working with complex distributed systems at scale. SREcon strives to challenge both those new to the profession as well as those who have been involved in it for decades. The conference has a culture of critical thought, deep technical insights, continuous improvement, and innovation." property="og:description" />
+<meta content="2026-07-02T11:38:54-07:00" property="og:updated_time" />
+<meta content="https://www.usenix.org/sites/default/files/srecon26emea_social_1200x630.png" property="og:image" />
+<meta content="https://www.usenix.org/sites/default/files/srecon26emea_social_1200x630.png" property="og:image:url" />
+<meta content="https://www.usenix.org/sites/default/files/srecon26emea_social_1200x630.png" property="og:image:secure_url" />
+<meta content="image/png" property="og:image:type" />
+<meta content="2024-02-14T14:03:50-08:00" property="article:published_time" />
+<meta content="2026-07-02T11:38:54-07:00" property="article:modified_time" />
+    <title>SREcon26 Europe/Middle East/Africa | USENIX</title>
+    <link rel="stylesheet" href="https://www.usenix.org/sites/default/files/css/css_nCq0Tqg9eqZPa5fXfe0k9wAX8jnxbXlZ75LfGb5rq7A.css" media="all" />
+<link rel="stylesheet" href="https://www.usenix.org/sites/default/files/css/css_2i5hNf7GrbmdIRSKLAmKbqqhLsXPdxtef5MzSaLSGkY.css" media="all" />
+<style media="all">#backtotop{bottom:20px;right:20px;}
+</style>
+<link rel="stylesheet" href="https://www.usenix.org/sites/default/files/css/css_pdr2_iAAAHECN1oVgo33mGtgEkTN-Qs5Q2S9MYMZQCQ.css" media="all" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="all" />
+<link rel="stylesheet" href="https://www.usenix.org/sites/default/files/css/css_JILHL6Wb10sizars6LLOOYwch4plY1vMzJw7dixd2OE.css" media="all" />
+<link rel="stylesheet" href="https://www.usenix.org/sites/default/files/css/css_qFgpkJD9LCbzFq1MQrtO4IkZu4u0bPvQ41XA-NJVJPM.css" media="all and (min-width: 60em)" />
+<link rel="stylesheet" href="https://www.usenix.org/sites/default/files/css/css_wzx2lWqmWLMrXRsTdlZprjZhheNa_RSBwK7is7IxX5g.css" media="all" />
+    <script>window.Backdrop = {settings: {"basePath":"\/","pathPrefix":"","drupalCompatibility":true,"ajaxPageState":{"theme":"neat_conference","theme_token":"_JJkJ907S2U6kcsyaIqAiXgaqiZz3wkM5k-p3Ukof6k","css":{"core\/misc\/normalize.css":1,"core\/modules\/system\/css\/system.css":1,"core\/modules\/system\/css\/system.theme.css":1,"core\/modules\/system\/css\/messages.theme.css":1,"modules\/contrib\/back_to_top\/css\/back_to_top.css":1,"modules\/custom\/adamm\/css\/base.css":1,"modules\/custom\/adamm\/css\/dropdown.css":1,"core\/modules\/comment\/css\/comment.css":1,"core\/modules\/date\/css\/date.css":1,"core\/modules\/field\/css\/field.css":1,"modules\/contrib\/og\/css\/og.css":1,"modules\/contrib\/paragraphs\/css\/paragraphs.css":1,"core\/modules\/search\/search.theme.css":1,"modules\/contrib\/special_menu_items\/css\/special_menu_items.css":1,"modules\/custom\/usenix_conference\/css\/timezone-picker.css":1,"modules\/custom\/usenix_logo_preview\/css\/usenix_logo_preview.css":1,"core\/modules\/user\/css\/user.css":1,"modules\/contrib\/workflow\/workflow_admin_ui\/workflow_admin_ui.css":1,"core\/modules\/views\/css\/views.css":1,"modules\/contrib\/rules\/rules.css":1,"0":1,"modules\/contrib\/geshifilter\/geshifilter.css":1,"modules\/custom\/biblio\/biblio.css":1,"layouts\/neat_conference\/neat-conference.css":1,"modules\/contrib\/field_collection\/field_collection.theme.css":1,"https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/font-awesome\/4.4.0\/css\/font-awesome.min.css":1,"modules\/contrib\/tb_megamenu\/css\/bootstrap.css":1,"modules\/contrib\/tb_megamenu\/css\/base.css":1,"modules\/contrib\/tb_megamenu\/css\/default.css":1,"modules\/contrib\/tb_megamenu\/css\/compatibility.css":1,"core\/modules\/system\/css\/menu-dropdown.theme.breakpoint.css":1,"core\/modules\/system\/css\/menu-dropdown.theme.breakpoint-queries.css":1,"themes\/neat_conference\/css\/neat.css":1,"themes\/neat_conference\/css\/schemes\/scheme-atc.css":1,"themes\/neat_conference\/css\/schemes\/scheme-atc_colo.css":1,"themes\/neat_conference\/css\/schemes\/scheme-atc_colo_dark.css":1,"themes\/neat_conference\/css\/schemes\/scheme-enigma.css":1,"themes\/neat_conference\/css\/schemes\/scheme-enigma_temp.css":1,"themes\/neat_conference\/css\/schemes\/scheme-fast.css":1,"themes\/neat_conference\/css\/schemes\/scheme-lisa_lean.css":1,"themes\/neat_conference\/css\/schemes\/scheme-lisa.css":1,"themes\/neat_conference\/css\/schemes\/scheme-lisa_blue.css":1,"themes\/neat_conference\/css\/schemes\/scheme-lisa_red.css":1,"themes\/neat_conference\/css\/schemes\/scheme-lisa_green.css":1,"themes\/neat_conference\/css\/schemes\/scheme-nsdi.css":1,"themes\/neat_conference\/css\/schemes\/scheme-osdi.css":1,"themes\/neat_conference\/css\/schemes\/scheme-security.css":1,"themes\/neat_conference\/css\/schemes\/scheme-security_colo.css":1,"themes\/neat_conference\/css\/schemes\/scheme-soups.css":1,"themes\/neat_conference\/css\/schemes\/scheme-srecon.css":1,"themes\/neat_conference\/css\/schemes\/scheme-pepr_woot.css":1,"themes\/neat_conference\/fonts\/fontawesome\/css\/all.min.css":1,"themes\/neat_conference\/system.theme.css":1},"js":{"public:\/\/google_tag\/google_tag.script.js":1,"modules\/contrib\/jquery_update\/replace\/jquery\/1.12\/jquery.min.js":1,"core\/misc\/jquery.once.js":1,"core\/misc\/backdrop.js":1,"modules\/contrib\/behavior_weights\/js\/behavior_weights.js":1,"modules\/contrib\/jquery_update\/js\/jquery_browser.js":1,"modules\/contrib\/beautytips\/js\/jquery.bt.min.js":1,"modules\/contrib\/beautytips\/js\/beautytips.js":1,"modules\/contrib\/back_to_top\/js\/back_to_top.js":1,"modules\/custom\/adamm\/js\/accessible-menu\/dist\/disclosure-menu.iife.js":1,"modules\/custom\/adamm\/js\/contentexpander\/contentExpander.js":1,"modules\/custom\/adamm\/js\/adamm.js":1,"modules\/contrib\/views_slideshow\/js\/views_slideshow.js":1,"modules\/contrib\/views_slideshow\/contrib\/views_slideshow_cycle\/js\/formoptions.js":1,"modules\/contrib\/views_slideshow\/contrib\/views_slideshow_cycle\/js\/views_slideshow_cycle.js":1,"modules\/contrib\/field_group\/js\/field_group.js":1,"modules\/contrib\/field_group\/js\/field_groups.js":1,"modules\/contrib\/tb_megamenu\/js\/tb-megamenu-frontend.js":1,"modules\/contrib\/tb_megamenu\/js\/tb-megamenu-touch.js":1,"core\/modules\/system\/js\/menus.js":1,"themes\/neat_conference\/js\/bibtex.js":1,"themes\/neat_conference\/js\/mobile.js":1,"themes\/neat_conference\/js\/jquery.slicknav.min.js":1,"themes\/neat_conference\/js\/tech-schedule.js":1,"themes\/neat_conference\/js\/training-program.js":1,"themes\/neat_conference\/js\/organizers.js":1,"themes\/neat_conference\/js\/protected-files.js":1}},"back_to_top":{"distance":"100","text":"Back to top","title":1,"type":"image","disable_mobile":0},"beautytipStyles":{"default":[],"plain":[],"netflix":{"positions":["right","left"],"fill":"#FFF","padding":5,"shadow":true,"shadowBlur":12,"strokeStyle":"#B9090B","spikeLength":50,"spikeGirth":20,"cornerRadius":10,"centerPointY":0.1,"overlap":-8,"cssStyles":{"fontSize":"12px","fontFamily":"arial,helvetica,sans-serif"}},"facebook":{"fill":"#F7F7F7","padding":8,"strokeStyle":"#B7B7B7","cornerRadius":0,"cssStyles":{"fontFamily":"\u0022lucida grande\u0022,tahoma,verdana,arial,sans-serif","fontSize":"11px"}},"transparent":{"fill":"rgba(0, 0, 0, .8)","padding":20,"strokeStyle":"#CC0","strokeWidth":3,"spikeLength":40,"spikeGirth":40,"cornerRadius":40,"cssStyles":{"color":"#FFF","fontWeight":"bold"}},"big-green":{"fill":"#00FF4E","padding":20,"strokeWidth":0,"spikeLength":40,"spikeGirth":40,"cornerRadius":15,"cssStyles":{"fontFamily":"\u0022lucida grande\u0022,tahoma,verdana,arial,sans-serif","fontSize":"14px"}},"google-maps":{"positions":["top","bottom"],"fill":"#FFF","padding":15,"strokeStyle":"#ABABAB","strokeWidth":1,"spikeLength":65,"spikeGirth":40,"cornerRadius":25,"centerPointX":0.9,"cssStyles":{"fontSize":"12px","fontFamily":"arial,helvetica,sans-serif"}},"hulu":{"fill":"#F4F4F4","strokeStyle":"#666666","spikeLength":20,"spikeGirth":10,"width":350,"overlap":0,"centerPointY":1,"cornerRadius":0,"cssStyles":{"fontFamily":"\u0022Lucida Grande\u0022,Helvetica,Arial,Verdana,sans-serif","fontSize":"12px","padding":"10px 14px"},"shadow":true,"shadowColor":"rgba(0,0,0,.5)","shadowBlur":8,"shadowOffsetX":4,"shadowOffsetY":4}},"beautytips":{".beautytips":{"cssSelect":".beautytips","style":null}}}};</script>
+<script defer="defer" src="https://www.usenix.org/sites/default/files/google_tag/google_tag.script.js?ti00s1"></script>
+<script src="https://www.usenix.org/sites/default/files/js/js_bZlYCeUOgUn_Zy3vTWwKIeA3h8k-K96O5_iBg4r0XoU.js"></script>
+<script src="https://www.usenix.org/sites/default/files/js/js_nMqxMI6GSYBj21S6Dfarn5Pj4k7mEy4GyxtpkWgmSvM.js"></script>
+<script src="https://www.usenix.org/sites/default/files/js/js_Hlb3Ws6cGMVcY0OsEf_ANFK6ZxjxYMG37Nel5e0OEqc.js"></script>
+<script src="https://www.usenix.org/sites/default/files/js/js_HEgDHKp5JeFtsh9qk7dCzUE2DaAX2jXGFkroQHw60f8.js"></script>
+<script src="https://www.usenix.org/sites/default/files/js/js_c5N3h8HQSfLml0L3WIQRkyU8h42n0j1FsAMCz_THR04.js"></script>
+
+  </head>
+  <body class="page node-type-conference scheme-srecon user-is-non-member">
+    <div class="layout--neat_conference" id="page-wrapper"><div id="page">
+<div role="document" class="page">
+  <header id="site-header" class="site-header">
+    <div class="usenix-login-bar">
+        <section class="block block-usenix-login-bar-usenix-login-bar-block usenix-login-bar-block block-usenix-login-bar">
+
+  
+  <a href="/" id="site-logo" class="site-logo back-to-usenix">Back to USENIX</a><div class="item-list"><ul id="usenix-login-bar-links" class="usenix-login-bar-links"><li class="login odd first"><a href="/user/login?destination=conference/srecon26emea">Sign In</a></li><li class="conference even last"><a href="/conferences">Conferences</a></li></ul></div>
+</section>    </div>
+    <div class="usenix-announcement-banner-region">
+          </div>
+    <div class="outer-wrapper">
+      <div class="header-col2-wrapper">
+          <section class="block block-usenix-event-registration-register">
+
+  
+  <a href="/conference/295899/registration/form" class="register-button">Register Now</a>
+</section>      </div>
+      <div class="header-col1-wrapper">
+          <section class="block block-usenix-og-auto-menu-usenix-og-auto-header-menu-logo">
+
+  
+  <a href="/conference/srecon26emea" class="header-menu-logo-link active" aria-current="page"><img class="header-menu-logo" src="https://www.usenix.org/sites/default/files/styles/neat_conference_menu_logo/public/srecon_emea_wordmark_1000.png" width="118" height="42" alt="" /></a>
+</section>  <section class="block block-usenix-og-auto-menu-usenix-og-auto-header-menu">
+
+  
+  <div  class="tb-megamenu tb-megamenu-menu-og-295899" role="navigation" aria-label="Main navigation">
+      <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar tb-megamenu-button" type="button">
+      <i class="fa fa-reorder"></i>
+    </button>
+    <div class="nav-collapse  always-show">
+    <ul  class="tb-megamenu-nav nav level-0 items-4">
+    <li  data-id="48635" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-1 mega dropdown">
+          <a href="/conference/srecon26emea#registration"  class="dropdown-toggle">
+                Attend                      </a>
+        <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="4" data-hidewcol="0" id="tb-megamenu-column-1" class="tb-megamenu-column span4  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-2">
+    <li  data-id="48804" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/srecon26emea/registration-information" >
+                Registration Information                      </a>
+          </li>
+
+  <li  data-id="48805" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/srecon26emea/registration-discounts" >
+                Registration Discounts                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+
+<div  data-class="" data-width="4" data-hidewcol="" id="tb-megamenu-column-2" class="tb-megamenu-column span4  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-1">
+    <li  data-id="48807" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/srecon26emea/grants" >
+                Grant Opportunities                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+
+<div  data-class="" data-width="4" data-hidewcol="" id="tb-megamenu-column-3" class="tb-megamenu-column span4  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-1">
+    <li  data-id="48806" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/srecon26emea#venue" >
+                Venue                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+  </li>
+
+  <li  data-id="48695" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-1 mega dropdown">
+          <a href="/conference/srecon26emea/call-for-participation"  class="dropdown-toggle">
+                Participate                      </a>
+        <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="6" data-hidewcol="0" id="tb-megamenu-column-4" class="tb-megamenu-column span6  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-1">
+    <li  data-id="48696" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/srecon26emea/call-for-participation" >
+                Call for Participation                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+
+<div  data-class="" data-width="6" data-hidewcol="" id="tb-megamenu-column-5" class="tb-megamenu-column span6  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-1">
+    <li  data-id="48820" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/srecon26emea/instructions-presenters" >
+                Instructions for Presenters                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+  </li>
+
+  <li  data-id="48817" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-1 mega dropdown active active-trail">
+          <a href="/conference/srecon26emea#sponsorship"  class="dropdown-toggle">
+                Sponsors                      </a>
+        <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="" data-hidewcol="0" id="tb-megamenu-column-6" class="tb-megamenu-column span  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-1">
+    <li  data-id="48818" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/srecon26emea/exhibitor-resources" >
+                Exhibitor Resources                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+  </li>
+
+  <li  data-id="48636" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-1 mega dropdown">
+          <a href="/conference/srecon26emea#marquee"  class="dropdown-toggle">
+                About                      </a>
+        <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="6" data-hidewcol="0" id="tb-megamenu-column-7" class="tb-megamenu-column span6  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-2">
+    <li  data-id="48637" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="https://www.usenix.org/conferences/byname/925" >
+                Past Conferences                      </a>
+          </li>
+
+  <li  data-id="48638" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/srecon26emea#organizers" >
+                Conference Organizers                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+
+<div  data-class="" data-width="6" data-hidewcol="" id="tb-megamenu-column-8" class="tb-megamenu-column span6  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-2">
+    <li  data-id="48639" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="https://www.usenix.org/conferences/values-policies" >
+                Conference Policies                      </a>
+          </li>
+
+  <li  data-id="48640" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="https://www.usenix.org/conferences/coc" >
+                Code of Conduct                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+  </li>
+</ul>
+      </div>
+  </div>
+
+</section>      </div>
+    </div>
+  </header>
+  
+  <main role="main">
+
+    <section id="content">
+              <div class="outer-wrapper">
+                      <h1 id="page-title">SREcon26 Europe/Middle East/Africa</h1>
+                  </div>
+      
+      
+      
+      <article id="node-295899" class="node node-conference view-mode-full">
+
+        
+  
+  <div class="content">
+    
+<div class="paragraphs-items paragraphs-items-field-paragraphs paragraphs-items-field-paragraphs-full paragraphs-items-full">
+  <div class="field field-name-field-paragraphs field-type-paragraphs field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="paragraphs-item paragraphs-item-columns paragraphs-item-columns paragraphs-item-full paragraphs-item-9683 column-width-ratio-2-1">
+        <div class="content">
+    <div class="field-collection-container clearfix"><div class="field field-name-field-column field-type-field-collection field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="field-collection-view clearfix view-mode-full"><div class="entity-plus entity-field-collection-item field-collection-item-field-column clearfix">
+  <div class="content">
+    <div class="field field-name-field-column-image field-type-image field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><img src="https://www.usenix.org/sites/default/files/srecon_emea_wordmark_750.png" width="750" height="266" alt="" /></div></div></div><div class="field field-name-field-column-wysiwyg field-type-text-long field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><style><!--
+.paragraphs-item-columns.column-width-ratio-2-1 .field-item:nth-of-type(odd) img { padding-left: 1.9em; }
+.paragraphs-item-view-reference.view-reference-conference-organizers .field { padding-left: 3em!important; padding-right: 3em!important; }-->
+</style>
+
+<p style="text-align: right;">&nbsp;</p>
+<p style="text-align: right;">&nbsp;</p>
+<p><span class="conf-location">DUBLIN,&nbsp;IRELAND</span><br>
+<span class="conf-date">13–15 October, 2026</span></p>
+<!--<p>The Standard Registration deadline is 28 September, 2026</p>-->
+<!--<p>The Early Bird deadline is 24 August, 2026</p>-->
+<p>Grant applications are due 8 September, 2026</p>
+<!--<p>Proposals are due 27 May, 2026</p>-->
+
+<!--<p style="font-size: 18px;"><strong>SOLD OUT!</strong></p>-->
+
+
+<div class="field field-name-field-action-link field-type-link-field field-label-hidden" style="text-align: left; padding-top: 1em;">
+     <a class="conf-location" style="font-family: Rajdhani; font-weight: 800; padding-top: .7em; letter-spacing: 0; margin-right: 195px;" href="https://www.usenix.org/conference/295899/registration/form">REGISTER NOW</a>
+</div>
+</div></div></div>  </div>
+</div>
+</div></div><div class="field-item even"><div class="field-collection-view clearfix view-mode-full field-collection-view-final"><div class="entity-plus entity-field-collection-item field-collection-item-field-column clearfix">
+  <div class="content">
+    <div class="field field-name-field-column-image field-type-image field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><img src="https://www.usenix.org/sites/default/files/srecon_europe_region_graphic_tall.png" width="600" height="800" alt="" /></div></div></div>  </div>
+</div>
+</div></div></div></div></div>  </div>
+</div>
+</div><div class="field-item even"><div class="paragraphs-item paragraphs-item-text-with-background-image paragraphs-item-text-with-background-image paragraphs-item-full paragraphs-item-9684 paragraph-color-scheme-light " style="background-image: url(&#039;https://www.usenix.org/sites/default/files/srecon19europe_marquee_bg.jpg&#039;);">
+        <div class="content">
+    <div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><a name="about" class="anchor"></a>
+<a class="anchor" name="marquee"></a>
+<p><strong>SREcon26 Europe/Middle East/Africa</strong> is a gathering of engineers who care deeply about site reliability, systems engineering, and working with complex distributed systems at scale. SREcon strives to challenge both those new to the profession as well as those who have been involved in it for decades. The conference has a culture of critical thought, deep technical insights, continuous improvement, and innovation.</p>
+
+<!--<p>The Call for Participation will be available in March.</p>-->
+
+
+<!-- Post-Event Text -->
+
+<!--
+<p>Thanks to those of you who joined us for SREcon26 Europe/Middle East/Africa! We hope you enjoyed the event.</p>
+
+<p><strong>SREcon26 Europe/Middle East/Africa</strong> is a gathering of engineers who care deeply about site reliability, systems engineering, and working with complex distributed systems at scale. SREcon strives to challenge both those new to the profession as well as those who have been involved in it for decades. The conference has a culture of critical thought, deep technical insights, continuous improvement, and innovation.</p>
+
+<p>As part of our commitment to open access to research, presentation slides are posted to the <a href="/conference/srecon26emea/program">program&nbsp;page</a>, and the video recordings are posted within a few weeks of the end of the event.</p>
+
+<p><a href="http://s.usenix.org/acton/media/2452/srecon-usenix-conference-signup-form" target="_blank">Sign up</a> to receive email updates.</p>
+-->
+
+<!--Reg Live Text-->
+<p>Registration is <a href="https://www.usenix.org/conference/srecon26emea/registration-information" target="_blank">now open</a>, and the program will be available soon. The Early Bird Registration deadline is <strong>Monday, 24 August, 2026</strong><!--, and the Standard Registration deadline is <strong>Monday, 28&nbsp;September, 2026</strong>-->.</p>
+
+<!--Program and Reg Live Text -->
+<!--<p>View the <a href="/conference/srecon26emea/program" title="SREcon26 Europe/Middle East/Africa Conference Program">full conference program</a> and <a href="#registration">register today</a>.--><!--The Early Bird Registration deadline is <strong>Monday, 24 August, 2026</strong>, and the Standard Registration deadline is <strong>Monday, 21&nbsp;September, 2026</strong>.--></p>
+
+<!--Grant text-->
+<h3>Apply for a Grant</h3>
+<p>Learn more about <a href="https://www.usenix.org/conference/srecon26emea/grants" target="_blank">SREcon26 Europe/Middle East/Africa grant opportunities</a>. The application deadline is <strong>Tuesday, 8 September, 2026</strong>.</p>
+
+<!-- Call for Lightning Talks Text -->
+<!--<p><strong>Interested in participating?</strong> View the <a href="/conference/srecon26emea/call-for-participation#lightning">Call for Participation</a> for information on submitting a lightning talk. Proposals are due <strong>Wednesday, XX September, 2026</strong>.</p>-->
+
+<!--CFP Text-->
+<!--<p><strong>Interested in participating?</strong> View the <a href="/conference/srecon26emea/call-for-participation">Call for Participation</a> and submit your talk proposal by <strong>Wednesday, 27 May, 2026</strong>.</p>
+-->
+</div></div></div>  </div>
+</div>
+</div><div class="field-item odd"><div class="paragraphs-item paragraphs-item-columns paragraphs-item-columns paragraphs-item-full paragraphs-item-9971 ">
+        <div class="content">
+    <div class="field-collection-container clearfix"><div class="field field-name-field-column field-type-field-collection field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="field-collection-view clearfix view-mode-full"><div class="entity-plus entity-field-collection-item field-collection-item-field-column clearfix">
+  <div class="content">
+    <div class="field field-name-field-anchor-id field-type-text field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><a class="anchor"  name="registration"></a></div></div></div><div class="field field-name-field-column-wysiwyg field-type-text-long field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><h2>Registration Information</h2>
+<p><strong>Early Bird Registration Deadline: Monday, 24 August, 2026</strong></p>
+<!--<p><strong>Standard Registration Deadline: Monday, 28 September, 2026</strong></p>-->
+
+<p>See the <a href="https://www.usenix.org/conference/srecon26emea/registration-information" target="_blank">Registration Information page</a> for details, including fees, discount information, and other deadlines.</p>
+
+<h3>Discounts</h3>
+<p>In addition to our <a href="https://www.usenix.org/conference/srecon26emea/registration-discounts" target="_blank">member discounts</a>, USENIX offers <a href="https://www.usenix.org/conference/srecon26emea/registration-discounts#employer" target="_blank">several discounts</a> to help you to attend SREcon26 Europe/Middle East/Africa, including a hardship discount for USENIX members who are unemployed or retired, in between jobs, or lack employer support.</p></div></div></div>  </div>
+</div>
+</div></div><div class="field-item even"><div class="field-collection-view clearfix view-mode-full field-collection-view-final"><div class="entity-plus entity-field-collection-item field-collection-item-field-column clearfix">
+  <div class="content">
+    <div class="field field-name-field-column-wysiwyg field-type-text-long field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><h2>Accessiblity Information</h2>
+<p>USENIX is committed to ensuring that our meetings are fully accessible to all attendees. Visit our <a href="/conferences/accessibility-information">accessibility information page</a> for details on mothers' rooms and how to make a request.</p>
+
+<p>To ensure that we meet your needs, please make your request by <strong>Monday, 21 September, 2026</strong>. We cannot guarantee that we can meet requests received after this date, although we will make every reasonable effort to do so.</p></div></div></div>  </div>
+</div>
+</div></div></div></div></div>  </div>
+</div>
+</div><div class="field-item even"><div class="paragraphs-item paragraphs-item-columns paragraphs-item-columns paragraphs-item-full paragraphs-item-9685 paragraph-color-scheme-dark ">
+        <div class="content">
+    <div class="field-collection-container clearfix"><div class="field field-name-field-column field-type-field-collection field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="field-collection-view clearfix view-mode-full"><div class="entity-plus entity-field-collection-item field-collection-item-field-column clearfix">
+  <div class="content">
+    <div class="field field-name-field-anchor-id field-type-text field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><a class="anchor"  name="venue"></a></div></div></div><div class="field field-name-field-column-wysiwyg field-type-text-long field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><h2>Venue</h2>
+The Convention Centre Dublin<br>
+Spencer Dock<br>
+North Wall Quay<br>
+Dublin 1<br>
+D01 T1W6<br>
+Ireland<br>
++353 1 8560000 </p></div></div></div>  </div>
+</div>
+</div></div><div class="field-item even"><div class="field-collection-view clearfix view-mode-full field-collection-view-final"><div class="entity-plus entity-field-collection-item field-collection-item-field-column clearfix">
+  <div class="content">
+    <div class="field field-name-field-column-image field-type-image field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><img src="https://www.usenix.org/sites/default/files/srecon18emea_venue_600.jpg" width="600" height="600" alt="" /></div></div></div>  </div>
+</div>
+</div></div></div></div></div>  </div>
+</div>
+</div><div class="field-item odd"><div class="paragraphs-item paragraphs-item-columns paragraphs-item-columns paragraphs-item-full paragraphs-item-9686 paragraph-color-scheme-light ">
+        <div class="content">
+    <div class="field-collection-container clearfix"><div class="field field-name-field-column field-type-field-collection field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="field-collection-view clearfix view-mode-full"><div class="entity-plus entity-field-collection-item field-collection-item-field-column clearfix">
+  <div class="content">
+    <div class="field field-name-field-column-wysiwyg field-type-text-long field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><h2>About SREcon26 Europe/Middle East/Africa</h2>
+<p><a href="/policies">Conference Policies</a><br>
+<a href="/conferences/coc">Code of Conduct</a><br>
+<a href="/conferences/byname/925">View Past Conferences</a></p></div></div></div>  </div>
+</div>
+</div></div><div class="field-item even"><div class="field-collection-view clearfix view-mode-full field-collection-view-final"><div class="entity-plus entity-field-collection-item field-collection-item-field-column clearfix">
+  <div class="content">
+    <div class="field field-name-field-anchor-id field-type-text field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><a class="anchor"  name="questions"></a></div></div></div><div class="field field-name-field-column-wysiwyg field-type-text-long field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><h2>Questions?</h2>
+<p>Review our <a href="https://www.usenix.org/conferences/faq">Conference FAQ</a>, and send direct queries via email:</p>
+<p>About <a href="/cdn-cgi/l/email-protection#7d0e0f181e12134f4b1810181c221e151c140f0e3d080e1813140553120f1a420e081f17181e09402c08180e09141213584f4d1c1f120809584f4d2e2f381e12134f4b584f4d38080f120d1852301419191118584f4d381c0e09523c1b0f141e1c">SREcon</a>?<br>
+About the <a href="/cdn-cgi/l/email-protection#35565a5b535047505b5650754046505b5c4d1b5a47520a4640575f5056410864405046415c5a5b10070554575a4041100705666770565a5b07031007057040475a45501a785c51515950100705705446411a7453475c5654">Registration</a>?<br>
+About <a href="/cdn-cgi/l/email-protection#1261627d7c617d60617a7b62526761777c7b6a3c7d60752d616770787771662f43677761667b7d7c37202273707d6766372022414057717d7c20243720225767607d62773d5f7b76767e77372022577361663d5374607b7173">Sponsorship</a>?</p></div></div></div>  </div>
+</div>
+</div></div></div></div></div>  </div>
+</div>
+</div><div class="field-item even"><div class="paragraphs-item paragraphs-item-anchor paragraphs-item-anchor paragraphs-item-full paragraphs-item-9687 ">
+        <div class="content">
+    <div class="field field-name-field-anchor-id field-type-text field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><a class="anchor"  name="organizers"></a></div></div></div>  </div>
+</div>
+</div><div class="field-item odd"><div class="paragraphs-item paragraphs-item-view-reference paragraphs-item-view-reference paragraphs-item-full paragraphs-item-9688 paragraph-color-scheme-dark  view-reference-conference-organizers">
+        <div class="content">
+    <div class="field field-name-field-paragraph-title field-type-text field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><h2>Conference Organizers</h2></div></div></div><div class="field field-name-field-view-reference field-type-viewreference field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="contextual-links-region"><div class="view view-conference-organizers view-id-conference_organizers view-display-id-block_5 lisa-conference-organizers view-dom-id-0ec302fc25ed2e13cdb5884e3a08db55">
+        
+  
+      <div class="attachment attachment-before">
+      <div class="view view-conference-organizers view-id-conference_organizers view-display-id-attachment_1 lisa-co-chairs program-co-chairs">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 odd first">
+      
+  <div class="views-field views-field-field-speakers-photo">        <div class="field-content"><img src="https://www.usenix.org/sites/default/files/styles/speaker_photo/public/dudzinski_stephane_200x230.jpg" width="100" height="115" alt="" /></div>  </div>  
+  <div class="views-field views-field-nothing">        <span class="field-content"><div class="speaker-name">Stephane Dudzinski</div>
+<div class="speaker-institution"></div>
+<div class="conference-role">Program Co-Chair</div></span>  </div>  </div>
+  <div class="views-row views-row-2 even last">
+      
+  <div class="views-field views-field-field-speakers-photo">        <div class="field-content"><img src="https://www.usenix.org/sites/default/files/styles/speaker_photo/public/srecon25emea-rowlands_philip_200x230.jpg" width="100" height="115" alt="" /></div>  </div>  
+  <div class="views-field views-field-nothing">        <span class="field-content"><div class="speaker-name">Philip Rowlands</div>
+<div class="speaker-institution">Jane Street</div>
+<div class="conference-role">Program Co-Chair</div></span>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>    </div>
+  
+      <div class="view-content">
+        <h3 class="grouping-field-heading"><span>Program Committee</span></h3>
+  <div class="views-row views-row-1 odd first">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Robert&nbsp;Barron, IBM</div>  </div>  </div>
+  <div class="views-row views-row-2 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Martin&nbsp;Barry, GMX / WEB.DE / Mail.com</div>  </div>  </div>
+  <div class="views-row views-row-3 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Daria&nbsp;Barteneva, Microsoft Azure</div>  </div>  </div>
+  <div class="views-row views-row-4 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Nati&nbsp;Cohen, AWS</div>  </div>  </div>
+  <div class="views-row views-row-5 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Tiarnán&nbsp;de Burca, Snowflake</div>  </div>  </div>
+  <div class="views-row views-row-6 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Laura&nbsp;de Vesine, Reddit</div>  </div>  </div>
+  <div class="views-row views-row-7 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Andreas&nbsp;Deuschl, Dynatrace</div>  </div>  </div>
+  <div class="views-row views-row-8 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Kelly&nbsp;Dodd, Reddit</div>  </div>  </div>
+  <div class="views-row views-row-9 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Lerna&nbsp;Ekmekcioglu, Clockwork.io</div>  </div>  </div>
+  <div class="views-row views-row-10 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Dan&nbsp;Fainstein, The D. E. Shaw Group</div>  </div>  </div>
+  <div class="views-row views-row-11 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Nick&nbsp;Geoghegan, Airbnb</div>  </div>  </div>
+  <div class="views-row views-row-12 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Heinrich&nbsp;Hartmann, Zalando</div>  </div>  </div>
+  <div class="views-row views-row-13 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Lasse Canth&nbsp;Hels, Maersk</div>  </div>  </div>
+  <div class="views-row views-row-14 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">John&nbsp;Looney, Crusoe</div>  </div>  </div>
+  <div class="views-row views-row-15 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Effie&nbsp;Mouzeli, Wikimedia Foundation</div>  </div>  </div>
+  <div class="views-row views-row-16 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Niall Murphy</div>  </div>  </div>
+  <div class="views-row views-row-17 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Laura&nbsp;Nolan, Reddit</div>  </div>  </div>
+  <div class="views-row views-row-18 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Thiara&nbsp;Ortiz, Netflix</div>  </div>  </div>
+  <div class="views-row views-row-19 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Christine&nbsp;Pukropski, Akamai</div>  </div>  </div>
+  <div class="views-row views-row-20 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Sean&nbsp;Rees, Reddit</div>  </div>  </div>
+  <div class="views-row views-row-21 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Michael&nbsp;Rembetsy, Bloomberg</div>  </div>  </div>
+  <div class="views-row views-row-22 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Stephen&nbsp;Ryan, Google</div>  </div>  </div>
+  <div class="views-row views-row-23 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Chris &nbsp;Sinjakli, PlanetScale</div>  </div>  </div>
+  <div class="views-row views-row-24 even last">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Emil&nbsp;Stolarsky, Increase</div>  </div>  </div>
+  <h3 class="grouping-field-heading"><span>Steering Committee</span></h3>
+  <div class="views-row views-row-1 odd first">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Kurt&nbsp;Andersen, Clari</div>  </div>  </div>
+  <div class="views-row views-row-2 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Daria&nbsp;Barteneva, Microsoft</div>  </div>  </div>
+  <div class="views-row views-row-3 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Liz&nbsp;Fong-Jones, Honeycomb</div>  </div>  </div>
+  <div class="views-row views-row-4 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Casey&nbsp;Henderson-Ross, USENIX Association</div>  </div>  </div>
+  <div class="views-row views-row-5 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">John&nbsp;Looney, Crusoe</div>  </div>  </div>
+  <div class="views-row views-row-6 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Laura&nbsp;Nolan, Reddit</div>  </div>  </div>
+  <div class="views-row views-row-7 odd">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Michael&nbsp;Rembetsy, Bloomberg</div>  </div>  </div>
+  <div class="views-row views-row-8 even">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Emil&nbsp;Stolarsky, Increase</div>  </div>  </div>
+  <div class="views-row views-row-9 odd last">
+      
+  <div class="views-field views-field-field-speakers-institution">        <div class="field-content">Avleen&nbsp;Vig, Twilio</div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div></div></div></div></div>  </div>
+</div>
+</div><div class="field-item even"><div class="paragraphs-item paragraphs-item-columns paragraphs-item-columns paragraphs-item-full paragraphs-item-9689 ">
+        <div class="content">
+    <div class="field-collection-container clearfix"><div class="field field-name-field-column field-type-field-collection field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="field-collection-view clearfix view-mode-full field-collection-view-final"><div class="entity-plus entity-field-collection-item field-collection-item-field-column clearfix">
+  <div class="content">
+    <div class="field field-name-field-anchor-id field-type-text field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><a class="anchor"  name="sponsorship"></a></div></div></div><div class="field field-name-field-column-block field-type-blockreference field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><section class="block block-block-usenix-logo-2025-conference-home-page">
+
+  
+  <div>
+<a name="sponsorship"></a>
+<img style="display: block; margin: 0 auto; max-width: 250px;" src="/sites/default/files/usenix_tagline-rgb.png">
+</div>
+
+</section></div></div></div>  </div>
+</div>
+</div></div></div></div></div>  </div>
+</div>
+</div><div class="field-item odd"><div class="paragraphs-item paragraphs-item-view-reference paragraphs-item-view-reference paragraphs-item-full paragraphs-item-9865  view-reference-neat-conference-sponsors">
+        <div class="content">
+    <div class="field field-name-field-paragraph-title field-type-text field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><h2>Gold Sponsors</h2></div></div></div><div class="field field-name-field-view-reference field-type-viewreference field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="contextual-links-region"><div class="view view-neat-conference-sponsors view-id-neat_conference_sponsors view-display-id-block_3 view-dom-id-286d23a44a7a1cc504268d18d94989f9">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 odd first">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://bronto.io/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_gold/public/sponsor_images/bronto_logo_600x240.png" width="350" height="140" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-2 even">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://www.hudsonrivertrading.com/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_gold/public/sponsor_images/hrt_2026_600x240.png" width="350" height="140" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-3 odd last">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://planetscale.com/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_gold/public/sponsor_images/planetscale_logo_600x240_0.png" width="350" height="140" alt="" /></a></div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div></div></div></div></div>  </div>
+</div>
+</div><div class="field-item even"><div class="paragraphs-item paragraphs-item-view-reference paragraphs-item-view-reference paragraphs-item-full paragraphs-item-9690  view-reference-neat-conference-sponsors">
+        <div class="content">
+    <div class="field field-name-field-paragraph-title field-type-text field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><h2>Silver Sponsors</h2></div></div></div><div class="field field-name-field-view-reference field-type-viewreference field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="contextual-links-region"><div class="view view-neat-conference-sponsors view-id-neat_conference_sponsors view-display-id-block_4 view-dom-id-6e5339b34d1af78fbbbd6bf473e775b1">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 odd first field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://www.bloomberg.com/company/values/tech-at-bloomberg/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/bloomberg_600x240_15.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-2 even field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://www.citadelsecurities.com/careers/engineering/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/citadel_securities_logo_600x240_8.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-3 odd field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://clickhouse.com/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/clickhouse_logo_600x240_2.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-4 even field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://www.datadoghq.com/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/datadog_horizontal_600x240_1.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-5 odd field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://www.dragonflydb.io/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/dragonfly_logo_600x240.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-6 even field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://www.goldmansachs.com/careers/our-firm/engineering" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/goldman_sachs_black_logo_600x240.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-7 odd field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://www.groundcover.com/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/groundcover_wordmark_600x240_0.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-8 even field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://www.janestreet.com/join-jane-street/overview/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/jane_street_stacked_black_600x240_6.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-9 odd field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://www.jumptrading.com/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/jump_trading_logo_600x240_0.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-10 even field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://www.kubermatic.com/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/kubermatic_logo_rgb_600x240.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-11 odd field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://www.manageengine.com/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/manageengine_logo_rgb_600x240.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-12 even field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://www.metacareers.com/culture" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/meta_logo_600x240_40.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-13 odd field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://openobserve.ai/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/openobserve_logo_600x240_0.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-14 even last field_sponsor_level_1">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://uptimelabs.io/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_silver/public/sponsor_images/uptime_labs_600x240_2.png" width="250" height="100" alt="" /></a></div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div></div></div></div></div>  </div>
+</div>
+</div><div class="field-item odd"><div class="paragraphs-item paragraphs-item-view-reference paragraphs-item-view-reference paragraphs-item-full paragraphs-item-9691  view-reference-neat-conference-sponsors">
+        <div class="content">
+    <div class="field field-name-field-paragraph-title field-type-text field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><h2>Bronze Sponsors</h2></div></div></div><div class="field field-name-field-view-reference field-type-viewreference field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="contextual-links-region"><div class="view view-neat-conference-sponsors view-id-neat_conference_sponsors view-display-id-block_5 view-dom-id-32ebded35d091cde462e51c878a48e53">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 odd first">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://embrace.io/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_bronze/public/sponsor_images/embrace_logo_600x240_2.png" width="150" height="60" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-2 even">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://grafana.com/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_bronze/public/sponsor_images/grafana_logo_600x240_4.png" width="150" height="60" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-3 odd">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://sentry.io/welcome/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_bronze/public/sponsor_images/sentry_logo_600x240_2.png" width="150" height="60" alt="" /></a></div>  </div>  </div>
+  <div class="views-row views-row-4 even last">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://www.wildmoose.ai/product" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_bronze/public/sponsor_images/wildmoose_logo_rgb_600x240_1.png" width="150" height="60" alt="" /></a></div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div></div></div></div></div>  </div>
+</div>
+</div><div class="field-item even"><div class="paragraphs-item paragraphs-item-view-reference paragraphs-item-view-reference paragraphs-item-full paragraphs-item-9775  view-reference-neat-conference-sponsors">
+        <div class="content">
+    <div class="field field-name-field-paragraph-title field-type-text field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><h2>Open Access Sponsor</h2></div></div></div><div class="field field-name-field-view-reference field-type-viewreference field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="contextual-links-region"><div class="view view-neat-conference-sponsors view-id-neat_conference_sponsors view-display-id-block_9 view-dom-id-c2942cb73c8ee1756dc0a5fe2054197f">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 odd first last">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://sre.google/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_gold/public/sponsor_images/google_2022_600x240_34.png" width="350" height="140" alt="" /></a></div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div></div></div></div></div>  </div>
+</div>
+</div><div class="field-item odd"><div class="paragraphs-item paragraphs-item-view-reference paragraphs-item-view-reference paragraphs-item-full paragraphs-item-9908  view-reference-neat-conference-sponsors">
+        <div class="content">
+    <div class="field field-name-field-paragraph-title field-type-text field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><h2>Philanthropic Supporter</h2></div></div></div><div class="field field-name-field-view-reference field-type-viewreference field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="contextual-links-region"><div class="view view-neat-conference-sponsors view-id-neat_conference_sponsors view-display-id-block_26 view-dom-id-682e35422733d09c3a13a465690f85c1">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 odd first last">
+      
+  <div class="views-field views-field-field-sponsor-image">        <div class="field-content"><a href="https://craignewmarkphilanthropies.org/" target="_blank"><img src="https://www.usenix.org/sites/default/files/styles/neat_-_gold/public/sponsor_images/craig_newmark_philanthropies_logo_600x240_1_3.png" width="350" height="140" alt="" /></a></div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div></div></div></div></div>  </div>
+</div>
+</div><div class="field-item even"><div class="paragraphs-item paragraphs-item-columns paragraphs-item-columns paragraphs-item-full paragraphs-item-9692 ">
+        <div class="content">
+    <div class="field-collection-container clearfix"><div class="field field-name-field-column field-type-field-collection field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="field-collection-view clearfix view-mode-full field-collection-view-final"><div class="entity-plus entity-field-collection-item field-collection-item-field-column clearfix">
+  <div class="content">
+    <div class="field field-name-field-column-block field-type-blockreference field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><section class="block block-block-135">
+
+  
+  <h2>Become a Sponsor</h2>
+<p>Request the sponsorship prospectus by emailing <a href="/cdn-cgi/l/email-protection#5e2d2e31302d312c2d36372e1e2b2d3b30372670312c39612d2b3c343b3d2a630d2e31302d312c2d36372e7e17302f2b372c27"><span class="__cf_email__" data-cfemail="6112110e0f120e1312090811211412040f08194f0e1306">[email&#160;protected]</span></a> with the conference name in your subject line to learn more.</p> 
+
+<p>The acceptance of any organization as a sponsor does not imply explicit or implicit approval by USENIX of the sponsoring organization’s values or actions. In addition, sponsorship does not provide any control over conference program content. Questions? Email <a href="/cdn-cgi/l/email-protection#96e5e6f9f8e5f9e4e5feffe6d6e3e5f3f8ffeeb8f9e4f1a9e5e3f4fcf3f5e2abc5e6f9f8e5f9e4e5feffe6b6dff8e7e3ffe4ef"><span class="__cf_email__" data-cfemail="5a292a35342935282932332a1a2f293f3433227435283d">[email&#160;protected]</span></a>.</p>
+
+
+
+<!-- Old -->
+<!--
+<p><span style="font-weight: 600; text-transform:uppercase;">Become a Sponsor:</span> Sponsorship exposes your brand to highly qualified attendees, funds our grants program, supports open access to our conference content, and keeps USENIX conferences affordable. USENIX is a 501(c)(3) non-profit organization that relies on sponsor support to fulfill its mission. To learn more, please email the Sponsorship Department at <a href="mailto:sponsorship@usenix.org">sponsorship@usenix.org</a> with the conference name in your subject line.</p>
+
+<p>The acceptance of any organization as a sponsor does not imply explicit or implicit approval by USENIX of the donor organization’s values or actions. In addition, sponsorship does not provide any control over conference program content. Questions? Email the Sponsorship Department at <a href="mailto:sponsorship@usenix.org">sponsorship@usenix.org</a>.
+-->
+
+
+
+</section></div></div></div>  </div>
+</div>
+</div></div></div></div></div>  </div>
+</div>
+</div></div></div></div>
+  </div>
+
+        
+    
+</article>
+    </section>
+
+  </main>
+
+      <footer id="site-footer" role="contentinfo" class="site-footer">
+              <section class="footer-top">
+            <section class="block block-usenix-og-auto-menu-usenix-og-auto-footer-menu">
+
+  
+  <ul class="menu"><li class="first expanded has-children menu-mlid-48635"><a href="/conference/srecon26emea#registration" class="active" aria-current="page">Attend</a><ul><li class="first leaf menu-mlid-48804"><a href="/conference/srecon26emea/registration-information">Registration Information</a></li>
+<li class="leaf menu-mlid-48805"><a href="/conference/srecon26emea/registration-discounts">Registration Discounts</a></li>
+<li class="leaf menu-mlid-48807"><a href="/conference/srecon26emea/grants">Grant Opportunities</a></li>
+<li class="last leaf menu-mlid-48806"><a href="/conference/srecon26emea#venue" class="active" aria-current="page">Venue</a></li>
+</ul></li>
+<li class="expanded has-children menu-mlid-48695"><a href="/conference/srecon26emea/call-for-participation">Participate</a><ul><li class="first leaf menu-mlid-48696"><a href="/conference/srecon26emea/call-for-participation">Call for Participation</a></li>
+<li class="last leaf menu-mlid-48820"><a href="/conference/srecon26emea/instructions-presenters">Instructions for Presenters</a></li>
+</ul></li>
+<li class="expanded has-children menu-mlid-48817"><a href="/conference/srecon26emea#sponsorship" class="active" aria-current="page">Sponsors</a><ul><li class="first last leaf menu-mlid-48818"><a href="/conference/srecon26emea/exhibitor-resources">Exhibitor Resources</a></li>
+</ul></li>
+<li class="last expanded has-children menu-mlid-48636"><a href="/conference/srecon26emea#marquee" class="active" aria-current="page">About</a><ul><li class="first leaf menu-mlid-48637"><a href="https://www.usenix.org/conferences/byname/925">Past Conferences</a></li>
+<li class="leaf menu-mlid-48638"><a href="/conference/srecon26emea#organizers" class="active" aria-current="page">Conference Organizers</a></li>
+<li class="leaf menu-mlid-48639"><a href="https://www.usenix.org/conferences/values-policies">Conference Policies</a></li>
+<li class="last leaf menu-mlid-48640"><a href="https://www.usenix.org/conferences/coc">Code of Conduct</a></li>
+</ul></li>
+</ul>
+</section>        </section>
+                    <section class="footer-bottom">
+            <section class="block block-usenix-conference-og-conference-social-icon">
+
+  
+  <article id="node-295899" class="node node-conference view-mode-social-icon">
+
+  <div class="content">
+      </div>
+
+</article>
+
+</section>  <section class="block block-menu-menu-footer" role="navigation">
+
+  
+  <ul class="menu-tree menu" data-menu-style="tree" data-clickdown="0" data-collapse="default"><li class="first leaf menu-mlid-2774"><a href="/privacy-policy">Privacy Policy</a></li>
+<li class="last leaf menu-mlid-2775"><a href="/contact">Contact Us</a></li>
+</ul>
+</section>  <section class="block block-block-27">
+
+  
+  <div style="padding-top: .25em;">
+	<p style="color: inherit;">&copy; USENIX <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>new Date().getFullYear()>document.write(new Date().getFullYear());</script><br>
+        EIN 13-3055038</p>
+</div>
+</section>        </section>
+          </footer>
+  </div>
+      <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1964514fe2b9091',t:'MTc4Mzc1Njc3Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

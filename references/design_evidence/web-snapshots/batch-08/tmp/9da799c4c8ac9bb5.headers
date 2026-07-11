@@ -1,0 +1,28 @@
+HTTP/2 301 
+age: 49397
+cache-control: public,max-age=0,must-revalidate
+cache-status: "Netlify Edge"; hit
+content-type: text/plain; charset=utf-8
+date: Sat, 11 Jul 2026 08:01:56 GMT
+link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/mcp/server-card.json>; rel="mcp-server", </api/>; rel="service-doc"; title="API Documentation", </llms.txt>; rel="llms-txt"; title="LLM-friendly documentation", </.well-known/agent-skills/index.json>; rel="agent-skills"
+location: /home/
+server: Netlify
+strict-transport-security: max-age=31536000
+vary: Accept-Encoding
+x-nf-request-id: 01KX83520NNS9EGS44N3VR201F
+content-length: 21
+
+HTTP/2 200 
+accept-ranges: bytes
+age: 49397
+cache-control: public,max-age=0,must-revalidate
+cache-status: "Netlify Edge"; hit
+content-type: text/html; charset=UTF-8
+date: Sat, 11 Jul 2026 08:01:56 GMT
+etag: W/"adef0806cb9860c54ad28d9640505906-ssl-df"
+link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/mcp/server-card.json>; rel="mcp-server", </api/>; rel="service-doc"; title="API Documentation", </llms.txt>; rel="llms-txt"; title="LLM-friendly documentation", </.well-known/agent-skills/index.json>; rel="agent-skills"
+server: Netlify
+strict-transport-security: max-age=31536000
+vary: Accept-Encoding
+x-nf-request-id: 01KX83523CRDS3KPJQSSMJEDCZ
+

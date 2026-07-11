@@ -1,0 +1,22 @@
+HTTP/2 200 
+content-type: text/html;charset=utf-8
+server: Apache
+x-dispatcher: dispatcher1uswest1-b80-29470735
+x-vhost: publish
+expires: Sat, 11 Jul 2026 07:57:27 GMT
+cache-control: max-age=0, no-cache
+pragma: no-cache
+date: Sat, 11 Jul 2026 07:57:27 GMT
+set-cookie: AWSALB=ZQ2z39W9knqQeU3yQ9HH1YrfNkq0ZsR9lWSfTcsjQ/ykUGBLcynZJmQ0X4kqNV6yo+uuPTIgop9ShbrRoR2sIxTGqE/cc9M4JBC9CeTP/B5h8AOQoVowzNWFomeV; Expires=Sat, 18 Jul 2026 07:57:27 GMT; Path=/
+set-cookie: AWSALBCORS=ZQ2z39W9knqQeU3yQ9HH1YrfNkq0ZsR9lWSfTcsjQ/ykUGBLcynZJmQ0X4kqNV6yo+uuPTIgop9ShbrRoR2sIxTGqE/cc9M4JBC9CeTP/B5h8AOQoVowzNWFomeV; Expires=Sat, 18 Jul 2026 07:57:27 GMT; Path=/; SameSite=None; Secure
+set-cookie: detected_bandwidth=HIGH; path=/; domain=.intel.com; secure; HttpOnly
+set-cookie: src_countrycode=cn; path=/; domain=.intel.com; secure; HttpOnly
+alt-svc: h3=":443"; ma=93600
+content-security-policy: frame-ancestors 'self' https://premiersupport.intel.com https://c0.avaamo.com *.intel.com; object-src 'self';
+x-grn: 0.246e1002.1783756647.2e4eeaf
+x-frame-options: SAMEORIGIN
+access-control-allow-origin: *
+x-xss-protection: 1; mode=block
+strict-transport-security: max-age=31536000 ; includeSubDomains ; preload
+x-content-type-options: nosniff
+

@@ -1,0 +1,743 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+  
+
+
+<html lang="en" data-url="https://blog.huawei.com/en/post/2022/02/15/distributed-file-systems-future" data-region="GB" >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+  <link rel="canonical" href="https://blog.huawei.com/en/post/2022/02/15/distributed-file-systems-future">
+  
+  <title>Distributed File Systems of the Future</title>
+  <link rel="Shortcut Icon" href="https://blog.huawei.com/-/media/htemplate-blog/1.0.1.20231013175730/components/assets/img/logo_ico.png">
+  <!-- 全局样式优先于组件样式加载 -->
+  <link rel="stylesheet" type="text/css" href="https://blog.huawei.com/-/media/htemplate-blog/1.0.1.20231013175730/components/assets/css/index.min.css" />
+
+  <!-- Jetpack Open Graph Tags -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Distributed File Systems of the Future" />
+  <meta property="og:url" content="//blog.huawei.com/en/post/2022/02/15/distributed-file-systems-future" />
+  <meta property="og:description" content="" />
+  <meta property="article:published_time" content="2022-02-15 12:00:00" />
+  <meta property="article:modified_time" content="" />
+  <meta property="og:site_name" content="Huawei BLOG" />
+  
+  <meta property="og:image" content="//blog.huawei.com/dam/asset/view/fa59cb10467d4a02a072c1c5fee773f5.jpg" />
+  
+  
+  <meta property="og:locale" content="en_US" />
+  
+  <meta name="twitter:text:title" content="Distributed File Systems of the Future" />
+  
+  <meta name="twitter:image" content="//blog.huawei.com/dam/asset/view/fa59cb10467d4a02a072c1c5fee773f5.jpg?width=640" />
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  
+
+
+    
+  <script>window.$aioList = ["hcomponent-blog-header/0.0.1.20240307113348","hcomponent-blog-detail/0.0.1.20260511155649","hcomponent-blog-comments/0.0.1.20260511172407","hcomponent-blog-tags-on-detail/0.0.1.20230907153302","hcomponent-blog-footer/0.0.1.20260511155821"]; window.$aioCdnPrefix = '/-/media/';</script>
+
+    <script>
+      window.gConfig = window.gConfig || {};
+      window.gConfig.isMobile = /iPhone|iPad|iPod|Android|Tablet|Phone/i.test(navigator.userAgent);
+      var hClassName = window.gConfig.isMobile ? ' phone' : ' pc';
+      if (window.$aioList) {
+        window.$aioCdnPrefix ??= 'https://res.hc-cdn.com/'
+        for (var i = 0; i < window.$aioList.length; i++) {
+          if (window.$aioList[i].length > 0) {
+            document.write(
+              '<link rel="stylesheet" href="' + window.$aioCdnPrefix + window.$aioList[i] + '/' + (window.gConfig.isMobile ? 'm' : 'pc') + '/index.css" />'
+            );
+          }
+        }
+      }
+      var root = document.documentElement;
+      root.className += hClassName;
+    </script>
+    
+    
+  </head>
+
+  <body class="">
+    
+<input type="hidden" id="contentId" value="fc56b2ab4d034af8b69c7f6708d59e27">
+
+    
+    
+
+    
+    <div id="content" class="main" data-site="">
+    
+
+    
+  <div data-mod-id="e5707025a2254713bd43f57af4be3ed6">
+ <div data-mod-name-pc="@cloud/hcomponent-blog-header/pc/index" data-mod-name-m="@cloud/hcomponent-blog-header/m/index" data-mod-name="hcomponent-blog-header">
+  <!-- Implement the Navbar --> <input type="hidden" id="contentId" value="f483abdb2dcd4326ac7f7fb065b73441"> <input type="hidden" id="serviceHost" value="//blog.huawei.com"> <input type="hidden" id="site" value="/en/post"> <input type="hidden" id="navData" value="">
+  <div class="navbar_placeholder"></div>
+  <header id="masthead" class="h_header">
+   <section class="h_header-wrap clearfix">
+    <a class="h_logo hwisans-bold lazyload" href="//blog.huawei.com/" data-bg="//blog.huawei.com/dam/asset/view/117a7c125de34962874a7bb327e01361.png">Huawei BLOG</a> <!-- #navigation -->
+    <div class="h_pc">
+     <div class="h_nav">
+      <ul>
+       <li class="h_nav-item"><a href="//blog.huawei.com/en/post/?category=technology" target="" class="h_nav-text">Technology <span class="icon-arrow_pc_navigaiton"></span> </a>
+        <div class="h_nav-list">
+         <div class="h_nav-list-cont">
+          <ul>
+           <li><a href="//blog.huawei.com/en/post/?category=technology/5g/" target="">5G</a></li>
+           <li><a href="//blog.huawei.com/en/post/?category=technology/ai/" target="">AI</a></li>
+           <li><a href="//blog.huawei.com/en/post/?category=technology/carrier/" target="">Carrier</a></li>
+          </ul>
+          <ul>
+           <li><a href="//blog.huawei.com/en/post/?category=technology/cloud/" target="">Cloud</a></li>
+           <li><a href="//blog.huawei.com/en/post/?category=technology/enterprise/" target="">Enterprise</a></li>
+           <li><a href="//blog.huawei.com/en/post/?category=technology/devices/" target="">Devices</a></li>
+          </ul>
+         </div>
+        </div></li>
+       <li class="h_nav-item"><a href="//blog.huawei.com/en/post/?category=corporate" target="" class="">Corporate </a></li>
+       <li class="h_nav-item"><a href="//blog.huawei.com/en/welcome" target="_self" class="">About Huawei Blog </a></li>
+      </ul>
+     </div>
+     <div class="h_search">
+      <a class="h_search-btn icon-search"> </a>
+     </div>
+     <div class="h_search-wrap">
+      <form class="h_search-group" action="">
+       <input type="text" class="sf_input" autocomplete="off" placeholder="Search" name="s" id="search" value=""> <button type="button"> <i class="icon-search"></i> </button>
+      </form><span class="h_search-wrap-close">
+       <svg t="1694049351857" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7941" width="24" height="24">
+        <path d="M155.00305177 868.99694823c-21.96904297-21.96904297-21.96904297-60.41486817 0-82.38391112l631.60998534-631.60998534c21.96904297-21.96904297 60.41486817-21.96904297 82.38391112 0s21.96904297 60.41486817 0 82.38391112l-631.60998534 631.60998534c-21.96904297 21.96904297-60.41486817 21.96904297-82.38391112 0z" fill="#2c2c2c" p-id="7942"></path> <path d="M155.00305177 155.00305177c21.96904297-21.96904297 60.41486817-21.96904297 82.38391112 0l631.60998534 631.60998534c21.96904297 21.96904297 21.96904297 60.41486817 0 82.38391112s-60.41486817 21.96904297-82.38391112 0l-631.60998534-631.60998534c-21.96904297-21.96904297-21.96904297-60.41486817 0-82.38391112z" fill="#2c2c2c" p-id="7943"></path>
+       </svg></span>
+      <div id="sf_sb" class="sf_sb">
+       <div class="sf_sb_cont">
+        <div class="sf_sb_top"></div>
+        <div id="sf_results">
+         <div id="sf_val">
+          <ul class="sf_main" id="search-container"></ul>
+          <script id="search-template" type="text/x-jsrender">
+                  ${props searchItems}$
+                    ${if prop?.length}$
+                      <li class="sf_header">${:key}$</li>
+                      <li>
+                        <div class="sf_result_container">
+                          <ul>
+                            ${if key==="posts"}$
+                            ${for prop}$
+                              <li result-type="object" index-type="post" index-array="0" index="${:index}$" class="sf_lnk sf_item">
+                                <a href="//${:pageUrl}$">
+                                  ${if thumbnail}$
+                                  <img src="${:thumbnail}$" width="50" height="50" />
+                                  ${else}$
+                                  <img src="//www-file.huawei.com/-/media/corp2020/default-img/default_img1.jpg" width="50" height="50" />
+                                  ${/if}$
+                                  <span class="sf_text">${:~toText(title)}$</span>
+                                  <span class="sf_small">Posted by ${:author?.showName}$ on ${:releaseFormatTime}$</span>
+                                </a>
+                              </li>
+                              ${/for}$
+                            ${/if}$
+                            ${if key==="author"}$
+                            ${for prop}$
+                              <li result-type="object" index-type="author" index-array="0" index="${:index}$" class="sf_lnk sf_category">
+                                <a href="/en/post?author=${:pathName}$">${:showName}$</a>
+                              </li>
+                              ${/for}$
+                            ${/if}$
+                            ${if key==="categories"}$
+                              ${for prop}$
+                                <li result-type="object" index-type="category" index-array="0" index="${:index}$" class="sf_lnk sf_category">
+                                  <a href="/en/post?category=${:pathName}$/">${:phrase}$</a>
+                                </li>
+                              ${/for}$
+                            ${/if}$
+                            ${if key==="tags"}$
+                              ${for prop}$
+                                <li result-type="object" index-type="post_tag" index-array="0" index="${:index}$" class="sf_lnk sf_category">
+                                  <a href="/en/post?tag=${:pathName}$/">${:phrase}$</a>
+                                </li>
+                              ${/for}$
+                            ${/if}$
+                          </ul>
+                        </div>
+                      </li>
+                    ${/if}$
+                  ${/props}$
+                </script>
+         </div>
+         <div id="sf_more"></div>
+        </div>
+        <div class="sf_sb_bottom"></div>
+       </div>
+      </div>
+     </div>
+    </div><!--end of #h_pc-->
+    <div class="h_mobile">
+     <div class="h_mobile-wrap">
+      <div class="h_mobile-search-box">
+       <form action="">
+        <input class="search-input-mobile" type="text" placeholder="Search…" name="s" id="search" value="">
+       </form>
+       <div class="close-search">
+        <i>
+         <svg t="1694049351857" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7941" width="24" height="24">
+          <path d="M155.00305177 868.99694823c-21.96904297-21.96904297-21.96904297-60.41486817 0-82.38391112l631.60998534-631.60998534c21.96904297-21.96904297 60.41486817-21.96904297 82.38391112 0s21.96904297 60.41486817 0 82.38391112l-631.60998534 631.60998534c-21.96904297 21.96904297-60.41486817 21.96904297-82.38391112 0z" fill="#2c2c2c" p-id="7942"></path> <path d="M155.00305177 155.00305177c21.96904297-21.96904297 60.41486817-21.96904297 82.38391112 0l631.60998534 631.60998534c21.96904297 21.96904297 21.96904297 60.41486817 0 82.38391112s-60.41486817 21.96904297-82.38391112 0l-631.60998534-631.60998534c-21.96904297-21.96904297-21.96904297-60.41486817 0-82.38391112z" fill="#2c2c2c" p-id="7943"></path>
+         </svg></i>
+       </div>
+      </div>
+      <div class="h_mobile-menu">
+       <span class="bar-menu"></span>
+      </div>
+      <div class="h_mobile-search">
+       <a class="h_search-btn icon-search"> </a>
+      </div>
+     </div>
+     <div class="h_mobile-navlist">
+      <div class="h_mobile-navlist-wrapper">
+       <ul>
+        <li class="h_nav-item"><a href="//blog.huawei.com/en/post/?category=technology" target="" class="sec-title"> Technology <i class="icon-arrow_pc_navigaiton"></i> </a>
+         <div class="h_mobile-navlist-sec">
+          <ul>
+           <li><a href="//blog.huawei.com/en/post/?category=technology/5g/" target="">5G</a></li>
+           <li><a href="//blog.huawei.com/en/post/?category=technology/ai/" target="">AI</a></li>
+           <li><a href="//blog.huawei.com/en/post/?category=technology/carrier/" target="">Carrier</a></li>
+          </ul>
+          <ul>
+           <li><a href="//blog.huawei.com/en/post/?category=technology/cloud/" target="">Cloud</a></li>
+           <li><a href="//blog.huawei.com/en/post/?category=technology/enterprise/" target="">Enterprise</a></li>
+           <li><a href="//blog.huawei.com/en/post/?category=technology/devices/" target="">Devices</a></li>
+          </ul>
+         </div></li>
+        <li class="h_nav-item"><a href="//blog.huawei.com/en/post/?category=corporate" target="" class="sec-title"> Corporate </a>
+         <div class="h_mobile-navlist-sec">
+         </div></li>
+        <li class="h_nav-item"><a href="//blog.huawei.com/en/welcome" target="_self" class="sec-title"> About Huawei Blog </a>
+         <div class="h_mobile-navlist-sec">
+         </div></li>
+       </ul>
+      </div>
+     </div>
+     <div class="h_mobile-searchwrap"></div>
+    </div>
+   </section>
+  </header>
+  <script type="text/javascript">
+  (function (a, b, c, d) {
+    a='https://tags.tiqcdn.com/utag/huawei/main/prod/utag.js';
+    b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+    a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+  })();
+</script>
+  <script> window.gConfig = window.gConfig || {}; window.gConfig.seed = window.gConfig.seed || []; window.gConfig.seed.push({name : '@cloud/hcomponent-blog-header', data : {"packages":{"@cloud/hcomponent-blog-header":{"path":"//res.hc-cdn.com/hcomponent-blog-header/0.0.1/","version":"0.0.1"}},"modules":{"@cloud/hcomponent-blog-header/m/index":{"requires":["jQuery"]},"@cloud/hcomponent-blog-header/pc/index":{"requires":["jQuery"]}}} })</script>
+ </div>
+</div><div data-mod-id="e28cc6da7e645a31e6741d31dd763543">
+    <div data-mod-name-pc="@cloud/hcomponent-blog-detail/pc/index"
+         data-mod-name-m="@cloud/hcomponent-blog-detail/m/index" data-mod-name="hcomponent-blog-detail">
+        <input type="hidden" id="HcomponentBlogListContentId" value="fc56b2ab4d034af8b69c7f6708d59e27">
+<input type="hidden" id="serviceHost" value="//blog.huawei.com">
+<input type="hidden" id="websiteId" value="b5cb726acc2941f8900b70d4f2b53c96">
+<div class="h_blog-cbanner">
+  <div class="imgwrap lazyload" style="" data-bg="//blog.huawei.com/dam/asset/view/fa59cb10467d4a02a072c1c5fee773f5.jpg"></div>
+</div>
+<div id="content" class="content">
+  <div class="h_blog_wrap clearfix">
+    <div class="h_blog-left">
+      <div class="h_blog-detail-wrap">
+        <script id="h_blog-tag-template" type="text/x-jsrender">
+          <a class="h_blog-tag" href="/en/post?category=${:pathName}$">${:phrase}$</a>
+        </script>
+        <div class="h_blog-tags visible-in-pc">
+        </div>
+        <h1 class="detail-title">Distributed File Systems of the Future</h1>
+        <div class="detail-line"> </div>
+        <div class="h_blog-tags visible-in-mobile">
+        </div>
+        <div class="detail-author visible-in-pc">
+          <p class="author-name">By<span class="js-author-name"></span></p>
+          <p class="detail-time">Feb 15, 2022</p>
+        </div>
+        <script id="detail-author-template" type="text/x-jsrender">
+          <p class="author-imgbox">
+            ${if avatarUrl}$
+            <img alt='' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAD5JREFUSEvt07ENADAIBDHYf2n69A9FzAAgWUfX0fTR3XJ4TR416piAuGK072LUqGMC4orR+mNxiSsm8F9cA+n3AB9W54gZAAAAAElFTkSuQmCC'
+              class='avatar avatar-90 photo lazyload' height='90' width='90'
+              data-src="${linkFormatter avatarUrl/}$"
+              data-srcset="${linkFormatter avatarUrl/}$ 2x" /><noscript><img
+                alt='' src='${linkFormatter avatarUrl/}$'
+                srcset='${linkFormatter avatarUrl/}$ 2x'
+                class='avatar avatar-90 photo' height='90' width='90' data-eio="l" /></noscript>
+            ${else}$
+            <img alt='' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAD5JREFUSEvt07ENADAIBDHYf2n69A9FzAAgWUfX0fTR3XJ4TR416piAuGK072LUqGMC4orR+mNxiSsm8F9cA+n3AB9W54gZAAAAAElFTkSuQmCC'
+              class='avatar avatar-90 photo lazyload' height='90' width='90'
+              data-src="//blog.huawei.com/dam/asset/view/d4dfdbde3313422d81abad70be547243.jpg"
+              data-srcset="//blog.huawei.com/dam/asset/view/d4dfdbde3313422d81abad70be547243.jpg 2x" /><noscript><img
+                alt='' src='//blog.huawei.com/dam/asset/view/d4dfdbde3313422d81abad70be547243.jpg'
+                srcset='//blog.huawei.com/dam/asset/view/d4dfdbde3313422d81abad70be547243.jpg 2x'
+                class='avatar avatar-90 photo' height='90' width='90' data-eio="l" /></noscript>
+            ${/if}$
+          </p>
+          <p class="author-name"><span>${:showName}$</span></p>
+          <p class="detail-time">Feb 15, 2022</p>
+        </script>
+        <div class="detail-author visible-in-mobile">
+        </div>
+        <div class="detail-cont">
+          <p><p>With big data and artificial intelligence becoming the norm, storage methods in the data center are once again taking center stage. In the compute area, multi-node architectures for simulations, analyses, and forecasts have become established. Computer networks consisting of hundreds, even thousands, of servers require ever greater performance in the storage environment. Ultimately, CPUs want feeding. What could be more obvious than to transfer the scale-out in the compute to the storage?</p>
+<p>This poses new challenges for distributed file systems.</p>
+<h2>Two Options</h2>
+<p>Essentially, there are two options for making IT systems more powerful. The first is to keep upgrading the individual node, i.e., adding or replacing CPUs, storage and I/O capabilities &mdash; a process referred to as <strong>scale-up</strong>. And the second is <strong>scale-out</strong>. In this case, more nodes are added &ldquo;simply.&rdquo; For various reasons, including cost, flexibility and technical capabilities, people are increasingly moving toward scale-out today. On the software side, Message Passing Interfaces (MPI) are used to make the computer network a complete system. Distributed file systems are responsible for this in the storage area. Their primary task is to provide the performance of individual storage nodes aggregated to the computer processes.</p>
+<p>All of which sounds simple, but can prove tricky to implement. If you write a large file, for instance, you can divide this up into individual blocks and at the same time send it to multiple storage nodes. But this isn&rsquo;t the right solution if you have lots of small files.</p>
+<p><strong>What might an optimally distributed file system look like?</strong></p>
+<p>As you know, a file system is a hierarchy of folders (directories) and files. This is where we have the first opportunity to split up workloads. Different storage nodes are responsible for different directories/files. Now you just need someone to keep track of it, and in distributed file systems that&rsquo;s called the metadata service (MDS). Among other things, it manages the hierarchy and knows where which data is stored. (Object) storage devices (OSD) are responsible for storing the data. They are responsible for storing the data on the SSDs or HDDs.<img class="wp-image-10881 lazyload" src="//blog.huawei.com/en/post/wp-content/uploads/2022/01/shutterstock_1170348712.jpg" alt="" data-src="//blog.huawei.com/en/post/wp-content/uploads/2022/01/shutterstock_1170348712.jpg" /></p>
+<p>Moving on to the file level, large files should be distributed across multiple storage systems. Small files are forwarded directly to different OSDs.</p>
+<p>Now we see that the MDS not only has a lot of work to do, but also a great responsibility. Without MDS, we no longer know where the filed data is and how it is composed. You can meet both these requirements by running a synchronized MDS on each storage node. If one node fails, the other can take over the tasks. This gives us many MDS, but we don&rsquo;t yet know who the clients should talk to.</p>
+<p>To do that, we distribute the clients via load balancing across various storage nodes. A distributed lock mechanism prevents all clients from changing the same data at the same time. This ensures serialization of write requirements.</p>
+<p>And there&rsquo;s another option for HPC. A specific driver is able to address the particular OSDs directly. It assumes the tasks of the MDS directly on the compute node and can therefore use the performance of the entire storage network.</p>
+<p><strong>We&rsquo;ve already explored the availability of the MDS, but what about the availability of the data?</strong></p>
+<p>There are two options here. Some distributed file systems rely on the availability of the particular hardware. In other words, they use RAID. More modern solutions use erasure code. This not only provides availability via many disks, but also via many nodes. In such a system, not only can individual HDDs or SDDs fail, but also multiple storage systems, and all this while maintaining <a href="//blog.huawei.com/en/post/2021/11/30/erasure-code-raid-as-it-should-be/">erasure-code-immanent</a> efficiency.</p>
+<p>If you now package all this in state-of-the-art hardware, in lots of access protocols (NFS, SMB, S3, HDFS and POSIX/MPI-IO) and add a very simple management interface, you have the basis for the&nbsp;<a href="https://e.huawei.com/en/products/storage/distributed-storage/oceanstor-pacific-series" target="_blank" rel="noreferrer noopener">Huawei OceanStor Pacific</a>. In addition, there are many more services, such as QoS, snapshots, replication, authorization management, etc., each of which would be worth its own article.</p>
+<p>Finally, a very personal forecast. If someone were to ask me what storage in the data center of the future would look like, it would look exactly like OceanStor Pacific! Totally flexible, capable of handling any workload, easy to use, no migrations and scaled up to the exabyte range, and, if necessary, back down again.</p></p>
+          <hr class="wp-block-separator">
+          <p style='color: #abb8c3;font-size: 14px;'>Disclaimer: Any views and/or opinions expressed in this post by individual authors or contributors are their personal views and/or opinions and do not necessarily reflect the views and/or opinions of Huawei Technologies.</p>
+          <div class="sharedaddy sd-sharing-enabled">
+            <div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing">
+              <h3 class="sd-title">Share this:</h3>
+              <div class="sd-content">
+                <ul>
+                  <li class="share-twitter"><a rel="nofollow noopener noreferrer" data-shared="sharing-twitter-14340"
+                      class="share-twitter sd-button share-icon" href="#" type="twitter" target="_blank"
+                      title="Click to share on Twitter"><span>Twitter</span></a></li>
+                  <li class="share-facebook"><a rel="nofollow noopener noreferrer" data-shared="sharing-facebook-14340"
+                      class="share-facebook sd-button share-icon" href="#" type="facebook" target="_blank"
+                      title="Click to share on Facebook"><span>Facebook</span></a>
+                  </li>
+                  <li class="share-linkedin"><a rel="nofollow noopener noreferrer" data-shared="sharing-linkedin-14340"
+                      class="share-linkedin sd-button share-icon" href="#" type="linkedin" target="_blank"
+                      title="Click to share on LinkedIn"><span>LinkedIn</span></a>
+                  </li>
+                  <li class="share-end"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--end of h_blog-detail-wrap-->
+
+    </div><!-- #h_blog-left -->
+    <div class="h_blog-right">
+      <div class="h_blog-right-author">
+        <script id="author-box-template" type="text/x-jsrender">
+          <div class="author-img">
+            ${if avatarUrl}$
+            <img alt='' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAD5JREFUSEvt07ENADAIBDHYf2n69A9FzAAgWUfX0fTR3XJ4TR416piAuGK072LUqGMC4orR+mNxiSsm8F9cA+n3AB9W54gZAAAAAElFTkSuQmCC'
+              class='avatar avatar-90 photo lazyload' height='90' width='90'
+              data-src="${linkFormatter avatarUrl/}$"
+              data-srcset="${linkFormatter avatarUrl/}$ 2x" /><noscript><img
+                alt='' src='${linkFormatter avatarUrl/}$'
+                srcset='${linkFormatter avatarUrl/}$ 2x'
+                class='avatar avatar-90 photo' height='90' width='90' data-eio="l" /></noscript>
+            ${else}$
+            <img alt='' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAD5JREFUSEvt07ENADAIBDHYf2n69A9FzAAgWUfX0fTR3XJ4TR416piAuGK072LUqGMC4orR+mNxiSsm8F9cA+n3AB9W54gZAAAAAElFTkSuQmCC'
+              class='avatar avatar-90 photo lazyload' height='90' width='90'
+              data-src="//blog.huawei.com/dam/asset/view/d4dfdbde3313422d81abad70be547243.jpg"
+              data-srcset="//blog.huawei.com/dam/asset/view/d4dfdbde3313422d81abad70be547243.jpg 2x" /><noscript><img
+                alt='' src='//blog.huawei.com/dam/asset/view/d4dfdbde3313422d81abad70be547243.jpg'
+                srcset='//blog.huawei.com/dam/asset/view/d4dfdbde3313422d81abad70be547243.jpg 2x'
+                class='avatar avatar-90 photo' height='90' width='90' data-eio="l" /></noscript>
+            ${/if}$
+          </div>
+          <div class="author-line visible-in-mobile"></div>
+          <div class="author-origin visible-in-mobile">Published by</div>
+          <h2 class="author-name">${:showName}$</h2>
+          <p class="author-desc">
+            <span>${:description}$</span>
+          </p><a class="author-toall" href="/en/post?author=${:authorPath}$">View
+            all posts > </a>
+        </script>
+        <div class="author-box">
+        </div>
+        <div class="h_blog-right-subscribe visible-in-pc">
+          <section id="email-subscribers-form-3" class="widget widget_email-subscribers-form">
+            
+            <div class="emaillist" id="es_form_f1-n1">
+              <form action="/#es_form_f1-n1" method="post"
+                class="es_subscription_form es_shortcode_form  es_ajax_subscription_form"
+                id="es_subscription_form_64dec56eb64c7" data-source="ig-es" data-form-id="1">
+                <div class="es-field-wrap">
+                  <label>
+                    Email*<br />
+                    <input class="es_required_field es_txt_email ig_es_form_field_email" type="email" name="esfpx_email"
+                      value="" placeholder="Enter your email address" required="required" />
+                  </label>
+                </div>
+                <label style="position:absolute;top:-99999px;left:-99999px;z-index:-99;">
+                  <input type="email" name="esfpx_es_hp_email" class="es_required_field" tabindex="-1" autocomplete="-1"
+                    value="" placeholder="Enter your email address" />
+                </label>
+                <input type="submit" name="submit"
+                  class="es_subscription_form_submit es_submit_button es_textbox_button"
+                  id="es_subscription_form_submit_64dec56eb64c7" value="Subscribe" />
+                <span class="es_spinner_image" id="spinner-image">
+                  <img alt="Loading"
+                    src="data:image/gif;base64,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"
+                    class="lazyload" />
+                </span>
+              </form>
+              <span class="es_subscription_message " style="display: none;"
+                id="es_subscription_message_64dec56eb64c7"></span>
+            </div>
+          </section>
+        </div>
+        <div class="visible-in-pc">
+        </div><!--end visible-in-pc-->
+        <div class="visible-in-mobile">
+        </div><!--end visible-in-mobile-->
+      </div><!--end h_blog-right-->
+    </div><!-- .h_blog_wrap clearfix -->
+  </div><!-- #content -->
+</div>
+
+        
+        <script> window.gConfig = window.gConfig || {}; window.gConfig.seed = window.gConfig.seed || []; window.gConfig.seed.push({name : '@cloud/hcomponent-blog-detail', data : {"packages":{"@cloud/hcomponent-blog-detail":{"path":"//res.hc-cdn.com/hcomponent-blog-detail/0.0.1/","version":"0.0.1"}},"modules":{"@cloud/hcomponent-blog-detail/m/index":{"requires":["jQuery"]},"@cloud/hcomponent-blog-detail/pc/index":{"requires":["jQuery"]}}} })</script>
+
+    </div>
+</div><div data-mod-id="1bef990cf358475f94ae3ae042fb3fa1">
+  <div data-mod-name-pc="@cloud/hcomponent-blog-comments/pc/index"
+    data-mod-name-m="@cloud/hcomponent-blog-comments/m/index" data-mod-name="hcomponent-blog-comments">
+    <input type="hidden" id="compCmtId" value="fc56b2ab4d034af8b69c7f6708d59e27" />
+<input type="hidden" id="commentTitle" value="Distributed File Systems of the Future" />
+
+<div class="comments-main-container">
+  <div class="comments-main-container__body">
+    <div id="comments" class="comments-area">
+      
+      <div id="comment-list" class="comment-list">
+        <h2 id="list-title" class="comment-list__title"></h2>
+        <div id="comment-list__content" class="comment-list__content">
+          <ul class="comment-list__content-ul" id="comment-list__content-ul"></ul>
+          <script id="comment-list__content-body" type="text/x-jsrender">
+            ${for allComments}$
+            <div class="comment-main sub-indent" data-comment-info="${:id}$&${:userName}$&${:pid}$">
+              <strong class="comment-main__username">${:userName}$</strong>
+              <span class="comment-main__says">
+                ${:pid === "-1" ? 'Says' : 'In Response To'}$
+              </span>
+              <strong class="comment-main__recipient">${:pid === "-1" ? "" : pname}$</strong>
+              <div class="comment-main__date">${:dateTime}$</div>
+              <div class="comment-main__content">
+                <span class="comment-text" style="white-space: nowrap">${:comment}$</span>
+                <span class="comment-main__content-expand" style="display: none">Expand</span>
+              </div>
+              <div class="comment-main__reply">
+                <span class="comment-main__reply-btn" onselectstart="return false">Reply</span>
+              </div>
+            </div>
+            ${/for}$
+            ${if total > 0}$
+            <div class="pagination-bar">
+              <div class="page-switch-button page-pre">
+                <svg t="1696837572314" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" p-id="22914" width="12" height="12"
+                >
+                  <path d="M258.296 537.2l450.8 352.096A7.968 7.968 0 0 0 722 883v-77.304c0-4.896-2.304-9.6-6.104-12.6L355.896 512l360-281.104c3.904-3 6.104-7.696 6.104-12.6V141c0-6.704-7.704-10.4-12.904-6.304L258.296 486.8a31.968 31.968 0 0 0 0 50.4z" fill="#515151" p-id="22915"></path>
+                </svg>
+              </div>
+              <div class="page-indicators">
+                ${for pageCount}$
+                <div class="indicator" data-pagenum="${:#getIndex() + 1}$">${:#getIndex() + 1}$</div>
+                ${/for}$
+              </div>
+              <div class="page-switch-button page-next">
+                <svg t="1696837633198" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" p-id="23222" width="12" height="12"
+                >
+                  <path d="M765.704 486.8l-450.8-352.104A7.968 7.968 0 0 0 302 141v77.304c0 4.896 2.304 9.6 6.104 12.6l360 281.096-360 281.104a15.872 15.872 0 0 0-6.104 12.6V883c0 6.704 7.696 10.4 12.896 6.296l450.8-352.096c16.4-12.8 16.4-37.6 0-50.4z" fill="#515151" p-id="23223"></path>
+                </svg>
+              </div>
+              <div class="bar-divider"></div>
+              <div class="goto-jump">
+                <input id="goto-jump__input" class="goto-jump__input" />
+                <div class="goto-jump__text">
+                  <span>Go to</span>
+                </div>
+              </div>
+            </div>
+            ${/if}$
+          </script>
+        </div>
+      </div>
+
+      <div id="comment-edit-area" class="comment-edit-area">
+        <h3 class="comment-edit-area__title">Leave a Comment</h3>
+        <form id="comment-edit-area__form" class="comment-edit-area__form">
+          <textarea
+            id="input-comment-content__edit"
+            class="comment-editor-input"
+            name="comment"
+            placeholder="Enter your comment here"
+            maxlength="1000"
+          ></textarea>
+          <div id="comment-user-info__edit" class="comment-user-info">
+            <div id="comment-user-info__username__edit" class="comment-user-info__username">
+              <div class="comment-user-info__label">
+                <span>Name：</span>
+              </div>
+              <input id="input-username__edit" name="userName" placeholder="Name" />
+              <div id="input-username__edit-invalid" class="error-text">Invalid Value</div>
+            </div>
+            <div id="comment-user-info__email__edit" class="comment-user-info__email">
+              <div class="comment-user-info__label">
+                <span>Email：</span>
+              </div>
+              <input id="input-email__edit" name="email" placeholder="Email" />
+              <div id="input-email__edit-invalid" class="error-text">Invalid Value</div>
+            </div>
+            <div class="homepage-edit-footer">
+              <div id="btn-post-comment" class="homepage-button">
+                <span>Post Comment</span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+
+      <div id="reply-modal" class="reply-modal">
+        <div class="reply-modal-body">
+          <div class="comment-edit-area__title">
+            <strong class="comment-edit-area__title-text">Reply</strong>
+            <svg id="btn-modal-title-close" t="1693188491564" class="comment-edit-area__title-icon" viewBox="0 0 1024 1024"
+              version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4010" width="13" height="13"
+            >
+              <path d="M589.704 501.674L998.27 93.107c20.652-20.653 20.652-54.556 0-75.209l-2.237-2.237c-20.652-20.652-54.556-20.652-75.208 0L512.258 424.745 103.691 15.489c-20.652-20.652-54.556-20.652-75.208 0l-2.238 2.237c-21.168 20.652-21.168 54.556 0 75.208l408.568 408.74L26.245 910.24c-20.652 20.652-20.652 54.556 0 75.208l2.238 2.238c20.652 20.652 54.556 20.652 75.208 0l408.567-408.568 408.568 408.568c20.652 20.652 54.556 20.652 75.208 0l2.237-2.238c20.652-20.652 20.652-54.556 0-75.208L589.704 501.674z"
+                fill="#555" p-id="4011"
+              ></path>
+            </svg>
+          </div>
+          <form id="comment-reply-area__form" class="comment-edit-area__form">
+            <textarea
+              id="input-comment-content"
+              class="comment-editor-input"
+              name="comment"
+              placeholder="Enter here"
+              style="max-width: 760px !important"
+              maxlength="1000"
+            ></textarea>
+            <div id="comment-user-info" class="comment-user-info default-show">
+              <div id="comment-user-info__username" class="comment-user-info__username">
+                <span class="comment-user-info__label">Name：</span>
+                <input id="input-username" name="userName" placeholder="Name" />
+                <div id="input-username-invalid" class="error-text">Invalid Value</div>
+              </div>
+              <div id="comment-user-info__email" class="comment-user-info__email">
+                <span class="comment-user-info__label">Email：</span>
+                <input id="input-email" name="email" placeholder="Email" />
+                <div id="input-email-invalid" class="error-text">Invalid Value</div>
+              </div>
+            </div>
+          </form>
+          <div class="comment-edit-area__footer">
+            <div id="btn-cancel-reply" class="operation-button primary" onselectstart="return false">
+              <span>Cancel Reply</span>
+            </div>
+            <div id="btn-modal-submit" class="operation-button normal" onselectstart="return false">
+              <span>Post Comment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="global-toast" class="global-toast" onselectstart="return false">
+  <div id="global-toast__text" class="global-toast__text"></div>
+</div>
+
+
+    <script> window.gConfig = window.gConfig || {}; window.gConfig.seed = window.gConfig.seed || []; window.gConfig.seed.push({name : '@cloud/hcomponent-blog-comments', data : {"packages":{"@cloud/hcomponent-blog-comments":{"path":"//res.hc-cdn.com/hcomponent-blog-comments/0.0.1/","version":"0.0.1"},"@cloud/portal-utils":{"path":"//res.hc-cdn.com/cnpm-portal-utils/1.4.17/","version":"1.4.17"}},"modules":{"@cloud/hcomponent-blog-comments/m/index":{"requires":["jQuery"]},"@cloud/hcomponent-blog-comments/pc/index":{"requires":["jQuery"]}}} })</script>
+
+  </div>
+</div><div data-mod-id="1188b53f32e76c4bfc648bd824cd18b8">
+    <div data-mod-name-pc="@cloud/hcomponent-blog-tags-on-detail/pc/index"
+         data-mod-name-m="@cloud/hcomponent-blog-tags-on-detail/m/index" data-mod-name="hcomponent-blog-tags-on-detail">
+        <input type="hidden" id="HcomponentBlogListContentId" value="f74731c0798245d0aa95df97765be7e7">
+<input type="hidden" id="serviceHost" value="//blog.huawei.com">
+<div class="content">
+  <div class="h_blog_wrap clearfix">
+    <div class="h_blog-detail-wrap">
+      <a class="detail-post5G visible-in-pc" style="display: none !important;" href="/en/post?category=">
+        Posted in <span></span>
+      </a>
+      <div class="detail-tagged" style="display: none !important;">
+        <h3 class="detail-tagged-title">TAGGED</h3>
+        <script id="detail-tagged-tags-template" type="text/x-jsrender">
+          <a class="h_blog-tag" href="/en/post?tag=${:pathName}$">${:phrase}$</a>
+        </script>
+        <div class="detail-tagged-tags">
+        </div>
+      </div>
+      <a class="detail-post5G visible-in-mobile" style="display: none !important;" href="/en/post?category=">
+        Posted in <span></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+        
+        <script> window.gConfig = window.gConfig || {}; window.gConfig.seed = window.gConfig.seed || []; window.gConfig.seed.push({name : '@cloud/hcomponent-blog-tags-on-detail', data : {"packages":{"@cloud/hcomponent-blog-tags-on-detail":{"path":"//res.hc-cdn.com/hcomponent-blog-tags-on-detail/0.0.1/","version":"0.0.1"}},"modules":{"@cloud/hcomponent-blog-tags-on-detail/m/index":{"requires":["jQuery"]},"@cloud/hcomponent-blog-tags-on-detail/pc/index":{"requires":["jQuery"]}}} })</script>
+
+    </div>
+</div><div data-mod-id="07bbb9b9092e466c90afdbdb3fde4c0d">
+ <div data-mod-name-pc="@cloud/hcomponent-blog-footer/pc/index" data-mod-name-m="@cloud/hcomponent-blog-footer/m/index" data-mod-name="hcomponent-blog-footer">
+  <input type="hidden" id="contentId" value="6d30e20191604823a221457e5cefcafb"> <input type="hidden" id="websiteId" value="b5cb726acc2941f8900b70d4f2b53c96"> <input type="hidden" id="site" value="/en">
+  <footer class="h_footer">
+   <div class="h_footer-subscribe_wrap">
+    <div class="h_footer-subscribe clearfix">
+     <span class="h_footer-subscribe_text">Subscribe to Huawei Blog</span>
+     <section id="archives-3" class="widget widget_archive">
+      <h2 class="widget-title">Archives</h2>
+      <ul id="archives-container"></ul>
+      <script id="archives-template" type="text/x-jsrender">
+          ${for items}$
+            <li>
+              <a href="/en?time=${:timePath}$">${:time}$</a>(${:count}$)
+            </li>
+          ${/for}$
+        </script>
+     </section>
+     <section id="email-subscribers-form-3" class="widget widget_email-subscribers-form">
+      <h2 class="widget-title">Subscribe to Huawei Blog</h2>
+      <div class="emaillist" id="es_form_f1-n2">
+       <form class="es_subscription_form es_shortcode_form es_ajax_subscription_form_footer" id="es_subscription_form" data-source="ig-es" data-form-id="1">
+        <div class="es-field-wrap">
+         <label> Email*<br><input id="email" class="es_required_field es_txt_email ig_es_form_field_email" name="email" value="" placeholder="" required> </label>
+        </div><input type="submit" name="submit" class="es_subscription_form_submit es_submit_button es_textbox_button" id="es_subscription_form_submit_64dc6bf87ee25" value="Subscribe"> <span class="es_spinner_image" id="spinner-image"> <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Loading" data-src="https://blog.huawei.com/wp-content/plugins/email-subscribers/lite/public/images/spinner.gif" class="lazyload">
+         <noscript>
+          <img src="https://blog.huawei.com/wp-content/plugins/email-subscribers/lite/public/images/spinner.gif" alt="Loading" data-eio="l">
+         </noscript></span>
+       </form><span class="es_subscription_message success" id="es_subscription_message_64dc6bf87ee25">Your subscription was successful! Kindly check your mailbox and confirm your subscription. If you don't see the email within a few minutes, check the spam/junk folder.</span> <span class="es_subscription_message error" id="es_subscription_message_64dc6bf87ee25">Email Address already exists!</span> <span class="es_subscription_message again" id="es_subscription_message_64dc6bf87ee25">You need to wait for some time before subscribing again.</span>
+      </div>
+     </section>
+    </div><!-- #h_footer-subscribe clearfix -->
+   </div>
+   <div class="h_footer-btmcon">
+    <div class="follow-box">
+     <span>Follow us</span>
+     <ul>
+      <li><a class="icon follow-icon" target="_blank" href="//twitter.com/huawei"> <img src="//blog.huawei.com/dam/asset/view/9d90a055a1374056a4fefe96c6b4d567.png" alt="icon-Twitter"> <img src="//blog.huawei.com/dam/asset/view/3b8531d4633c497eb04789bb66e53698.png" alt="icon-Twitter"> </a></li>
+      <li><a class="icon follow-icon" target="_blank" href="//www.linkedin.com/company/huawei/"> <img src="//blog.huawei.com/dam/asset/view/712c33b86d804462804266ef8c3375f9.png" alt="icon-linkin"> <img src="//blog.huawei.com/dam/asset/view/aec616dc63864765b4c36cb9a687c4f2.png" alt="icon-linkin"> </a></li>
+      <li><a class="icon follow-icon" target="_blank" href="//www.facebook.com/huawei"> <img src="//blog.huawei.com/dam/asset/view/7d4929eea8f544299e7dc99365cfaffb.png" alt="icon-facebook"> <img src="//blog.huawei.com/dam/asset/view/8b0e668c6bf549d5b6173c7b54168660.png" alt="icon-facebook"> </a></li>
+      <li><a class="icon follow-icon" target="_blank" href="//www.youtube.com/huawei"> <img src="//blog.huawei.com/dam/asset/view/14ad50ca47c24de0bb4669270fb6ec25.png" alt="icon-youtube"> <img src="//blog.huawei.com/dam/asset/view/dcc85410611343158faad8039344e482.png" alt="icon-youtube"> </a></li>
+     </ul>
+    </div>
+    <div class="link-box">
+     <a href="/en/welcome/" target="_self">About</a> <a href="/en/contact/" target="_self">Contact Us</a> <a href="/en/privacy/" target="_self">Privacy</a>
+    </div>
+   </div>
+  </footer>
+  <script> window.gConfig = window.gConfig || {}; window.gConfig.seed = window.gConfig.seed || []; window.gConfig.seed.push({name : '@cloud/hcomponent-blog-footer', data : {"packages":{"@cloud/hcomponent-blog-footer":{"path":"//res.hc-cdn.com/hcomponent-blog-footer/0.0.1/","version":"0.0.1"}},"modules":{"@cloud/hcomponent-blog-footer/m/index":{"requires":["jQuery"]},"@cloud/hcomponent-blog-footer/pc/index":{"requires":["jQuery"]}}} })</script>
+ </div>
+</div>
+  <script>
+    window.gConfig = window.gConfig || {};
+    window.gConfig.seed = window.gConfig.seed || [];
+    window.$devPath = {"@cloud/hcomponent-blog-header":{"path":"/-/media/hcomponent-blog-header/0.0.1.20240307113348"},"@cloud/hcomponent-blog-detail":{"path":"/-/media/hcomponent-blog-detail/0.0.1.20260511155649"},"@cloud/hcomponent-blog-comments":{"path":"/-/media/hcomponent-blog-comments/0.0.1.20260511172407"},"@cloud/hcomponent-blog-tags-on-detail":{"path":"/-/media/hcomponent-blog-tags-on-detail/0.0.1.20230907153302"},"@cloud/hcomponent-blog-footer":{"path":"/-/media/hcomponent-blog-footer/0.0.1.20260511155821"}};
+    for(var i = 0; i < window.gConfig.seed.length; i++) {
+      var tmpSeed = window.gConfig.seed[i].data;
+      var name = window.gConfig.seed[i].name;
+      if(tmpSeed && tmpSeed.packages && window.$devPath[name]) {
+        tmpSeed.packages[name] = window.$devPath[name];
+      }
+    }
+  </script>
+
+
+    
+    </div>
+    
+    <script type="text/javascript" src="/-/media/htemplate-standard/feloader.js?sttl=1782594577759"></script>
+    <script type="text/javascript">
+      feloader.config({
+        externals: ['jQuery']
+      });
+      feloader.noConflict();
+      var win = window;
+      var require = win.require;
+      var F = feloader;
+      win.require = function () {
+        F.use.apply(F, arguments);
+      };
+      win.require.config = function () {
+        F.config.apply(F, arguments);
+      };
+    </script>
+    <script type="text/javascript" src="https://blog.huawei.com/-/media/htemplate-blog/1.0.1.20231013175730/components/assets/js/index.min.js"></script>
+  <!-- uem -->
+  <script type="text/javascript">
+    const hostnameEnv = {
+      'blog.huawei.com': 'prod',
+      'admin.blog.huawei.com': 'beta'
+    }
+    const keyEnv = {
+      prod: 'd0ff57007b7edcb18ae1556dca80718c',
+      beta:'5a4ecf109c481fdf14a12faa2d716681'
+    }
+
+    const uploadSrcIndicator = {
+      'prod': 'https://hwa.his.huawei.com/dist/uem_f.js',
+      'beta': 'https://hwa-beta.his.huawei.com/dist/uem_f.js'
+    }
+    const currentUrl = new URL(window.location.href)
+    const currentHostname = currentUrl.hostname
+    const envIndicator = hostnameEnv[currentHostname]
+
+    const uemBoot = () => {
+      (function (config) {
+        var namespace = config.namespace || "hwa";
+        if (self[namespace] || document.querySelector("script#uem_f")) {
+          return;
+        }
+        self[namespace] = function () {
+          (self[namespace].q = self[namespace].q || []).push(arguments);
+        };
+        var element = document.createElement("script");
+        element.TRACKER_CONFIG = config;
+        element.async = true;
+        element.id = "uem_f";
+        element.src = config.src + "?_" + new Date().toJSON().split("T")[0];
+        document.head.appendChild(element);
+        element.onload = ()=> {
+          window.hwa("trackPageView");
+        };
+      })({
+        platform: "web",
+        edition: "his",
+        env: envIndicator,
+        appKey: keyEnv[envIndicator],
+        src: uploadSrcIndicator[envIndicator]
+      });
+    }
+    uemBoot();
+  </script>
+
+    
+    
+    <script src="https://corp.hwp.huawei.com/hwpinternet/scripts/ocs/collector/service/hwp-cs.js"></script>
+  </body>
+
+</html>
+
+

@@ -1,0 +1,45 @@
+HTTP/2 301 
+content-type: text/plain
+access-control-allow-headers: RSC, Next-Router-Prefetch, Next-Router-State-Tree, Next-Url, Content-Type
+access-control-allow-methods: GET, HEAD, OPTIONS
+access-control-allow-origin: https://weka.io
+cache-control: public, max-age=0, must-revalidate
+content-security-policy: frame-ancestors 'self' https://www.sanity.io https://*.sanity.io https://sanity.io https://*.sanity.studio http://localhost:* http://127.0.0.1:*
+date: Sat, 11 Jul 2026 07:59:05 GMT
+location: /article
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+vary: Origin, RSC, Next-Router-Prefetch
+x-vercel-id: sfo1::bgkc9-1783756745511-e76d563ce22d
+x-cache: Miss from cloudfront
+via: 1.1 dcd6c7d5f9e83c64e0ef0f23f0704dfa.cloudfront.net (CloudFront)
+x-amz-cf-pop: SFO53-P8
+alt-svc: h3=":443"; ma=86400
+x-amz-cf-id: KpIm5P4e5S3MVyPMC3qEmgECBjmTs-uiARbWw0lTfcDsAbn6gtAbuQ==
+
+HTTP/2 200 
+content-type: text/html; charset=utf-8
+content-length: 202489
+access-control-allow-headers: RSC, Next-Router-Prefetch, Next-Router-State-Tree, Next-Url, Content-Type
+access-control-allow-methods: GET, HEAD, OPTIONS
+access-control-allow-origin: https://weka.io
+cache-control: public, max-age=0, must-revalidate
+content-security-policy: frame-ancestors 'self' https://www.sanity.io https://*.sanity.io https://sanity.io https://*.sanity.studio http://localhost:* http://127.0.0.1:*
+date: Sat, 11 Jul 2026 07:54:09 GMT
+etag: "wh693c0den4c87"
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+x-matched-path: /article
+x-nextjs-prerender: 1
+x-nextjs-stale-time: 300
+x-powered-by: Next.js
+x-vercel-cache: HIT
+x-vercel-id: sfo1::iad1::kvmg2-1783756746025-e645b7d89f58
+x-cache: Miss from cloudfront
+via: 1.1 dcd6c7d5f9e83c64e0ef0f23f0704dfa.cloudfront.net (CloudFront)
+x-amz-cf-pop: SFO53-P8
+alt-svc: h3=":443"; ma=86400
+x-amz-cf-id: GDu8E4FFglp3b3RxWRoq-XPB4XD_xd-Q9hZe7_-BKRyPaw48eICVdw==
+age: 296
+

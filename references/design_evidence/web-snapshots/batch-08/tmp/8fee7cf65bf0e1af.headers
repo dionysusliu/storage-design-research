@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sat, 11 Jul 2026 08:00:43 GMT
+Content-Type: text/html
+Content-Length: 42063
+Last-Modified: Fri, 10 Jul 2026 10:27:15 GMT
+Connection: keep-alive
+ETag: "6a50c903-a44f"
+Strict-Transport-Security: max-age=31536000
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Content-Security-Policy: default-src 'unsafe-inline' 'self' https://ceph.matomo.cloud https://fonts.gstatic.com https://www.youtube.com https://calendar.google.com https://accounts.google.com; img-src 'self' https: data:; script-src 'unsafe-inline' 'unsafe-eval' https:; style-src 'unsafe-inline' 'self' https://fonts.googleapis.com;
+Accept-Ranges: bytes
+

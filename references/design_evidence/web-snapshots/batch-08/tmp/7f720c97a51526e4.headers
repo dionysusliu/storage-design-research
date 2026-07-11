@@ -1,0 +1,19 @@
+HTTP/2 200 
+server: Apache
+last-modified: Sat, 11 Jul 2026 01:38:20 GMT
+etag: "5ea6-6564be9804d87"
+access-control-allow-origin: *
+content-security-policy: style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://code.jquery.com
+content-type: text/html
+via: 1.1 varnish, 1.1 varnish
+accept-ranges: bytes
+age: 0
+date: Sat, 11 Jul 2026 08:01:20 GMT
+x-served-by: cache-hel1410028-HEL, cache-itm1220059-ITM
+x-cache: HIT, MISS
+x-cache-hits: 48, 0
+x-timer: S1783756880.092201,VS0,VE834
+vary: Accept-Encoding
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+content-length: 24230
+

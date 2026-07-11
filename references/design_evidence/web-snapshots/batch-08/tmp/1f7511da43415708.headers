@@ -1,0 +1,20 @@
+HTTP/2 200 
+server: nginx
+date: Sat, 11 Jul 2026 08:02:23 GMT
+content-type: text/html; charset=UTF-8
+strict-transport-security: max-age=31536000
+vary: Accept-Encoding
+last-modified: Sat, 11 Jul 2026 07:43:21 GMT
+cache-control: max-age=34, must-revalidate
+x-nananana: Batcache-Hit
+host-header: wpcloud
+content-security-policy: frame-ancestors 'self' https://scylladb.pathfactory.com https://resources.scylladb.com;
+permissions-policy: accelerometer=self, autoplay=self, camera=self, encrypted-media=self, fullscreen=(self "https://www.youtube-nocookie.com" "https://www.slideshare.net" "https://instruqt.com/"), geolocation=self, gyroscope=self, magnetometer=self, microphone=self, midi=self, payment=self, usb=self
+referrer-policy: strict-origin-when-cross-origin
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+vary: Cookie
+x-ac: 3.kix _atomic_bur STALE
+alt-svc: clear
+server-timing: a8c-cdn, dc;desc=kix, cache;desc=STALE;dur=1.0
+

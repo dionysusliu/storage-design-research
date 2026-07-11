@@ -1,0 +1,34 @@
+# 11-13 Evidence Table: 观测、安全与多租户 / Benchmark、Artifact 与可复现 / 成本、功耗、运维与升级
+
+## Scope
+- 输入范围仅限本地快照与索引：`../../domain-map.md`、`../../domain_knowledge/reference_cards/community/index.md`、`../../domain_knowledge/reference_cards/kernel/index.md`、`../../domain_knowledge/reference_cards/hardware/index.md`、`../../domain_knowledge/reference_cards/hyperscaler/index.md`、`../../domain_knowledge/reference_cards/enterprise/index.md`，以及 `../web-snapshots/` 中按需读取的本地 markdown 快照。
+- 不联网，不补外部新证据。
+- 本表只抽取 checklist 主题 11、12、13 的可追证 evidence；来源为 index、官方 docs、工程博客、会议页与产品支持页的本地快照。
+
+## Evidence Table
+
+| check_item | source | local_ref | evidence_type | evidence_note | design_pressure | confidence | gap |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 11. 是否能把 bucket/prefix/request/latency/cost 级指标拆出来，定位热前缀与生命周期问题？ | Datadog Storage Management blog（2025-06-10） | `../web-snapshots/batch-04/text/30faa78d3cad5632.md` | blog | 文章明确给出 prefix-level request/latency metrics、bucket-level lifecycle/retention visibility，并把这些指标绑定到 cost optimization、performance optimization 和 operational efficiency。 | 需要把观测粒度从“总延迟/总容量”提升到 prefix 与生命周期层。 | A | 没有导出格式或 API schema。 |
+| 11. 管理面是否有标准化接口覆盖 storage management、Redfish/Swordfish 和 compliance testing？ | NVM Express Technology Ecosystem | `../web-snapshots/batch-10/text/a76e814da3680456.md` | standards/community page | 页面说明 SNIA 提供 Swordfish 作为面向 NVMe 设备的 advanced storage management，并提到 UNH-IOL 对 NVMe / NVMe-oF 的 compliance testing。 | 需要一个可审计、可互操作的管理平面，而不是只靠厂商私有 CLI。 | A | 只到联盟入口，没有协议字段细节。 |
+| 11. 安全边界是否覆盖 DMA / IOMMU / bus address / 非 DMA-safe 内存？ | Linux DMA API guide | `../web-snapshots/batch-05/text/88bebbe24f60979b.md` | official kernel docs | 文档区分 CPU virtual address、CPU physical address、bus address，并明确 IOMMU 可能把 DMA address 映射到 physical address；同时说明 vmalloc、module、stack 地址不能直接做 DMA。 | 需要把 DMA-safe buffer、IOMMU、地址映射和 cacheline 约束写进设计契约。 | A | 这是内核层规则，不是多租户隔离策略本身。 |
+| 11. 多进程/多租户共享设备时，是否有明确的共享内存与访问协调模型？ | SPDK NVMe driver docs | `../web-snapshots/batch-03/text/223fdef65d3cf51d.md` | project docs | NVMe multi-process 允许多个进程访问同一设备，通过 shared memory group ID 共享关键结构；但要求 core mask 不重叠，且应用自行协调逻辑块访问。 | 需要明确共享边界、协调责任和故障语义，不能默认框架替你做隔离。 | A | 没有配额、公平性或 tenant-level QoS。 |
+| 12. benchmark 是否覆盖 workload matrix，而不是单点最佳参数？ | FAST '25 | `../web-snapshots/batch-04/text/afb8cac1caa48560.md` | conference page | FAST 页面说明会议面向 storage-system researchers/practitioners，并公开 full proceedings、presentation slides 和会后视频。 | 需要把 benchmark 放回可公开审阅的研究脉络，而不是只报一组峰值数。 | A | 页面没有 artifact 规则或方法学模板。 |
+| 12. artifact evaluation 是否要求完整 README、稳定 URL/档案和复现说明？ | OSDI '26 / NSDI '26 artifact pages | `../../domain_knowledge/reference_cards/community/index.md` | artifact guidelines | 参考卡记录 OSDI/NSDI artifact evaluation 要求 README 分为 Getting Started 与 Detailed Instructions，支持 stable URL/archive，且 badge 细分为 Available / Functional / Results Reproduced。 | 需要把代码、数据、脚本、README 和复现实验包装成完整交付件。 | A | 这是流程要求，不是某个具体 artifact 的复现结果。 |
+| 12. 论文交付是否要求 artifact appendix，并区分 paper、slides、video 与公开发布时点？ | OSDI '26 Instructions for Presenters | `../web-snapshots/batch-08/text/6a1967881d4b4073.md` | conference instructions | 页面要求通过 artifact evaluation 的论文可附最多两页 Artifact Appendix，且最终 paper 需与 HotCRP 元数据一致；公开视频是可选项。 | 需要把论文正文和 artifact 说明拆开，避免把实现细节藏在附录之外。 | A | 只适用于已接收论文。 |
+| 12. benchmark 工具是否需要区分 fio 的方法学开销与更轻量的 perf 路径？ | SPDK NVMe driver docs | `../web-snapshots/batch-03/text/223fdef65d3cf51d.md` | benchmark docs | 页面说明 SPDK 提供 fio plugin 但也提供 perf；并明确写出 perf 在 4K 100% random read 下可达比 fio 高 2.6x 的 IOPS/core，原因是 fio 灵活但开销更高。 | 需要在 benchmark 方法里显式说明工具开销，不能把工具默认当成被测系统。 | A | 没有原始数据表，仅有项目侧性能陈述。 |
+| 12. profiler 是否支持系统级 timeline、低开销事件和功耗/热约束分析？ | Intel VTune Profiler | `../web-snapshots/batch-10/text/19b9e6b3fd56614a.md` | tool docs | 页面强调 system-wide performance analysis、coarse-grained system data、source-mapped results 和 power/thermal throttling avoidance。 | 需要把性能 artifact 拓展为 CPU/GPU/system timeline 与功耗分析，而不只是一张吞吐图。 | A | 没有 storage-specific profiling recipe。 |
+| 12. GPU/AI 场景的 profiling 是否需要 CPU/GPU/network timeline 的联合视图？ | NVIDIA Nsight Systems | `../web-snapshots/batch-02/text/8235cd17eb584a06.md` | tool docs | 页面说明 Nsight Systems 以 low-overhead timeline 追踪 CPU、GPU、network communications、OS interactions，并用于 AI/HPC/gaming 优化。 | 如果存储路径服务 GPU/AI，benchmark 必须包含系统级 timeline。 | A | 没有直接给出存储工作负载示例。 |
+| 13. 升级/迁移是否必须有数据正确性、延迟和资源利用率的门槛，以及快速回滚？ | Meta data ingestion migration at scale | `../web-snapshots/batch-10/text/d715258626e32cb6.md` | engineering blog | 迁移门槛包括 row count/checksum 一致、landing latency 不回归、compute/storage resource utilization 不回归；还使用 shadow / reverse-shadow、Scuba、自动 promote/demote 和 rollback。 | 需要把升级定义成带验证门槛的迁移流程，而不是一次性切换。 | A | 这是摄取系统迁移，不是通用升级规范。 |
+| 13. mixed hardware generations、独立更新和 non-disruptive migration 是否被产品级支持？ | IBM FlashSystem grid | `../../domain_knowledge/reference_cards/enterprise/index.md` | vendor docs | 参考卡记录 FlashSystem grid 最多 32 台系统、支持混合硬件/代际、系统可独立更新、storage partitions 可 non-interruptive 迁移。 | 需要明确版本兼容、迁移粒度和不中断升级路径。 | A | 还缺对应 limits / failure handling 的底层页面。 |
+| 13. 部署 checklist 是否应列出 release notes、upgrade guide、REST API、CLI、security 和 monitoring 文档入口？ | Dell PowerStore Info Hub | `../../domain_knowledge/reference_cards/enterprise/index.md` | support hub | 参考卡记录该 hub 聚合了 release notes、planning/networking/install/upgrade guides、REST API、CLI、Security Configuration、Volumes/Files/Data Protection/Monitoring 和 import 文档。 | 需要把运维资料做成单点入口，并把升级/安全/监控拆成可执行子项。 | A | 这是文档索引，不是具体操作步骤。 |
+| 13. 成本模型是否要把 lifecycle、retention、hot prefix 和 prefix-level request/latency 纳入，而不是只看容量？ | Datadog Storage Management blog（2025-06-10） | `../web-snapshots/batch-04/text/30faa78d3cad5632.md` | blog | 文章把云存储成本优化和 operational efficiency 绑定到 lifecycle/retention、request-by-prefix、object age、latency-by-prefix，并举出把冷数据迁移到更低成本层的做法。 | 需要 workload-aware TCO，而不是单纯按 TB 计价。 | A | 没有价格表或统一成本模型。 |
+| 13. 生命周期/版本状态是否显式区分 current、historical、obsolete 和 ratified，以避免把历史材料当当前事实？ | NVM Express specs / CXL / Intel Optane lifecycle | `../../domain_knowledge/reference_cards/hardware/index.md` | standards/product lifecycle | 参考卡给出 NVMe latest spec set 的发布日期、NVMe-oF historical reference、archive 中的 ratified versions；同时记录 Intel Persistent Memory 页面引导向 CXL，CXL 首页高亮 4.0，而 3.2 公告是可直接引用的版本锚点。 | 需要统一 lifecycle/status 字段，避免把历史 Optane 或旧 NVMe-oF 语义当作当前最佳实践。 | A | 仍需按具体采购/实现目标确认当前可用性。 |
+
+## Gaps
+- 条目数：15。
+- `fio` 原始 HOWTO / man page 没有可直接访问的本地正文；当前只能用 SPDK 文档里对 fio 与 perf 的对比来间接支撑 benchmark 方法学。
+- `Meta’s AI Storage Blueprint at Scale` 的独立正文快照没有进入当前可用文本集；本表对 Meta AI storage 相关内容主要使用了同站点的摄取迁移文章和 hyperscaler 索引卡，AI storage 专项证据仍偏间接。
+- SNIA / Swordfish 的证据目前停留在生态入口和索引级，不是 Swordfish 规范正文；如果 checklist 要写到管理 API 字段或安全语义，还需要更深一层的 spec 或文档页。
+- Dell / IBM 的部分证据来自 support hub / index / reference card，足够支撑“有升级与监控资料入口”，但不足以直接替代具体升级步骤、failure matrix 和回滚条件。
+- CXL / Optane 的生命周期判断现在是“版本锚点 + 入口页”级别；若 checklist 要用于采购、架构冻结或对外承诺，还需要把当前产品状态再下钻到对应正式规格或产品公告。

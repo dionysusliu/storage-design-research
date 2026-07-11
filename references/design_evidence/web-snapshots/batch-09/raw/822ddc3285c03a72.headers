@@ -1,0 +1,25 @@
+HTTP/2 200 
+content-type: text/html; charset=UTF-8
+content-length: 235506
+accept-ranges: bytes
+cache-control: public, max-age=600
+link: <https://www.weka.io/wp-json/>; rel="https://api.w.org/"
+link: <https://www.weka.io/wp-json/wp/v2/pages/9>; rel="alternate"; title="JSON"; type="application/json"
+link: <https://www.weka.io/?p=9>; rel=shortlink
+server: nginx
+strict-transport-security: max-age=300
+x-frame-options: SAMEORIGIN
+x-pantheon-styx-hostname: styx-us-a-7ffbcf568d-4q4pg
+x-styx-req-id: 566329ed-7cfe-11f1-b7ac-12d25cd367c2
+date: Sat, 11 Jul 2026 07:58:44 GMT
+x-served-by: cache-chi-kigq8000121-CHI, cache-sjc10068-SJC
+via: 1.1 varnish, 1.1 varnish, 1.1 8d75c94c9670950752a0ef9e5d4a66d0.cloudfront.net (CloudFront)
+x-cache-hits: 0, 0
+x-timer: S1783756724.766418,VS0,VE1182
+vary: Accept-Encoding, Cookie, Cookie
+x-cache: Miss from cloudfront
+x-amz-cf-pop: SFO53-P8
+alt-svc: h3=":443"; ma=86400
+x-amz-cf-id: ARtXY1vsB70HEWBnO5stC3Wkz5U_1P3Qwlajv3AEiamjEpIyN6JaWQ==
+age: 0
+

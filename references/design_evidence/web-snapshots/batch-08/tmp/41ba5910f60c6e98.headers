@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Date: Sat, 11 Jul 2026 08:00:35 GMT
+Server: Apache/2.4.62 (CentOS Stream) OpenSSL/3.5.7
+Permissions-Policy: interest-cohort=()
+Strict-Transport-Security: max-age=31536000
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+X-Robots-Tag: noai
+Expires: -1
+Cache-Control: max-age=0, no-cache
+Content-Length: 4587
+Content-Type: text/html; charset=utf-8
+

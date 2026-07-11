@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storage Project Investigator"
+  short_description: "系统勘探存储项目细节"
+  default_prompt: "Use $storage-project-investigator to investigate this storage project in Chinese; first scan the workspace for an existing research artifact directory, create research/<project>-investigation-YYYYMMDD/ only when none is found, then ask whether to use the selected directory as the workspace before mapping evidence, read/write paths, durability semantics, queues, background work, risks, and next probes."

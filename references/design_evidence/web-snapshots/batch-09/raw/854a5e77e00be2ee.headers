@@ -1,0 +1,21 @@
+HTTP/2 302 
+date: Sat, 11 Jul 2026 07:58:46 GMT
+content-type: text/html; charset=UTF-8
+location: https://discord.gg/cloudflaredev
+server: cloudflare
+cf-ray: a19643d649b12f45-LAX
+
+HTTP/2 302 
+date: Sat, 11 Jul 2026 07:58:57 GMT
+content-type: text/html; charset=UTF-8
+location: https://discord.gg/cloudflaredev
+server: cloudflare
+cf-ray: a196441c49712f45-LAX
+
+HTTP/2 302 
+date: Sat, 11 Jul 2026 07:59:10 GMT
+content-type: text/html; charset=UTF-8
+location: https://discord.gg/cloudflaredev
+server: cloudflare
+cf-ray: a19644687b522f45-LAX
+

@@ -1,0 +1,17 @@
+HTTP/2 200 
+server: nginx
+date: Sat, 11 Jul 2026 07:59:22 GMT
+content-type: text/html; charset=UTF-8
+vary: Accept-Encoding, accept, content-type
+x-hacker: If you're reading this, you should visit https://join.a8c.com/viphacker and apply to join the fun, mention this header.
+x-powered-by: WordPress VIP <https://wpvip.com>
+host-header: a9130478a60e5f9135f765b23f26593b
+link: <https://engineering.fb.com/wp-json/>; rel="https://api.w.org/"
+link: <https://engineering.fb.com/wp-json/wp/v2/posts/23929>; rel="alternate"; title="JSON"; type="application/json"
+link: <https://wp.me/pa0Lhq-6dX>; rel=shortlink
+x-rq: kix2 177 253 80
+accept-ranges: bytes
+x-cache: MISS
+cache-control: max-age=300, must-revalidate
+strict-transport-security: max-age=31536000;includeSubdomains;preload
+

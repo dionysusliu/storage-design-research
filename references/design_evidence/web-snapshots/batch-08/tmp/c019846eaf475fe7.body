@@ -1,0 +1,569 @@
+<html>
+<head>
+<title>Garth Gibson</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script language="JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<link href="style/garth.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+a:link {
+	color: #309;
+}
+a:visited {
+	color: #306;
+}
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" background="webimages/bk2.jpg" onLoad="MM_preloadImages('webimages/research-on.gif','webimages/bio-on.gif','webimages/awards-on.gif','webimages/pubs-on.gif','webimages/news-on.gif','webimages/talks-on.gif')">
+<p><a href="#research" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image1','','webimages/research-on.gif',1)"><img name="Image1" border="0" src="webimages/research-off.gif" /></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+   <a href="#bio" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image2','','webimages/bio-on.gif',1)"><img name="Image2" border="0" src="webimages/bio-off.gif" /></a> &nbsp;&nbsp;&nbsp;&nbsp;
+   
+   <a href="#awards" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3','','webimages/awards-on.gif',1)"><img name="Image3" border="0" src="webimages/awards-off.gif" /></a>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+   
+   <a href="#pubs" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','webimages/pubs-on.gif',1)"><img name="Image4" border="0" src="webimages/pubs-off.gif" /></a> </p>
+   
+   <p><img src="webimages/name.gif" width="267" height="28" /> <br />
+  <img src="webimages/line.gif" width="700" height="6" />
+</p><p>
+
+</p><table width="693" border="0">
+  <tr valign=center>
+    <td width="319" valign="top"><blockquote>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="webimages/ggibson.jpeg" width="180" height="217" border="1" /></p>
+    </blockquote>
+    </td>
+    <td width="364"> 
+      <p><b><font size="2">Consulting Professor<br />
+      </font></b>Computer Science Department, CMU</p>
+      <p><strong>Chief Technology and AI Officer</strong><br>
+Vdura Inc.</p>
+      <p><strong>Adjunct Professor, Department of Computer Science</strong><br>
+University of Toronto<br>
+        <br/>
+        <font face="Arial, Helvetica, sans-serif"><font size="2">      garth dot gibson @ cs dot cmu dot edu</font></font></p>
+     <p><b>Past Courses Taught:</b><br>
+       <a href="http://www.cs.cmu.edu/~410/">15-410 Operating Systems Design and Implementation</a><br>
+       <a href="http://www.cs.cmu.edu/~15712/">15-712 Advanced and Distributed Operating Systems</a><br>
+       <a href="http://www.cs.cmu.edu/~15719/">15-719 Advanced Cloud Computing</a><br>
+      <a href="http://www.ece.cmu.edu/~ganger/746/">15-746 Advanced Storage Systems</a></p></td>
+  </tr>
+</table>
+<p><img src="webimages/line.gif" width="700" height="6" /></p>
+<table width="695" border="0">
+  <tr> 
+    <td width="689"><img src="webimages/rs.gif" width="330" height="24" />
+      <blockquote> 
+        <p><font face="Arial, Helvetica, sans-serif"> Broadly, I am
+interested in large-scale parallelism in computer systems and its
+implications on application performance, operating system design, fault
+tolerance and big data in cloud computing. My particular interests focus on
+secondary memory system technologies and optimization, scalable file and
+key-value storage systems, scalable machine learning and systematic testing
+for large scale systems. </font><font face="Arial, Helvetica, sans-serif">I have a strong interest in shepherding technological advances from blackboard through standards and to commercial reality . <br>
+<br>
+</font>      </p>
+      </blockquote>
+      <p><font face="Arial, Helvetica, sans-serif"><a name="bio"></a></font><img src="webimages/bio.gif" width="330" height="24" /></p>
+      <ul><font face="Arial, Helvetica, sans-serif"><img src="webimages/garth-lynmar09.jpg" width="180" height="217" align=right vspace=10 hspace=10 />I joined the faculty 
+        of CMU's Computer Science Department in 1991. Previously I received a 
+        Ph.D. and a M.Sc. in Computer Science in 1991 and 1987, respectively, 
+        from the University of California at Berkeley. Prior to Berkeley, I received 
+        a Bachelor of Mathematics in Computer Science and Applied Mathematics 
+        in 1983 from the University of Waterloo in Ontario, Canada. </font> 
+        <p><font face="Arial, Helvetica, sans-serif"> In 1993 I founded CMU's 
+          Parallel Data Laboratory (<a href="http://www.pdl.cmu.edu">PDL</a>) 
+          and led it until April 1999. 
+          Today the PDL is led by <a href="https://www.pdl.cmu.edu/People/andersen.shtml">Dave Andersen</a> and <a href="https://www.pdl.cmu.edu/People/george.shtml">George Amvrosaidis</a>. The PDL is a <a 
+href="http://www.pdl.cmu.edu/PEOPLE/">community</a> that typically comprises 
+          between 6 to 9 faculty, 2 to 3 dozen students and 4 to 10 staff. It 
+          receives support and guidance from a consortium of 15 to 25 companies 
+          with interests in parallel data systems, the  <a href="https://www.pdl.cmu.edu/affiliates.shtml">Parallel Data Consortium</a>. 
+          This community holds biannual <a href="http://www.pdl.cmu.edu/Retreat/">retreats 
+          and workshops</a> to exchange technology ideas, analysis and future directions. 
+          The <a 
+href="http://www.pdl.cmu.edu/Publications/">publications</a> of the PDL are 
+          available for your inspection. </font>
+        </p><p><font face="Arial, Helvetica, sans-serif"> The principal contributions 
+          of my first twenty years of research: Redundant Arrays of Inexpensive 
+          Disks (<a href="http://www.pdl.cmu.edu/RAID/">RAID</a>), Informed Prefetching 
+          and Caching (<a href="http://www.pdl.cmu.edu/TIP/">TIP</a>) and Network-Attached Secure 
+          Disks (<a href="http://www.pdl.cmu.edu/NASD/">NASD</a>),
+<!--
+	now an ANSI SCSI command set standard (<a href="http://www.t10.org/drafts.htm#osd-">OSD</a>),
+//-->
+whose architectural basis shapes the
+<a
+href="http://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf">
+Google File System
+</a> 
+and its descendents such as the Hadoop Distributed File System (HDFS) and the Parallel Network
+File System,
+<a href="http://www.pnfs.com">
+pNFS,</a> 
+features in
+<a href="https://en.wikipedia.org/wiki/Network_File_System#PNFS">
+NFS v4.1
+</a>
+<a
+href="https://www.youtube.com/watch?feature=player_embedded&v=uJRey90G0Jo">
+(video discussion),
+</a>
+	have all stimulated derivative 
+        research and development in academia and industry. RAID, in particular, 
+        is now the organizing concept of a 10+ billion-dollar marketplace (more 
+        on RAID in my 1995 RAID <a 
+href="http://www.pdl.cmu.edu/RAIDtutorial/">tutorial</a>). </font>        
+        </p><p><font face="Arial, Helvetica, sans-serif">In 1999 I started <a href="http://www.panasas.com">Panasas</a>
+Inc., a  scalable storage cluster company using an object storage architecture and providing 100s of TB of
+high-performance storage in a single management domain for national laboratory, energy sector, auto/aero-design, life
+sciences, financial modeling, digital animation, and engineering design markets
+(<a href="http://www.cs.cmu.edu/~garth/papers/welch-fast08.pdf">USENIX FAST08</a>,
+<a href="http://dl.acm.org/citation.cfm?id=1374600">PDSW07</a>, 
+<a href="http://dl.acm.org/citation.cfm?id=1049998">SC04</a>).</font>
+        </p>
+        <p><font face="Arial, Helvetica, sans-serif">In 2006 I founded a Petascale Data Storage Institute (<a href="http://www.pdl.cmu.edu/PDSI">PDSI</a>) for the Department of Energy's Scientific Discovery through Advanced Computing (<a href="http://www.scidac.gov/institutes.html">SciDAC</a>). Led by CMU, with partners at Los Alamos, Sandia, Oak Ridge, Pacific Northwest and Lawrence Berkeley National Labs, and University of California, Santa Cruz and University of Michigan, Ann Arbor, this Institute gathers together leading experts in leadership class supercomputing storage systems to address the challenges involved in moving from today's terascale computers to the petascale computers of the next decade.
+PDSI has run its course, leaving ongoing collaboration among the community at the annual Parallel Data Storage Workshop 
+(<a href="http://www.pdsw.org">PDSW</a>), between Los Alamos National Laboratory and CMU (<a
+href="http://institutes.lanl.gov/isti/irhpit">IRHPIT</a>), and an open source parallel checkpoint middleware file system
+(<a href="http://institutes.lanl.gov/plfs/">PLFS</a>).
+</font></p>
+        <p>In 2008 I turned to Data Intensive Scalable Computing, Clouds, and  Scalable Analytics, participating in the
+design and installation of 2  TF, 2TB, 1/2PB of computing in an OpenCirrus and an OpenCloud cluster. We installed and
+operate a Hadoop cluster for any and all researchers at CMU and have published observations on their use of this
+facility and benchmarking tools for it.  Astrophysics was a strong early user, computational biology and geophysics
+filling out a natural science slate, but the heaviest users were doing variants of machine learning and big data and the
+major collaboration has been the Intel Science and Technology Center for Cloud Computing
+(<a href="http://www.istc-cc.cmu.edu">ISTC-CC</a>).</p>
+	<p>In 2011 I helped the New Mexico Consortium recycle retired Los Alamos National Laboratory supercomputing clusters
+into an NSF funded open platform for scalable systems development and testing
+(<a href="http://www.nmc-probe.org">PRObE</a>).  PRObE offers multiple clusters with 1000s of cores in either
+low-core-count high-node-count clusters or high-core-count low-node-count clusters. Researchers at universities and labs
+from all around the country are using PRObE to demonstrate the scalability of their systems research ideas.
+
+	<p>In 2012 I rallied a team of Machine Learning and Distributed
+Systems researchers to form a
+<a href="http://www.pdl.cmu.edu/BigLearning">
+Big Learning
+</a>
+research group.  Our premise is that Machine Learning on Big Data presents
+both theoretical (exploitation of the inherent search-iness of machine
+learning and ensuring convergence given concurrency induced error) and a
+practical (distributed systems latency hiding and load balancing given
+unusually flexible tolerance for bounded error) challenges.
+
+	<p>Also in 2012 I created the curriculum for and welcomed the
+first class of Big Data Systems masters students, now known as the
+<a href="http://mcds.cs.cmu.edu/learn-us-curriculum">
+Systems Major
+</a>
+in the Master of Computational Data Sciences
+<a href="http://mcds.cs.cmu.edu">
+(MCDS).
+</a> 
+MCDS graduates are typically employed in the U.S. tech industry,
+<a href="http://mcds.cs.cmu.edu/learn-us-alumni">
+earning
+</a>
+an average salary of over $115,000 in their first post-MCDS job.</p>
+	<p>On Jan. 2 2018 I started with the Vector Institute for AI, founded in April 2017 by ACM Turing Award winner Geoffrey Hinton (Chief Scientific Advisor) and colleagues, as its first President and Chief Executive Officer. Over its first five years, I grew Vector from 20 employees (8 faculty and 12 staff) to over 150 (60 faculty and postdocs, 60 professional staff, and 30 interns) and a research community of over 700 faculty, affiliate (adjunct) faculty, postdocs, and graduate students drawn from 13 universities and 5 hospital and life sciences institutes, implemented an AI computing resource of over 1,000 GPUs and expanded Vector&rsquo;s facilities from 18,000 to 33,000 sqft.</p>
+	<p> In the five years of my leadership total funding secured was increased from $135M CAD to $292M CAD. Affiliated with the University of Toronto and the University of Waterloo, among others, Vector facilitated AI research by extending the academic and computing support available in local universities, by annually sponsoring about 100 $17,500 scholarships for students pursuing AI-related master&rsquo;s degrees at one of more than a dozen universities in Ontario, and by annually spending about $2M CAD topping up the stipends of graduate students and postdocs at partner universities. The other key to Vector&rsquo;s mission was to assist and enable regional corporations, hospitals and entrepreneurial incubators to better use AI to compete nationally and internationally.  Under my leadership, Vector annually provided over 4,000 training engagements involving multi-company collaborative projects, experiential workshops and courses, commercialization seminars, micro-advising on specific problems, and recruiting support through a facilitated talent hub.  At the end of five years Vector had formal partnerships with over 200 organizations including 30 sponsoring enterprise companies (contributing over $9M CAD annually), more than 20 academic institutions, about 10 hospital and life-sciences research institutes, over 25 AI-related startup-scaleup companies, and a large and dynamic community of small and medium-sized fast growing companies involved in a variety of programs for upskilling AI in commercial uses.  </p>
+	<p>After a 5 year term at Vector, I began to consult on AI Computing technology for industry and Canadian government ministries and research institutes, culminating in appointments on the Government of Canada's Advisory Council on Artificial Intelligence and its Minister of AI's 2025 Task Force on AI strategy where I contributed a set of recommendations for the country's strategy for AI Infrastructure.</p>
+	<p> In 2025 I returned to Panasas in its new incarnation as Vdura Inc as the Chief Technology and Artificial Intelligence Officer.   It had recently made a set of big changes starting with its name and including a new management team and the conversion from an appliance vendor to a software defined storage vendor.  I returned to lead the development of a suite of AI services and optimizations appropriate for the agentic era of modern computing.<br> 
+	  <!--
+New Section: Awards
+//--><br>
+	</p>
+      </ul>       
+      <p><a name="awards"></a><img src="webimages/aw.gif" width="330" height="24" /></p>
+      <ul>
+	<li>2024 Keynote speaker, 38th Int&rsquo;l Conf. on Massive Storage Systems and Tech., Santa Clara, CA.</li>
+	<li> 2021-2023 Member of the Government of Canada&rsquo;s Advisory Council on Artificial Intelligence. </li>
+	<li> 2021-2023 Member of the OECD Network of Experts on AI (ONE AI), OECD.AI task force on AI compute (ONE AI compute).</li>
+	<li>2019 R&amp;D World R&amp;D 100 Award, IT/Electrical category, for DeltaFS &ndash; Rapidly Searching Big Data to Accelerate Scientific Discovery, with Los Alamos National Laboratory, Dec, 2019, San Mateo, CA. </li>
+	<li>2019 Test of Time Award for impact on the field from papers in USENIX Conf. on File and Storage Technologies at least 10 years prior, &ldquo;Disk Failures in the Real World: What Does an MTTF of 1,000,000 Hours Mean to You?&rdquo; by Bianca Schroeder and Garth A. Gibson, Feb., 2007. </li>
+	<li>2018 Keynote speaker, USENIX Conf. on File and Storage Technologies, Oakland, CA.</li>
+	<li>2014 Fellow of the IEEE <a href="http://www.ieee.org/2014Fellowclass"> for contributions to the performance and reliability of transformative storage systems.</a>
+	  </li>
+	<li>2012 Fellow of the ACM <a href="http://awards.acm.org/award_winners/gibson_2521995.cfm"> for contributions to the performance and reliability of storage systems.</a>
+	</li>
+	<li>2012 <a
+	href="http://www.dependability.org/articles/laprie/laprie2012.html">Jean-Claude
+	Laprie Award in Dependable Computing</a> Industrial/Commercial
+	Product Impact Category, by the IFIP Working Group 10.4 on
+	Dependable Computing and Fault Tolerance, for outstanding papers
+	published at least 10 years ago that have significantly influenced
+	the theory and/or practice of dependable computing. Awarded for the
+	SIGMOD88 &quot;RAID&quot; paper.  </li>
+        <li>2011 <a href="http://www.sigops.org/award-hof.html">SIGOPS Hall
+        of Fame</a> for the SIGMOD88 &quot;RAID&quot; paper because it is one of &quot;the most influential Operating Systems papers that were published at least ten years in the past.&quot;  Selected by past program chairs from SOSP, OSDI, EuroSys, past Weiser and Turing Award winners from the SIGOPS community, and representatives of each of the Hall of Fame Award papers.</li>
+        <li><font face="Arial, Helvetica, sans-serif">1999 <a 
+href="http://www.ieee.org/about/awards/sums/johnson.htm">Reynold B. Johnson Information 
+          Storage Award</a>, an IEEE Technical Field Award, for outstanding contributions 
+          to the field of information storage, with emphasis in the area of computer 
+          storage. Awarded at the 1999 International Symposium on Computer Architecture 
+          for the development of Redundant Arrays of Inexpensive Disks (RAID).</font></li>
+        <li><font face="Arial, Helvetica, sans-serif">1999 <a 
+href="http://www.cs.cmu.edu/people/achievements/newell/newellmedal_winners.html">Allan Newell 
+          Award for Research Excellence</a>, Carnegie Mellon University. </font></li>
+        <li><font face="Arial, Helvetica, sans-serif"> 1998 <a 
+href="http://www.acm.org/sigmod/sigmodinfo/awards.html#test">Test of Time Award</a> for the most influential paper in the ACM SIGMOD Int. Conf. on Management 
+          of Data proceedings 10 years prior. </font></li>
+        <li><font face="Arial, Helvetica, sans-serif">1991 A.C.M. Doctoral Dissertation 
+          Award (tied for second). </font></li>
+      </ul>
+<!--
+New Section: News
+//-->
+
+<p>&nbsp;</p>
+      <p><a name="news"></a><img src="webimages/rd.gif" width="432" height="24" /></p>
+      <ul>
+        <li>PLFS (see <a href="http://www.pdl.cmu.edu/PDL-FTP/PDSI/plfs.pdf">SC09</a> paper below and <a href="http://institutes.lanl.gov/plfs/">institutes.lanl.gov/plfs</a>) has been released on Sourceforge (<a href="http://sourceforge.net/projects/plfs">sourceforge.net/projects/plfs</a>) under a BSD license.  It is available through MPI-IO libraries or FUSE user level file system reflector.  It is being put into production HPC use at Los Alamos. </li>
+        <li> pNFS, or Parallel NFS, is a subset of the new features in NFS version 4.1 (<a href="http://www.pnfs.com/">www.pnfs.com</a>, RFC 5661-5664, <a href="http://tools.ietf.org/html/rfc566x">tools.ietf.org/html/rfc566x</a> for x=1,2,3,4).  pNFS hails from a workshop in Dec 2003 when Garth Gibson and Peter Honeyman asked &quot;what is next for NFS&quot; and Gibson/CMU/Panasas answered: delegation of file layouts (direct and indirect pointers in an inode, sort of).  Based on the NASD file system work (<a href="http://www.pdl.cmu.edu/PDL-FTP/NASD/asplos98.pdf">ASPLOS98</a> below) that inspired Panasas (<a href="papers/welch-fast08.pdf">FAST08</a> below), pNFS allows client machines to request a (revocable) map of the locations of data in a storage area network (seen as SCSI blocks, SCSI objects or NFS files) which the client can use to directly access file data (without access being proxied by the NFSv4.1 server).
+          <ul>
+            <li>  an implementation of pNFS built on top of NFS files was taken into Linux in 2.6.39 	</li>
+            <li>an implementation of pNFS built on top of SCSI objects was taken into Linux in 2.6.40, renamed as 3.0 </li>
+            <li>an implementation of pNFS built on top of SCSI blocks was taken into Linux 3.1 </li>
+            <li> extension of pNFS built on SCSI objects with RAID 1 and RAID 5 over objects on different data servers, taken into Linux 3.2 </li>
+          </ul>
+        </li>
+        <li><font face="Arial, Helvetica, sans-serif">Past member of the 
+          technical council of the Storage Networking Industry Association 
+          (<a href="http://www.snia.org">SNIA</a>), an international organization 
+          of about 100 networking and storage companies formed in July 1999. </font></li>
+        <li>Founder 
+          and chair, National Storage Industry Consortium (NSIC) working group 
+          on Network-Attached Storage Devices (<a 
+href="http://www.nsic.org/nasd">NASD</a>), 1996-1999. Program chair for eleven 
+          NSIC/NASD sponsored public <a 
+href="http://www.nsic.org/nasd/meetings.html">workshops</a> (75 presentations 
+          and 500 attendees). The result of these efforts was presented in "Object 
+          Based Storage Devices: A Command Set Proposal," (http://www.nsic.org/nasd/final.pdf, 
+          November 1999) which was written to launch an ANSI standards effort 
+          in the X3/T10 (SCSI) committee. </font></li>
+        <li><font face="Arial, Helvetica, sans-serif">Release of <a 
+href="http://www.pdl.cmu.edu/NASD/Downloads/NASDcode.html">NASD Scalable Storage 
+          Systems Prototype</a> code, version 1.1 in July 1999, and version 1.3 
+          in May 2000. This code implements CMU's view of the next generation 
+          storage interface (SCSI-4?) and a simple set of changes for a distributed 
+          file system to exploit it. </font></li>
+        <li><font face="Arial, Helvetica, sans-serif">Release of <a 
+href="http://www.pdl.cmu.edu/RAIDframe/">RAIDframe Rapid Prototyping Tool for 
+          RAID Systems</a> code, August 1996. This code, suitably debugged and 
+          adapted, appears as the RAID device driver in the current release of 
+          the NetBSD operating system. </font></li>
+      </ul>
+      <p>&nbsp;</p>
+<!--
+
+HERE LIES THE PUBLICATIONS SECTION
+
+-->
+<p><a name="pubs"></a><img src="webimages/pub.gif" width="330" height="24" /></p><img src="webimages/Garth-canoe.jpg" width="180" height="258" align=right vspace=10 hspace=10 />
+      <blockquote>
+        <p><a href="http://dl.acm.org/author_page.cfm?id=81339501408">ACM DIgital Library Publication List</a>&nbsp; &#8226; &nbsp;<a href="http://scholar.google.com/citations?user=WYctQAQAAAAJ">Google Scholar Publication List</a></p>
+      </blockquote>
+      <ul>
+
+
+<!-- Publications template
+	<li><strong>
+	title
+	</strong>
+	authors
+	publication
+	<a href="http://">
+		PDF </a>
+	</li>
+
+-->
+	
+	<li><strong>Mochi: Composing data services for high-performance computing environments</strong>. RB Ross, G Amvrosiadis, P Carns, CD Cranor, M Dorier, K Harms, et. al., Journal of Computer Science and Technology 35 (1), 121-144, 2020. <a href="https://www.pdl.cmu.edu/PDL-FTP/HECStorage/Mochi-JCST-01-20.pdf">PDF</a></li>
+	<li><strong>Priority-based parameter propagation for distributed DNN training</strong>. A Jayarajan, J Wei, G Gibson, A Fedorova, G Pekhimenko Proceedings of Machine Learning and Systems 1, 132-145, 2019. <a href="https://mlsys.org/Conferences/2019/doc/2019/75.pdf">PDF</a></li>
+	<li><strong>MLSys: The new frontier of machine learning systems</strong>. A Ratner, D Alistarh, G Alonso, DG Andersen, P Bailis, S Bird, N Carlini, et. al. arXiv preprint arXiv:1904.03257, 2019. <a href="https://arxiv.org/abs/1904.03257">PDF</a></li>
+	<li><strong>Scaling embedded in-situ indexing with DeltaFS</strong>. Q Zheng, CD Cranor, D Guo, GR Ganger, G Amvrosiadis, GA Gibson, ... SC18: International Conference for High Performance Computing, Networking, Storage and Analysis, (SC'18), 2018. <a href="https://www.pdl.cmu.edu/PDL-FTP/CloudComputing/deltafs_sc18.pdf">PDF</a></li>
+	<li><strong>Litz: Elastic framework for {High-Performance} distributed machine learning</strong>. A Qiao, A Aghayev, W Yu, H Chen, Q Ho, GA Gibson, EP Xing 2018 USENIX Annual Technical Conference (USENIX ATC 18), 631-644, 2018. <a href="https://www.pdl.cmu.edu/PDL-FTP/BigLearning/CMU-PDL-17-103.pdf">PDF</a></li>
+	<li><strong>SlimDB: A space-efficient key-value storage engine for semi-sorted data</strong>. K Ren, Q Zheng, J Arulraj, G Gibson Proceedings of the VLDB Endowment 10 (13), 2037-2048, 2017. <a href="https://db.cs.cmu.edu/papers/2017/p2037-ren.pdf">PDF</a></li>
+	<li><strong>Evolving Ext4 for Shingled Disks. </strong>
+	  Abutalib Aghayev, Theodore Ts'o, Garth Gibson, Peter Desnoyers.
+	  15th USENIX Conf. on File and Storage Technologies (FAST'17), Santa Clara, CA, Feb 27 - Mar 2, 2017.
+  <!--	<a href="http://dl.acm.org/citation.cfm?id=2984036"> PDF </a>
+-->
+	  </li>
+
+	<li><strong>
+	Stateless model checking with data-race preemption points.
+	</strong>
+	Ben Blum, Garth Gibson.
+	Proc. of the 2016 ACM SIGPLAN Int. Conf. on
+Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA
+2016), Amsterdam, Nov 2-4, 2016.
+	<a href="http://dl.acm.org/citation.cfm?id=2984036"> PDF </a>
+	</li>
+
+	<li><strong>
+Addressing the straggler problem for iterative convergent parallel ML.
+	</strong>
+	Aaron Harlap, Henggang Cui, Wei Dai, Jinliang Wei, Gregory R.
+Ganger, Phillip B. Gibbons, Garth A. Gibson, Eric P. Xing.
+	2016 ACM Symposium on Cloud Computing (SoCC 2016), October 05-07, 2016, Santa Clara, CA, USA.
+<a href="http://www.pdl.cmu.edu/PDL-FTP/BigLearning/81-harlap.pdf">PDF</a>
+	</li>
+
+	<li><strong>
+	STRADS: A Distributed Framework for Scheduled Model Parallel
+Machine Learning.
+	</strong>
+	Kim, Jin Kyu, Qirong Ho, Seunghak Lee, Xun Zheng, Wei Dai, Garth A.
+Gibson, Eric P. Xing.
+	ACM European Conference on Computer Systems, 2016 (EuroSys'16),
+18th-21st April, 2016, London, UK.
+<a href="http://www.pdl.cmu.edu/PDL-FTP/Storage/strads-kim-eurosys16.pdf">
+		PDF </a>
+	</li>
+	<li><strong>
+DeltaFS: Exascale File Systems Scale Better Without Dedicated Servers.
+	</strong>
+Zheng, Qing, Kai Ren, Garth Gibson, Bradley W. Settlemyer, Gary Grider.
+Proc. of the Tenth Parallel Data Storage Workshop (PDSW15),
+co-located with the Int. Conference for High Performance Computing,
+Networking, Storage and Analysis (SC15),
+Austin, TX, November 2015.
+	<a href="http://www.pdsw.org/pdsw15/papers/p1-zheng.pdf">
+		PDF </a>
+	</li>
+        <li><strong>Managed Communication and Consistency for Fast
+Data-Parallel Iterative Analytics</strong>. Wei, Jinliang, Wei Dai, Aurick
+Qiao, Qirong Ho, Henggang Cui, Gregory R. Ganger, Phillip B. Gibbons, Garth
+A. Gibson, Eric P. Xing. 2015 ACM Symposium on Cloud Computing (SOCC 2015),
+Aug 29-30, 2015, Hawaii. <a
+href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/p381-wei-SoCC15.pdf">PDF</a> <b>Best Paper</b> </li>
+        <li><strong>ShardFS vs. IndexFS: Replication vs. Caching Strategies
+for Distributed Metadata Management in Cloud Storage Systems</strong>.
+Xiao, Lin, Kai Ren, Qing Zheng, Garth A. Gibson. 2015 ACM Symposium on
+Cloud Computing (SOCC 2015), Aug 29-30, 2015, Hawaii. <a
+href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/p236-xiao-SoCC15.pdf">PDF</a></li>
+        <li><strong>Caveat-Scriptor: Write Anywhere Shingled Disks</strong>. Kadekodi, Saurabh, Swapnil Pimpale, Garth A. Gibson. Proc. Of the Seventh USENIX Workshop on Hot Topics in Storage and File Systems (HotStorage&rsquo;15), Santa Clara, CA, July 2015. <a href="http://www.pdl.cmu.edu/PDL-FTP/HECStorage/hotstorage15-kadekodi.pdf">PDF</a></li>
+        <li><b>High-Performance Distributed ML at Scale through Parameter
+          Server Consistency Models</b>. Wei Dai, Abhimanu Kumar, Jinliang Wei, Qirong
+          Ho, Garth Gibson, Eric P. Xing. 29th AAAI Conf. on Artificial Intelligence
+        (AAAI-15), Jan 25-29, 2015, Austin, Texas. <a href="http://www.pdl.cmu.edu/PDL-FTP/BigLearning/Dai_Kumar_Wei_Ho_Gibson_Xing_AAAI15.pdf">PDF</a> </li>
+	<li><b>On Model Parallelization and Scheduling Strategies for Distributed Machine Learning</b>. Seunghak
+Lee, Jin Kyu Kim, Xun Zheng, Qirong Ho, Garth Gibson, Eric Xing. 2014
+Neural Information Processing Systems (NIPS 2014), Dec 8-11, Montreal, CA.
+      <a href="http://www.pdl.cmu.edu/PDL-FTP/BigLearning/NIPS2014modelparallel.pdf">PDF</a> </li>
+	<li>
+        <b>Scaling File System Metadata Performance With Stateless
+Caching and Bulk Insertion</b>. Ren, Kai, Qing Zheng, Swapnil Patil, Garth
+Gibson. ACM/IEEE Int'l Conf. for High Performance Computing, Networking,
+Storage and Analysis (SC'14), November 16-21, 2014, New Orleans, LA. 
+<a href="http://www.pdl.cmu.edu/PDL-FTP/FS/IndexFS-SC14.pdf">PDF</a>
+<b>Best Paper</b>
+        </li>
+        <li>
+        <b> BatchFS: Scaling the File System Control Plane with
+Client-Funded Metadata Servers</b>. Qing Zheng, Kai Ren, Garth Gibson.
+Proc. of the Ninth Parallel Data Storage Workshop (PDSW14),
+co-located with the Int. Conference for High Performance Computing,
+Networking, Storage and Analysis (SC14),
+New Orleans, LA, November 2014.
+<a href="http://www.pdsw.org/pdsw14/papers/pdsw14_p1.pdf">PDF</a>
+        </li>
+	<li>
+        <b>Exploiting iterative-ness for parallel ML computations</b>.
+Henggang Cui, Alexey Tumanov, Jinliang Wei, Lianghong Xu, Wei Dai, Jesse
+Haber-Kucharsky, Qirong Ho, Gregory R. Ganger, Phillip B. Gibbons, Garth A.
+Gibson, Eric P. Xing. 2014 ACM Symposium on Cloud Computing (SOCC 2014),
+Nov 3-5, Seattle, WA.
+<a href="http://dl.acm.org/citation.cfm?doid=2670979.2670984">PDF</a>
+        </li>
+	<li>
+        <b>Will They Blend?: Exploring Big Data Computation atop Traditional HPC NAS Storage</b>. Elis Wilson, Mahmut Kandemir, Garth Gibson. The 34th International
+Conference on Distributed Computing Systems (ICDCS 2014).  Madrid, Spain, June 30 - July 3, 2014.
+<a href="http://www.pdl.cmu.edu/PDL-FTP/BigData/hadoop_on_nas.pdf">PDF</a>
+        </li>
+        <li>
+        <b>Exploiting bounded staleness to speed up Big Data analytics</b>. Cui, Henggang, Qirong Ho, James Cipar, Jin Kyu Kim, Seunghak
+Lee, Abhimanu Kumar, Jinliang Wei, Wei Dai, Gregory R. Ganger, Phil B. Gibbons, Garth A. Gibson, Eric P. Xing. USENIX Annual Technical
+Conference (ATC'14), June 19-20, Philadelphia, PA. <a href="http://www.pdl.cmu.edu/PDL-FTP/Storage/lazytables-atc2014.pdf">PDF</a>, <a
+href="https://www.usenix.org/conference/atc14/technical-sessions/presentation/cui">MultiMedia link</a></li>
+	</li>
+         <b>More Effective Distributed ML via a Stale Synchronous Parallel
+Parameter Server</b>.
+Ho, Qirong, James Cipar, Henggang Cui, Seunghak Lee,
+Jin Kyu Kim, Phil B. Gibbons, Garth A. Gibson, Gregory R. Ganger, Eric P. Xing. 
+2013 Neural Information Processing Systems (NIPS 2013), Dec 5-10, Lake Tahoe, NV. 
+<a href="http://media.nips.cc/nipsbooks/nipspapers/paper_files/nips26/631.pdf">PDF</a>
+         </li>
+         <li><b>Structuring PLFS for Extensibility</b>. 
+Cranor, Chuck, Milo Polte, Garth A. Gibson. 
+Proc. of the Eighth Parallel Data Storage Workshop (PDSW13), 
+co-located with the Int. Conference for High Performance Computing, Networking, Storage and Analysis (SC13), 
+Denver, CO, November 2013. 
+<a href="http://dl.acm.org/ft_gateway.cfm?id=2538564&ftid=1413858&dwn=1&CFID=280604757&CFTOKEN=52202283">PDF</a></li>
+        <li><b>PARROT: A Practical Runtime for Deterministic, Stable and
+          Reliable Threads</b>. Heming Cui, Jiri Simsa, Yi-Hong Lin, Hao Li, Ben Blum,
+          Xinan Xu, Junfeng Yang, Garth A. Gibson. 24th ACM Symposium on Operating
+          Systems Principles (SOSP'13), Nov 4-6, 2013, Farmington, PA.
+<a href="http://dl.acm.org/citation.cfm?doid=2517349.2522735">ACM_DL</a>
+<a href="https://www.youtube.com/watch?v=BwhjiUI_wWg&list=PLn0nrSd4xjjZsNjpfWvNEtuBMtKkTd3gW&index=26">YouTube_Video</a></li>
+        <li><b>TABLEFS: Enhancing Metadata Efficiency in the Local File
+System</b>. Kai Ren, Garth Gibson. 2013 USENIX Annual Technical Conference,
+June 26-28, 2013, San Jose, CA. <a href="http://www.pdl.cmu.edu/PDL-FTP/FS/ren-USENIXatc13.pdf">PDF</a></li>
+        <li><b>Solving the Straggler Problem with Bounded Staleness</b>.
+James Cipar, Qirong Ho, Jin Kyu Kim, Seunghak Lee, Gregory R. Ganger, Garth
+Gibson, Kimberly Keeton, Eric Xing. 14th USENIX Workshop on Hot Topics in
+Operating Systems, May 13-15, 2013, Santa Ana Pueblo, NM. <a href="http://www.pdl.cmu.edu/PDL-FTP/associated/hotOS-13-cipar.pdf">PDF</a></li>
+        <li><b>Shingled Magnetic Recording: Areal Density Increase Requires New Data Management</b>. Tim Feldman, Garth Gibson. USENIX ;login:, v 38, n 3, June 2013. <a href="papers/05_feldman_022-030_final.pdf">PDF</a></li>
+        <li><b> I/O Acceleration with Pattern Detection</b>. Jun He,  John Bent, Aaron Torres, Gary Grider, Garth Gibson, Carlos Maltzahn, Xian-He Sun.The 22nd Int. ACM Symposium on High Performance Parallel and Distributed Computing (HPDC'13), New York City, June 17-21, 2013. <a href="papers/he-hpdc13.pdf">PDF</a></li>
+        <li><b>Discovering Structure in Unstructured I/O</b>. Jun He,  John Bent, Aaron Torres, Gary Grider, Garth Gibson, Carlos Maltzahn, Xian-He Sun. Proc. of the Seventh Parallel Data Storage Workshop (PDSW12), co-located with the Int. Conference for High Performance Computing, Networking, Storage and Analysis (SC12), Salt Lake City, UT, November 2012. <a href="http://www.istc-cc.cmu.edu/publications/papers/2012/plfs-index.pdf">PDF</a></li>
+        <li> <b>A Case for Scaling HPC Metadata Performance through De-specialization</b>. Swapnil Patil, Kai Ren, Garth Gibson. Proc. of the Seventh Parallel Data Storage Workshop (PDSW12), co-located with the Int. Conference for High Performance Computing, Networking, Storage and Analysis (SC12), Salt Lake City, UT, November 2012. <a href="http://www.pdl.cmu.edu/ftp/HECStorage/patil-pdsw12.pdf">PDF</a></li>
+        <li><b>TABLEFS: Embedding a NoSQL Database inside the Local File System</b>. Kai Ren, Garth Gibson.  1st Storage System, Hard Disk and Solid State Technologies Summit, IEEE Asia-Pacific Magnetic Recording Conference (APMRC), November 2012, Singapore. <a href="http://www.pdl.cmu.edu/PDL-FTP/FS/tablefs.pdf">PDF</a></li>
+        <li><b>Scalable Dynamic Partial Order Reduction</b>. Jiri Simsa, Randal Bryant, Garth Gibson, Jason Hickey.  Third Int. Conf. on Runtime Verification (RV2012), 25-28 September 2012, Istanbul, Turkey.  <a href="http://www.pdl.cmu.edu/PDL-FTP/Storage/scalablePOR.pdf">PDF</a></li>
+        <li><b>The Power and Challenges of Transformative I/O</b>. Adam Manzanares, Meghan McClelland, John Bent, Garth Gibson. 2012 IEEE Int. Conf. on Cluster
+Computing (CLUSTER12), 24-28 September 2012, Beijing, China. <a href="http://www.pdl.cmu.edu/ftp/PLFS/transformativeIO.pdf">PDF</a></li>
+        <li><b> Indexing a large-scale database of astronomical objects</b>. Bin Fu, Eugene Fink, Garth Gibson, and Jaime Carbonell. Proceedings of the Fourth Workshop on Interfaces and Architecture for Scientific Data Storage (IASDS), September 2012, Beijing, China. <a href="http://www.pdl.cmu.edu/PDL-FTP/AstroDISC/iasds12-fu.pdf">PDF</a></li>
+        <li><b>Exact and Approximate Computation of a Histogram of Pairwise Distances between Astronomical Objects</b>. Bin Fu, Eugene Fink, Garth Gibson, Jaime Carbonell. 1st Workshop on High Performance Computing in Astronomy (AstroHPC'12), June 2012, Delft, Netherlands. <a href="http://www.pdl.cmu.edu/PDL-FTP/AstroDISC/astro08-fu.pdf">PDF</a></li>
+	<li><b>File System Virtual Appliances: Portable File System Implementations</b>. Michael Abd-El-Malek , Matthew Wachs, James Cipar, Karan Sanghi, Gregory R. Ganger, Garth A. Gibson, Michael K. Reiter. ACM Transactions on Storage, Vol. 8, No. 3, Article 39, May 2012. <a href="http://www.pdl.cmu.edu/PDL-FTP/FS/FSVA-ACMToS.pdf">PDF</a></li>
+        <li><b>YCSB++: Benchmarking and Performance Debugging Advanced Features in Scalable Table Stores</b>. Swapnil Patil, Milo Polte, Kai Ren, Wittawat Tantisiriroj, Lin Xiao, Julio Lopez, Garth Gibson, Adam Fuchs, Billie Rinaldi. Proc. of the 2nd ACM Symposium on Cloud Computing (SOCC '11), October 27&ndash;28, 2011, Cascais, Portugal. Supersedes Carnegie Mellon University Parallel Data Laboratory Technical Report CMU-PDL-11-111, August 2011. <a href="http://www.pdl.cmu.edu/PDL-FTP/Storage/socc2011.pdf">PDF</a></li>
+        <li><b>On the Duality of Data-intensive File System Design: Reconciling HDFS and PVFS</b>. Wittawat Tantisiriroj, Swapnil Patil, Garth Gibson, Seung Woo Son, Samuel J. Lang, Robert B. Ross. SC11, November 12-18, 2011, Seattle, Washington USA. Supersedes Carnegie Mellon University Parallel Data Lab Technical Report CMU-PDL-11-108. April 2011.
+          <a href="http://www.pdl.cmu.edu/PDL-FTP/Storage/hdfspvfs-sc2011.pdf">PDF</a></li>
+        <li><b>Recipes for Baking Black Forest Databases: Building and Querying Black Hole Merger Trees from Cosmological Simulations</b>. Lopez, J., C. Degraf, T. DiMatteo, B. Fu, E. Fink, G. Gibson. 23rd Scientific and Statistical Database Management Conference (SSDBM'11), July 2011. <a href="http://www.pdl.cmu.edu/PDL-FTP/AstroDISC/disc-holes.pdf">PDF</a></li>
+        <li><b>Six Degrees of Scientific Data: Reading Patterns for Extreme Scale Science IO</b>.  Lofstead, Jay, Milo Polte, Garth Gibson, Scott A. Klasky, Karsten Schwan, Ron Oldfield, Matthew Wolf, Qing Liu. 20th ACM Int. Symp. On High-Performance Parallel and Distributed Computing (HPDC'11), June 2011. <a href="https://cfwebprod.sandia.gov/cfdocs/CCIM/docs/hpdc138s1-lofstead.pdf">PDF</a></li>
+        <li><b>Otus: Resource Attribution and Metrics Correlation in Data-Intensive Clusters. </b>Kai Ren, Julio Lopez, Garth Gibson. The 2nd International Workshop on MapReduce and its Applications (MapReduce'11), June, 2011. PDF</li>
+        <li><b>Scale and Concurrency of GIGA+: File System Directories with  Millions of Files</b>. Patil,  S., G. Gibson. <i>Proc 9th  USENIX Conf. on File and Storage Technologies (FAST11),</i> February, 2011. <a href="http://www.pdl.cmu.edu/PDL-FTP/PDSI/fast2011-gigaplus.pdf">PDF</a></li>
+        <li><b>dBug: Systematic Evaluation of Distributed Systems. </b>Jiri Simsa, Randy Bryant, Garth Gibson.  5th Int. Workshop on Systems Software Verification (SSV&rsquo;10), co-located with 9th USENIX Symp. On Operating Systems Design and Implementation (OSDI&rsquo;10), Vancouver BC, October 2010.        <a href="http://www.pdl.cmu.edu/PDL-FTP/associated/simsa-ssv10.pdf">PDF</a></li>
+        <li><b> pWalrus: Towards Better Integration of Parallel File Systems into Cloud Storage.</b> Yoshihisa Abe, Garth Gibson.Workshop on Interfaces and Abstractions for Scientific Data Storage (IASDS10), co-located with IEEE Int. Conference on Cluster Computing 2010 (Cluster10), Heraklion, Greece, September 2010.        <a href="http://www.pdl.cmu.edu/PDL-FTP/Storage/pWalrus.pdf">PDF</a></li>
+        <li><b>DiscFinder: A Data-Intensive Scalable Cluster Finder for Astrophysics</b>. Fu, B., K. Ren, J. Lopez, E. Fink, G. Gibson. ACM Int. Symp. On High Performance Distributed Computing (HPDC), June 2010. <a href="http://www.pdl.cmu.edu/PDL-FTP/AstroDISC/dfof-hpdc2010.pdf">PDF</a></li>
+        <li><b>PLFS: A Checkpoint Filesystem for Parallel Applications</b>. Bent, J., G. Gibson, G. Grider, B. McClelland, P. Nowoczynski, J. Nunez, M. Polte, M. Wingate, &ldquo;,&rdquo; Int. Conf. for High Performance Computing, Networking, Storage and Analysis (SC2009), Nov. 2009. <a href="http://www.pdl.cmu.edu/PDL-FTP/PDSI/plfs.pdf">PDF</a></li>
+        <li><b>Understanding and Maturing the Data-Intensive Scalable Computing Storage Substrate. </b>Gibson, G., B. Fan, S. Patil, M. Polte, W. Tantisiriroj, L. Xiao. 2009 Microsoft eScience Workshop, Pittsburgh, PA, October, 2009. <a href="http://www.pdl.cmu.edu/PDL-FTP/HECStorage/Gibson-eScience2009.pdf">PDF</a></li>
+        <li><b>Directions for TDMR System Architecture: Synergies with SSDs. </b>Gibson, G.A., Milo Polte. Proc. of the I.E.E.E. International Symposium on Magnetics (INTERMAG09), Sacramento CA, March 2009. <a href="http://www.pdl.cmu.edu/PDL-FTP/PDSI/CMU-PDL-09-104.pdf">PDF</a>, <a href="http://www.pdl.cmu.edu/PDL-FTP/PDSI/FA-06 Gibson-Intermag-05-07-09.pdf">TALK</a></li>
+        <li><b>Safe and Effective  fine-grain TCP Retransmissions for Datacenter Incast Communication. </b>Vasudevan, V., A. Phanishayee, H. Shah, E. Krevat, D.G. Andersen, G.R.  Ganger, G.A. Gibson, B. Mueller, S. Seshan. SIGCOMM'09, August 16-21, 2009, Barcelona, Spain. <a href="http://www.pdl.cmu.edu/PDL-FTP/Storage/sigcomm147-vasudevan.pdf">PDF</a></li>
+        <li><b>In Search of an API for Scalable File Systems:  Under the table or above it? </b> Patil, S., G.A. Gibson, G.R. Ganger, J. Lopez, M. Polte, W.  Tantisiriroj, L. Xiao. HotCloud'09, June 15, 2009,  San Diego, CA. <a href="http://www.pdl.cmu.edu/PDL-FTP/PDSI/hotCloud2009.pdf">PDF</a></li>
+        <li><b>Enabling Enterprise Solid State  Disks Performance. </b> Polte, M., J. Simsa, G. Gibson. 1st Workshop on Integrating Solid-state Memory into  the Storage Hierarchy, March 7, 2009, Washington DC. <a href="http://www.pdl.cmu.edu/PDL-FTP/PDSI/Polte.pdf">PDF</a></li>
+        <li><b>Scalable Performance of the Panasas Parallel file  System.</b> Welch, B., M. Unangst, Z. Abbasi, G. Gibson, B. Mueller, J. Small,  J. Zelenka, B. Zhou. 6th USENIX Conf on File and Storage Technologies (FAST'08),  Feb. 2008, San Francisco, CA. <a href="papers/welch-fast08.pdf">PDF</a></li>
+        <li><b> Measurement and Analysis of TCP  Throughput Collapse in Cluster-based Storage Systems</b>. Phanishayee., A., E. Krevat, V. Vasudevan, D.G. Andersen, G.R.  Ganger, G.A. Gibson, S. Seshan. 6th USENIX Conf  on File and Storage Technologies (FAST'08), Feb. 2008, San Francisco,  CA. <a href="http://www.pdl.cmu.edu/PDL-FTP/Storage/FASTIncast.pdf">PDF</a></li>
+        <li><b>Understanding failure in petascale computers. </b>Schroeder, B., Gibson, G.A. SciDAC 2007.  Journal of Physics: Conf. Ser. 78. <a href="papers/jpconf7_78_012022.pdf">PDF</a> </li>
+        <li><b>Disk Failures in the Real World: What Does an MTTF of 1,000,000 Hours Mean to You? </b>Schroeder, B., Gibson, G.A. Proceedings of the 5th USENIX Conference on File and Storage Technologies (FAST '07), 
+          February 13&ndash;16, 2007, San Jose, CA. <a href="http://www.pdl.cmu.edu/PDL-FTP/Failure/failure-fast07.pdf">PDF</a>      
+        </li>
+        <li><b>A Large-scale Study of Failures in High-performance-computing Systems. </b>Schroeder, B., Gibson, G.A. Proceedings of the International Conference 
+        on Dependable Systems and Networks (DSN2006), Philadelphia, PA, USA, 
+        June 25-28, 2006. <a href="http://www.pdl.cmu.edu/PDL-FTP/associated/dsn06.pdf">PDF</a>        
+        </li>
+        <li><b>Scheduling Speculative Tasks  in a Compute Farm.</b> Petrou, D., G. Ganger, G.A. Gibson. High Performance Computing, Networking, and Storage  Conference (SC2005), Seattle, WA., November 2005. <a href="http://www.pdl.cmu.edu/PDL-FTP/Scheduling/sc05.pdf">PDF</a></li>
+        <li><b>Active Disks for Large-Scale Data Mining. </b>Riedel, E., C. Faloutsos, G.A. Gibson, D. Nagle. ACM Computer Magazine, June 2001. </li>
+        <li><font face="Arial, Helvetica, sans-serif"><b>Network Attached Storage Architecture. </b>Gibson, G.A., R. Van Meter. Comm. of the ACM, Vol. 43, 
+          No 11, November, 2000. <a 
+href="http://www.cs.cmu.edu/~garth/CACM/CACM00-p37-gibson.pdf">PDF</a> <br />
+          </font> 
+        </li>
+        <li><font face="Arial, Helvetica, sans-serif"><b>Dynamic Function Placement for Data-Intensive 
+          Cluster Computing.</b> Amiri, K., D. Petrou, G. 
+          Ganger, G.A. Gibson. USENIX Technical Conference, San Diego, June 2000. 
+          <a 
+href="http://www.pdl.cmu.edu/PDL-FTP/Abacus/abacus_sub.pdf">PDF</a> <br />
+          </font> 
+        </li>
+        <li><font face="Arial, Helvetica, sans-serif"> <b>Highly Concurrent Shared Storage</b>. Amiri, K., G.A. Gibson, 
+          R. Golding. Int. Conf. on Distributed 
+          Computing Systems (ICDCS2000), April 2000. <a 
+href="http://www.pdl.cmu.edu/PDL-FTP/NASD/icdcs.pdf">PDF</a> <br />
+          </font> 
+        </li>
+        <li><font face="Arial, Helvetica, sans-serif"><b> Automatic I/O Hint Generation through Speculative Execution</b>. Chang, F.,</font> <font face="Arial, Helvetica, sans-serif"> 
+          G.A. Gibson. 
+          Proceedings of the Third USENIX Symposium of Operating Systems Design 
+          and Implementation (OSDI), February 1999. <a 
+href="http://www.pdl.cmu.edu/PDL-FTP/TIP/osdi-distrib.pdf">PDF</a> <br />
+          </font> 
+        </li>
+        <li><font face="Arial, Helvetica, sans-serif"> <b>Active Storage for Large-scale Data Mining and Multimedia 
+          Applications</b>. E. Riedel, G. A. Gibson, 
+          C. Faloutsos. Proceedings of the 1998 Very Large Data Bases conference 
+          (VLDB), August 1998. <a 
+href="http://www.pdl.cmu.edu/PDL-FTP/Active/VLDB98.pdf">PDF</a> <br />
+          </font> 
+        </li>
+        <li><font face="Arial, Helvetica, sans-serif"> <b>A 
+          Cost-Effective High-Bandwidth Storage Architecture</b>. Gibson, G.A, et. al. Int. Conf. on Architectural 
+          Support for Programming Languages and Operating Systems, ASPLOS, October, 
+          1998. <a 
+href="http://www.pdl.cmu.edu/PDL-FTP/NASD/asplos98.pdf">PDF</a></font><font face="Arial, Helvetica, sans-serif"><br />
+          </font> 
+        </li>
+        <li><font face="Arial, Helvetica, sans-serif"> <b>Report of the Working Group on Storage I/O Issues 
+          in Large-Scale Computing</b>. G. A. Gibson, J. S. Vitter, 
+          J. Wilkes, eds. ACM Workshop on Strategic Directions in Computing 
+          Research. ACM Computing Surveys, 28, 1, Dec. 1996. <a 
+href="http://www.cs.cmu.edu/~garth/SDCR/SDCR-final-report.pdf">PDF</a> <br />
+          </font> 
+        </li>
+        <li><font face="Arial, Helvetica, sans-serif"> <b>Informed Prefetching 
+          and Caching</b>. R. H. Patterson, G. A. 
+          Gibson, E. Ginting, D. Stodolsky, and J. Zelenka. Proc. of the 15th Symposium of Operating Systems Principles, 
+          December 3-6, 1995. <a 
+href="http://www.pdl.cmu.edu/PDL-FTP/TIP/SOSP15.pdf">PDF</a> <br />
+          </font> 
+        </li>
+        <li><font face="Arial, Helvetica, sans-serif"><b>Architectures and Algorithms for On-line Failure Recovery 
+          in Redundant Disk Arrays</b>.  M. Holland, G. A. Gibson, 
+          D. P. Siewiorek. J. of Distributed and Parallel Databases, 
+          Vol. 2, No. 3, July, 1994. <a 
+href="http://www.pdl.cmu.edu/PDL-FTP/Declustering/DAPD.pdf">PDF</a> <br />
+          </font>
+        </li>
+        <li><font face="Arial, Helvetica, sans-serif"><b> A Case for Redundant Arrays of Inexpensive Disks 
+          (RAID)</b>. D. A. Patterson, G. A. 
+          Gibson, R. H. Katz. Proceedings of the International Conference on Management of 
+          Data (SIGMOD), June 1988. <a 
+href="http://www.cs.cmu.edu/~garth/RAIDpaper/Patterson88.pdf">PDF</a> </font>
+    </li></ul>    </td>
+  </tr>
+</table>
+ 
+<br />
+<img src="webimages/line.gif" width="700" height="6" />
+<br />
+<i><font face="Arial, Helvetica, sans-serif" size="2"><font color="#666699"><br />
+</font></font></i>
+<p><img src="webimages/Garth_tube_small.jpg" width="286" height="183" align="left" hspace="10" />
+  <i><font face="Arial, Helvetica, sans-serif" size="2">garth dot gibson @ cs dot cmu dot edu</font><font color="#309"><br />
+  (last 
+      updated
+  <!-- #BeginDate format:En2 -->02-Mar-2026<!-- #EndDate -->)<br>
+  </font></i>
+  &copy; 2026
+  <i></font></i><br>
+</p>
+<p>&nbsp;</p>
+  </div></div>
+<p> <br />
+</p></body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9"  lang="en" dir="ltr" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"  lang="en" dir="ltr" prefix="og: http://ogp.me/ns#"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+<link rel="shortcut icon" href="https://www.usenix.org/themes/motherboard/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="OSDI brings together professionals from academic and industrial backgrounds in what has become a premier forum for discussing the design, implementation, and implications of systems software. The symposium emphasizes innovative research as well as quantified or insightful experiences in systems design and implementation." name="description" />
+<meta content="general" name="rating" />
+<meta content="Drupal 7 (http://drupal.org)" name="generator" />
+<link rel="canonical" href="https://www.usenix.org/conference/osdi26/instructions-presenters" />
+<link rel="shortlink" href="https://www.usenix.org/node/317480" />
+<meta content="website" property="og:type" />
+<meta content="USENIX" property="og:site_name" />
+<meta content="OSDI &#039;26 Instructions for Presenters" property="og:title" />
+<meta content="https://www.usenix.org/conference/osdi26/instructions-presenters" property="og:url" />
+<meta content="OSDI brings together professionals from academic and industrial backgrounds in what has become a premier forum for discussing the design, implementation, and implications of systems software. The symposium emphasizes innovative research as well as quantified or insightful experiences in systems design and implementation." property="og:description" />
+<meta content="2026-04-21T18:38:15-07:00" property="og:updated_time" />
+<meta content="https://www.usenix.org/sites/default/files/usenix_2025_og_1200x630.png" property="og:image" />
+<meta content="https://www.usenix.org/sites/default/files/usenix_2025_og_1200x630.png" property="og:image:url" />
+<meta content="https://www.usenix.org/sites/default/files/usenix_2025_og_1200x630.png" property="og:image:secure_url" />
+<meta content="image/png" property="og:image:type" />
+<meta content="2026-03-04T12:44:45-08:00" property="article:published_time" />
+<meta content="2026-04-21T18:38:15-07:00" property="article:modified_time" />
+    <title>OSDI &#039;26 Instructions for Presenters | USENIX</title>
+    <link rel="stylesheet" href="https://www.usenix.org/sites/default/files/css/css_nCq0Tqg9eqZPa5fXfe0k9wAX8jnxbXlZ75LfGb5rq7A.css" media="all" />
+<link rel="stylesheet" href="https://www.usenix.org/sites/default/files/css/css_2i5hNf7GrbmdIRSKLAmKbqqhLsXPdxtef5MzSaLSGkY.css" media="all" />
+<style media="all">#backtotop{bottom:20px;right:20px;}
+</style>
+<link rel="stylesheet" href="https://www.usenix.org/sites/default/files/css/css_pdr2_iAAAHECN1oVgo33mGtgEkTN-Qs5Q2S9MYMZQCQ.css" media="all" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="all" />
+<link rel="stylesheet" href="https://www.usenix.org/sites/default/files/css/css_JILHL6Wb10sizars6LLOOYwch4plY1vMzJw7dixd2OE.css" media="all" />
+<link rel="stylesheet" href="https://www.usenix.org/sites/default/files/css/css_qFgpkJD9LCbzFq1MQrtO4IkZu4u0bPvQ41XA-NJVJPM.css" media="all and (min-width: 60em)" />
+<link rel="stylesheet" href="https://www.usenix.org/sites/default/files/css/css_wzx2lWqmWLMrXRsTdlZprjZhheNa_RSBwK7is7IxX5g.css" media="all" />
+    <script>window.Backdrop = {settings: {"basePath":"\/","pathPrefix":"","drupalCompatibility":true,"ajaxPageState":{"theme":"neat_conference","theme_token":"xypE6fzSnVictYqqBvXGhHfUYxCsVxuvVXNmwLVZ8d8","css":{"core\/misc\/normalize.css":1,"core\/modules\/system\/css\/system.css":1,"core\/modules\/system\/css\/system.theme.css":1,"core\/modules\/system\/css\/messages.theme.css":1,"modules\/contrib\/back_to_top\/css\/back_to_top.css":1,"modules\/custom\/adamm\/css\/base.css":1,"modules\/custom\/adamm\/css\/dropdown.css":1,"core\/modules\/comment\/css\/comment.css":1,"core\/modules\/date\/css\/date.css":1,"core\/modules\/field\/css\/field.css":1,"modules\/contrib\/og\/css\/og.css":1,"modules\/contrib\/paragraphs\/css\/paragraphs.css":1,"core\/modules\/search\/search.theme.css":1,"modules\/contrib\/special_menu_items\/css\/special_menu_items.css":1,"modules\/custom\/usenix_conference\/css\/timezone-picker.css":1,"modules\/custom\/usenix_logo_preview\/css\/usenix_logo_preview.css":1,"core\/modules\/user\/css\/user.css":1,"modules\/contrib\/workflow\/workflow_admin_ui\/workflow_admin_ui.css":1,"core\/modules\/views\/css\/views.css":1,"modules\/contrib\/rules\/rules.css":1,"0":1,"modules\/contrib\/geshifilter\/geshifilter.css":1,"modules\/custom\/biblio\/biblio.css":1,"layouts\/neat_conference\/neat-conference.css":1,"modules\/contrib\/field_collection\/field_collection.theme.css":1,"https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/font-awesome\/4.4.0\/css\/font-awesome.min.css":1,"modules\/contrib\/tb_megamenu\/css\/bootstrap.css":1,"modules\/contrib\/tb_megamenu\/css\/base.css":1,"modules\/contrib\/tb_megamenu\/css\/default.css":1,"modules\/contrib\/tb_megamenu\/css\/compatibility.css":1,"core\/modules\/system\/css\/menu-dropdown.theme.breakpoint.css":1,"core\/modules\/system\/css\/menu-dropdown.theme.breakpoint-queries.css":1,"themes\/neat_conference\/css\/neat.css":1,"themes\/neat_conference\/css\/schemes\/scheme-atc.css":1,"themes\/neat_conference\/css\/schemes\/scheme-atc_colo.css":1,"themes\/neat_conference\/css\/schemes\/scheme-atc_colo_dark.css":1,"themes\/neat_conference\/css\/schemes\/scheme-enigma.css":1,"themes\/neat_conference\/css\/schemes\/scheme-enigma_temp.css":1,"themes\/neat_conference\/css\/schemes\/scheme-fast.css":1,"themes\/neat_conference\/css\/schemes\/scheme-lisa_lean.css":1,"themes\/neat_conference\/css\/schemes\/scheme-lisa.css":1,"themes\/neat_conference\/css\/schemes\/scheme-lisa_blue.css":1,"themes\/neat_conference\/css\/schemes\/scheme-lisa_red.css":1,"themes\/neat_conference\/css\/schemes\/scheme-lisa_green.css":1,"themes\/neat_conference\/css\/schemes\/scheme-nsdi.css":1,"themes\/neat_conference\/css\/schemes\/scheme-osdi.css":1,"themes\/neat_conference\/css\/schemes\/scheme-security.css":1,"themes\/neat_conference\/css\/schemes\/scheme-security_colo.css":1,"themes\/neat_conference\/css\/schemes\/scheme-soups.css":1,"themes\/neat_conference\/css\/schemes\/scheme-srecon.css":1,"themes\/neat_conference\/css\/schemes\/scheme-pepr_woot.css":1,"themes\/neat_conference\/fonts\/fontawesome\/css\/all.min.css":1,"themes\/neat_conference\/system.theme.css":1},"js":{"public:\/\/google_tag\/google_tag.script.js":1,"modules\/contrib\/jquery_update\/replace\/jquery\/1.12\/jquery.min.js":1,"core\/misc\/jquery.once.js":1,"core\/misc\/backdrop.js":1,"modules\/contrib\/behavior_weights\/js\/behavior_weights.js":1,"modules\/contrib\/jquery_update\/js\/jquery_browser.js":1,"modules\/contrib\/beautytips\/js\/jquery.bt.min.js":1,"modules\/contrib\/beautytips\/js\/beautytips.js":1,"modules\/contrib\/back_to_top\/js\/back_to_top.js":1,"modules\/custom\/adamm\/js\/accessible-menu\/dist\/disclosure-menu.iife.js":1,"modules\/custom\/adamm\/js\/contentexpander\/contentExpander.js":1,"modules\/custom\/adamm\/js\/adamm.js":1,"modules\/contrib\/views_slideshow\/js\/views_slideshow.js":1,"modules\/contrib\/views_slideshow\/contrib\/views_slideshow_cycle\/js\/formoptions.js":1,"modules\/contrib\/views_slideshow\/contrib\/views_slideshow_cycle\/js\/views_slideshow_cycle.js":1,"modules\/contrib\/beautytips\/other_libs\/jquery.hoverIntent.minified.js":1,"modules\/contrib\/tb_megamenu\/js\/tb-megamenu-frontend.js":1,"modules\/contrib\/tb_megamenu\/js\/tb-megamenu-touch.js":1,"core\/modules\/system\/js\/menus.js":1,"themes\/neat_conference\/js\/bibtex.js":1,"themes\/neat_conference\/js\/mobile.js":1,"themes\/neat_conference\/js\/jquery.slicknav.min.js":1,"themes\/neat_conference\/js\/tech-schedule.js":1,"themes\/neat_conference\/js\/training-program.js":1,"themes\/neat_conference\/js\/organizers.js":1,"themes\/neat_conference\/js\/protected-files.js":1}},"back_to_top":{"distance":"100","text":"Back to top","title":1,"type":"image","disable_mobile":0},"beautytipStyles":{"default":[],"plain":[],"netflix":{"positions":["right","left"],"fill":"#FFF","padding":5,"shadow":true,"shadowBlur":12,"strokeStyle":"#B9090B","spikeLength":50,"spikeGirth":20,"cornerRadius":10,"centerPointY":0.1,"overlap":-8,"cssStyles":{"fontSize":"12px","fontFamily":"arial,helvetica,sans-serif"}},"facebook":{"fill":"#F7F7F7","padding":8,"strokeStyle":"#B7B7B7","cornerRadius":0,"cssStyles":{"fontFamily":"\u0022lucida grande\u0022,tahoma,verdana,arial,sans-serif","fontSize":"11px"}},"transparent":{"fill":"rgba(0, 0, 0, .8)","padding":20,"strokeStyle":"#CC0","strokeWidth":3,"spikeLength":40,"spikeGirth":40,"cornerRadius":40,"cssStyles":{"color":"#FFF","fontWeight":"bold"}},"big-green":{"fill":"#00FF4E","padding":20,"strokeWidth":0,"spikeLength":40,"spikeGirth":40,"cornerRadius":15,"cssStyles":{"fontFamily":"\u0022lucida grande\u0022,tahoma,verdana,arial,sans-serif","fontSize":"14px"}},"google-maps":{"positions":["top","bottom"],"fill":"#FFF","padding":15,"strokeStyle":"#ABABAB","strokeWidth":1,"spikeLength":65,"spikeGirth":40,"cornerRadius":25,"centerPointX":0.9,"cssStyles":{"fontSize":"12px","fontFamily":"arial,helvetica,sans-serif"}},"hulu":{"fill":"#F4F4F4","strokeStyle":"#666666","spikeLength":20,"spikeGirth":10,"width":350,"overlap":0,"centerPointY":1,"cornerRadius":0,"cssStyles":{"fontFamily":"\u0022Lucida Grande\u0022,Helvetica,Arial,Verdana,sans-serif","fontSize":"12px","padding":"10px 14px"},"shadow":true,"shadowColor":"rgba(0,0,0,.5)","shadowBlur":8,"shadowOffsetX":4,"shadowOffsetY":4}},"beautytips":{".beautytips":{"cssSelect":".beautytips","style":null}}}};</script>
+<script defer="defer" src="https://www.usenix.org/sites/default/files/google_tag/google_tag.script.js?ti03k2"></script>
+<script src="https://www.usenix.org/sites/default/files/js/js_bZlYCeUOgUn_Zy3vTWwKIeA3h8k-K96O5_iBg4r0XoU.js"></script>
+<script src="https://www.usenix.org/sites/default/files/js/js_nMqxMI6GSYBj21S6Dfarn5Pj4k7mEy4GyxtpkWgmSvM.js"></script>
+<script src="https://www.usenix.org/sites/default/files/js/js_Hlb3Ws6cGMVcY0OsEf_ANFK6ZxjxYMG37Nel5e0OEqc.js"></script>
+<script src="https://www.usenix.org/sites/default/files/js/js_hI_DdPBVL6lCYt70demczaN0fAE4FaBdnX7QPFNWQbw.js"></script>
+<script src="https://www.usenix.org/sites/default/files/js/js_c5N3h8HQSfLml0L3WIQRkyU8h42n0j1FsAMCz_THR04.js"></script>
+
+  </head>
+  <body class="page node-type-page scheme-osdi user-is-non-member">
+    <div class="layout--neat_conference" id="page-wrapper"><div id="page">
+<div role="document" class="page">
+  <header id="site-header" class="site-header">
+    <div class="usenix-login-bar">
+        <section class="block block-usenix-login-bar-usenix-login-bar-block usenix-login-bar-block block-usenix-login-bar">
+
+  
+  <a href="/" id="site-logo" class="site-logo back-to-usenix">Back to USENIX</a><div class="item-list"><ul id="usenix-login-bar-links" class="usenix-login-bar-links"><li class="login odd first"><a href="/user/login?destination=conference/osdi26/instructions-presenters">Sign In</a></li><li class="conference even last"><a href="/conferences">Conferences</a></li></ul></div>
+</section>    </div>
+    <div class="usenix-announcement-banner-region">
+          </div>
+    <div class="outer-wrapper">
+      <div class="header-col2-wrapper">
+          <section class="block block-usenix-event-registration-register">
+
+  
+  <a href="/conference/304480/registration/form" class="register-button">Register Now</a>
+</section>      </div>
+      <div class="header-col1-wrapper">
+          <section class="block block-usenix-og-auto-menu-usenix-og-auto-header-menu-logo">
+
+  
+  <a href="/conference/osdi26" class="header-menu-logo-link"><img class="header-menu-logo" src="https://www.usenix.org/sites/default/files/styles/neat_conference_menu_logo/public/osdi26_logo_yellow_500x264_0.png" width="80" height="42" alt="" /></a>
+</section>  <section class="block block-usenix-og-auto-menu-usenix-og-auto-header-menu">
+
+  
+  <div  class="tb-megamenu tb-megamenu-menu-og-304480" role="navigation" aria-label="Main navigation">
+      <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar tb-megamenu-button" type="button">
+      <i class="fa fa-reorder"></i>
+    </button>
+    <div class="nav-collapse  always-show">
+    <ul  class="tb-megamenu-nav nav level-0 items-5">
+    <li  data-id="48429" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-1 mega dropdown">
+          <a href="/conference/osdi26#registration"  class="dropdown-toggle">
+                Attend                      </a>
+        <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="4" data-hidewcol="0" id="tb-megamenu-column-1" class="tb-megamenu-column span4  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-2">
+    <li  data-id="48706" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26/registration-information" >
+                Registration Information                      </a>
+          </li>
+
+  <li  data-id="48707" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26/registration-discounts" >
+                Registration Discounts                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+
+<div  data-class="" data-width="4" data-hidewcol="" id="tb-megamenu-column-2" class="tb-megamenu-column span4  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-1">
+    <li  data-id="48709" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26/grants" >
+                Grant Opportunities                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+
+<div  data-class="" data-width="4" data-hidewcol="" id="tb-megamenu-column-3" class="tb-megamenu-column span4  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-1">
+    <li  data-id="48708" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26/venue-hotel-and-travel" >
+                Venue, Hotel, and Travel                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+  </li>
+
+  <li  data-id="48710" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-1 mega dropdown">
+          <a href="/conference/osdi26/schedule"  class="dropdown-toggle">
+                Schedule                      </a>
+        <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="6" data-hidewcol="0" id="tb-megamenu-column-4" class="tb-megamenu-column span6  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-1">
+    <li  data-id="48711" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26/technical-sessions" >
+                Technical Sessions                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+
+<div  data-class="" data-width="6" data-hidewcol="" id="tb-megamenu-column-5" class="tb-megamenu-column span6  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-2">
+    <li  data-id="48821" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26/activities" >
+                Activities                      </a>
+          </li>
+
+  <li  data-id="48819" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26/poster-session" >
+                Poster Session                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+  </li>
+
+  <li  data-id="48426" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-1 mega dropdown active active-trail">
+          <a href="/conference/osdi26/call-for-papers"  class="dropdown-toggle">
+                Participate                      </a>
+        <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="4" data-hidewcol="0" id="tb-megamenu-column-6" class="tb-megamenu-column span4  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-2">
+    <li  data-id="48427" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26/call-for-papers" >
+                Call for Papers                      </a>
+          </li>
+
+  <li  data-id="48428" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26/requirements-authors" >
+                Requirements for Authors                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+
+<div  data-class="" data-width="4" data-hidewcol="" id="tb-megamenu-column-7" class="tb-megamenu-column span4  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-2">
+    <li  data-id="48698" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26/call-for-artifacts" >
+                Call for Artifacts                      </a>
+          </li>
+
+  <li  data-id="48713" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26/call-for-posters" >
+                Call for Posters                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+
+<div  data-class="" data-width="4" data-hidewcol="" id="tb-megamenu-column-8" class="tb-megamenu-column span4  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-2">
+    <li  data-id="48704" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega active active-trail">
+          <a href="/conference/osdi26/instructions-presenters" >
+                Instructions for Presenters                      </a>
+          </li>
+
+  <li  data-id="48800" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26/mentorship" >
+                Mentorship                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+  </li>
+
+  <li  data-id="48430" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-1 mega dropdown">
+          <a href="/conference/osdi26#sponsorship"  class="dropdown-toggle">
+                Sponsors                      </a>
+        <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="" data-hidewcol="0" id="tb-megamenu-column-9" class="tb-megamenu-column span  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-1">
+    <li  data-id="48762" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26/exhibitor-resources" >
+                Exhibitor Resources                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+  </li>
+
+  <li  data-id="48431" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-1 mega dropdown">
+          <a href="/conference/osdi26#marquee"  class="dropdown-toggle">
+                About                      </a>
+        <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="6" data-hidewcol="0" id="tb-megamenu-column-10" class="tb-megamenu-column span6  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-2">
+    <li  data-id="48432" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi26#organizers" >
+                Symposium Organizers                      </a>
+          </li>
+
+  <li  data-id="48433" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="https://www.usenix.org/conferences/byname/179" >
+                Past Symposia                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+
+<div  data-class="" data-width="6" data-hidewcol="" id="tb-megamenu-column-11" class="tb-megamenu-column span6  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-3">
+    <li  data-id="48434" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="https://www.usenix.org/conferences/values-policies" >
+                Conference Policies                      </a>
+          </li>
+
+  <li  data-id="48435" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="https://www.usenix.org/conferences/coc" >
+                Code of Conduct                      </a>
+          </li>
+
+  <li  data-id="48436" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" header_hide="0" footer_hide="0" id="" style="" class="tb-megamenu-item level-2 mega">
+          <a href="/conference/osdi25#questions" >
+                Questions                      </a>
+          </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+  </li>
+</ul>
+      </div>
+  </div>
+
+</section>      </div>
+    </div>
+  </header>
+  
+  <main role="main">
+
+    <section id="content">
+              <div class="outer-wrapper">
+                      <h1 id="page-title">OSDI &#039;26 Instructions for Presenters</h1>
+                  </div>
+      
+      
+      
+      <article id="node-317480" class="node node-page view-mode-full">
+
+        
+  
+  <div class="content">
+    
+<div class="paragraphs-items paragraphs-items-field-paragraphs paragraphs-items-field-paragraphs-full paragraphs-items-full">
+  <div class="field field-name-field-paragraphs field-type-paragraphs field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="paragraphs-item paragraphs-item-columns paragraphs-item-columns paragraphs-item-full paragraphs-item-9790 ">
+        <div class="content">
+    <div class="field-collection-container clearfix"><div class="field field-name-field-column field-type-field-collection field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><div class="field-collection-view clearfix view-mode-full field-collection-view-final"><div class="entity-plus entity-field-collection-item field-collection-item-field-column clearfix">
+  <div class="content">
+    <div class="field field-name-field-column-wysiwyg field-type-text-long field-label-hidden"><div class="field-items field-items"><div class="field-item odd"><p>These instructions are for authors of papers accepted for publication at the <strong>20th USENIX Symposium on Operating Systems Design and Implementation (OSDI '26)</strong>. If you wish to submit a paper to, or deliver a talk at, another upcoming USENIX event, please review the open <a href="https://www.usenix.org/conferences/calls-for-papers">Calls for Papers and Calls for Participation</a> for our <a href="https://www.usenix.org/conferences">upcoming USENIX conferences</a>.</p>
+
+<h3>Visa</h3>
+<p>If you need an invitation letter to apply for a visa to attend the symposium, please contact the <a href="/cdn-cgi/l/email-protection#2b4844454d4e594e45484e6b5e584e4542530544594c14585e49414e485f1662455d425f4a5f4244450e191b474e5f5f4e590e191b4d44590e191b64786f620e191b0c191d">Conference Department</a> as soon as possible. Visa applications are reportedly taking more than three months to process. Please identify yourself as a presenter or an author, and include your mailing address in your email request.</p>
+
+<h3>Preparing Your Paper for Publication</h3>
+<ol>
+<li><strong>Coordinate with your paper shepherd.</strong> All papers have an assigned shepherd who will review your paper before the final submission. Please coordinate with your shepherd so they have time for the review, and so you have time to respond to their requests. By default, shepherds are anonymous, and you can interact with them via HotCRP. If you are unsure how to proceed, please contact <a href="/cdn-cgi/l/email-protection#68071b0c015a5e0b0009011a1b281d1b0d06011046071a0f571b1d0a020d0b1c55391d0d1b1c0107064d5a58090a071d1c4d5a58273b2c214d5a584f5a5e4d5a583b000d18000d1a0c" rel="EMAIL"><span class="__cf_email__" data-cfemail="a3ccd0c7ca9195c0cbc2cad1d0e3d6d0c6cdcadb8dccd1c4">[email&#160;protected]</span></a>.</li>
+<li><strong>Final Papers deadline.</strong> A printable PDF of your final paper is due via the <a href="https://osdi26.usenix.hotcrp.com/" target="_blank">submissions
+	system</a> by <strong>Tuesday, June 9, 2026</strong>. If you have questions, please contact the <a href="/cdn-cgi/l/email-protection#4d3d3f2229382e392422230d383e2823243563223f2a723e382f27282e39701c38283e39242223687f7d2c2f223839687f7d021e0904687f7d6a7f7b687f7d1d2c3d283f" rel="EMAIL">Production Department</a>.</li> 
+	<li><strong>Maximum page length.</strong> Final papers should be no longer than 14 pages, including figures and tables, plus as many pages as needed for references and appendices.</li>
+	<li><strong>Paper format.</strong> Papers should be typeset in two-column format using 10-point type on 12-point (single-spaced) leading, in a text block 7" wide x 9" deep, with .33" inter-column space, formatted for 8.5" x 11" paper.</li>
+	<li><strong>Embed all fonts</strong> in your final paper PDF.</li>
+	<li><strong>Apply Optical Character Recognition (OCR)</strong> to your final PDF so it is searchable.</li>
+	<li><strong>Page numbers must be suppressed</strong> on your final paper PDF.</li>
+	<li><strong>Looking for templates?</strong> Templates and sample first pages (two-column format) for Microsoft Word and LaTeX are available on the <a
+	href="/templates-conference-papers">USENIX templates page</a>. Please ensure that your final paper is saved as a US letter-sized (8.5" x 11") PDF.</li>
+<li><strong>Artifact Appendix.</strong> Authors who pass artifact evaluation are encouraged to add an Artifact Appendix of up to two pages to their paper. The goal of the appendix is to describe and document the artifact in a standard format. <a href="https://www.usenix.org/sites/default/files/conference-files/osdi22_ae_appendix_template.zip">Download the template</a> for the appendix. The Artifacts Available badge, along with instructions for adding it to your final paper PDF, can be found <a href="https://www.usenix.org/sites/default/files/osdi26_available_badge.zip">here</a>.</li>
+	<li><strong>Certify your final paper's title, author, and abstract in HotCRP.</strong> The final PDF's title and author information, including author order and affiliation, and the abstract, must <em>exactly match</em> the information entered into the HotCRP submission system. Please update the information in HotCRP as necessary, then check the certification checkbox. Please note: if you make any changes after you check the certification checkbox, you will need to check the box again.</li>
+	<li><strong>Sign the consent to publish form.</strong> Each author must sign a consent to publish form, which allows USENIX to publish the paper as well as any slides, audio, and/or video of your presentation. USENIX makes these freely available as part of our commitment to open access. Please review and <a
+	href="https://app.hellosign.com/s/Au7h66a2" target="_blank">e-sign the form</a>. If you are the lead author, please be sure all of your co-authors sign a form as well.</li>
+	<li><strong>Use of images, audio, and video in your materials.</strong> It is very important that you secure permission to use copyright-protected materials in your slide deck, paper, presentation video, or any other materials used at our event or submitted for publication. Even when using an item with a Creative Commons license, you must read and comply with the terms of the license.<br><br>USENIX receives copyright infringement notices from time to time, resulting from authors or speakers using copyright-protected materials without proper licensing or attribution. When this happens, we have to unpublish the work in question until/unless the issue is resolved. Licensing fees may be incurred, <em>even when the work is unpublished</em>, and USENIX will bill the author or speaker for any costs incurred. When possible, USENIX will refer the complainant directly to the author or speaker, who will be solely responsible for resolving the complaint.</li>
+	<li><strong>Embargo requests.</strong> All papers will be available online only to registered attendees before the symposium. If your accepted paper should not be published prior to the event, please notify the <a href="/cdn-cgi/l/email-protection#6f1f1d000b1a0c1b0600012f1a1c0a01061741001d08501c1a0d050a0c1b52203c2b264a5d5f485d594a5d5f2a020d0e1d08004a5d5f3d0a1e1a0a1c1b" rel="EMAIL">Production Department</a>. The papers will be made available online to the public beginning on the first day of the symposium.</li>
+</ol>
+
+<h3>Preparing Your Paper Presentation</h3>
+<ol>
+	<li><strong>Designate your paper presenter. </strong>The authors of each paper must designate one co-author to present the paper at the symposium via the Presenter Information form provided by the program co-chairs in the acceptance notification email. Only one (1) presenter is allowed for each paper to maintain fairness and a consistent format for the audience. The deadline to complete this form is <strong>Monday, June 15, 2026</strong>.<br><br>
+	
+	If the paper presenter changes before the event, you are responsible for notifying the <a href="/cdn-cgi/l/email-protection#dab9b5b4bcbfa8bfb4b9bf9aafa9bfb4b3a2f4b5a8bde5a9afb8b0bfb9aee795899e93ffe8eafde8ecffe8ea8aa8bfa9bfb4aebfa8ffe8ea99b2bbb4bdbf" rel="EMAIL">Conference Department</a> so they can confirm that the new presenter is registered for the event. This information is required to ensure that all OSDI '26 paper presenters are accounted for on the day of their presentation.</li>
+
+	<li><strong>Registration.</strong> As noted in the <a href="/conference/osdi26/call-for-papers">Call for Papers</a>, at least one of the authors must register to attend the conference at full price (i.e., not the student rate) and to present the paper; USENIX members at the Sustainer level and higher may apply their membership discounts to their registrations. If an author plans to present more than one paper, one full-price registration will still be required for each paper. Registration information will be available on the <a href="/conference/osdi26">OSDI '26 website</a> in April. Authors will also receive information about registration via email from the Conference Department. If the symposium registration fee poses a hardship for the presenter of an accepted paper, please contact <a href="/cdn-cgi/l/email-protection#32515d5c545740575c5157724741575c5b4a1c5d40550d414750585751460f7d61767b1700021500041700026057555b41464053465b5d5c17000263475741465b5d5c" rel="EMAIL"><span class="__cf_email__" data-cfemail="264549484043544348454366535543484f5e08495441">[email&#160;protected]</span></a>.</li>
+
+<li><strong>Presentation length.</strong> <!--Details about the presentation format will be announced at a later date. Accepted authors will receive more information at the same email address they used in the submission system.-->Authors will have a total of 20 minutes to present their paper and answer questions. We recommend allotting 15 minutes for the paper presentation and 5 minutes for Q&A.<br><br>
+Refereed paper talks will not be recorded, and the slides you used in your paper presentation will not be posted. Instead, authors of accepted papers will be invited to upload a 15–20-minute video presentation, which will be published on the OSDI '26 technical sessions program after the symposium. Instructions were sent to the lead author of each paper (subject: "OSDI '26 Upload Instructions for Your Slides and Video"). The submission deadline for the optional video presentation is <strong>Monday, August 10, 2026</strong>. Preparation of uploaded videos will be optional.</li>
+
+<li><strong>A/V and technical setup at the symposium.</strong> USENIX provides a projection screen and projector, plus the following:</li>
+	<ul>
+		<li>A lavalier microphone for the presenter.</li>
+		<li>A confidence monitor.</li>
+		<li>Cables and extension cords: HDMI is provided for connecting your laptop to the projection system. Please check your device ahead of time and bring any special adapters you might need, including for Mini DisplayPort or USB-C.</li>
+	</ul>
+	<p>Note that laptops and clickers are not provided. In addition, presentation slides should be saved locally on the presenter's laptop rather than in the cloud.</p>
+
+	<li><strong>Presentation slides.</strong> Slides should be set up for a 16:9 aspect ratio.<!-- In order to make the content of your presentation available on the
+	USENIX website immediately after the symposium, please email a PDF of your slides to <a href="mailto:slides@usenix.org?subject=OSDI%20'26%20Slides" rel="EMAIL">slides@usenix.org</a> as soon as possible after your presentation.--></li>
+</ol>
+
+<h3>Instructions for Invited Speakers</h3>
+<ol>
+<li><strong>Registration.</strong> The Conference Department will contact you with instructions for registering for the symposium online. All speakers must be registered to attend the symposium.</li>
+
+<li><strong>Sign the consent to publish form.</strong> All speakers must sign a consent to publish form, which allows USENIX to publish any slides, audio, and/or video of your presentation. USENIX makes these freely available as part of our commitment to open access. Please review and <a href="https://app.hellosign.com/s/yJWIw0qk" target="_blank">e-sign the form</a>.</li>
+
+<li><strong>A/V and technical setup at the symposium.</strong> USENIX provides a projection screen and projector, plus the following:</li>
+	<ul>
+		<li>A lavalier microphone for the presenter.</li>
+		<li>A confidence monitor.</li>
+		<li>Cables and extension cords: HDMI is provided for connecting your laptop to the projection system. Please check your device ahead of time and bring any special adapters you might need, including for Mini DisplayPort or USB-C.</li>
+	</ul>
+	<p>Note that laptops and clickers are not provided. In addition, presentation slides should be saved locally on the presenter's laptop rather than in the cloud.</p>
+
+	<li><strong>Presentation slides.</strong> Slides should be set up for a 16:9 aspect ratio. In order to make the content of your presentation available on the USENIX website immediately after the symposium, please email a PDF of your slides to <a href="/cdn-cgi/l/email-protection#cbb8a7a2afaeb88bbeb8aea5a2b3e5a4b9acf4b8bea9a1aea8bff684988f82eef9fbecf9fdeef9fb98a7a2afaeb8" rel="EMAIL"><span class="__cf_email__" data-cfemail="7f0c13161b1a0c3f0a0c1a11160751100d18">[email&#160;protected]</span></a> as soon as possible after your presentation.</li>
+</ol>
+
+<h3>Contact</h3>
+<p>If you have questions about the instructions listed above, please contact the <a href="/cdn-cgi/l/email-protection#076874636e3531646f666e757447727462696e7f29687560387472656d6264733a56726274736e686922353766656872732235374854434e223537203531" rel="EMAIL">OSDI '26 Program Co-Chairs</a>, Eddie Kohler and Amar Phanishayee, or the <a href="/cdn-cgi/l/email-protection#6111130e05140215080e0f211412040f08194f0e13065e1214030b0402155c3014041215080e0f44535100030e14154453512e322528445351465357" rel="EMAIL">USENIX Production Department</a>.</p></div></div></div>  </div>
+</div>
+</div></div></div></div></div>  </div>
+</div>
+</div></div></div></div>
+<div class="field field-name-field-file-access field-type-list-text field-label-hidden"><div class="field-items field-items"></div></div>  </div>
+
+        
+    
+</article>
+    </section>
+
+  </main>
+
+      <footer id="site-footer" role="contentinfo" class="site-footer">
+              <section class="footer-top">
+            <section class="block block-usenix-og-auto-menu-usenix-og-auto-footer-menu">
+
+  
+  <ul class="menu"><li class="first expanded has-children menu-mlid-48429"><a href="/conference/osdi26#registration">Attend</a><ul><li class="first leaf menu-mlid-48706"><a href="/conference/osdi26/registration-information">Registration Information</a></li>
+<li class="leaf menu-mlid-48707"><a href="/conference/osdi26/registration-discounts">Registration Discounts</a></li>
+<li class="leaf menu-mlid-48709"><a href="/conference/osdi26/grants">Grant Opportunities</a></li>
+<li class="last leaf menu-mlid-48708"><a href="/conference/osdi26/venue-hotel-and-travel">Venue, Hotel, and Travel</a></li>
+</ul></li>
+<li class="expanded has-children menu-mlid-48710"><a href="/conference/osdi26/schedule">Schedule</a><ul><li class="first leaf menu-mlid-48711"><a href="/conference/osdi26/technical-sessions">Technical Sessions</a></li>
+<li class="leaf menu-mlid-48821"><a href="/conference/osdi26/activities">Activities</a></li>
+<li class="last leaf menu-mlid-48819"><a href="/conference/osdi26/poster-session">Poster Session</a></li>
+</ul></li>
+<li class="expanded has-children menu-mlid-48426"><a href="/conference/osdi26/call-for-papers">Participate</a><ul><li class="first leaf menu-mlid-48427"><a href="/conference/osdi26/call-for-papers">Call for Papers</a></li>
+<li class="leaf menu-mlid-48428"><a href="/conference/osdi26/requirements-authors">Requirements for Authors</a></li>
+<li class="leaf menu-mlid-48698"><a href="/conference/osdi26/call-for-artifacts">Call for Artifacts</a></li>
+<li class="leaf menu-mlid-48713"><a href="/conference/osdi26/call-for-posters">Call for Posters</a></li>
+<li class="leaf menu-mlid-48704"><a href="/conference/osdi26/instructions-presenters" class="active" aria-current="page">Instructions for Presenters</a></li>
+<li class="last leaf menu-mlid-48800"><a href="/conference/osdi26/mentorship">Mentorship</a></li>
+</ul></li>
+<li class="expanded has-children menu-mlid-48430"><a href="/conference/osdi26#sponsorship">Sponsors</a><ul><li class="first last leaf menu-mlid-48762"><a href="/conference/osdi26/exhibitor-resources">Exhibitor Resources</a></li>
+</ul></li>
+<li class="last expanded has-children menu-mlid-48431"><a href="/conference/osdi26#marquee">About</a><ul><li class="first leaf menu-mlid-48432"><a href="/conference/osdi26#organizers">Symposium Organizers</a></li>
+<li class="leaf menu-mlid-48433"><a href="https://www.usenix.org/conferences/byname/179">Past Symposia</a></li>
+<li class="leaf menu-mlid-48434"><a href="https://www.usenix.org/conferences/values-policies">Conference Policies</a></li>
+<li class="leaf menu-mlid-48435"><a href="https://www.usenix.org/conferences/coc">Code of Conduct</a></li>
+<li class="last leaf menu-mlid-48436"><a href="/conference/osdi25#questions">Questions</a></li>
+</ul></li>
+</ul>
+</section>        </section>
+                    <section class="footer-bottom">
+            <section class="block block-usenix-conference-og-conference-social-icon">
+
+  
+  <article id="node-304480" class="node node-conference view-mode-social-icon">
+
+  <div class="content">
+      </div>
+
+</article>
+
+</section>  <section class="block block-menu-menu-footer" role="navigation">
+
+  
+  <ul class="menu-tree menu" data-menu-style="tree" data-clickdown="0" data-collapse="default"><li class="first leaf menu-mlid-2774"><a href="/privacy-policy">Privacy Policy</a></li>
+<li class="last leaf menu-mlid-2775"><a href="/contact">Contact Us</a></li>
+</ul>
+</section>  <section class="block block-block-27">
+
+  
+  <div style="padding-top: .25em;">
+	<p style="color: inherit;">&copy; USENIX <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>new Date().getFullYear()>document.write(new Date().getFullYear());</script><br>
+        EIN 13-3055038</p>
+</div>
+</section>        </section>
+          </footer>
+  </div>
+      <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1964a1e9a6b1da7',t:'MTc4Mzc1Njk4NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,15 @@
+HTTP/2 200 
+date: Sat, 11 Jul 2026 07:58:36 GMT
+content-type: text/html; charset=UTF-8
+server: nginx
+vary: Accept-Encoding
+vary: Accept-Encoding
+set-cookie: x_page=https%3A%2F%2Fwww.veeam.com%2Fblog%2F; expires=Thu, 10 Jul 2031 07:58:35 GMT; Max-Age=157680000; path=/; domain=.veeam.com
+set-cookie: x_referrer=; Expires=Thursday, 10-Jul-2031 07:58:35 UTC; domain=.veeam.com; path=/; Max-Age=157680000
+set-cookie: x_time=1783756715; expires=Thu, 10 Jul 2031 07:58:35 GMT; Max-Age=157680000; path=/; domain=.veeam.com
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-xss-protection: 1; mode=block
+referrer-policy: no-referrer-when-downgrade
+

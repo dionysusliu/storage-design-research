@@ -1,0 +1,19 @@
+HTTP/2 200 
+server: nginx/1.18.0 (Ubuntu)
+date: Sat, 11 Jul 2026 07:59:42 GMT
+content-type: text/html; charset=utf-8
+content-length: 8466
+vary: Accept-Encoding
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+x-download-options: noopen
+x-permitted-cross-domain-policies: none
+referrer-policy: strict-origin-when-cross-origin
+vary: Accept
+etag: W/"16dd6d991ecbf3e598fd0c092c90077d"
+cache-control: max-age=0, private, must-revalidate
+set-cookie: _redmine_session=NE9WNUwzMlo4VEg3cTU0c0Y3OWZGbGR5d3NBNmljSEIrSkZrMWkxRHppcFAyaGJYWm1md1BnRUU5OG9nMGxwOWFBVnM1NWxZMEdqRWtGVG5oVFB2dnV6S1Z1UGNSUnY0NXh6dTk5YWVvUkZwUkk5VnpjOGJyRDhZS25rL1ZEQ3A0UFNaSG9nY1h4YitWZ0EyYklVTFdzL2xSaytKQ1dqUU5RS1VicVJnOUxDclZEMzB5SHVUQmZRZm5ER0VHY0pKLS11YVVJWnE0Z3VmQjM5YVZLYzRsZGl3PT0%3D--6d3c718df9d12f43b3f1aac5026f48f5be088bc3; path=/; httponly; samesite=lax
+x-request-id: efe15a60-82e2-47ef-98d6-ced02c8f7aca
+x-runtime: 0.034789
+

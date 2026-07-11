@@ -1,0 +1,22 @@
+HTTP/2 200 
+date: Sat, 11 Jul 2026 07:57:32 GMT
+content-type: text/html;charset=utf-8
+content-length: 269163
+x-vhost: publish
+strict-transport-security: max-age=63072000; includeSubdomains;
+referrer-policy: strict-origin-when-cross-origin
+age: 0
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+x-served-by: cache-nrt-rjaa8190028-NRT
+x-cache: TCP_HIT
+x-timer: S1783742445.963725,VS0,VS0,VE801
+vary: Accept-Encoding
+x-azure-ref: 20260711T075732Z-17dcdb875cfx74jvhC1PUS7ge80000000fc00000000056ys
+cache-control: public, max-age=21600
+x-fd-int-roxy-purgeid: 66905321
+x-cache-info: L1_T2
+content-security-policy: frame-ancestors 'self' https://resources.micron.com;
+permissions-policy: geolocation=(), camera=(), microphone=()
+accept-ranges: bytes
+

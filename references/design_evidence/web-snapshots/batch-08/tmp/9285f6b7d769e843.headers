@@ -1,0 +1,18 @@
+HTTP/2 200 
+content-type: text/html; charset=UTF-8
+date: Sat, 11 Jul 2026 07:59:03 GMT
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+server: nginx
+set-cookie: Session=63647294aa370ca7a9a69ca268fbed56; path=/; domain=community.veeam.com; secure; HttpOnly
+cache-control: must-understand, no-cache="Set-Cookie", public, s-maxage=300, stale-if-error=3600, stale-while-revalidate=600
+referrer-policy: strict-origin-when-cross-origin
+content-language: en-US
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+vary: Accept-Encoding
+x-cache: Miss from cloudfront
+via: 1.1 0dc4feb22bb4657ce2bb95fd05ec7122.cloudfront.net (CloudFront)
+x-amz-cf-pop: SFO5-P2
+alt-svc: h3=":443"; ma=86400
+x-amz-cf-id: 9muoQMVpmZCYbeoUFlArXK_Ek3eI7penerct5spYXLOXoGwaOTCQ7g==
+

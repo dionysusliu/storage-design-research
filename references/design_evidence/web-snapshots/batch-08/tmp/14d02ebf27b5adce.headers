@@ -1,0 +1,16 @@
+HTTP/2 200 
+date: Sat, 11 Jul 2026 07:58:59 GMT
+content-type: text/html; charset=UTF-8
+server: cloudflare
+vary: Accept-Encoding
+vary: Accept-Encoding,Cookie
+x-cacheable: SHORT
+cache-control: max-age=600, must-revalidate
+x-cache: HIT: 1
+x-cache-group: normal
+last-modified: Sat, 11 Jul 2026 07:58:59 GMT
+cf-cache-status: EXPIRED
+set-cookie: __cf_bm=_9YbWtYgCTeJGilE.5umzOXVnY3lCIdddSntKvfAJtc-1783756739.173204-1.0.1.1-l2LfzKLzgiY29qbPJFGm20hFfzDBEfCrtuonRnE75pPobbsyrHyco67R.dpKt4H2k2ctmxOYxmPC3BCmSX8LVaApy_j.EtwtNSsK5p.BKFi1F1WBTcUSDrQvQg8KEQe9; HttpOnly; SameSite=None; Secure; Path=/; Domain=www.scality.com; Expires=Sat, 11 Jul 2026 08:28:59 GMT
+cf-ray: a1964423df46da6c-LAX
+alt-svc: h3=":443"; ma=86400
+

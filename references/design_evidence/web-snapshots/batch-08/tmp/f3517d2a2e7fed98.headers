@@ -1,0 +1,41 @@
+HTTP/2 302 
+x-ssr-platform-release: 1.27.2
+x-ssr-deployed-on: 2026-07-01T15:44:54+00:00
+x-ssr-app-release: b3173afa
+x-ssr-app-code: DOCS-002
+access-control-allow-origin: *
+last-modified: Sat, 11 Jul 2026 07:58:51 GMT
+etag: W/"AOjvTmw2ZC"
+cache-control: s-maxage=1800, stale-while-revalidate=3600
+referrer-policy: strict-origin-when-cross-origin
+location: /en/documentation/red_hat_openshift_data_foundation/4.22
+content-type: text/html; charset=UTF-8
+content-length: 142
+date: Sat, 11 Jul 2026 07:58:51 GMT
+set-cookie: i18n_redirected=en; Path=/; Expires=Sun, 11 Jul 2027 07:58:50 GMT; SameSite=Lax
+x-rh-edge-alb-dc: prod_docs_mpp_aws_us_east_1
+x-rh-edge-request-id: 30c4252
+x-rh-edge-reference-id: 0.2fc21302.1783756730.30c4252
+x-rh-edge-cache-status: Miss from child, Miss from parent
+strict-transport-security: max-age=86400 ; includeSubDomains
+
+HTTP/2 200 
+x-ssr-platform-release: 1.27.2
+x-ssr-deployed-on: 2026-07-01T15:44:54+00:00
+x-ssr-app-release: b3173afa
+x-ssr-app-code: DOCS-002
+access-control-allow-origin: *
+last-modified: Sat, 11 Jul 2026 07:58:52 GMT
+etag: W/"WKU4kUUuU4-gzip"
+referrer-policy: strict-origin-when-cross-origin
+content-type: text/html;charset=utf-8
+cache-control: max-age=960, s-maxage=1800
+expires: Sat, 11 Jul 2026 08:14:52 GMT
+date: Sat, 11 Jul 2026 07:58:52 GMT
+set-cookie: i18n_redirected=en; Path=/; Expires=Sun, 11 Jul 2027 07:58:52 GMT; SameSite=Lax
+x-rh-edge-alb-dc: prod_docs_mpp_aws_us_east_1
+x-rh-edge-request-id: 30c441e
+x-rh-edge-reference-id: 0.2fc21302.1783756731.30c441e
+x-rh-edge-cache-status: Miss from child, Miss from parent
+strict-transport-security: max-age=86400 ; includeSubDomains
+

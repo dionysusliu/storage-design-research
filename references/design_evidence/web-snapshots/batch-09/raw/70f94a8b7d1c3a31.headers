@@ -1,0 +1,28 @@
+HTTP/2 200 
+date: Sat, 11 Jul 2026 08:01:39 GMT
+content-type: text/html; charset=UTF-8
+server: cloudflare
+vary: Accept-Encoding
+vary: Accept-Encoding,Cookie
+last-modified: Wed, 08 Jul 2026 06:06:21 GMT
+link: <https://www.yugabyte.com/wp-json/>; rel="https://api.w.org/"
+link: <https://www.yugabyte.com/wp-json/wp/v2/pages/30271>; rel="alternate"; title="JSON"; type="application/json"
+link: <https://www.yugabyte.com/>; rel=shortlink
+x-powered-by: WP Engine
+x-cacheable: YES:604800.000
+cache-control: max-age=604800, must-revalidate
+x-cache: MISS
+x-cache-group: normal
+age: 85106
+cf-cache-status: HIT
+x-orig-cache-control: max-age=604800, must-revalidate
+content-security-policy: default-src https: blob: 'unsafe-inline' 'unsafe-eval'; img-src data: https:; font-src 'self' data: https://fonts.gstatic.com https://maxcdn.bootstrapcdn.com/ https://www.gartner.com/ https://cdn.jsdelivr.net/; connect-src https: 'unsafe-inline' 'unsafe-eval'; frame-src https: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self' https://yugabyte.thinkific.com/ https://*.yugabyte.com/; upgrade-insecure-requests;
+permissions-policy: fullscreen=self, microphone=(), geolocation=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31536000; includeSubDomains
+x-content-type-options: nosniff
+x-xss-protection: 1
+set-cookie: __cf_bm=fOAJSb9tHEhx5k4akTvW2XlLoVm3DjGLokdNF81Orrw-1783756899.287797-1.0.1.1-_a94YQnCkSTDTl4ueU.Rerj93TBEWJeC2USPpJFMisIvz0jmaOjEwBts2h4c6CLUTi5sXD9.Rjx2oPRkA0f2Dzgql58redb7.FpX_cMwKVZTaCkb2a7Nv.cE93QlUKjG; HttpOnly; SameSite=None; Secure; Path=/; Domain=www.yugabyte.com; Expires=Sat, 11 Jul 2026 08:31:39 GMT
+cf-ray: a196480c8bead7af-LAX
+alt-svc: h3=":443"; ma=86400
+

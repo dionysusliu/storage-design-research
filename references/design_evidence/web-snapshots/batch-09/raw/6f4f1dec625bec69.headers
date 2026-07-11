@@ -1,0 +1,19 @@
+HTTP/2 200 
+server: nginx
+date: Sat, 11 Jul 2026 07:59:46 GMT
+content-type: text/html; charset=UTF-8
+content-length: 47310
+vary: Accept-Encoding
+vary: Accept-Encoding
+vary: Accept-Encoding
+link: <https://www.gluster.org/wp-json/>; rel="https://api.w.org/"
+link: <https://www.gluster.org/wp-json/wp/v2/pages/7>; rel="alternate"; title="JSON"; type="application/json"
+link: <https://www.gluster.org/>; rel=shortlink
+x-powered-by: WP Engine
+x-cacheable: SHORT
+vary: Accept-Encoding,Cookie
+cache-control: max-age=600, must-revalidate
+accept-ranges: bytes
+x-cache: HIT: 1
+x-cache-group: normal
+

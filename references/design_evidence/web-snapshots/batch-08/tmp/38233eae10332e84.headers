@@ -1,0 +1,18 @@
+HTTP/2 200 
+server: nginx
+content-type: text/html; charset=utf-8
+last-modified: Mon, 06 Jul 2026 00:52:53 GMT
+content-security-policy: default-src 'self' 'unsafe-inline'; img-src https: data:
+accept-ranges: bytes
+age: 0
+date: Sat, 11 Jul 2026 07:57:25 GMT
+via: 1.1 varnish
+x-served-by: cache-itm1220023-ITM
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1783756645.958567,VS0,VE432
+vary: Accept-Encoding
+strict-transport-security: max-age=31557600
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+content-length: 110370
+

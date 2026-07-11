@@ -1,0 +1,17 @@
+HTTP/2 200 
+content-type: text/html;charset=utf-8
+date: Sat, 11 Jul 2026 07:59:39 GMT
+x-frame-options: SAMEORIGIN
+server: Apache
+x-dispatcher: dispatcher1uswest1-28644689
+x-vhost: dropbox-prod.adobemsbasic.com
+cache-control: max-age=60,stale-while-revalidate=360
+x-content-type-options: nosniff
+expires: Sat, 11 Jul 2026 07:59:38 GMT
+vary: Accept-Encoding,User-Agent
+x-cache: Miss from cloudfront
+via: 1.1 94be61e339880d0097634de6934f7710.cloudfront.net (CloudFront)
+x-amz-cf-pop: SFO5-P2
+x-amz-cf-id: dfRQ7iYaQa7RuVdECHnUIidH1H1WMOjXZBpF7St8qbshfxD6IOEpbw==
+age: 0
+

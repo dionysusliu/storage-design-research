@@ -1,0 +1,371 @@
+<html><head><title>linux-nvme.lists.infradead.org archive mirror</title><link
+rel=alternate
+title="Atom feed"
+href="new.atom"
+type="application/atom+xml"/><meta name=viewport content=width=device-width, initial-scale=1><style>*{overflow-wrap:anywhere;font-size:100%;font-family:monospace}</style><link
+type=text/css
+rel=stylesheet
+media=screen,print
+href=216light.css?69f2051c /><link
+type=text/css
+rel=stylesheet
+media="screen and (prefers-color-scheme:dark)"
+href=216dark.css?69f2051c /></head><body><form
+action="./"><pre><b>linux-nvme.lists.infradead.org archive mirror</b>
+<input
+name=q
+type=text /><input
+type=submit
+value=search /> <a
+href="_/text/help/">help</a> / <a
+href="_/text/color/">color</a> / <a
+id=mirror
+href="_/text/mirror/">mirror</a> / <a
+href="new.atom">Atom feed</a></pre></form><pre><a
+href="20260711075342.54787-1-security@auditcode.ai/T/#t">[PATCH] nvmet-auth: fix uninitialized-memory leak in AUTH_RECEIVE</a>
+ 2026-07-11  7:53 UTC  (2+ messages)
+
+<a
+href="202607110242.Pp2lQg4p-lkp@intel.com/T/#u">[linux-nvme:nvme-7.3] BUILD SUCCESS cdf9a65e80ec874b630502946d269fac38dc5de8</a>
+ 2026-07-10 18:54 UTC 
+
+<a
+href="a7c49756-b042-445c-b012-e5162446f9cf@amd.com/T/#t">[PATCH v6 00/10] dmaengine: dw-edma: flatten desc structions and simplify code</a>
+ 2026-07-10 17:28 UTC  (13+ messages)
+` <a
+href="20260710-edma_ll-v6-1-1471d278b73a@nxp.com/T/#u">[PATCH v6 01/10] dmaengine: dw-edma: Move control field update of DMA link to the last step</a>
+` <a
+href="20260710-edma_ll-v6-2-1471d278b73a@nxp.com/T/#u">[PATCH v6 02/10] dmaengine: dw-edma: Add xfer_sz field to struct dw_edma_chunk</a>
+` <a
+href="20260710-edma_ll-v6-3-1471d278b73a@nxp.com/T/#u">[PATCH v6 03/10] dmaengine: dw-edma: Move ll_region from struct dw_edma_chunk to struct dw_edma_chan</a>
+` <a
+href="20260710-edma_ll-v6-4-1471d278b73a@nxp.com/T/#u">[PATCH v6 04/10] dmaengine: dw-edma: Pass down dw_edma_chan to reduce one level of indirection</a>
+` <a
+href="20260710-edma_ll-v6-5-1471d278b73a@nxp.com/T/#u">[PATCH v6 05/10] dmaengine: dw-edma: Add helper dw_(edma|hdma)_v0_core_ch_enable()</a>
+` <a
+href="20260710-edma_ll-v6-6-1471d278b73a@nxp.com/T/#u">[PATCH v6 06/10] dmaengine: dw-edma: Add callbacks to fill link list entries</a>
+` <a
+href="20260710-edma_ll-v6-7-1471d278b73a@nxp.com/T/#u">[PATCH v6 07/10] dmaengine: dw-edma: Add non_ll_start() callback</a>
+` <a
+href="20260710-edma_ll-v6-8-1471d278b73a@nxp.com/T/#u">[PATCH v6 08/10] dmaengine: dw-edma: Use common dw_edma_core_start() for both eDMA and HDMA</a>
+` <a
+href="20260710-edma_ll-v6-9-1471d278b73a@nxp.com/T/#u">[PATCH v6 09/10] dmaengine: dw-edma: Use burst array instead of linked list</a>
+` <a
+href="20260710-edma_ll-v6-10-1471d278b73a@nxp.com/T/#u">[PATCH v6 10/10] dmaengine: dw-edma: Remove struct dw_edma_chunk</a>
+
+<a
+href="alEiwEChHTsoNJK2@SMW015318/T/#t">[PATCH v5 00/10] dmaengine: dw-edma: flatten desc structions and simplify code</a>
+ 2026-07-10 16:50 UTC  (13+ messages)
+` <a
+href="20260709-edma_ll-v5-1-e199053d4300@nxp.com/T/#u">[PATCH v5 01/10] dmaengine: dw-edma: Move control field update of DMA link to the last step</a>
+` <a
+href="20260709-edma_ll-v5-2-e199053d4300@nxp.com/T/#u">[PATCH v5 02/10] dmaengine: dw-edma: Add xfer_sz field to struct dw_edma_chunk</a>
+` <a
+href="20260709-edma_ll-v5-3-e199053d4300@nxp.com/T/#u">[PATCH v5 03/10] dmaengine: dw-edma: Move ll_region from struct dw_edma_chunk to struct dw_edma_chan</a>
+` <a
+href="20260709-edma_ll-v5-4-e199053d4300@nxp.com/T/#u">[PATCH v5 04/10] dmaengine: dw-edma: Pass down dw_edma_chan to reduce one level of indirection</a>
+` <a
+href="20260709-edma_ll-v5-5-e199053d4300@nxp.com/T/#u">[PATCH v5 05/10] dmaengine: dw-edma: Add helper dw_(edma|hdma)_v0_core_ch_enable()</a>
+` <a
+href="20260709-edma_ll-v5-6-e199053d4300@nxp.com/T/#u">[PATCH v5 06/10] dmaengine: dw-edma: Add callbacks to fill link list entries</a>
+` <a
+href="20260709-edma_ll-v5-7-e199053d4300@nxp.com/T/#u">[PATCH v5 07/10] dmaengine: dw-edma: Add non_ll_start() callback</a>
+` <a
+href="20260709-edma_ll-v5-8-e199053d4300@nxp.com/T/#u">[PATCH v5 08/10] dmaengine: dw-edma: Use common dw_edma_core_start() for both eDMA and HDMA</a>
+` <a
+href="20260709-edma_ll-v5-9-e199053d4300@nxp.com/T/#u">[PATCH v5 09/10] dmaengine: dw-edma: Use burst array instead of linked list</a>
+` <a
+href="20260709-edma_ll-v5-10-e199053d4300@nxp.com/T/#u">[PATCH v5 10/10] dmaengine: dw-edma: Remove struct dw_edma_chunk</a>
+
+<a
+href="12726bc4-33ce-4602-b2a9-46885f2af1fe@gmail.com/T/#t">[PATCH] nvme: make firmware activation poll interval configurable</a>
+ 2026-07-10  9:20 UTC  (6+ messages)
+
+<a
+href="20260706141452.3008233-1-nilay@linux.ibm.com/T/#t">[PATCH v3 00/18] Support Clang context analysis for NVMe host drivers</a>
+ 2026-07-10  8:18 UTC  (29+ messages)
+` <a
+href="20260706141452.3008233-2-nilay@linux.ibm.com/T/#u">[PATCH v3 01/18] nvme: update nvme_passthru_end() signature</a>
+` <a
+href="20260706141452.3008233-3-nilay@linux.ibm.com/T/#u">[PATCH v3 02/18] nvme: add context annotations for nvme_passthru_{start|stop}</a>
+` <a
+href="20260706141452.3008233-4-nilay@linux.ibm.com/T/#u">[PATCH v3 03/18] nvme: add context annotations for nvme_ns_head::srcu</a>
+` <a
+href="20260706141452.3008233-5-nilay@linux.ibm.com/T/#u">[PATCH v3 04/18] nvme: add context annotations for nvme_ns_head::requeue_list</a>
+` <a
+href="03e47f32-5998-41e1-9340-ce757c5e188c@paulmck-laptop/T/#u">[PATCH v3 05/18] nvme: add context annotations for nvme_ns_head::current_path</a>
+` <a
+href="20260706141452.3008233-7-nilay@linux.ibm.com/T/#u">[PATCH v3 06/18] nvme: add context annotations for nvme_dev::shutdown_lock</a>
+` <a
+href="32ffcd98-1d9e-4f12-b7f9-4960942f8650@linux.ibm.com/T/#u">[PATCH v3 07/18] nvme: add context annotations for nvme_subsystem::lock</a>
+` <a
+href="20260706141452.3008233-9-nilay@linux.ibm.com/T/#u">[PATCH v3 08/18] nvme: add context annotations for nvme_ctrl::ana_lock</a>
+` <a
+href="20260709062935.GB18056@lst.de/T/#u">[PATCH v3 09/18] list: introduce LIST_HEAD_GUARDED</a>
+` <a
+href="20260709063101.GD18056@lst.de/T/#u">[PATCH v3 10/18] nvme: add context annotations for nvme_subsystems_lock</a>
+` <a
+href="20260709063121.GE18056@lst.de/T/#u">[PATCH v3 11/18] nvme: add context annotations in fabric.c</a>
+` <a
+href="692bc5a1-45d0-4406-9694-9f58cc184a8c@linux.ibm.com/T/#u">[PATCH v3 12/18] nvme: add context annotations for nvme_queue::sq_lock</a>
+` <a
+href="20260706141452.3008233-14-nilay@linux.ibm.com/T/#u">[PATCH v3 13/18] nvme: add context annotations in rdma.c</a>
+` <a
+href="1e72d8d2-ecfb-42c8-9ba4-97cf70f8b70b@linux.ibm.com/T/#u">[PATCH v3 14/18] list: Permit context-unguarded access with list_empty_careful()</a>
+` <a
+href="20260706141452.3008233-16-nilay@linux.ibm.com/T/#u">[PATCH v3 15/18] nvme: fix context analysis warning in rdma.c</a>
+` <a
+href="20260706141452.3008233-17-nilay@linux.ibm.com/T/#u">[PATCH v3 16/18] nvme: add context annotations in tcp.c</a>
+` <a
+href="20260706141452.3008233-18-nilay@linux.ibm.com/T/#u">[PATCH v3 17/18] nvme: fix context analysis warning</a> &#34;
+` <a
+href="20260706141452.3008233-19-nilay@linux.ibm.com/T/#u">[PATCH v3 18/18] nvme: enable context analysis support for nvme host driver</a>
+
+<a
+href="20260614131541.2017845-1-nilay@linux.ibm.com/T/#t">[PATCHv2 00/17] Support Clang context analysis for NVMe host drivers</a>
+ 2026-07-10  7:58 UTC  (9+ messages)
+` <a
+href="134eb01a-71b7-4db4-86ca-c9dbfe2f188a@linux.ibm.com/T/#u">[PATCHv2 07/17] nvme: add Clang context annotations for nvme_subsystem::lock</a>
+
+<a
+href="20260710023015.3744082-1-michael.bommarito@gmail.com/T/#t">[PATCH 0/2] nvmet-pci: validate endpoint queue IDs</a>
+ 2026-07-10  3:29 UTC  (5+ messages)
+` <a
+href="bf3201f1-cf49-4c4c-8104-ec50f2d4ae69@kernel.org/T/#u">[PATCH 1/2] nvmet-pci: validate queue IDs against endpoint queues</a>
+` <a
+href="6e835ca9-42b8-439b-a9ab-922a0b70c6a0@kernel.org/T/#u">[PATCH 2/2] nvmet-pci: add KUnit coverage for endpoint queue IDs</a>
+
+<a
+href="20260709195203.GA874193@bhelgaas/T/#t">[PATCH v7 3/9] PCI: endpoint: pci-epf-test: Use dmaenigne_prep_config_single() to simplify code</a>
+ 2026-07-09 19:52 UTC  (2+ messages)
+
+<a
+href="CACd_6n2N=r+-dBdKxbQbVi0+FVgKqSPR-EmqSdt=aTO2hAQyhw@mail.gmail.com/T/#t">[PATCH] nvme: bound the freeze drain in passthrough commands</a>
+ 2026-07-09 19:01 UTC  (6+ messages)
+
+<a
+href="ak_Wc7aHCnZtLLPD@kbusch-mbp/T/#t">[PATCH v2 0/2] nvmet: add namespace-level debugfs for reservation state</a>
+ 2026-07-09 17:12 UTC  (6+ messages)
+` <a
+href="20260707121114.2273629-2-kanie@linux.alibaba.com/T/#u">[PATCH v2 1/2] nvmet: add namespace-level debugfs directory</a>
+` <a
+href="20260707121114.2273629-3-kanie@linux.alibaba.com/T/#u">[PATCH v2 2/2] nvmet: expose reservation state through debugfs</a>
+
+<a
+href="ak_WY5NWWMHZ3BYC@kbusch-mbp/T/#t">[PATCH v4 0/3] nvme: add ABI documentation for sysfs and configfs interfaces</a>
+ 2026-07-09 17:12 UTC  (7+ messages)
+` <a
+href="20260707121227.2274769-2-kanie@linux.alibaba.com/T/#u">[PATCH v4 1/3] nvme: add ABI documentation for host sysfs interfaces</a>
+` <a
+href="20260707121227.2274769-3-kanie@linux.alibaba.com/T/#u">[PATCH v4 2/3] nvmet: add ABI documentation for target configfs interfaces</a>
+` <a
+href="20260707121227.2274769-4-kanie@linux.alibaba.com/T/#u">[PATCH v4 3/3] MAINTAINERS: add missing NVMe documentation files</a>
+
+<a
+href="202607092243.H3wRBIFE-lkp@intel.com/T/#u">[linux-nvme:nvme-7.3] BUILD SUCCESS 77c57daf98a2ad95ec9ac1371caeff8939cc1f58</a>
+ 2026-07-09 14:51 UTC 
+
+<a
+href="20260709132533.44195-1-security@auditcode.ai/T/#u">[PATCH] nvmet-tcp: bound SGL data length before allocating command buffers</a>
+ 2026-07-09 13:25 UTC 
+
+<a
+href="2026070931-stopping-cost-239a@gregkh/T/#t">[PATCH 1/2] nvme: bound ns descriptor header and body to identify buffer</a>
+ 2026-07-09 12:30 UTC  (2+ messages)
+` <a
+href="2026070932-fried-frying-9c36@gregkh/T/#u">[PATCH 2/2] nvme: clamp FDP nruhsd to allocated RUH status descriptor count</a>
+
+<a
+href="eb695a2a-2e80-414c-91a1-3d7fa580c7ec@web.de/T/#t">[PATCH v4 00/10] dmaengine: dw-edma: flatten desc structions and simple code</a>
+ 2026-07-09 11:33 UTC  (12+ messages)
+` <a
+href="20260708-edma_ll-v4-1-cc128f0afb61@nxp.com/T/#u">[PATCH v4 01/10] dmaengine: dw-edma: Move control field update of DMA link to the last step</a>
+` <a
+href="20260708-edma_ll-v4-2-cc128f0afb61@nxp.com/T/#u">[PATCH v4 02/10] dmaengine: dw-edma: Add xfer_sz field to struct dw_edma_chunk</a>
+` <a
+href="20260708-edma_ll-v4-3-cc128f0afb61@nxp.com/T/#u">[PATCH v4 03/10] dmaengine: dw-edma: Move ll_region from struct dw_edma_chunk to struct dw_edma_chan</a>
+` <a
+href="20260708-edma_ll-v4-4-cc128f0afb61@nxp.com/T/#u">[PATCH v4 04/10] dmaengine: dw-edma: Pass down dw_edma_chan to reduce one level of indirection</a>
+` <a
+href="20260708-edma_ll-v4-5-cc128f0afb61@nxp.com/T/#u">[PATCH v4 05/10] dmaengine: dw-edma: Add helper dw_(edma|hdma)_v0_core_ch_enable()</a>
+` <a
+href="20260708-edma_ll-v4-6-cc128f0afb61@nxp.com/T/#u">[PATCH v4 06/10] dmaengine: dw-edma: Add callbacks to fill link list entries</a>
+` <a
+href="20260708-edma_ll-v4-7-cc128f0afb61@nxp.com/T/#u">[PATCH v4 07/10] dmaengine: dw-edma: Add non_ll_start() callback</a>
+` <a
+href="20260708-edma_ll-v4-8-cc128f0afb61@nxp.com/T/#u">[PATCH v4 08/10] dmaengine: dw-edma: Use common dw_edma_core_start() for both eDMA and HDMA</a>
+` <a
+href="20260708-edma_ll-v4-9-cc128f0afb61@nxp.com/T/#u">[PATCH v4 09/10] dmaengine: dw-edma: Use burst array instead of linked list</a>
+` <a
+href="20260708-edma_ll-v4-10-cc128f0afb61@nxp.com/T/#u">[PATCH v4 10/10] dmaengine: dw-edma: Remove struct dw_edma_chunk</a>
+
+<a
+href="75bc21b5-9cc5-4d39-8ba3-7cf69689e438@fygo.io/T/#t">[RFC PATCH v1 00/17] blk-cgroup: protect blkgs with blkcg_mutex</a>
+ 2026-07-09 10:08 UTC  (28+ messages)
+` <a
+href="20260709061039.GB16504@lst.de/T/#u">[RFC PATCH v1 01/17] nvme-multipath: retarget failedover bios from requeue work</a>
+` <a
+href="20260704195124.1375075-3-yukuai@kernel.org/T/#u">[RFC PATCH v1 02/17] dm thin: avoid bio_set_dev under pool lock</a>
+` <a
+href="20260704195124.1375075-4-yukuai@kernel.org/T/#u">[RFC PATCH v1 03/17] dm snapshot: avoid bio_set_dev in locked map paths</a>
+` <a
+href="20260704195124.1375075-5-yukuai@kernel.org/T/#u">[RFC PATCH v1 04/17] blk-throttle: protect throttle state with td lock</a>
+` <a
+href="1bf1939e-6a7b-4a8d-a316-96812cd6924e@fygo.io/T/#u">[RFC PATCH v1 05/17] block: add bio_alloc_atomic() for atomic bio users</a>
+` <a
+href="20260709061349.GD16504@lst.de/T/#u">[RFC PATCH v1 06/17] blk-cgroup: support non-blocking bio association</a>
+` <a
+href="ee70f959-b61e-45d2-b1f0-22bee85b0bdc@fygo.io/T/#u">[RFC PATCH v1 07/17] block: support non-blocking bio allocation with a bdev</a>
+` <a
+href="20260704195124.1375075-9-yukuai@kernel.org/T/#u">[RFC PATCH v1 08/17] bcache: avoid sleeping blkg association from locked paths</a>
+` <a
+href="20260704195124.1375075-10-yukuai@kernel.org/T/#u">[RFC PATCH v1 09/17] dm bufio: avoid blkg association from GFP_NOWAIT bio init</a>
+` <a
+href="20260704195124.1375075-11-yukuai@kernel.org/T/#u">[RFC PATCH v1 10/17] dm pcache: handle non-blocking bio clone init failure</a>
+` <a
+href="20260704195124.1375075-12-yukuai@kernel.org/T/#u">[RFC PATCH v1 11/17] block: avoid scheduling from non-blocking helper allocations</a>
+` <a
+href="20260704195124.1375075-13-yukuai@kernel.org/T/#u">[RFC PATCH v1 12/17] dm: avoid sleeping blkg association from NOWAIT remaps</a>
+` <a
+href="20260704195124.1375075-14-yukuai@kernel.org/T/#u">[RFC PATCH v1 13/17] bfq: avoid blkg lookup from locked cgroup update</a>
+` <a
+href="20260704195124.1375075-15-yukuai@kernel.org/T/#u">[RFC PATCH v1 14/17] blk-cgroup: protect blkgs with blkcg_mutex</a>
+` <a
+href="e2ae59dc-14b9-48fa-a945-0b15acff338d@fygo.io/T/#u">[RFC PATCH v1 15/17] blk-cgroup: remove blkg radix tree preloading</a>
+` <a
+href="20260704195124.1375075-17-yukuai@kernel.org/T/#u">[RFC PATCH v1 16/17] blk-cgroup: allocate blkgs in blkg_create</a>
+` <a
+href="20260704195124.1375075-18-yukuai@kernel.org/T/#u">[RFC PATCH v1 17/17] blk-cgroup: share blkg creation between lookup and config prep</a>
+
+<a
+href="20260709084826.3208740-1-sangyao@kylinos.cn/T/#t">[RFC PATCH v1 0/2] nvme: use local limits for namespace heads</a>
+ 2026-07-09  8:48 UTC  (4+ messages)
+` <a
+href="20260709084826.3208740-2-sangyao@kylinos.cn/T/#u">[RFC PATCH v1 1/2] nvme: factor namespace-head queue-limit update</a>
+` <a
+href="20260709084826.3208740-3-sangyao@kylinos.cn/T/#u">[RFC PATCH v1 2/2] nvme: stop using queue_limits_stack_bdev for namespace heads</a>
+` <a
+href="20260709084826.3208740-4-sangyao@kylinos.cn/T/#u">[RFC PATCH blktests v1] nvme: check user queue limits across namespace rescans</a>
+
+<a
+href="cover.1783579899.git.liuxixin@kylinos.cn/T/#t">[PATCH nvmet-v1 0/1] nvmet: zns: reject full zone report when buffer is too small</a>
+ 2026-07-09  6:51 UTC  (2+ messages)
+` <a
+href="a7c3e91b4d20.1783579899.git.liuxixin@kylinos.cn/T/#u">[PATCH nvmet-v1 1/1]</a> &#34;
+
+<a
+href="349bace3-cb23-4489-945b-168e611617bb@oracle.com/T/#t">[PATCH RFC] nvme: fix NS head cdev lifetime</a>
+ 2026-07-09  7:33 UTC  (6+ messages)
+
+<a
+href="20260709060130.GA16418@lst.de/T/#t">[PATCH v4] nvme-rdma: hold nvme_rdma_device reference in remove_one</a>
+ 2026-07-09  6:01 UTC  (2+ messages)
+
+<a
+href="20260709055211.2498307-1-ernis@linux.microsoft.com/T/#u">[PATCH v10 rdma-next] RDMA: Change capability fields in ib_device_attr from int to u32</a>
+ 2026-07-09  5:51 UTC 
+
+<a
+href="ak8TufOGNYahqRs2@shinmob/T/#t">[PATCH blktests] nvme/039: drain udev events before passthru error injection</a>
+ 2026-07-09  3:22 UTC  (3+ messages)
+
+<a
+href="ak65OTg6t7mPnizf@SMW015318/T/#t">[PATCH v3 00/10] dmaengine: dw-edma: flatten desc structions and simple code</a>
+ 2026-07-08 20:55 UTC  (4+ messages)
+
+<a
+href="ak6hmIT89wiKXbOj@kbusch-mbp/T/#t">[PATCH] nvme: swap synchronization ordering in nvme_remove_head()</a>
+ 2026-07-08 19:14 UTC  (4+ messages)
+
+<a
+href="ak6hhSUeE7mhouQB@kbusch-mbp/T/#t">[PATCH] nvme: don&#39;t reference NS after unlocking in nvme_ns_head_ctrl_ioctl()</a>
+ 2026-07-08 19:14 UTC  (3+ messages)
+
+<a
+href="5da0ddf9-955a-4d39-9406-713484d847b3@nitrogen.local/T/#t">[PATCH] nvmetcli: allow running arbitrary commands non-interactively</a>
+ 2026-07-08  8:35 UTC  (3+ messages)
+
+<a
+href="ak39vJTvGCNJSHwi@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net/T/#t">[PATCH rdma-next v9] RDMA: Change capability fields in ib_device_attr from int to u32</a>
+ 2026-07-08  7:35 UTC  (5+ messages)
+
+<a
+href="202607080839.ijy7Ggz0-lkp@intel.com/T/#u">[linux-nvme:nvme-7.3] BUILD SUCCESS 3ddcfb013322aa37eaa7a0d344b73079c38dfa21</a>
+ 2026-07-08  0:41 UTC 
+
+<a
+href="ak0BBYBYdrLBh63I@kunlun.suse.cz/T/#t">[PATCH] When kmodpy is not available call kmod binary directly</a>
+ 2026-07-07 13:37 UTC  (2+ messages)
+
+<a
+href="20260706023439.3054578-1-kanie@linux.alibaba.com/T/#t">[PATCH v3 0/3] nvme: add ABI documentation for sysfs and configfs interfaces</a>
+ 2026-07-07  9:45 UTC  (14+ messages)
+` <a
+href="96f86707-6806-43d2-a459-29d0e6466219@linux.ibm.com/T/#u">[PATCH v3 1/3] nvme: add ABI documentation for host sysfs interfaces</a>
+` <a
+href="e03c8f93-56c8-4abd-bb27-578b46ea76fe@linux.ibm.com/T/#u">[PATCH v3 2/3] nvmet: add ABI documentation for target configfs interfaces</a>
+` <a
+href="269ae1ee-5f41-47f6-ad00-8a87e77e7e21@linux.ibm.com/T/#u">[PATCH v3 3/3] MAINTAINERS: add missing NVMe documentation files</a>
+
+<a
+href="f00962bb-630d-46d1-9dce-d09f1176111f@linux.alibaba.com/T/#t">[PATCH v3] nvme-multipath: expose path_state via sysfs</a>
+ 2026-07-07  1:47 UTC  (6+ messages)
+
+<a
+href="fbd64f1b-7970-4136-9dc5-d7db474ae87a@linux.alibaba.com/T/#t">[PATCH 0/2] nvmet: add namespace-level debugfs for reservation state</a>
+ 2026-07-07  1:42 UTC  (8+ messages)
+
+<a
+href="akv6siYknndH0Cr-@kbusch-mbp/T/#t">[PATCH] nvmet-auth: zero the AUTH_RECEIVE response buffer</a>
+ 2026-07-06 18:57 UTC  (2+ messages)
+
+<a
+href="akv6nYVwUXvUOqC8@kbusch-mbp/T/#t">[PATCH] nvme: handle positive error codes in nuse_show()</a>
+ 2026-07-06 18:57 UTC  (2+ messages)
+
+<a
+href="akv6gcd6-mT7lyw9@kbusch-mbp/T/#t">[PATCH 0/2] nvmet-rdma: fix response resource leak on queue teardown</a>
+ 2026-07-06 18:57 UTC  (2+ messages)
+
+<a
+href="akv6YJ2-GLFwwzGn@kbusch-mbp/T/#t">[PATCH v4 0/2] nvme-rdma: parallelize I/O queue setup</a>
+ 2026-07-06 18:56 UTC  (2+ messages)
+
+<a
+href="akv6KmKqp2y5MHPS@kbusch-mbp/T/#t">[PATCH] nvme-auth: Avoid C=1 warning in nvme_auth_derive_tls_psk()</a>
+ 2026-07-06 18:55 UTC  (2+ messages)
+
+<a
+href="cover.1782280420.git.liuxixin@kylinos.cn/T/#t">[PATCH v1 0/1] nvme: zns: cap zone report nr_zones by DMA buffer size</a>
+ 2026-07-06 18:55 UTC  (3+ messages)
+` <a
+href="akv6EIeaTyeufNN7@kbusch-mbp/T/#u">[PATCH v2 0/2]</a> &#34;
+
+<a
+href="akv58F9AZSvxl1BC@kbusch-mbp/T/#t">[PATCH] nvme: fix typos in reservation related constants</a>
+ 2026-07-06 18:54 UTC  (2+ messages)
+
+<a
+href="akv5y0wqV76xKZmj@kbusch-mbp/T/#t">[PATCH v2] nvme-apple: Use acquire/release for queue enabled state</a>
+ 2026-07-06 18:54 UTC  (2+ messages)
+
+<a
+href="akv5sZSOvxW7JbWI@kbusch-mbp/T/#t">[PATCH v2] nvme-multipath: revalidate zones for namespace heads</a>
+ 2026-07-06 18:53 UTC  (2+ messages)
+
+<a
+href="akryKgCjof_7d9na@shinmob/T/#u">blktests failures with v7.2-rc1 kernel</a>
+ 2026-07-06  0:10 UTC 
+
+<a
+href="akdPqz9L8%2FIPLqml@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net/T/#t">[PATCH rdma-next v8] RDMA: Change capability fields in ib_device_attr from int to u32</a>
+ 2026-07-03  5:59 UTC  (4+ messages)
+</pre><hr><pre id=nav>page: <a
+href="?t=20260704151114"
+rel=next>next (older)</a>
+- recent:[<b>subjects (threaded)</b>|<a
+href="./topics_new.html">topics (new)</a>|<a
+href="./topics_active.html">topics (active)</a>]</pre><hr><pre>This is a public inbox, see <a
+href="_/text/mirror/">mirroring instructions</a>
+for how to clone and mirror all data and code used for this inbox;
+as well as URLs for NNTP newsgroup(s).</pre></body></html>

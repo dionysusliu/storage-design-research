@@ -1,0 +1,21 @@
+HTTP/2 200 
+x-frame-options: SAMEORIGIN
+content-security-policy: Upgrade-Insecure-Requests; object-src 'none'; frame-ancestors 'self' https://next2026.nutanix.com https://*.adobeaemcloud.com https://*.nutanix.com https://*.nutanix.cn https://*.ziftsolutions.com https://*.site.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.ntnxdev.com https://*.adsrvr.org https://*.1mind.com https://*.quora.com https://*.soundcloud.com https://*.bizible.com https://*.pister.dev https://*.fontawesome.com https://*.youtube.com https://*.audiodub.app https://*.2o7.net https://*.6sc.co https://*.addtoany.com https://*.adobe.com https://*.adobedtm.com https://*.bing.com https://*.baidu.com https://*.brightcove.com https://*.brightcove.net https://*.bttrack.com https://*.cheqzone.com https://*.clarity.ms https://*.clearbit.com https://*.cloudflare.com https://*.cookielaw.org https://*.d41.co https://*.demandbase.com https://*.doubleclick.net https://*.driftt.com https://*.engagio.com https://*.everestjs.net https://*.facebook.net https://*.fullstory.com https://*.google.com https://*.googleadservices.com https://*.googleapis.com https://*.googletagmanager.com https://*.gstatic.cn https://*.gstatic.com https://*.hotjar.com https://*.hushly.com https://*.intercom.io https://*.intercomcdn.com https://*.licdn.com https://*.listenloop.com https://*.marketo.com https://*.marketo.net https://*.ml314.com https://*.adobeaemcloud.com https://*.adobeaemcloud.com.seg.js https://*.nutanix.cn https://*.nutanix.com https://*.nutanix.com.seg.js https://*.outbrain.com https://*.peerspot.com https://*.recaptcha.net https://*.redditstatic.com https://*.sndcdn.com https://*.twitter.com https://*.zemanta.com https://*.zencdn.net https://bttrack.com https://ml314.com https://*.jquery.com https://unpkg.com https://*.ziftsolutions.com https://ziftsolutions.com https://*.taboola.com https://*.microad.jp https://*.qualified.com https://*.stackadapt.com; connect-src 'self' https: wss://*.qualified.com data: blob:; img-src 'self' https: data: blob:; worker-src 'self' blob:;
+link: </etc.clientlibs/ntx-commons/clientlibs/clientlib-base.lc-b0fbd2c3e20d9c767e2a63695036c4cc-lc.min.css>; as=style; rel=preload, <https://cdn.cookielaw.org/scripttemplates/otSDKStub.js>; as=script; rel=preload, <https://cdn.cookielaw.org/consent/5b082e91-0f6a-4969-9e13-6495beff4402/5b082e91-0f6a-4969-9e13-6495beff4402.json>; as=fetch; crossorigin=true; rel=preload, <https://static-p136464-e1403605.adobeaemcloud.com>; crossorigin=anonymous; rel=preconnect, <https://geolocation.onetrust.com>; crossorigin=anonymous; rel=preconnect, <https://resources.nutanix.com>; rel=preconnect, <https://cdn.cookielaw.org>; crossorigin=anonymous; rel=preconnect, <https://assets.adobedtm.com>; rel=preconnect
+last-modified: Sat, 11 Jul 2026 06:42:49 GMT
+etag: "3ccdb-656502a737156-gzip"
+x-vhost: nutanix
+access-control-allow-methods: OPTIONS, HEAD, GET, POST, PUT, DELETE
+access-control-allow-headers: Content-Type, Authorization, Origin, Accept, X-Requested-With
+x-xss-protection: 1; mode=block
+content-disposition: inline
+content-type: text/html;charset=utf-8
+x-content-type-options: nosniff
+x-served-by: cache-nrt-rjaa8190077-NRT
+x-timer: S1783756674.930887,VS0,VS0,VE2
+cache-control: public, must-revalidate, max-age=90
+expires: Sat, 11 Jul 2026 07:59:23 GMT
+date: Sat, 11 Jul 2026 07:57:53 GMT
+akamai-edgescape: Continent:AS; Timezone:GMT+8; Country:CN; State:ZJ; City:HANGZHOU; County:; Zip:; Lat:30.26; Long:120.17
+strict-transport-security: max-age=31536000 ; includeSubDomains
+

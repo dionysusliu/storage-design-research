@@ -1,0 +1,32 @@
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Sat, 11 Jul 2026 08:01:41 GMT
+Content-Type: text/html
+Content-Length: 162
+Connection: keep-alive
+Location: https://documentation.alluxio.io/os-en
+
+HTTP/2 200 
+date: Sat, 11 Jul 2026 08:01:42 GMT
+content-type: text/html; charset=utf-8
+cf-ray: a196481d096cb6a2-LAX
+cf-cache-status: DYNAMIC
+age: 23054
+cache-control: public, max-age=0, must-revalidate
+etag: W/"9akm8yqzqh8fph"
+server: cloudflare
+strict-transport-security: max-age=31536000
+vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, accept-encoding
+content-security-policy: default-src 'self' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' blob: *; img-src * 'self' blob: data:; connect-src *; font-src *; frame-src *; object-src 'none'; base-uri 'self' https://static-2v.gitbook.com; form-action 'self' https://static-2v.gitbook.com *; frame-ancestors https: ;
+referrer-policy: no-referrer-when-downgrade
+x-content-type-options: nosniff
+x-gitbook-route-site: documentation.alluxio.io/os-en/
+x-gitbook-route-type: static
+x-gitbook-target: 2v
+x-matched-path: /sites/static/[mode]/[siteURL]/[siteData]/[pagePath]
+x-nextjs-prerender: 1
+x-nextjs-stale-time: 300
+x-vercel-cache: HIT
+x-vercel-id: sfo1::iad1::4mlnc-1783756901942-93b1344c4cbd
+alt-svc: h3=":443"; ma=86400
+

@@ -1,0 +1,24 @@
+HTTP/2 200 
+content-type: text/html; charset=UTF-8
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+strict-transport-security: max-age=31536000
+last-modified: Thu, 09 Jul 2026 00:43:11 GMT
+etag: "6180a-65622e89b70fc"
+accept-ranges: bytes
+access-control-allow-origin: https://semiconductor.samsung.cn
+access-control-allow-methods: GET, POST, OPTIONS
+access-control-headers: Content-Type, Authorization
+access-control-credentials: true
+x-akamai-transformed: 9 399370 0 pmb=mRUM,2
+cache-control: max-age=408920
+date: Sat, 11 Jul 2026 07:57:34 GMT
+set-cookie: country_codes=cn; path=/; secure; SameSite=Lax
+set-cookie: loc_lang_group=cn; path=/; secure; SameSite=Lax
+set-cookie: loc_lang=China/Chinese; path=/; secure; SameSite=Lax
+set-cookie: _DS_AB_VAL=2; secure; SameSite=Lax
+server-timing: cdn-cache; desc=HIT
+server-timing: edge; dur=542
+server-timing: origin; dur=0
+server-timing: ak_p; desc="1783756653784_34696030_92169906_54226_86919_221_242_15";dur=1
+

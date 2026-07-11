@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Join Slack – TiDB Community Slack</title>
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeIn 0.4s ease both; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spin { animation: spin 0.75s linear infinite; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .email-input::placeholder { color: rgba(241,245,249,0.4); }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center overflow-x-hidden text-slate-100 font-sans bg-gradient-to-b from-[#09203f] to-[#537895]">
+
+    <div class="w-full max-w-[440px] px-6 py-12 flex flex-col items-center">
+        
+        <!-- Outside Header: Icon & Title -->
+        <div class="text-center mb-10 fade-in">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 bg-white/10 border border-white/20 shadow-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                </svg>
+            </div>
+            <p class="text-3xl font-bold mb-1 text-white tracking-tight">Join the Slack</p>
+            <h2 class="text-xl font-light text-white/70">
+                workspace <span id="space-name" class="italic font-normal text-white/90"></span>
+            </h2>
+        </div>
+
+        <!-- Main Content inside Glass Card -->
+        <div class="glass-card w-full rounded-[2rem] p-10 text-center fade-in" style="animation-delay: 100ms">
+            
+            <!-- ── Form ── -->
+            <div id="section-form">
+                <p id="field-label" class="text-base font-medium mb-6 text-white/80">
+                    What's your email address?
+                </p>
+                <form id="email-form" onsubmit="event.preventDefault(); submitForm()" class="space-y-4">
+                    <div class="relative">
+                        <div class="absolute left-5 top-1/2 -translate-y-1/2 text-white/30">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <input id="email" type="email" name="email"
+                               placeholder="your@email.com"
+                               autocomplete="email" required
+                               class="w-full pl-14 pr-6 py-4 rounded-2xl text-base outline-none transition-all duration-200 bg-black/20 border border-white/10 text-white focus:border-white/40 focus:bg-black/30 shadow-inner" />
+                    </div>
+                    <button type="submit"
+                            class="w-full py-4 rounded-2xl text-base font-bold text-white transition-all duration-200 bg-[#3b82f6] hover:bg-[#2563eb] shadow-lg shadow-blue-900/20 active:scale-[0.98]">
+                        Get Invitation
+                    </button>
+                </form>
+            </div>
+
+            <!-- ── Loading ── -->
+            <div id="section-loading" class="hidden py-8">
+                <svg class="spin w-10 h-10 mx-auto text-white/60" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" opacity="0.1"/>
+                    <path fill="currentColor" opacity="0.8" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                </svg>
+                <p class="mt-4 text-white/50 font-medium">Verifying account...</p>
+            </div>
+
+            <!-- ── Success ── -->
+            <div id="section-success" class="hidden text-left">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-400/10 border border-emerald-400/20 shadow-inner">
+                        <i data-lucide="check" class="w-6 h-6 text-emerald-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Success!</h3>
+                </div>
+                <p id="success-message" class="text-sm mb-8 text-white/70 leading-relaxed"></p>
+
+                <a id="primary-cta" href="#" target="_blank"
+                   class="flex items-center justify-center w-full py-4 rounded-2xl text-base font-bold text-white mb-4 transition-all duration-200 bg-[#3b82f6] hover:bg-[#2563eb] shadow-lg shadow-blue-900/20 active:scale-[0.98]">
+                    <span id="primary-cta-text"></span>
+                </a>
+
+                <p id="secondary-line" class="text-sm text-center text-white/50 mb-2">
+                    Already joined? 
+                    <a id="channel-link" href="#" target="_blank" class="text-blue-400 hover:text-blue-300 hover:underline font-medium transition-colors">
+                        Enter <span id="channel-name"></span>
+                    </a>
+                </p>
+                
+                <p id="contact-note" class="pt-8 mt-4 border-t border-white/10 text-xs text-white/60 leading-relaxed text-center"></p>
+            </div>
+
+            <!-- ── Error ── -->
+            <div id="section-error" class="hidden">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 bg-red-500/10 border border-red-500/20 shadow-inner">
+                    <i data-lucide="alert-circle" class="w-8 h-8 text-red-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Something went wrong</h3>
+                <p id="error-contact" class="text-sm text-white/70 mb-8 px-4"></p>
+                <button onclick="showSection('section-form')" class="text-sm font-bold text-blue-300 hover:underline">Try again</button>
+            </div>
+
+
+        </div>
+
+        <!-- Outside Footer -->
+        <p class="mt-12 text-center text-white/30 text-[10px] font-semibold tracking-[0.2em] uppercase">
+            Powered by PingCAP
+        </p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+        lucide.createIcons();
+        const urlParams = new URLSearchParams(location.search)
+        const params = {
+            channel: urlParams.get('channel') || 'everyone',
+            team:    urlParams.get('team')    || 'tidb-community',
+            ref:     urlParams.get('ref')     || ''
+        }
+
+        document.getElementById('space-name').textContent = params.team
+
+        const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+        const team_domain = 'tidbcommunity'
+        const admin_email = 'developer-relations@pingcap.com'
+        const invite_url  = 'https://join.slack.com/t/tidbcommunity/shared_invite/zt-3z8z1v0h2-kRreuppMiFJ~D9bs4v~EPA'
+
+        function showSection(id) {
+            ['section-form', 'section-loading', 'section-success', 'section-error'].forEach(s => {
+                const el = document.getElementById(s)
+                el.classList.toggle('hidden', s !== id)
+            })
+            lucide.createIcons();
+        }
+
+        function submitForm() {
+            const email = document.getElementById('email').value
+            const fieldLabel = document.getElementById('field-label')
+
+            if (!emailRegex.test(email)) {
+                fieldLabel.textContent = 'Invalid email address'
+                fieldLabel.className = 'text-base font-bold mb-6 text-red-400'
+                return
+            }
+            fieldLabel.textContent = "What's your email address?"
+            fieldLabel.className = 'text-base font-medium mb-6 text-white/80'
+
+            showSection('section-loading')
+
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: '/invite' + location.search,
+                data: { email, channel: params.channel, team: params.team, ref: params.ref },
+                success: function(result) {
+                    if (result.ok) {
+                        const channelURL = 'https://' + team_domain + '.slack.com/messages/' + params.channel
+                        const inWorkspace = result.in_workspace === true
+
+                        const primaryCtaText = document.getElementById('primary-cta-text')
+                        const primaryCta = document.getElementById('primary-cta')
+                        const successMessage = document.getElementById('success-message')
+                        const secondaryLine = document.getElementById('secondary-line')
+
+                        if (inWorkspace) {
+                            successMessage.textContent = "You are already a member of this workspace. Join the conversation in the channel below!"
+                            primaryCta.href = channelURL
+                            primaryCtaText.textContent = 'Enter #' + params.channel + ' channel'
+                            secondaryLine.classList.add('hidden')
+                        } else {
+                            successMessage.textContent = "Your invitation is ready! Click the button below to join the community."
+                            primaryCta.href = invite_url
+                            primaryCtaText.textContent = 'Join ' + params.team
+                            secondaryLine.classList.remove('hidden')
+                            document.getElementById('channel-link').href = channelURL
+                            document.getElementById('channel-name').textContent = '#' + params.channel
+                        }
+
+                        if (admin_email) {
+                            document.getElementById('contact-note').innerHTML =
+                                `Having trouble joining? Please contact us at <a href="mailto:${admin_email}" class="text-blue-400 hover:text-blue-300 underline decoration-blue-500/30 underline-offset-4 transition-colors font-medium">${admin_email}</a>`
+                        }
+                        showSection('section-success')
+                        } else {
+                        document.getElementById('error-contact').innerHTML = admin_email
+                            ? `For assistance, please contact <a href="mailto:${admin_email}" class="text-blue-400 hover:text-blue-300 underline decoration-blue-500/30 underline-offset-4 transition-colors font-medium">${admin_email}</a>`
+                            : 'Please try again later.'
+                        showSection('section-error')
+                        }
+                        },
+
+                error: function() {
+                    document.getElementById('error-contact').textContent = 'Connectivity issue. Please try again later.'
+                    showSection('section-error')
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+HTTP/2 200 
+date: Sat, 11 Jul 2026 07:59:25 GMT
+content-type: text/html; charset=utf-8
+content-length: 109846
+server: openresty
+x-server-id: a1475dce553405d4488597fcdcc6c4ed-f8c4494f5-kt5fb
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+x-download-options: noopen
+x-readtime: 78
+access-control-allow-credentials: true
+access-control-expose-headers: wise_traceid,csrf,X-Language,x-transaction-id,workstation-id
+content-security-policy: frame-ancestors https://developer.martech.saas.huaweicloud.com https://webar.huaweicloud.com https://developer.huaweicloud.com https://bbs.huaweicloud.com; default-src 'self' *.huaweicloud.com:8443 *.huaweicloud.cn *.huaweicloud.eu *.huaweicloud.asia *.hc-cdn.com *.hc-cdn.cn *.huawei.com *.myhwclouds.com *.huaweicloud.com *.myhuaweicloud.com; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.huaweicloud.cn *.huaweicloud.eu *.huaweicloud.asia *.hc-cdn.com *.hc-cdn.cn *.huawei.com *.myhwclouds.com *.huaweicloud.com *.myhuaweicloud.com; style-src 'self' 'unsafe-inline' *.hc-cdn.com *.hc-cdn.cn *.huawei.com *.myhwclouds.com *.huaweicloud.com *.myhuaweicloud.com; img-src 'self' blob: data: *.hc-cdn.com *.hc-cdn.cn *.huawei.com *.myhwclouds.com *.huaweicloud.com *.huaweicloud.cn *.myhuaweicloud.com
+strict-transport-security: max-age=31536000; includeSubDomains
+x-frame-options: SAMEORIGIN
+x-download-options: noopen
+x-xss-protection: 1; mode=block;
+via: CHN-ZJjiaxing-CUCC7-CACHE27[11],CHN-ZJjiaxing-CUCC7-CACHE15[0,TCP_HIT,2],CHN-JSwuxi-GLOBAL2-CACHE84[5],CHN-JSwuxi-GLOBAL2-CACHE119[0,TCP_HIT,3]
+x-hcs-proxy-type: 1
+x-ccdn-cachettl: 604800
+x-ccdn-req-id-46b1: 55b52a6e5661094a69f16a8641ab878b
+nginx-hit: 1
+age: 251108
+cache-control: public
+accept-ranges: bytes
+access-control-allow-origin: *
+

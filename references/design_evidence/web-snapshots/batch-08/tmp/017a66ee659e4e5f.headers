@@ -1,0 +1,24 @@
+HTTP/1.1 301 Moved Permanently
+Server: awselb/2.0
+Date: Sat, 11 Jul 2026 07:57:31 GMT
+Content-Type: text/html
+Content-Length: 134
+Connection: keep-alive
+Location: https://news.samsungsemiconductor.com:443/global/
+Set-Cookie: visid_incap_3041918=DOXoDXADSImre1Au4wSS7mr3UWoAAAAAQUIPAAAAAACwFnVZZs2yNfqBnCt6UcJz; expires=Sat, 10 Jul 2027 12:50:51 GMT; HttpOnly; path=/; Domain=.samsungsemiconductor.com
+Set-Cookie: nlbi_3041918=TKd+SK9VJx8osVxBhnD6dwAAAACHvvYlxppKxLafhSk1x6kw; HttpOnly; path=/; Domain=.samsungsemiconductor.com
+Set-Cookie: incap_ses_176_3041918=mRdvAlPZtnggbzyXS0dxAmr3UWoAAAAABDTRDoAGhibViHYc7aoovQ==; path=/; Domain=.samsungsemiconductor.com
+X-CDN: Imperva
+X-Iinfo: 53-168224702-168224704 NNNN CT(64 -1 0) RT(1783756651145 1) q(0 0 1 0) r(1 1) U24
+
+HTTP/2 200 
+date: Sat, 11 Jul 2026 07:57:37 GMT
+content-type: text/html; charset=UTF-8
+server: Apache
+link: <https://news.samsungsemiconductor.com/global/wp-json/>; rel="https://api.w.org/"
+set-cookie: visid_incap_3041918=23NLvAxqRCO5asxrwqzPg3D3UWoAAAAAQUIPAAAAAAA2EnHDi/K1p3o9YCIaVk6I; expires=Sat, 10 Jul 2027 12:50:51 GMT; HttpOnly; path=/; Domain=.samsungsemiconductor.com
+set-cookie: nlbi_3041918=R2g4XW7Uryy9JBGohnD6dwAAAABwjkh6JVBluqiKRWPGFayi; HttpOnly; path=/; Domain=.samsungsemiconductor.com
+set-cookie: incap_ses_176_3041918=yRHEfLverxhleTyXS0dxAnD3UWoAAAAAEDOlFzQ9qQVxJMKfTo1PBQ==; path=/; Domain=.samsungsemiconductor.com
+x-cdn: Imperva
+x-iinfo: 53-168224910-168225012 NNNN CT(62 63 1) RT(1783756651670 191) q(0 0 51 -1) r(51 53) U24
+
