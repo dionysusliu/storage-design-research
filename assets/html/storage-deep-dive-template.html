@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Storage deep dive — {{title}}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: true, theme: "neutral", securityLevel: "loose" });
+    </script>
+    <style>
+      body { background: #f8fafc; }
+      pre code { white-space: pre-wrap; }
+      .status-confirmed { background: #dcfce7; color: #166534; }
+      .status-partial { background: #fef3c7; color: #92400e; }
+      .status-gap { background: #e0f2fe; color: #075985; }
+      .status-risk { background: #fee2e2; color: #991b1b; }
+      .panel { border: 1px solid #e2e8f0; background: white; border-radius: 0.5rem; padding: 1.25rem; }
+      .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; }
+      .code-note { border-left: 4px solid #38bdf8; background: #f0f9ff; }
+      .claim-note { border-left: 4px solid #f59e0b; background: #fffbeb; }
+      .risk-note { border-left: 4px solid #ef4444; background: #fef2f2; }
+    </style>
+  </head>
+  <body class="text-slate-900">
+    <main class="mx-auto max-w-7xl px-6 py-10">
+      <header class="space-y-5">
+        <nav class="flex flex-wrap gap-3 text-sm">
+          <a class="underline" href="{{final_report_link}}">Final report</a>
+          <a class="underline" href="{{glossary_link}}">Glossary</a>
+          <a class="underline" href="{{source_locator_link}}">Source locator</a>
+          <a class="underline" href="{{component_index_link}}">Component index</a>
+          <a class="underline" href="{{entry_index_link}}">Entry index</a>
+        </nav>
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-wider text-slate-500">{{artifact_kind}}</p>
+            <h1 class="text-3xl font-semibold">{{title}}</h1>
+            <p class="mt-2 max-w-4xl text-sm leading-6 text-slate-700">{{summary}}</p>
+          </div>
+          <div class="space-y-2 text-right">
+            <span class="status-partial inline-flex rounded-full px-3 py-1 text-xs font-medium">{{status}}</span>
+            <p class="text-xs text-slate-500">Updated {{date}}</p>
+          </div>
+        </div>
+      </header>
+
+      <section id="toc" class="panel mt-8">
+        <h2 class="text-lg font-semibold">Table of Contents</h2>
+        <ol class="mt-4 grid gap-2 text-sm md:grid-cols-2 lg:grid-cols-3">
+          <li><a class="underline" href="#verdict">1. Verdict</a></li>
+          <li><a class="underline" href="#code-map">2. Code Map</a></li>
+          <li><a class="underline" href="#walkthrough">3. Code Walkthrough</a></li>
+          <li><a class="underline" href="#data-flow">4. State and Data Flow</a></li>
+          <li><a class="underline" href="#control-flow">5. Control and Concurrency</a></li>
+          <li><a class="underline" href="#storage-axes">6. Component Code Lenses</a></li>
+          <li><a class="underline" href="#interactions">7. Cross-Component Interactions</a></li>
+          <li><a class="underline" href="#worked-example">8. Worked Example</a></li>
+          <li><a class="underline" href="#documents">9. Project Documents</a></li>
+          <li><a class="underline" href="#external">10. External Context</a></li>
+          <li><a class="underline" href="#claims">11. Cannot Claim</a></li>
+          <li><a class="underline" href="#gaps">12. Gaps</a></li>
+          <li><a class="underline" href="#probes">13. Next Probes</a></li>
+        </ol>
+      </section>
+
+      <section id="verdict" class="panel mt-8">
+        <h2 class="text-xl font-semibold">1. Verdict</h2>
+        <div class="mt-4 grid gap-4 lg:grid-cols-4">
+          <div>
+            <p class="label">Current status</p>
+            <p class="mt-1 font-medium">{{status}}</p>
+          </div>
+          <div>
+            <p class="label">Analysis completeness</p>
+            <p class="mt-1 font-medium">{{analysis_completeness}}</p>
+          </div>
+          <div>
+            <p class="label">Material confidence</p>
+            <p class="mt-1 font-medium">{{material_confidence}}</p>
+          </div>
+          <div>
+            <p class="label">Primary risk</p>
+            <p class="mt-1 font-medium">{{primary_risk}}</p>
+          </div>
+        </div>
+        <p class="mt-5 leading-7">{{direct_answer}}</p>
+      </section>
+
+      <section id="code-map" class="panel mt-8">
+        <h2 class="text-xl font-semibold">2. Code Map</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-700">
+          List concrete code anchors before making claims. Include files, symbols, ownership, why the
+          anchor matters, and what remains unproven.
+        </p>
+        <div class="mt-5 overflow-x-auto">
+          <table class="min-w-full text-left text-sm">
+            <thead class="border-b border-slate-200 text-slate-500">
+              <tr>
+                <th class="py-2 pr-4">File / Symbol</th>
+                <th class="py-2 pr-4">Role</th>
+                <th class="py-2 pr-4">Why Relevant</th>
+                <th class="py-2 pr-4">Limitation</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr>
+                <td class="py-2 pr-4 font-mono">{{file_or_symbol}}</td>
+                <td class="py-2 pr-4">{{role}}</td>
+                <td class="py-2 pr-4">{{why_relevant}}</td>
+                <td class="py-2 pr-4">{{limitation}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="walkthrough" class="panel mt-8">
+        <h2 class="text-xl font-semibold">3. Code Walkthrough</h2>
+        <article class="mt-5 space-y-4">
+          <h3 class="text-lg font-medium">{{path_or_operation}}</h3>
+          <p class="leading-7">{{detailed_code_logic_paragraph_1}}</p>
+          <p class="leading-7">{{detailed_code_logic_paragraph_2}}</p>
+          <pre class="rounded bg-slate-950 p-4 text-sm text-slate-100"><code>{{short_code_excerpt}}</code></pre>
+          <div class="code-note rounded p-4 text-sm leading-6">
+            <strong>这证明什么：</strong>{{what_code_proves}}<br />
+            <strong>不能证明什么：</strong>{{what_code_cannot_prove}}
+          </div>
+        </article>
+        <article class="mt-6 space-y-4">
+          <h3 class="text-lg font-medium">{{second_path_or_operation}}</h3>
+          <p class="leading-7">{{detailed_code_logic_paragraph_3}}</p>
+          <pre class="rounded bg-slate-950 p-4 text-sm text-slate-100"><code>{{second_short_code_excerpt}}</code></pre>
+          <div class="code-note rounded p-4 text-sm leading-6">
+            <strong>这证明什么：</strong>{{second_code_proves}}<br />
+            <strong>不能证明什么：</strong>{{second_code_cannot_prove}}
+          </div>
+        </article>
+      </section>
+
+      <section id="data-flow" class="panel mt-8">
+        <h2 class="text-xl font-semibold">4. State and Data Flow</h2>
+        <div class="mt-4 grid gap-5 lg:grid-cols-2">
+          <div>
+            <p class="leading-7">{{state_and_data_flow_explanation}}</p>
+            <div class="mt-4 overflow-x-auto">
+              <table class="min-w-full text-left text-sm">
+                <thead class="border-b border-slate-200 text-slate-500">
+                  <tr><th class="py-2 pr-4">State</th><th class="py-2 pr-4">Owner</th><th class="py-2 pr-4">Persistence</th><th class="py-2 pr-4">Invariant</th></tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  <tr><td class="py-2 pr-4">{{state}}</td><td class="py-2 pr-4">{{owner}}</td><td class="py-2 pr-4">{{persistence}}</td><td class="py-2 pr-4">{{invariant}}</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="rounded border border-slate-200 bg-slate-50 p-4">
+            <pre class="mermaid">
+flowchart LR
+  Input["request / input"] --> Parser["parse / validate"]
+  Parser --> State["authoritative state"]
+  State --> Cache["cache / derived state"]
+  State --> Persist["persistent media / remote store"]
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="control-flow" class="panel mt-8">
+        <h2 class="text-xl font-semibold">5. Control and Concurrency Flow</h2>
+        <p class="mt-3 leading-7">{{control_flow_explanation}}</p>
+        <div class="mt-5 rounded border border-slate-200 bg-slate-50 p-4">
+          <pre class="mermaid">
+sequenceDiagram
+  participant Caller
+  participant Handler
+  participant Queue
+  participant Worker
+  participant Store
+  Caller->>Handler: call / RPC
+  Handler->>Queue: enqueue
+  Queue->>Worker: dispatch
+  Worker->>Store: read / write / commit
+  Store-->>Worker: completion / error
+  Worker-->>Caller: result
+          </pre>
+        </div>
+      </section>
+
+      <section id="storage-axes" class="panel mt-8">
+        <h2 class="text-xl font-semibold">6. Component Code Lenses</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-700">
+          Do not treat this as a shallow checklist. Start from the component's concrete code path,
+          then use the relevant lenses below to explain how the code is written and why it is designed
+          that way. The matrix is only navigation; deep explanation belongs in the lens blocks.
+        </p>
+        <div class="mt-5 overflow-x-auto">
+          <table class="min-w-full text-left text-sm">
+            <thead class="border-b border-slate-200 text-slate-500">
+              <tr>
+                <th class="py-2 pr-4">Axis</th>
+                <th class="py-2 pr-4">Finding</th>
+                <th class="py-2 pr-4">Code / Config Anchors</th>
+                <th class="py-2 pr-4">Risk / Gap</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr><td class="py-2 pr-4">Supported I/O Sizes</td><td class="py-2 pr-4">{{io_size_finding}}</td><td class="py-2 pr-4 font-mono">{{io_size_code}}</td><td class="py-2 pr-4">{{io_size_risk}}</td></tr>
+              <tr><td class="py-2 pr-4">Hot Path / Cold Path</td><td class="py-2 pr-4">{{hot_cold_finding}}</td><td class="py-2 pr-4 font-mono">{{hot_cold_code}}</td><td class="py-2 pr-4">{{hot_cold_risk}}</td></tr>
+              <tr><td class="py-2 pr-4">Fast Path / Slow Path</td><td class="py-2 pr-4">{{fast_slow_finding}}</td><td class="py-2 pr-4 font-mono">{{fast_slow_code}}</td><td class="py-2 pr-4">{{fast_slow_risk}}</td></tr>
+              <tr><td class="py-2 pr-4">Memory Data Structures</td><td class="py-2 pr-4">{{memory_ds_finding}}</td><td class="py-2 pr-4 font-mono">{{memory_ds_code}}</td><td class="py-2 pr-4">{{memory_ds_risk}}</td></tr>
+              <tr><td class="py-2 pr-4">Software Overhead</td><td class="py-2 pr-4">{{software_overhead_finding}}</td><td class="py-2 pr-4 font-mono">{{software_overhead_code}}</td><td class="py-2 pr-4">{{software_overhead_risk}}</td></tr>
+              <tr><td class="py-2 pr-4">Threading Model</td><td class="py-2 pr-4">{{threading_model_finding}}</td><td class="py-2 pr-4 font-mono">{{threading_model_code}}</td><td class="py-2 pr-4">{{threading_model_risk}}</td></tr>
+              <tr><td class="py-2 pr-4">Storage Stack Layers</td><td class="py-2 pr-4">{{storage_stack_finding}}</td><td class="py-2 pr-4 font-mono">{{storage_stack_code}}</td><td class="py-2 pr-4">{{storage_stack_risk}}</td></tr>
+              <tr><td class="py-2 pr-4">High-Performance SSD Path</td><td class="py-2 pr-4">{{ssd_path_finding}}</td><td class="py-2 pr-4 font-mono">{{ssd_path_code}}</td><td class="py-2 pr-4">{{ssd_path_risk}}</td></tr>
+              <tr><td class="py-2 pr-4">High-Performance Network Path</td><td class="py-2 pr-4">{{network_path_finding}}</td><td class="py-2 pr-4 font-mono">{{network_path_code}}</td><td class="py-2 pr-4">{{network_path_risk}}</td></tr>
+              <tr><td class="py-2 pr-4">Distributed Consistency and HA</td><td class="py-2 pr-4">{{consistency_ha_finding}}</td><td class="py-2 pr-4 font-mono">{{consistency_ha_code}}</td><td class="py-2 pr-4">{{consistency_ha_risk}}</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <article class="mt-8 space-y-4">
+          <h3 class="text-lg font-medium">Lens Deep Dive: {{primary_lens_name}}</h3>
+          <p class="leading-7">{{primary_lens_code_centered_explanation}}</p>
+          <div class="grid gap-4 lg:grid-cols-2">
+            <pre class="rounded bg-slate-950 p-4 text-sm text-slate-100"><code>{{primary_lens_code_excerpt}}</code></pre>
+            <div class="rounded border border-slate-200 bg-slate-50 p-4">
+              <pre class="mermaid">
+flowchart LR
+  Entry["component entry"] --> State["state / data structure"]
+  State --> Control["control / concurrency"]
+  Control --> Interaction["cross-component interaction"]
+              </pre>
+            </div>
+          </div>
+          <div class="grid gap-4 md:grid-cols-3">
+            <div class="code-note rounded p-4 text-sm leading-6"><strong>State/Data impact</strong><br />{{primary_lens_state_impact}}</div>
+            <div class="claim-note rounded p-4 text-sm leading-6"><strong>Control/Concurrency impact</strong><br />{{primary_lens_control_impact}}</div>
+            <div class="risk-note rounded p-4 text-sm leading-6"><strong>Risk / Cannot claim</strong><br />{{primary_lens_risk}}</div>
+          </div>
+        </article>
+
+        <article class="mt-8 space-y-4">
+          <h3 class="text-lg font-medium">Lens Deep Dive: {{secondary_lens_name}}</h3>
+          <p class="leading-7">{{secondary_lens_code_centered_explanation}}</p>
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-left text-sm">
+              <thead class="border-b border-slate-200 text-slate-500">
+                <tr><th class="py-2 pr-4">Code anchor</th><th class="py-2 pr-4">Design choice</th><th class="py-2 pr-4">Consequence</th><th class="py-2 pr-4">Open proof</th></tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr><td class="py-2 pr-4 font-mono">{{lens_code_anchor}}</td><td class="py-2 pr-4">{{lens_design_choice}}</td><td class="py-2 pr-4">{{lens_consequence}}</td><td class="py-2 pr-4">{{lens_open_proof}}</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <div class="mt-5 rounded border border-slate-200 bg-slate-50 p-4">
+          <pre class="mermaid">
+flowchart LR
+  IO["I/O size and alignment"] --> Path["hot/cold + fast/slow paths"]
+  Path --> Thread["threading / async model"]
+  Thread --> Stack["storage stack layers"]
+  Stack --> Device["SSD / network path"]
+  Stack --> HA["consistency / HA"]
+          </pre>
+        </div>
+      </section>
+
+      <section id="interactions" class="panel mt-8">
+        <h2 class="text-xl font-semibold">7. Cross-Component Interactions</h2>
+        <p class="mt-3 leading-7">{{cross_component_explanation}}</p>
+        <div class="mt-5 overflow-x-auto">
+          <table class="min-w-full text-left text-sm">
+            <thead class="border-b border-slate-200 text-slate-500">
+              <tr><th class="py-2 pr-4">Edge</th><th class="py-2 pr-4">Mechanism</th><th class="py-2 pr-4">Code Evidence</th><th class="py-2 pr-4">Failure Propagation</th></tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr><td class="py-2 pr-4">{{edge}}</td><td class="py-2 pr-4">{{mechanism}}</td><td class="py-2 pr-4 font-mono">{{code_evidence}}</td><td class="py-2 pr-4">{{failure_propagation}}</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="worked-example" class="panel mt-8">
+        <h2 class="text-xl font-semibold">8. Worked Example</h2>
+        <p class="mt-3 leading-7">{{worked_example_intro}}</p>
+        <ol class="mt-4 list-decimal space-y-3 pl-5 leading-7">
+          <li>{{example_step_1}}</li>
+          <li>{{example_step_2}}</li>
+          <li>{{example_step_3}}</li>
+          <li>{{example_step_4}}</li>
+        </ol>
+      </section>
+
+      <section id="documents" class="panel mt-8">
+        <h2 class="text-xl font-semibold">9. Project Document Analysis</h2>
+        <p class="mt-3 leading-7">{{project_document_analysis}}</p>
+        <div class="mt-5 overflow-x-auto">
+          <table class="min-w-full text-left text-sm">
+            <thead class="border-b border-slate-200 text-slate-500">
+              <tr><th class="py-2 pr-4">Document</th><th class="py-2 pr-4">Claim</th><th class="py-2 pr-4">Code Match</th><th class="py-2 pr-4">Gap</th></tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr><td class="py-2 pr-4">{{document}}</td><td class="py-2 pr-4">{{claim}}</td><td class="py-2 pr-4">{{code_match}}</td><td class="py-2 pr-4">{{doc_gap}}</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="external" class="panel mt-8">
+        <h2 class="text-xl font-semibold">10. External Context</h2>
+        <p class="mt-3 leading-7">{{external_context_analysis}}</p>
+        <div class="mt-4 claim-note rounded p-4 text-sm leading-6">
+          External material is background and methodology context. It cannot replace source-code
+          analysis of this project.
+        </div>
+      </section>
+
+      <section id="claims" class="panel mt-8">
+        <h2 class="text-xl font-semibold">11. Cannot Claim</h2>
+        <ul class="mt-4 list-disc space-y-3 pl-5 leading-7">
+          <li>{{cannot_claim_1}}</li>
+          <li>{{cannot_claim_2}}</li>
+          <li>{{cannot_claim_3}}</li>
+        </ul>
+      </section>
+
+      <section id="gaps" class="panel mt-8">
+        <h2 class="text-xl font-semibold">12. Gaps</h2>
+        <div class="mt-5 grid gap-4 md:grid-cols-2">
+          <div class="risk-note rounded p-4 text-sm leading-6"><strong>Code gap</strong><br />{{code_gap}}</div>
+          <div class="risk-note rounded p-4 text-sm leading-6"><strong>Document gap</strong><br />{{document_gap}}</div>
+          <div class="risk-note rounded p-4 text-sm leading-6"><strong>External gap</strong><br />{{external_gap}}</div>
+          <div class="risk-note rounded p-4 text-sm leading-6"><strong>Validation gap</strong><br />{{validation_gap}}</div>
+        </div>
+      </section>
+
+      <section id="probes" class="panel mt-8">
+        <h2 class="text-xl font-semibold">13. Next Probes</h2>
+        <div class="mt-5 overflow-x-auto">
+          <table class="min-w-full text-left text-sm">
+            <thead class="border-b border-slate-200 text-slate-500">
+              <tr><th class="py-2 pr-4">Probe</th><th class="py-2 pr-4">Read / Run</th><th class="py-2 pr-4">Expected Information Gain</th><th class="py-2 pr-4">Unlocks</th></tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr><td class="py-2 pr-4">{{probe}}</td><td class="py-2 pr-4">{{read_or_run}}</td><td class="py-2 pr-4">{{information_gain}}</td><td class="py-2 pr-4">{{unlocks}}</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="glossary-links" class="panel mt-8">
+        <h2 class="text-xl font-semibold">Glossary Links</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-700">
+          Every abbreviation, storage term, project phrase, metric, protocol, hardware/kernel term,
+          and domain-map term used in this page should be linked here and inline in prose.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-2 text-sm">
+          <a class="underline" href="{{glossary_link}}#term-example">{{term}}</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

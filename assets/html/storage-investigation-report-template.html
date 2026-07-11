@@ -39,7 +39,8 @@
 
       <section id="map" class="rounded-lg border border-slate-200 bg-white p-5">
         <h2 class="text-lg font-semibold">Investigation Map</h2>
-        <div class="mt-4 grid gap-3 md:grid-cols-4">
+        <div class="mt-4 grid gap-3 md:grid-cols-5">
+          <a class="rounded border border-slate-200 p-3 text-sm hover:bg-slate-50" href="{{glossary_link}}">Glossary</a>
           <a class="rounded border border-slate-200 p-3 text-sm hover:bg-slate-50" href="{{component_index}}">Components</a>
           <a class="rounded border border-slate-200 p-3 text-sm hover:bg-slate-50" href="{{architecture_index}}">Architecture Entries</a>
           <a class="rounded border border-slate-200 p-3 text-sm hover:bg-slate-50" href="{{metrics_index}}">Metrics Entries</a>
@@ -61,6 +62,12 @@ flowchart LR
   Data --> Device["device / object / chunk store"]
               </pre>
             </div>
+            <p class="mt-3 text-xs text-slate-500">
+              Link diagram terms in nearby prose or legend:
+              <a class="underline" href="{{glossary_link}}#term-metadata-plane">metadata plane</a>,
+              <a class="underline" href="{{glossary_link}}#term-data-plane">data plane</a>,
+              <a class="underline" href="{{glossary_link}}#term-object-store">object store</a>.
+            </p>
           </article>
           <article class="rounded-lg border border-slate-200 bg-white p-5">
             <h3 class="font-semibold">Representative Code</h3>
@@ -136,7 +143,45 @@ flowchart TD
             <div><dt class="edge-label">Next probe</dt><dd>{{next_probe}}</dd></div>
             <div><dt class="edge-label">Link</dt><dd><a class="underline" href="{{entry_link}}">{{entry_link}}</a></dd></div>
           </dl>
+          <div class="mt-4 rounded border border-slate-200 bg-slate-50 p-3 text-sm">
+            <span class="edge-label">Glossary links</span>
+            <div class="mt-2 flex flex-wrap gap-2">
+              <a class="underline" href="{{glossary_link}}#term-example">{{term}}</a>
+            </div>
+          </div>
         </article>
+      </section>
+
+      <section id="storage-axes-matrix" class="rounded-lg border border-slate-200 bg-white p-5">
+        <h2 class="text-xl font-semibold">Storage-Specific Axes Matrix</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-700">
+          Summarize whether each storage-specific axis is covered by code-backed component or entry
+          deep dives. Link each covered cell to the relevant detailed HTML page.
+        </p>
+        <div class="mt-5 overflow-x-auto">
+          <table class="min-w-full text-left text-sm">
+            <thead class="border-b border-slate-200 text-slate-500">
+              <tr>
+                <th class="py-2 pr-4">Axis</th>
+                <th class="py-2 pr-4">Coverage</th>
+                <th class="py-2 pr-4">Primary deep dive</th>
+                <th class="py-2 pr-4">Top gap</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr><td class="py-2 pr-4">Supported I/O Sizes</td><td class="py-2 pr-4">{{io_size_coverage}}</td><td class="py-2 pr-4"><a class="underline" href="{{io_size_link}}">{{io_size_link}}</a></td><td class="py-2 pr-4">{{io_size_gap}}</td></tr>
+              <tr><td class="py-2 pr-4">Hot / Cold Paths</td><td class="py-2 pr-4">{{hot_cold_coverage}}</td><td class="py-2 pr-4"><a class="underline" href="{{hot_cold_link}}">{{hot_cold_link}}</a></td><td class="py-2 pr-4">{{hot_cold_gap}}</td></tr>
+              <tr><td class="py-2 pr-4">Fast / Slow Paths</td><td class="py-2 pr-4">{{fast_slow_coverage}}</td><td class="py-2 pr-4"><a class="underline" href="{{fast_slow_link}}">{{fast_slow_link}}</a></td><td class="py-2 pr-4">{{fast_slow_gap}}</td></tr>
+              <tr><td class="py-2 pr-4">Memory Data Structures</td><td class="py-2 pr-4">{{memory_ds_coverage}}</td><td class="py-2 pr-4"><a class="underline" href="{{memory_ds_link}}">{{memory_ds_link}}</a></td><td class="py-2 pr-4">{{memory_ds_gap}}</td></tr>
+              <tr><td class="py-2 pr-4">Software Overhead</td><td class="py-2 pr-4">{{software_overhead_coverage}}</td><td class="py-2 pr-4"><a class="underline" href="{{software_overhead_link}}">{{software_overhead_link}}</a></td><td class="py-2 pr-4">{{software_overhead_gap}}</td></tr>
+              <tr><td class="py-2 pr-4">Threading Model</td><td class="py-2 pr-4">{{threading_coverage}}</td><td class="py-2 pr-4"><a class="underline" href="{{threading_link}}">{{threading_link}}</a></td><td class="py-2 pr-4">{{threading_gap}}</td></tr>
+              <tr><td class="py-2 pr-4">Storage Stack Layers</td><td class="py-2 pr-4">{{stack_coverage}}</td><td class="py-2 pr-4"><a class="underline" href="{{stack_link}}">{{stack_link}}</a></td><td class="py-2 pr-4">{{stack_gap}}</td></tr>
+              <tr><td class="py-2 pr-4">SSD / SPDK / ZNS</td><td class="py-2 pr-4">{{ssd_coverage}}</td><td class="py-2 pr-4"><a class="underline" href="{{ssd_link}}">{{ssd_link}}</a></td><td class="py-2 pr-4">{{ssd_gap}}</td></tr>
+              <tr><td class="py-2 pr-4">Network / RDMA</td><td class="py-2 pr-4">{{network_coverage}}</td><td class="py-2 pr-4"><a class="underline" href="{{network_link}}">{{network_link}}</a></td><td class="py-2 pr-4">{{network_gap}}</td></tr>
+              <tr><td class="py-2 pr-4">Distributed Consistency / HA</td><td class="py-2 pr-4">{{ha_coverage}}</td><td class="py-2 pr-4"><a class="underline" href="{{ha_link}}">{{ha_link}}</a></td><td class="py-2 pr-4">{{ha_gap}}</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section id="risks" class="rounded-lg border border-slate-200 bg-white p-5">
