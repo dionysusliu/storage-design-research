@@ -1,4 +1,4 @@
 interface:
   display_name: "Storage Project Investigator"
-  short_description: "系统勘探存储项目细节"
-  default_prompt: "Use $storage-project-investigator to investigate this storage project in Chinese; first scan the workspace for an existing research artifact directory, create research/<project>-investigation-YYYYMMDD/ only when none is found, then ask whether to use the selected directory as the workspace before mapping evidence, read/write paths, durability semantics, queues, background work, risks, and next probes."
+  short_description: "按 domain-map 系统勘探存储项目"
+  default_prompt: "Use $storage-project-investigator to investigate this storage project. Communicate, analyze, and write artifacts in Chinese by default unless the user explicitly requests English. First scan for or create the research artifact workspace, then use references/domain-map.md as the investigation contract. Create one detailed entry document for every Architecture Checklist, Metrics Checklist, Universal Metric, and Mandatory Artifact item under entries/**/<slug>.md. Each entry document must include complete code logic, project-document evidence, external/network evaluation, evidence level, cannot-claim boundaries, gaps, and next probes. Use subagents in parallel for independent entry groups when available, then integrate the results."
