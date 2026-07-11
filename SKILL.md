@@ -20,7 +20,7 @@ description: "默认使用中文勘探存储项目的架构、代码路径、性
 ## 工作流
 
 0. 确认 artifact 目录。
-1. 定义勘探边界。
+1. 快速记录勘探边界，不把它当成独立研究阶段。
 2. 从源代码和项目文档分析整体系统架构、组件树和框架。
 3. 对每个组件继续细分子组件，并分析组件内部逻辑和跨组件交互。
 4. 加载 `references/domain-map.md`，把它作为回填 entry 的调查合同。
@@ -30,7 +30,7 @@ description: "默认使用中文勘探存储项目的架构、代码路径、性
 
 ## Step 0: 扫描并确认 artifact 工作区
 
-启动调研时先扫描当前工作区，查找已有的 `research/` 子目录、已有调研目录，以及包含 `00-scope.md`、`01-system-architecture.md`、`02-component-tree.md`、`final-report.md` 等勘探 artifact 的目录。不要先询问“是否新建”，也不要在确认前写入调研内容。
+启动调研时先扫描当前工作区，查找已有的 `research/` 子目录、已有调研目录，以及包含 `components/`、`entries/`、调研 manifest、最终报告或其他勘探 artifact 的目录。不要先询问“是否新建”，也不要在确认前写入调研内容。
 
 按扫描结果执行：
 - 发现候选目录：列出路径和已有 artifact，询问用户选择哪个作为本次工作区；用户也可以指定其他已有目录。
@@ -39,19 +39,7 @@ description: "默认使用中文勘探存储项目的架构、代码路径、性
 - 用户拒绝候选目录：询问其指定的已有目录；在新目录被确认前，不写任何 artifact，也不在项目根目录散落文件。
 - 用户已在初始请求中指定目录：将其作为显式目录输入，但仍先确认该路径可用，不重复询问新建策略。
 
-目录内建议使用这些文件名：
-- `00-scope.md`
-- `01-system-architecture.md`
-- `02-component-tree.md`
-- `03-component-analysis-index.md`
-- `04-cross-component-interactions.md`
-- `05-source-locator.md`
-- `06-domain-map-contract.md`
-- `07-architecture-answers.md`
-- `08-metrics-answers.md`
-- `09-mandatory-artifacts.md`
-- `10-next-probes.md`
-- `final-report.md`
+artifact 目录不强制固定顶层文件名。顶层可以按需要创建少量 scope、manifest、index、source locator、cross-component summary、final report 等轻量文件，但它们只做导航、状态表、跨组件裁决和最终汇总，不是详查正文。不要把所有内容压缩进这些单个文档；如果只有顶层汇总文件而没有 `components/` 和 `entries/` 下的逐项详查，本轮调研视为未完成。
 
 并为每个组件单独创建详查文档：
 - `components/<component-slug>/overview.md`
@@ -67,20 +55,38 @@ description: "默认使用中文勘探存储项目的架构、代码路径、性
 
 完成标准：扫描动作、候选目录、用户确认结果和最终工作区路径都已记录；如果没有候选目录，必须先创建 `research/<project-slug>-investigation-YYYYMMDD/` 再询问是否采用；用户确认前不得写任何调研 artifact；确认后所有 artifact 都写入该目录，并在最终报告列出 artifact manifest。
 
-## Step 1: 定义勘探边界
+## 详查的最低标准
 
-先写下本次勘探的范围：
+“详查”不是概括性描述，也不是 source locator 表。每篇组件、子组件、entry 或 mandatory artifact 文档都必须直接分析目标项目的具体代码逻辑。
+
+最低要求：
+- 直接列出具体文件、入口函数、核心类型、成员字段、配置项、状态枚举、关键调用链、错误路径和并发/异步边界。能定位行号时写行号；不能定位行号时标 `待精确行号`，不能省略代码对象。
+- 对关键逻辑写出“代码如何工作”：谁创建对象，谁持有状态，谁调用谁，输入如何变成输出，失败如何返回或重试，何处产生 ack/durable/visible/commit/apply 等语义。
+- 必要时摘录很短的源码片段或函数签名，并紧接着解释该片段证明了什么、还不能证明什么。不要长篇复制源码。
+- 任何涉及 3 个以上组件的交互，都要在对应组件文档或跨组件交互汇总文档中写 Mermaid 图，并在图后说明每条边代表函数调用、RPC、队列、日志、文件、设备队列、配置依赖还是人工流程。
+- 项目文档、论文、博客、网页评价和测试结果只能放在代码分析之后，用来解释、对照、验证或指出冲突；不能代替源码分析。
+- component index、architecture answers、metrics answers 这类汇总文件只链接详查文档和记录状态，不承载完整分析。
+
+可以参考 `assets/examples/3fs-component-overview.md`、`assets/examples/3fs-cross-component-interaction.md`、`assets/examples/3fs-entry-analysis.md` 和 `assets/examples/3fs-metric-analysis.md` 的写法。示例只展示输出形态；真实调研必须在当前目标项目 checkout 中重新读取源码、补齐行号和调用链。
+
+## Step 1: 快速记录勘探边界
+
+这一步只用于避免误解，不是正式研究阶段，也不应产出长文档。用几行记录本次勘探的最小边界，然后立刻进入 Step 2；后续读代码后可以回头修正。
+
+快速记录：
 - 项目类型：block、file、object、KV、database engine、distributed database、cache、log、stream 或自定义 extent 系统。
 - 目标读者：研究选题、立项评审、代码接手、性能优化、安全审查、重构计划或论文写作。
-- 调研深度：文档级、代码级、路径级、实验级。
-- 明确排除项：本轮不评价的模块、平台、工作负载或部署形态。
+- 当前目标深度：默认代码级和路径级；实验级只在代码/文档分析形成假设后追加。
+- 明确排除项：只有用户已说明或代码规模迫使分批时才写。
 - Artifact 目录：本轮调研写入的位置，以及是否由本次新建。
 
-完成标准：边界中必须包含项目类型、目标读者、深度、排除项和 artifact 目录；如果用户没有给出，基于现有材料做保守假设并标为“待确认”。
+完成标准：边界记录不超过一个短节，包含项目类型、目标读者、目标深度和 artifact 目录即可；缺失信息用保守假设标为“待确认”，不要因为 Step 1 不完整而暂停源码分析。
 
 ## Step 2: 分析整体系统架构、组件和框架
 
 调查必须从项目自身开始，而不是从 checklist 开始。先阅读源代码目录、构建系统、启动入口、配置、README/设计文档和主要测试，画出系统整体结构。
+
+当不知道系统架构汇总应写到什么粒度时，参考 `assets/examples/3fs-component-overview.md`：它示范了如何从 `main()`、服务类、共享 app framework 和 allocator include 这类具体代码对象推出服务边界，而不是只复述项目 README。
 
 至少回答：
 - 系统是什么：block、file、object、KV、database engine、distributed database、cache、log、stream 或其他。
@@ -90,18 +96,20 @@ description: "默认使用中文勘探存储项目的架构、代码路径、性
 - 核心组件有哪些，每个组件拥有的状态、输入、输出、依赖、生命周期是什么。
 - 组件之间通过函数调用、队列、RPC、日志、共享内存、文件、设备队列还是后台任务交互。
 
-完成标准：`01-system-architecture.md` 解释系统整体架构和主要框架；`02-component-tree.md` 给出组件树；每个顶层组件都有 `components/<component-slug>/overview.md`，说明职责、边界、核心代码位置和与其他组件的交互。
+完成标准：整体架构汇总解释系统主要框架；组件树汇总列出组件和子组件；每个顶层组件都有 `components/<component-slug>/overview.md`，说明职责、边界、核心代码位置和与其他组件的交互。
 
 ## Step 3: 组件、子组件和跨组件交互深析
 
 对每个组件继续细分子组件，并做细致代码分析。分析必须从代码控制流和数据流展开，文档和外部资料只能辅助解释，不能替代源码阅读。
 
+组件文档写法参考 `assets/examples/3fs-component-overview.md`；跨组件交互图和逐边解释参考 `assets/examples/3fs-cross-component-interaction.md`。
+
 每个组件/子组件文档至少包含：
 - `Role and Boundary`：职责、输入、输出、所有权、生命周期。
-- `Code Walkthrough`：关键文件、入口函数、核心类型、调用链、状态转移、错误路径、配置开关。
+- `Code Walkthrough`：关键文件、入口函数、核心类型、成员字段、调用链、状态转移、错误路径、配置开关；必须直接列出具体代码对象，并解释它们如何共同完成该组件的职责。
 - `State and Data Flow`：权威状态、副本、缓存、派生状态、数据格式、持久化位置。
 - `Control Flow and Concurrency`：线程、协程、reactor、worker pool、队列、锁、回调、completion route。
-- `Cross-Component Interactions`：与其他组件的调用、RPC、事件、队列、日志、设备或文件交互。
+- `Cross-Component Interactions`：与其他组件的调用、RPC、事件、队列、日志、设备或文件交互；涉及 3 个以上组件时必须给出 Mermaid 图，并解释图中每条边的代码依据。
 - `Project Document Analysis`：项目文档如何描述该组件，哪些地方与代码一致或冲突。
 - `External Context Locator`：相关外部文档、规范、工程博客或网页快照的位置；这里只做定位和背景，不替代代码分析。
 - `Open Questions`：无法从代码或文档确认的地方。
@@ -115,11 +123,13 @@ description: "默认使用中文勘探存储项目的架构、代码路径、性
 
 可以用 subagent 并行处理独立组件或交互链，但每个 subagent 必须交付组件文档草稿和代码分析摘要。主 agent 负责合并组件边界、消除重复和冲突，并统一跨组件交互图。
 
-完成标准：`03-component-analysis-index.md` 链接所有组件/子组件文档；`04-cross-component-interactions.md` 总结关键跨组件路径；`05-source-locator.md` 只记录代码、项目文档、外部材料的位置和等级，不替代组件分析正文。
+完成标准：组件分析索引链接所有组件/子组件文档；跨组件交互汇总总结关键跨组件路径；source locator 只记录代码、项目文档、外部材料的位置和等级，不替代组件分析正文。
 
 ## Step 4: 加载 domain-map 调查合同并建立 entry 清单
 
 完成系统和组件分析后，再读取 `references/domain-map.md`，把它作为回填 entry 的调查合同。即使目标项目包含自己的 `design-checklist.md`，也只能作为项目本地输入或补充约束；不能替代本 skill 的 `domain-map.md` 主逻辑，除非用户明确要求。
+
+建立 entry 清单时可以参考 `assets/examples/3fs-entry-analysis.md` 的 `Component Context` 写法：每个 entry 必须声明依赖哪些组件文档和跨组件交互分析，不能孤立回答 checklist 问题。
 
 必须抽取这些部分作为本轮待回答清单：
 - `Review Flow`
@@ -133,11 +143,13 @@ description: "默认使用中文勘探存储项目的架构、代码路径、性
 
 对 `Architecture Checklist` 和 `Metrics Checklist` 的每一行，都要跟随 `详解` 链接读取 `references/domain_knowledge/38-checklist-entry-details.md` 的对应 anchor。不要只复制表格问题；必须理解该 entry 的解释、审查意图、分析思路和 cannot-claim 边界。
 
-完成标准：`06-domain-map-contract.md` 中列出本轮必须回答的全部 Architecture entry、Metrics entry、Universal Metric、Mandatory Artifact，并为每个 entry 指定唯一 slug、详查文档路径、负责 agent、适用性、初始优先级，以及它依赖哪些组件分析文档。
+完成标准：domain-map 合同文档列出本轮必须回答的全部 Architecture entry、Metrics entry、Universal Metric、Mandatory Artifact，并为每个 entry 指定唯一 slug、详查文档路径、负责 agent、适用性、初始优先级，以及它依赖哪些组件分析文档。
 
 ## Step 5: 从组件分析回填 Architecture Checklist
 
 按照 `references/domain-map.md` 的 `Architecture Checklist` 顺序逐项回答，不允许跳过。每个 entry 至少使用这个格式：
+
+entry 文档写法参考 `assets/examples/3fs-entry-analysis.md`：先给组件上下文和具体代码分析，再写项目文档、外部评价、source locator、cannot-claim 和 next probes。
 
 - `entry`：Architecture 项名称。
 - `status`：`通过` / `需补 ADR` / `触发重审` / `暂不适用`。
@@ -151,35 +163,39 @@ description: "默认使用中文勘探存储项目的架构、代码路径、性
 - `material confidence`：A/B/C/D，表示材料可信度；不能替代代码分析完整度。
 - `unknowns and probes`：下一步读代码、跑测试、加 trace、联网核验或实验的动作。
 
-每个 Architecture entry 都必须写入 `entries/architecture/<entry-slug>.md`。`07-architecture-answers.md` 只维护总表，包含 entry、详查文档链接、status、分析完整度、drift trigger、top risk 和 next action。
+每个 Architecture entry 都必须写入 `entries/architecture/<entry-slug>.md`。Architecture answers 汇总只维护总表，包含 entry、详查文档链接、status、分析完整度、drift trigger、top risk 和 next action。
 
 如果使用 subagent 并行处理，按 entry 或相邻 entry group 分片，例如 metadata/layout、read/write/backpressure、durability/recovery、I/O/hardware、management/operability/claim policy。每个 subagent 的交付物必须是对应 entry 文档草稿、组件分析引用和 source locator；主 agent 合并前必须核查代码分析是否充分、材料定位是否准确、cannot-claim 边界是否保留。
 
 Architecture pass 必须覆盖：workload、API 语义、metadata、layout/placement、replication/consensus、recovery/rebalance、read path、write path、backpressure、程序化优化、I/O 栈、memory/hardware、hardware lifecycle、durability/consistency、replication/EC/snapshot、background work、management plane、operability lifecycle、claim policy。
 
-完成标准：`entries/architecture/` 中每个 Architecture entry 都有独立详查文档，且每篇文档必须先给出来自组件分析的细致代码分析，再给项目文档分析和网络/外部评价定位；缺失的材料必须写成缺口，而不是沉默跳过。`07-architecture-answers.md` 能链接到所有 entry 文档。
+完成标准：`entries/architecture/` 中每个 Architecture entry 都有独立详查文档，且每篇文档必须先给出来自组件分析的细致代码分析，再给项目文档分析和网络/外部评价定位；缺失的材料必须写成缺口，而不是沉默跳过。Architecture answers 汇总能链接到所有 entry 文档。
 
 ## Step 6: 从组件分析回填 Metrics Checklist 和 Universal Metrics
 
-按照 `references/domain-map.md` 的 `Metrics Checklist` 顺序逐项回答，不允许跳过。每个 metric 至少使用这个格式：
+按照 `references/domain-map.md` 的 `Metrics Checklist` 顺序逐项回答，不允许跳过。Metrics 不是状态表，也不是 benchmark 数字表；每个 metric 必须完整论述代码如何产生该指标、项目文档如何定义或承诺该指标、外部方法学如何帮助解释该指标，以及至少一个具体场景例子。写法参考 `assets/examples/3fs-metric-analysis.md`。
+
+每个 metric 至少使用这个格式：
 
 - `metric`：指标项名称。
 - `architecture link`：对应 Architecture entry 或 ADR。
 - `target/current`：目标、当前状态或“未定义”。
 - `code logic under analysis`：该指标对应哪些代码路径、状态机、队列、后台任务或硬件路径；先解释实现如何产生该指标，再谈怎么测。
+- `worked example`：给出一个具体请求、后台任务、恢复流程、容量变化、队列拥塞或硬件路径的例子，说明该 metric 在本项目中如何被影响；如果例子还不能从代码确认，标为“待验证例子”。
 - `methodology`：如果需要验证，应如何测量；工具版本、参数、采样窗口、job file、trace/profiling 方法。没有完成测试时标为验证缺口。
-- `project document analysis`：项目如何定义该指标、SLO、测试或发布门槛；与代码分析是否一致。
-- `network/external context`：外部 benchmark、规范方法学、社区/厂商评价、论文 artifact 或已抓取材料如何评价这个指标；只能作为对照和方法学参考。
+- `related documents`：列出项目 README、设计文档、配置说明、benchmark 文档、测试说明、runbook、dashboard、issue/PR/release note 中和该 metric 相关的材料；没有相关文档时必须写成文档缺口。
+- `project document analysis`：项目如何定义该指标、SLO、测试或发布门槛；与代码分析是否一致，是否遗漏关键路径或失败场景。
+- `network/external context`：外部 benchmark、规范方法学、社区/厂商评价、论文 artifact 或已抓取材料如何评价这个指标；只能作为对照和方法学参考，并说明适用边界。
 - `source locator`：代码路径、文档位置、外部材料位置，以及可选的 dashboard、trace、test report、runbook drill 位置；只记录位置，不替代分析。
 - `status`：`green` / `yellow` / `red` / `gray`。
 - `risk`：当前风险。
 - `next_action`：下一周期动作。
 
-每个 Metrics entry 都必须写入 `entries/metrics/<entry-slug>.md`。每个 Universal Metric 都必须写入 `entries/universal-metrics/<entry-slug>.md`。`08-metrics-answers.md` 只维护总表，包含 metric、详查文档链接、architecture link、status、methodology gap、top risk 和 next action。
+每个 Metrics entry 都必须写入 `entries/metrics/<entry-slug>.md`。每个 Universal Metric 都必须写入 `entries/universal-metrics/<entry-slug>.md`。Metrics answers 汇总只维护总表，包含 metric、详查文档链接、architecture link、status、methodology gap、top risk 和 next action。
 
-Universal Metrics 不允许完全跳过。即使项目早期没有数据，也必须给出最低讨论：数据正确性、可用性与恢复、性能与尾延迟、容量效率与写放大、成本与功耗、可运营性、可观测性、安全与隔离、可复现性。
+Universal Metrics 不允许完全跳过。即使项目早期没有数据，也必须给出完整的定性论述和一个具体例子：数据正确性、可用性与恢复、性能与尾延迟、容量效率与写放大、成本与功耗、可运营性、可观测性、安全与隔离、可复现性。缺少代码、项目文档或外部方法学时标为缺口，不能只写“暂无数据”。
 
-完成标准：`entries/metrics/` 和 `entries/universal-metrics/` 中每个 entry 都有独立详查文档，先分析对应代码路径和组件交互，再记录项目文档、外部评价、验证方法和下一步动作；没有可复现数据的项必须标 `gray`，不能写成已验证。`08-metrics-answers.md` 能链接到所有 entry 文档。
+完成标准：`entries/metrics/` 和 `entries/universal-metrics/` 中每个 entry 都有独立详查文档，先分析对应代码路径和组件交互，再给出 worked example、相关项目文档、外部方法学/评价、验证方法和下一步动作；没有可复现数据的项必须标 `gray`，不能写成已验证。Metrics answers 汇总能链接到所有 entry 文档。
 
 ## Step 7: 补齐 Mandatory Artifacts 与缺口探针
 
@@ -201,7 +217,7 @@ Mandatory artifacts 包括但不限于：`workload-matrix.md`、`api-semantics-c
 - 若代码/文档分析已经形成假设，再跑哪些测试、benchmark、fault injection、trace、profile 或 size/QD/failure sweep 来验证。
 - 完成后能把哪个 `domain-map.md` entry 从 gray/yellow 推到 green，或从 `需补 ADR` 推到 `通过`。
 
-完成标准：`entries/mandatory-artifacts/` 中每个 mandatory artifact 都有独立详查文档；`09-mandatory-artifacts.md` 链接并汇总 `Cross-Gate Mandatory Artifacts` 每一行；`10-next-probes.md` 中的探针能明确补哪一项组件分析、Architecture/Metrics/Universal Metric 的内容。
+完成标准：`entries/mandatory-artifacts/` 中每个 mandatory artifact 都有独立详查文档；mandatory artifacts 汇总链接并汇总 `Cross-Gate Mandatory Artifacts` 每一行；next probes 文档中的探针能明确补哪一项组件分析、Architecture/Metrics/Universal Metric 的内容。
 
 ## Step 8: 输出调研报告
 
@@ -218,7 +234,7 @@ Mandatory artifacts 包括但不限于：`workload-matrix.md`、`api-semantics-c
 - 最危险的 5-10 个未知或风险，说明触发的 architecture drift 或 claim 降级。
 - 下一步 3-7 个调查动作，按信息增益排序。
 
-完成标准：读者不需要重新翻完整仓库，也能从 final report 跳转到 `domain-map.md` 中每一个问题的独立详查文档，并看到完整代码逻辑、项目文档证据、网络/外部评价和下一步探针。
+完成标准：读者不需要重新翻完整仓库，也能从最终报告跳转到 `domain-map.md` 中每一个问题的独立详查文档，并看到完整代码逻辑、项目文档证据、网络/外部评价和下一步探针。
 
 ## Entry 详查文档模板
 
@@ -252,7 +268,7 @@ Mandatory artifacts 包括但不限于：`workload-matrix.md`、`api-semantics-c
 - `references/output-contract.md`：最终报告结构和缺口表格式。
 - `references/source-strategy.md`：当代码、文档、论文、博客或厂商材料混杂时，用于判定证据优先级。
 
-不要寻找 `00-*.md` 到 `37-*.md` 一类中间文档；这些过程稿不属于当前 skill 的参考接口。
+不要寻找旧版编号中间文档；这些过程稿不属于当前 skill 的参考接口。
 
 ## License
 
