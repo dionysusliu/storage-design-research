@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Storage investigation — {{project}}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: true, theme: "neutral", securityLevel: "loose" });
+    </script>
+    <style>
+      body { background: #f8fafc; }
+      pre code { white-space: pre-wrap; }
+      .status-confirmed { background: #dcfce7; color: #166534; }
+      .status-partial { background: #fef3c7; color: #92400e; }
+      .status-gap { background: #e0f2fe; color: #075985; }
+      .status-risk { background: #fee2e2; color: #991b1b; }
+      .state-box { border: 1px solid #cbd5e1; border-left-width: 4px; }
+      .edge-label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: #64748b; }
+    </style>
+  </head>
+  <body class="text-slate-900">
+    <main class="mx-auto max-w-6xl px-6 py-10 space-y-10">
+      <header class="space-y-4">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-wider text-slate-500">Storage Project Investigation</p>
+            <h1 class="text-3xl font-semibold">{{project}}</h1>
+          </div>
+          <div class="text-sm text-slate-500">{{date}} · {{artifact_dir}}</div>
+        </div>
+        <p class="max-w-3xl text-sm leading-6 text-slate-700">
+          This HTML is the preferred human-facing investigation artifact. It summarizes code-backed
+          findings, embeds short code and diagrams, and links back to component and entry deep dives.
+          Markdown companions are optional and should only support diff/search workflows.
+        </p>
+      </header>
+
+      <section id="map" class="rounded-lg border border-slate-200 bg-white p-5">
+        <h2 class="text-lg font-semibold">Investigation Map</h2>
+        <div class="mt-4 grid gap-3 md:grid-cols-4">
+          <a class="rounded border border-slate-200 p-3 text-sm hover:bg-slate-50" href="{{component_index}}">Components</a>
+          <a class="rounded border border-slate-200 p-3 text-sm hover:bg-slate-50" href="{{architecture_index}}">Architecture Entries</a>
+          <a class="rounded border border-slate-200 p-3 text-sm hover:bg-slate-50" href="{{metrics_index}}">Metrics Entries</a>
+          <a class="rounded border border-slate-200 p-3 text-sm hover:bg-slate-50" href="{{source_locator}}">Source Locator</a>
+        </div>
+      </section>
+
+      <section id="architecture" class="space-y-4">
+        <h2 class="text-xl font-semibold">System Architecture</h2>
+        <div class="grid gap-4 lg:grid-cols-2">
+          <article class="rounded-lg border border-slate-200 bg-white p-5">
+            <h3 class="font-semibold">Service / Component Map</h3>
+            <div class="mt-4 rounded border border-slate-200 bg-slate-50 p-4">
+              <pre class="mermaid">
+flowchart LR
+  Client["client / entrypoint"] --> Meta["metadata plane"]
+  Client --> Data["data plane"]
+  Meta --> Store["metadata store"]
+  Data --> Device["device / object / chunk store"]
+              </pre>
+            </div>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-5">
+            <h3 class="font-semibold">Representative Code</h3>
+            <pre class="mt-4 rounded bg-slate-950 p-4 text-sm text-slate-100"><code>{{short_code_excerpt}}</code></pre>
+            <p class="mt-3 text-sm leading-6 text-slate-700">
+              <strong>这证明什么：</strong>{{what_code_proves}}
+              <br />
+              <strong>不能证明什么：</strong>{{cannot_claim_from_code}}
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="component-cards" class="space-y-4">
+        <h2 class="text-xl font-semibold">Component Cards</h2>
+        <article class="rounded-lg border border-slate-200 bg-white p-5">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <h3 class="text-lg font-semibold">{{component_name}}</h3>
+              <p class="mt-1 text-sm text-slate-600">{{component_role}}</p>
+            </div>
+            <span class="status-partial rounded-full px-3 py-1 text-xs font-medium">{{status}}</span>
+          </div>
+          <div class="mt-4 grid gap-4 lg:grid-cols-2">
+            <div>
+              <p class="edge-label">Files</p>
+              <ul class="mt-2 space-y-1 font-mono text-sm text-slate-700">
+                <li>{{file_or_symbol}}</li>
+              </ul>
+              <p class="mt-4 text-sm leading-6 text-slate-700">{{explanation}}</p>
+              <pre class="mt-3 rounded bg-slate-950 p-4 text-sm text-slate-100"><code>{{component_code_excerpt}}</code></pre>
+            </div>
+            <div class="rounded border border-slate-200 bg-slate-50 p-4">
+              <pre class="mermaid">
+sequenceDiagram
+  participant A as Entry
+  participant B as Component
+  participant C as Dependency
+  A->>B: call / RPC / queue
+  B->>C: state or I/O
+              </pre>
+            </div>
+          </div>
+          <div class="mt-4 grid gap-3 md:grid-cols-3">
+            <div class="state-box border-l-emerald-500 bg-emerald-50 p-3 text-sm"><strong>Code proves</strong><br />{{code_proves}}</div>
+            <div class="state-box border-l-amber-500 bg-amber-50 p-3 text-sm"><strong>Cannot claim</strong><br />{{cannot_claim}}</div>
+            <div class="state-box border-l-sky-500 bg-sky-50 p-3 text-sm"><strong>Deep dive</strong><br /><a class="underline" href="{{deep_dive_link}}">{{deep_dive_link}}</a></div>
+          </div>
+        </article>
+      </section>
+
+      <section id="entry-cards" class="space-y-4">
+        <h2 class="text-xl font-semibold">Architecture and Metrics Entries</h2>
+        <article class="rounded-lg border border-slate-200 bg-white p-5">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <h3 class="text-lg font-semibold">{{entry_name}}</h3>
+            <span class="status-risk rounded-full px-3 py-1 text-xs font-medium">{{entry_status}}</span>
+          </div>
+          <p class="mt-3 text-sm leading-6 text-slate-700">{{entry_explanation}}</p>
+          <div class="mt-4 grid gap-4 lg:grid-cols-2">
+            <pre class="rounded bg-slate-950 p-4 text-sm text-slate-100"><code>{{entry_code_excerpt}}</code></pre>
+            <div class="rounded border border-slate-200 bg-slate-50 p-4">
+              <pre class="mermaid">
+flowchart TD
+  Path["code path"] --> Metric["metric / entry"]
+  Metric --> Risk["risk or gap"]
+              </pre>
+            </div>
+          </div>
+          <dl class="mt-4 grid gap-3 text-sm md:grid-cols-4">
+            <div><dt class="edge-label">Documents</dt><dd>{{related_documents}}</dd></div>
+            <div><dt class="edge-label">External method</dt><dd>{{external_methodology}}</dd></div>
+            <div><dt class="edge-label">Next probe</dt><dd>{{next_probe}}</dd></div>
+            <div><dt class="edge-label">Link</dt><dd><a class="underline" href="{{entry_link}}">{{entry_link}}</a></dd></div>
+          </dl>
+        </article>
+      </section>
+
+      <section id="risks" class="rounded-lg border border-slate-200 bg-white p-5">
+        <h2 class="text-xl font-semibold">Top Risks and Next Probes</h2>
+        <ol class="mt-4 list-decimal space-y-2 pl-5 text-sm leading-6 text-slate-700">
+          <li>{{risk_and_probe}}</li>
+        </ol>
+      </section>
+    </main>
+  </body>
+</html>
